@@ -1,11 +1,11 @@
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Logo from "./Logo";
 import Link from "next/link";
 
 interface Item {
   title: string;
   description: string;
-  image: string;
+  image: StaticImageData;
   subtitle: string;
   url: string;
 }

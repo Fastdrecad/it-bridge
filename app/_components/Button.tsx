@@ -4,7 +4,6 @@ interface ButtonProps {
   text: string;
   color: string;
   background: string;
-  icon: string;
   disabled: boolean;
 }
 
@@ -12,7 +11,6 @@ export default function Button({
   text,
   color,
   background,
-  icon,
   disabled
 }: ButtonProps) {
   return (

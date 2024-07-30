@@ -14,7 +14,12 @@ export default function Courses() {
         ))}
       </ul>
       <div className="my-20">
-        <Button text="KONTAKTIRAJTE NAS →" color="white" />
+        <Button
+          text="KONTAKTIRAJTE NAS →"
+          color="white"
+          disabled={false}
+          background="blue"
+        />
       </div>
     </section>
   );
