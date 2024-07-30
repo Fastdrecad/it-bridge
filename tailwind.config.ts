@@ -8,6 +8,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        "custom": "0 0 11px rgba(33, 33, 33, 0.25)"
+      },
+      gridTemplateColumns: {
+        // Custom responsive grid column setups
+        "fill-300": "repeat(auto-fill, minmax(300px, 1fr))",
+        "fill-250": "repeat(auto-fill, minmax(250px, 1fr))"
+      },
       colors: {
         primary: {
           50: "#E1E8EF",

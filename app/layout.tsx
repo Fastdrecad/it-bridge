@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Montserrat } from "next/font/google";
 import "@/app/_styles/globals.css";
 import Header from "@/app/_components/Header";
+import Footer from "./_components/Footer";
 
 const montserrat = Montserrat({ subsets: ["latin"], display: "swap" });
 
@@ -29,6 +30,8 @@ export default function RootLayout({
         <div className="flex-1">
           <main>{children}</main>
         </div>
+
+        <Footer />
       </body>
     </html>
   );
