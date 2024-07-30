@@ -2,7 +2,19 @@ import Image from "next/image";
 import Logo from "./Logo";
 import Link from "next/link";
 
-export default function Card({ item }) {
+interface Item {
+  title: string;
+  description: string;
+  image: string;
+  subtitle: string;
+  url: string;
+}
+
+interface CardProps {
+  item: Item;
+}
+
+export default function Card({ item }: CardProps) {
   const { title, description, image, subtitle, url } = item;
   return (
     <li className="group relative">
