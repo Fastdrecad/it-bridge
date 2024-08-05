@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+button > svg {
+  margin-left: 10px;
+}
 
 @layer components {
   .spinner {

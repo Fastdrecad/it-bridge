@@ -4,22 +4,19 @@ import Button from "./Button";
 
 export default function Courses() {
   return (
-    <section className="max-w-5xl text-center py-6 mx-auto">
-      <h2 className="relative text-4xl font-extrabold my-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-10 after:h-1 after:bg-green-400">
+    <section className="text-center py-6 mx-auto w-full max-w-7xl my-5  px-4">
+      <h2 className="relative text-4xl font-extrabold mb-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success">
         KURSEVI
       </h2>
-      <ul className="grid grid-cols-fill-300 gap-4 relative mt-12">
+      <ul className="grid grid-cols-fill-350 gap-8 relative mt-12 mx-auto">
         {courses.map((course, idx) => (
           <Card item={course} key={idx} />
         ))}
       </ul>
-      <div className="my-20">
-        <Button
-          text="KONTAKTIRAJTE NAS →"
-          color="white"
-          disabled={false}
-          background="blue"
-        />
+      <div className="flex justify-center my-20">
+        <Button variant="primary" rounded>
+          KONTAKTIRAJTE NAS
+        </Button>
       </div>
     </section>
   );

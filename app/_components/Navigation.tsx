@@ -1,47 +1,48 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useMemo } from "react";
+
+interface LinkItem {
+  href: string;
+  label: string;
+}
 
 export default function Navigation() {
+  const pathname = usePathname();
+
+  const links: LinkItem[] = useMemo(
+    () => [
+      { href: "/", label: "O Nama" },
+      { href: "/kursevi", label: "Kursevi" },
+      { href: "/kalendar", label: "Kalendar" },
+      { href: "/mentorstvo", label: "Mentorstvo" },
+      { href: "/kontakt", label: "Kontakt" }
+    ],
+    []
+  );
+  const navigation = links.map(({ href, label }) => (
+    <li key={href}>
+      <Link
+        href={href}
+        className={`text-nowrap transition-colors font-medium ${
+          pathname === href ? "text-warning-600" : ""
+        }`}
+      >
+        {label}
+      </Link>
+    </li>
+  ));
+
   return (
-    <nav className="z-10 text-l font-bold">
-      <ul className="flex gap-7 items-center">
-        <li>
-          <Link href="/" className="hover:text-indigo-600 transition-colors">
-            O NAMA
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/kursevi"
-            className="hover:text-indigo-600 transition-colors"
-          >
-            KURSEVI
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/kalendar"
-            className="hover:text-indigo-600 transition-colors"
-          >
-            KALENDAR
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/mentorstvo"
-            className="hover:text-indigo-600 transition-colors"
-          >
-            MENTORSTVO
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="/kontakt"
-            className="hover:text-indigo-600 transition-colors"
-          >
-            KONTAKT
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <>
+      {/* Horizontal Navigation for larger screens */}
+      <nav className="hidden md:block z-10 text-lg font-normal ">
+        <ul className="flex flex-row gap-4 sm:gap-7 items-center p-4">
+          {navigation}
+        </ul>
+      </nav>
+    </>
   );
 }

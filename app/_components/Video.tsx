@@ -1,16 +1,31 @@
+import Button from "./Button";
+import { FaRegFile } from "react-icons/fa";
+
 export default function Video() {
   return (
-    <div className="relative w-full h-screen m-0 p-0">
+    <section className="w-full h-screen mx-auto -mt-44">
+      {/* Video Hero */}
       <video
         autoPlay
         muted
         loop
         playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover m-0 p-0 backdrop-filter"
+        className="absolute top-0 left-0 w-full h-screen object-cover m-0 p-0 z-0 backdrop-filter"
       >
         <source src="/it-bridge-video-loop.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </div>
+      {/* Content */}
+      <div className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 text-center">
+        <h1 className="text-4xl px-4 md:text-6xl text-white font-bold mb-10 tracking-tight leading-tight italic max-w-[700px] drop-shadow-lg">
+          Naši kursevi formiraju vašu budućnost
+        </h1>
+
+        <Button variant="primary" rounded>
+          KATALOG TRENINGA
+          <FaRegFile className="text-xl" />
+        </Button>
+      </div>
+    </section>
   );
 }
