@@ -6,7 +6,7 @@ import quoteImg from "@/public/quote-start.png";
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full min-h-[80vh] md:min-h-[80vh] my-20 text-black md:my-44 px-4">
+    <section className="relative w-full min-h-[80vh] md:min-h-[80vh] my-20 text-black md:my-44 px-4 overflow-hidden">
       <div className="absolute inset-0 w-full h-full ">
         <Image
           src={bg}
