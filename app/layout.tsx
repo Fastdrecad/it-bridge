@@ -23,10 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.className} antialiased bg-white text-primary-900 min-h-screen flex flex-col relative  `}
+        className={`${montserrat.className} antialiased bg-white text-primary-900 min-h-screen flex flex-col relative w-full`}
       >
         <Header />
-        <main className="flex-1 grid ">{children}</main>
+        <main className="flex-1 grid">{children}</main>
         <Footer />
       </body>
     </html>

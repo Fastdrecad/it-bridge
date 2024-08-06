@@ -37,8 +37,8 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-[75vh] bg-gray-200 relative">
-      <div className="absolute  md:w-full h-full z-0 opacity-65 flex items-center justify-end md:mr-36">
+    <section className="flex items-center justify-center min-h-[75vh] bg-gray-200 relative overflow-hidden">
+      <div className="absolute md:w-full h-full z-0 opacity-65 flex items-center justify-end md:mr-36">
         <ItBridgeLogo width="900" />
       </div>
       <div className="p-6 rounded-lg  w-full max-w-screen-md z-10">

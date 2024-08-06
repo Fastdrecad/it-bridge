@@ -35,7 +35,7 @@ const Sidebar = ({
   );
 
   const navigation = links.map(({ href, label }) => (
-    <li key={href} className="w-full">
+    <li key={href} className="">
       <Link
         href={href}
         className={`text-nowrap transition-colors uppercase ${
@@ -63,7 +63,7 @@ const Sidebar = ({
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out overflow-hidden`}
       >
-        <ul className="flex flex-col gap-10 items-start p-44 text-xl w-full">
+        <ul className="flex flex-col gap-10 items-start py-44 translate-x-1/3 text-xl w-full">
           {navigation}
         </ul>
       </aside>
