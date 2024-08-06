@@ -126,7 +126,7 @@ export default function Page() {
           />
         </div>
         <div className="z-10 px-8 xl:max-w-[75%] w-full h-[90vh] rounded-lg shadow-lg">
-          <h2 className="relative text-4xl font-extrabold my-36 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
+          <h2 className="relative text-4xl font-extrabold my-10 md:my-36 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
             KONTAKT
           </h2>
           <form className="md:mt-4 space-y-4 relative" onSubmit={handleSubmit}>

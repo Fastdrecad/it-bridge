@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    // domains: [], // You can omit this if not using external images
+  env: {
+    NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY
   }
-  // distDir: "build",
-  // output: "export" // Added 'output' field to export
 };
 
 export default nextConfig;

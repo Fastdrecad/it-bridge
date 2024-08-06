@@ -1,5 +1,3 @@
-// components/Map.tsx
-
 import React, { useCallback, useState } from "react";
 import {
   GoogleMap,
