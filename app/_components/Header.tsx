@@ -1,32 +1,79 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import Navigation from "@/app/_components/Navigation";
 import SocialLinks from "./SocialLinks";
 import ItBridgeLogo from "./ItBridgeLogo";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
+
 function Header() {
+  const pathname = usePathname();
+
+  console.log(pathname);
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const isHomePage = pathname === "/";
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    if (isHomePage) {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    }
+  }, [isHomePage]);
+
+  console.log(isHomePage);
+
   return (
     <>
-      <header className="bg-transparent z-30 sticky top-0 w-full ">
-        <SocialLinks />
-
-        <div className="hidden md:flex  md:justify-around sm:items-center mx-auto py-2 bg-slate-50/70 backdrop-blur-xl relative z-0">
-          <Link href="/">
-            <ItBridgeLogo width="80" showText={true} color="black" />
-          </Link>
-          <Navigation />
+      <header
+        className={`z-30 sticky top-0 w-full transition-colors duration-300 ${
+          isHomePage
+            ? isScrolled
+              ? "bg-slate-50/70 backdrop-blur-xl text-black"
+              : "bg-transparent text-white"
+            : "bg-slate-50/70 backdrop-blur-xl text-black"
+        }`}
+      >
+        <div className="mx-3 p-1">
+          <div className="md:flex md:justify-around sm:items-center mx-auto py-2 relative z-0">
+            <Link href="/" className="py-2">
+              <ItBridgeLogo
+                width="70"
+                showText={true}
+                color={isHomePage && !isScrolled ? "white" : "black"}
+              />
+            </Link>
+            <Navigation />
+          </div>
         </div>
+
+        <SocialLinks isScrolled={isScrolled} isHomePage={isHomePage} />
       </header>
 
-      <Sidebar isOpen={isOpen} onToggle={handleToggle} />
+      <Sidebar
+        isOpen={isOpen}
+        onToggle={handleToggle}
+        isHomePage={isHomePage}
+        isScrolled={isScrolled}
+      />
     </>
   );
 }

@@ -38,7 +38,7 @@ export default function Newsletter() {
 
   return (
     <section className="flex items-center justify-center min-h-[75vh] bg-gray-200 relative">
-      <div className="absolute w-full h-full z-0 opacity-65 flex justify-end mr-36">
+      <div className="absolute  md:w-full h-full z-0 opacity-65 flex items-center justify-end md:mr-36">
         <ItBridgeLogo width="900" />
       </div>
       <div className="p-6 rounded-lg  w-full max-w-screen-md z-10">
@@ -59,7 +59,7 @@ export default function Newsletter() {
                 id="firstName"
                 value={firstName}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
                 placeholder="Ime"
                 required
               />
@@ -68,7 +68,7 @@ export default function Newsletter() {
                 id="lastName"
                 value={lastName}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-4"
+                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
                 placeholder="Prezime"
                 required
               />
@@ -77,7 +77,7 @@ export default function Newsletter() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
                 placeholder="Email"
                 required
               />
@@ -87,7 +87,7 @@ export default function Newsletter() {
               <Button
                 variant="warning"
                 rounded
-                className="w-full flex items-center justify-center"
+                className="w-1/2 flex items-center justify-center"
               >
                 <MdEmail className="text-2xl m-0 mr-2" />
                 Pošalji

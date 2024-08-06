@@ -12,7 +12,7 @@ export default function Video() {
         playsInline
         className="absolute top-0 left-0 w-full h-screen object-cover m-0 p-0 z-0 backdrop-filter"
       >
-        <source src="/it-bridge-video-loop.mp4" type="video/mp4" />
+        <source src="/it-bridge-loop.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       {/* Content */}
@@ -21,9 +21,9 @@ export default function Video() {
           Naši kursevi formiraju vašu budućnost
         </h1>
 
-        <Button variant="primary" rounded>
+        <Button variant="primary" rounded className="bg-white ">
           KATALOG TRENINGA
-          <FaRegFile className="text-xl" />
+          <FaRegFile className="text-xl text-black" />
         </Button>
       </div>
     </section>

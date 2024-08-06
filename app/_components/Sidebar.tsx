@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,11 +10,17 @@ interface LinkItem {
 
 interface SidebarProps {
   isOpen: boolean;
+  isHomePage: boolean;
+  isScrolled: boolean;
   onToggle: () => void;
 }
 
-const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
-  // State to manage the open/close state of the sidebar
+const Sidebar = ({
+  isOpen,
+  onToggle,
+  isHomePage,
+  isScrolled
+}: SidebarProps) => {
   const pathname = usePathname();
 
   const links: LinkItem[] = useMemo(
@@ -30,11 +35,11 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
   );
 
   const navigation = links.map(({ href, label }) => (
-    <li key={href}>
+    <li key={href} className="w-full">
       <Link
         href={href}
-        className={`text-nowrap transition-colors font-medium ${
-          pathname === href ? "text-warning-600" : ""
+        className={`text-nowrap transition-colors uppercase ${
+          pathname === href ? "font-bold" : "font-medium"
         }`}
         onClick={onToggle}
       >
@@ -44,19 +49,21 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
   ));
 
   return (
-    <div className="md:hidden h-14">
+    <div className="md:hidden">
       <button
         onClick={onToggle}
-        className="text-2xl p-2 fixed top-2 right-4 z-50"
+        className={`text-2xl py-4 pr-2 fixed top-2 right-4 z-50 ${
+          isHomePage ? (isScrolled ? "text-black" : "text-white") : "text-black"
+        }`}
       >
         {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
       </button>
       <aside
-        className={`fixed top-0 right-0 w-full h-screen bg-white text-black z-20 transform ${
+        className={`fixed top-16 right-0 w-full h-screen bg-white text-black z-20 transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out overflow-hidden`}
       >
-        <ul className="flex flex-col gap-10 items-center p-44 text-xl">
+        <ul className="flex flex-col gap-10 items-start p-44 text-xl w-full">
           {navigation}
         </ul>
       </aside>

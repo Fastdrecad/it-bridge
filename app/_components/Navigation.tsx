@@ -26,8 +26,8 @@ export default function Navigation() {
     <li key={href}>
       <Link
         href={href}
-        className={`text-nowrap transition-colors font-medium ${
-          pathname === href ? "text-warning-600" : ""
+        className={`text-nowrap uppercase ${
+          pathname === href ? "font-bold" : "font-medium"
         }`}
       >
         {label}
@@ -39,7 +39,7 @@ export default function Navigation() {
     <>
       {/* Horizontal Navigation for larger screens */}
       <nav className="hidden md:block z-10 text-lg font-normal ">
-        <ul className="flex flex-row gap-4 sm:gap-7 items-center p-4">
+        <ul className="flex flex-row gap-4 sm:gap-7 items-center">
           {navigation}
         </ul>
       </nav>

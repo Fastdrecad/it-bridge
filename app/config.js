@@ -21,7 +21,8 @@ export const courses = [
   {
     id: 1,
     title: "Soft Skills",
-    subtitle: "Usavršite meke veštine",
+    subtitle:
+      "Usavršite meke veštine uz naš personalizovani set obuka za maksimalnu efikasnost…",
     description: "",
     image: skillsImg,
     url: "/"
@@ -29,7 +30,8 @@ export const courses = [
   {
     id: 2,
     title: "PCM",
-    subtitle: "Upravljajte komunikacijom efikasno",
+    subtitle:
+      "Usavršite komunikaciju, liderstvo i timski rad uz našu personalizovanu PCM obuku…",
     description: "",
     image: pcmImg,
     url: "/"
@@ -37,15 +39,17 @@ export const courses = [
   {
     id: 3,
     title: "HR",
-    subtitle: "Pokrenite karijeru u HR-u.",
-    description: "Starter kurs, steknite neophodne veštine i znanje",
+    subtitle:
+      "Započnite karijeru u HR-u uz dvostruku ekspertizu i steknite veštine za uspešno upravljanje ljudskim resursima…",
+    description: "Pokrenite karijeru u HR-u.",
     image: hrImg,
     url: "/"
   },
   {
     id: 4,
     title: "Power BI",
-    subtitle: "Otkrijte moć podataka.",
+    subtitle:
+      "Otkrijte moć podataka, pretvorite ih u strateške uvide i iskoristite za bolje odluke i konkurentsku prednost.",
     description: "Unapredite poslovanje uz Power BI",
     image: pbiImg,
     url: "/"
@@ -53,7 +57,8 @@ export const courses = [
   {
     id: 5,
     title: "Business English",
-    subtitle: "Masterujte poslovni engleski",
+    subtitle:
+      "Poboljšajte poslovnu komunikaciju u vašoj kompaniji uz naš tailor-made kurs Business English | German | French…",
     description: "",
     image: englishImg,
     url: "/"
@@ -61,7 +66,8 @@ export const courses = [
   {
     id: 6,
     title: "QA",
-    subtitle: "Ovladajte automatskim testiranjem",
+    subtitle:
+      "Savladajte automatsko testiranje softvera i unapredite svoju karijeru…",
     description: "",
     image: qaImg,
     url: "/"
@@ -110,7 +116,7 @@ export const navigationLinks = [
     href: "https://www.linkedin.com/company/it-bridge-edu-center/",
     rel: "noopener noreferrer",
     icon: (
-      <FaLinkedinIn className="w-8 h-8 lg:w-4 lg:h-4 hover:text-indigo-700 transition duration-200" />
+      <FaLinkedinIn className="w-8 h-8 md:w-4 md:h-4 hover:text-indigo-700 transition duration-200" />
     ),
     title: "IT Bridge EDU Center",
     target: "_blank"
@@ -122,7 +128,7 @@ export const navigationLinks = [
     rel: "noopener noreferrer",
     title: "IT Bridge",
     icon: (
-      <FaInstagram className="w-8 h-8 lg:w-4 lg:h-4  hover:text-indigo-700 transition duration-200" />
+      <FaInstagram className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
     ),
     target: "_blank"
   },
@@ -132,7 +138,7 @@ export const navigationLinks = [
     ariaLabel: "Call IT Bridge",
     rel: "noopener noreferrer",
     icon: (
-      <FaFacebook className="w-8 h-8 lg:w-4 lg:h-4  hover:text-indigo-700 transition duration-200" />
+      <FaFacebook className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
     ),
     title: "062 121 33 09",
     target: "_blank"
@@ -143,7 +149,7 @@ export const navigationLinks = [
     ariaLabel: "Email IT Bridge",
     rel: "noopener noreferrer",
     icon: (
-      <MdOutlineEmail className="w-8 h-8 lg:w-4 lg:h-4  hover:text-indigo-700 transition duration-200" />
+      <MdOutlineEmail className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
     ),
     title: "office@itbridge-services.com",
     target: "_blank"
@@ -157,7 +163,7 @@ export const testimonials = [
     title: "Business English",
     position: "Head of Plant CBS at Continental",
     review:
-      "Kako smo iskazali potrebu da usavršimo prezentovanje na engleskom jeziku pred najvišim strukturama korporacije, časovi koji su se ticali tog dela, nisu se odnosili samo na odabir reči i rečenica, savladavanje poslovnih idioma, već i na uvežbavanje i ovladavanje samih veština prezentovanja i dobrih poslovnih običaja s tim u vezi. Posvećenost u pružanju vrhunske usluge i sposobnost da brzo odgovore na naše zahteve, čine ovog partnera neprocenjivim."
+      "Iskazali smo potrebu da usavršimo prezentovanje na engleskom jeziku pred najvišim strukturama korporacije… Posvećenost u pružanju vrhunske usluge i sposobnost da brzo odgovore na naše zahteve, čine ovog partnera neprocenjivim."
   },
   {
     id: 2,
@@ -171,16 +177,16 @@ export const testimonials = [
     id: 3,
     name: "Anđela Stojanović",
     title: "HR Starter",
-    position: "Research Associate",
+    position: "HR recruiter",
     review:
-      "Anđela Stojanović HR Starter kurs mi je pružio dragocena znanja i unapredio veštine, što je rezultiralo promenom posla tokom kursa! Prezadovoljna sam mentorkama i kompletnom organizacijom. Toplo preporučujem svima koji žele da se bave HR-om."
+      "Kurs, više od kursa zapravo. Pružio mi je dragocena praktična znanja i unapredio veštine što je rezultiralo promenom pozicije tokom kursa. Od logistike do HR-a. Moguće je! Prezadovoljna sam mentorkama i kompletnom organizacijom. Preporučujem svima koji žele da se bave HR-om. "
   },
   {
     id: 4,
     name: "Ana Kuzmanović",
     title: "HR Starter",
-    position: "Product Manager",
+    position: "HR & Payroll Manager",
     review:
-      "Zahvalna sam na svim podeljenim iskustvima i podršci tokom ovog kursa. Bilo je pravo zadovoljstvo sarađivati sa vama. Uverena sam da će ovaj kurs inspirisati mnoge i omogućiti im da naprave značajan zaokret u svojoj karijeri."
+      "Zahvalna sam na svim podeljenim iskustvima i podršci tokom ovog kursa. Bilo je pravo zadovoljstvo sarađivati sa vama. Uverena sam da će ovaj kurs inspirisati mnoge i omogućiti im da naprave značajan zaokret u svojoj karijeri.  "
   }
 ];

@@ -14,7 +14,7 @@ export default function Courses() {
         ))}
       </ul>
       <div className="flex justify-center my-20">
-        <Button variant="primary" rounded>
+        <Button variant="warning" rounded className="px-12">
           KONTAKTIRAJTE NAS
         </Button>
       </div>

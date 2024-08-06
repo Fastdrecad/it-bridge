@@ -1,576 +1,581 @@
 export default function ItBridgeLogo({
   width = "102",
   showText = false,
-  color = "white"
+  color = "white",
+  className = ""
 }) {
+  const numericWidth = Number(width);
+  const aspectRatio = 64 / 102; // Height / Width
+  const calculatedHeight = aspectRatio * numericWidth;
+
   return (
     <svg
       width={width}
-      height="auto"
+      height={calculatedHeight}
       viewBox="0 0 102 64"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="ml-6"
+      className={className}
     >
-      <g clip-path="url(#clip0_256_13310)">
+      <g clipPath="url(#clip0_256_13310)">
         <path
           d="M76.1528 6.96603C80.6358 5.26265 85.4456 5.88381 89.214 8.23163"
           stroke={color}
-          stroke-width="0.397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M67.7611 25.5728C65.956 20.9464 66.7391 15.9638 69.411 12.1757"
           stroke={color}
-          stroke-width="0.397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M86.6315 33.8231C81.388 35.8152 75.6977 34.6276 71.7488 31.2168"
           stroke={color}
-          stroke-width="0.397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M93.7251 28.0906C92.4605 30.0606 90.7044 31.7425 88.5464 32.9365"
           stroke={color}
-          stroke-width="0.397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M92.168 10.6639C93.3676 11.9539 94.3472 13.4838 95.0234 15.2163C96.298 18.4834 96.2821 21.9274 95.2223 25.0035"
           stroke={color}
-          stroke-width="0.397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.3523 10.0133L81.1724 10.0165L81.205 11.7906L81.385 11.7874L81.3523 10.0133Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M80.6202 10.0387L80.4409 10.0543L80.5989 11.8218L80.7782 11.8062L80.6202 10.0387Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M79.8906 10.1268L79.7129 10.1547L79.9952 11.9071L80.1729 11.8792L79.8906 10.1268Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M79.1697 10.2525L78.9944 10.2925L79.4 12.0218L79.5754 11.9818L79.1697 10.2525Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M78.4602 10.4385L78.2881 10.4905L78.8147 12.1877L78.9868 12.1358L78.4602 10.4385Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M76.6284 13.2184L76.7789 13.1217L75.797 11.6343L75.6465 11.7304L76.6284 13.2184Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M76.1338 13.5671L76.2772 13.4606L75.1926 12.0442L75.0486 12.1507L76.1338 13.5671Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M75.6658 13.9496L75.8009 13.8331L74.6184 12.4948L74.4827 12.6112L75.6658 13.9496Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M75.2258 14.3629L75.3526 14.2377L74.078 12.9838L73.9512 13.1089L75.2258 14.3629Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.8155 14.8059L74.9335 14.672L73.5733 13.5089L73.4553 13.6427L74.8155 14.8059Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.4384 15.2757L74.5464 15.1342L73.1071 14.0671L72.9985 14.2086L74.4384 15.2757Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.095 15.77L74.1929 15.6215L72.6811 14.6563L72.5837 14.8048L74.095 15.77Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M73.286 17.3778L73.3503 17.2125L71.6686 16.5779L71.6042 16.7433L73.286 17.3778Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M71.4279 17.2613L71.3755 17.4305L73.0978 17.9497L73.1503 17.7805L71.4279 17.2613Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M71.2261 17.9546L71.1858 18.127L72.9413 18.5262L72.9816 18.3538L71.2261 17.9546Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M71.0856 18.6658L71.0576 18.8406L72.8371 19.118L72.8651 18.9432L71.0856 18.6658Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M70.9877 19.3817L70.9722 19.558L72.767 19.712L72.7825 19.5357L70.9877 19.3817Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M70.9498 20.1054L70.9468 20.2823L72.7481 20.3124L72.7511 20.1355L70.9498 20.1054Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M72.7499 20.7345L70.9509 20.8288L70.9604 21.0055L72.7595 20.9113L72.7499 20.7345Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M73.1899 23.0851L71.4871 23.6655L71.5456 23.8328L73.2484 23.2524L73.1899 23.0851Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.3731 25.365L74.2704 25.22L72.7952 26.2388L72.8984 26.3838L74.3731 25.365Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.7448 25.8394L74.6315 25.702L73.2324 26.8198L73.3451 26.9571L74.7448 25.8394Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M75.5834 26.7057L75.4518 26.5852L74.2244 27.884L74.356 28.0045L75.5834 26.7057Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M76.0464 27.0934L75.9071 26.9822L74.7742 28.3625L74.914 28.4737L76.0464 27.0934Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M76.5363 27.4485L76.3894 27.3472L75.3567 28.802L75.5042 28.9033L76.5363 27.4485Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M77.0503 27.7693L76.8963 27.6785L75.9692 29.2002L76.1233 29.291L77.0503 27.7693Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M78.139 28.3008L77.9738 28.2321L77.271 29.8662L77.4362 29.9349L78.139 28.3008Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M78.7095 28.5092L78.539 28.4515L77.9536 30.1299L78.1236 30.1875L78.7095 28.5092Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M79.7135 28.7743L79.3721 30.517L79.5488 30.5507L79.8902 28.808L79.7135 28.7743Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M80.3036 28.868L80.0862 30.6299L80.2648 30.6514L80.4822 28.8894L80.3036 28.868Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M80.9146 28.9296L80.822 30.7017L81.0018 30.7108L81.0943 28.9387L80.9146 28.9296Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.7012 28.9489L81.5212 28.9521L81.5539 30.7262L81.7338 30.723L81.7012 28.9489Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M82.3101 28.904L82.1309 28.9196L82.2889 30.6871L82.4681 30.6715L82.3101 28.904Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M82.9121 28.8307L82.7344 28.8586L83.0167 30.611L83.1944 30.5831L82.9121 28.8307Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M84.6673 28.3357L84.4993 28.3994L85.1446 30.0563L85.3126 29.9926L84.6673 28.3357Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M85.2251 28.1033L85.062 28.1784L85.8227 29.787L85.9858 29.7119L85.2251 28.1033Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M85.7624 27.8223L85.6055 27.9084L86.4794 29.4599L86.637 29.3737L85.7624 27.8223Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M86.2799 27.5079L86.1294 27.6045L87.1113 29.0919L87.2624 28.9953L86.2799 27.5079Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M86.7745 27.1586L86.6311 27.2657L87.7163 28.6821L87.8597 28.5755L86.7745 27.1586Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.2429 26.7767L87.1072 26.8931L88.2897 28.2315L88.4254 28.115L87.2429 26.7767Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.6825 26.3634L87.5557 26.4886L88.8303 27.7425L88.9571 27.6168L87.6825 26.3634Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M88.8133 24.9563L88.7153 25.1047L90.2271 26.07L90.3251 25.9215L88.8133 24.9563Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.1207 24.4393L89.0339 24.5942L90.6101 25.4529L90.6968 25.298L89.1207 24.4393Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.3908 23.902L89.3147 24.0627L90.9481 24.8114L91.0236 24.6513L89.3908 23.902Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.6222 23.3484L89.5579 23.5137L91.2402 24.1483L91.3045 23.9829L89.6222 23.3484Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.819 22.7817L89.7666 22.951L91.489 23.4702L91.5414 23.3009L89.819 22.7817Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.9641 22.1986L89.9238 22.3711L91.6793 22.7703L91.7196 22.5978L89.9641 22.1986Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M90.0802 21.6121L90.0522 21.7869L91.8317 22.0643L91.8597 21.8895L90.0802 21.6121Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M90.1413 21.0147L90.1257 21.191L91.9205 21.345L91.9361 21.1686L90.1413 21.0147Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M91.878 18.9981L90.0901 19.2162L90.1121 19.3919L91.9 19.1737L91.878 18.9981Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M91.7557 18.2944L89.9875 18.635L90.0219 18.8087L91.7901 18.4681L91.7557 18.2944Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M91.5839 17.582L89.8442 18.0438L89.8908 18.2147L91.6305 17.7529L91.5839 17.582Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M91.3637 16.9034L89.6609 17.4838L89.7195 17.6511L91.4223 17.0707L91.3637 16.9034Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M91.0922 16.2212L89.4353 16.9174L89.5056 17.0802L91.1625 16.384L91.0922 16.2212Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M89.1726 16.3806L89.2546 16.5384L90.8591 15.7315L90.7771 15.5737L89.1726 16.3806Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M88.8721 15.8602L88.9647 16.0115L90.5078 15.0964L90.4152 14.9445L88.8721 15.8602Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M88.5352 15.3613L88.6384 15.5062L90.1131 14.4869L90.0098 14.3419L88.5352 15.3613Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M88.1636 14.8868L88.2769 15.0242L89.6766 13.9065L89.5633 13.7691L88.1636 14.8868Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.7598 14.4391L87.8825 14.5684L89.199 13.3575L89.0763 13.2277L87.7598 14.4391Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.325 14.0206L87.4565 14.1411L88.6845 12.8423L88.5529 12.7218L87.325 14.0206Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M86.8618 13.6323L87.0017 13.744L88.1341 12.3638L87.9942 12.2526L86.8618 13.6323Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M86.3721 13.2772L86.5196 13.379L87.5517 11.9242L87.4041 11.8229L86.3721 13.2772Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M84.7693 12.4255L84.9345 12.4942L85.6373 10.8601L85.4721 10.7914L84.7693 12.4255Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M84.1992 12.217L84.3692 12.2747L84.9545 10.5957L84.7846 10.5387L84.1992 12.217Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M83.3678 10.1784L83.0264 11.9211L83.2031 11.9548L83.5445 10.2121L83.3678 10.1784Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M82.6312 10.0696L82.4138 11.8315L82.5925 11.853L82.8099 10.091L82.6312 10.0696Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.906 10.0155L81.8135 11.7876L81.9932 11.7967L82.0858 10.0247L81.906 10.0155Z"
           fill={color}
           stroke={color}
-          stroke-width="0.0397342"
-          stroke-miterlimit="10"
+          strokeWidth="0.0397342"
+          strokeMiterlimit="10"
         />
         <path
           d="M71.6426 7.87188C73.692 6.31288 76.1385 5.23124 78.8122 4.80103"
           stroke={color}
-          stroke-width="0.238405"
-          stroke-miterlimit="10"
+          strokeWidth="0.238405"
+          strokeMiterlimit="10"
         />
         <path
           d="M87.5775 24.2024C86.3584 26.1078 84.1662 27.3984 81.6418 27.4439C78.8719 27.4939 76.446 26.0304 75.2422 23.8566"
           stroke={color}
-          stroke-width="0.238008"
-          stroke-miterlimit="10"
+          strokeWidth="0.238008"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.2783 13.2568C85.2555 13.1852 88.5382 16.3037 88.6102 20.2216"
           stroke={color}
-          stroke-width="0.238008"
-          stroke-miterlimit="10"
+          strokeWidth="0.238008"
+          strokeMiterlimit="10"
         />
         <path
           d="M74.2073 20.4807C74.1471 17.1986 76.3587 14.3961 79.4166 13.531"
           stroke={color}
-          stroke-width="0.238008"
-          stroke-miterlimit="10"
+          strokeWidth="0.238008"
+          strokeMiterlimit="10"
         />
         <path
           d="M92.7425 21.7161C91.9783 27.9003 86.2839 32.3031 80.0242 31.5492C76.4848 31.1231 73.5231 29.1397 71.7546 26.3785"
           stroke={color}
-          stroke-width="0.238008"
-          stroke-miterlimit="10"
+          strokeWidth="0.238008"
+          strokeMiterlimit="10"
         />
         <path
           d="M70.0747 18.9863C70.8389 12.8021 76.5333 8.39929 82.793 9.15318C86.6793 9.62123 89.87 11.9667 91.5476 15.1581"
           stroke={color}
-          stroke-width="0.238008"
-          stroke-miterlimit="10"
+          strokeWidth="0.238008"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.6977 36.1057C76.4376 36.2006 71.7251 33.7829 68.7393 29.9739"
           stroke={color}
-          stroke-width="0.238405"
-          stroke-miterlimit="10"
+          strokeWidth="0.238405"
+          strokeMiterlimit="10"
         />
         <path
           d="M97.4014 20.0633C97.5011 25.4913 94.8026 30.3284 90.6135 33.238"
           stroke={color}
-          stroke-width="0.238405"
-          stroke-miterlimit="10"
+          strokeWidth="0.238405"
+          strokeMiterlimit="10"
         />
         <path
           d="M81.1196 4.59667C87.2719 4.48606 92.6754 7.8119 95.4424 12.7812"
           stroke={color}
-          stroke-width="0.238405"
-          stroke-miterlimit="10"
+          strokeWidth="0.238405"
+          strokeMiterlimit="10"
         />
         <path
           d="M66.6238 26.3791C65.8791 24.6076 65.453 22.6719 65.4153 20.6391C65.345 16.8062 66.6698 13.2684 68.9293 10.4951"
           stroke={color}
-          stroke-width="0.238405"
-          stroke-miterlimit="10"
+          strokeWidth="0.238405"
+          strokeMiterlimit="10"
         />
         <path
           d="M0 62.9057C5.0394 62.9371 10.0794 62.9691 15.1188 63.0006C19.1828 59.0553 24.6016 54.0925 31.3027 48.7256C33.0629 47.3162 39.587 42.1339 46.2409 37.7328C46.7572 37.3911 50.4524 34.992 54.6922 32.5755C65.6833 26.3104 76.9381 21.8948 84.7097 19.1779C79.9647 20.0755 73.8915 21.4605 66.9839 23.6604C65.1428 24.2472 56.695 26.977 45.8473 32.1954C43.7088 33.224 33.738 38.0728 21.4641 46.3464C15.3572 50.4628 7.95918 55.9135 0 62.9057Z"

@@ -25,7 +25,7 @@ export default function Partner() {
           </div>
           <div className="flex-1 flex flex-col items-start gap-4 w-full">
             <p>Za sva pitanja slobodno nas kontaktirajte</p>
-            <form action="submit" className="flex flex-col w-full">
+            <form action="submit" className="flex flex-col md:flex-row w-full">
               <input
                 type="email"
                 placeholder="Email"
@@ -45,7 +45,10 @@ export default function Partner() {
                 <BsArrowRight className="text-xl font-bold" />
               </Button>
             </form>
-            <PlaneIcon width={200} className="mt-6  animate-fly self-center" />
+            <PlaneIcon
+              width={200}
+              className="mt-8 animate-fly self-center mr-24"
+            />
           </div>
         </div>
       </div>

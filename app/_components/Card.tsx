@@ -31,7 +31,7 @@ export default function Card({ item }: CardProps) {
           {/* Default Content */}
           <div className="absolute w-full h-full top-0 left-0 flex flex-col">
             <div className="flex-1 flex items-center justify-center relative">
-              <h3 className="text-3xl font-semibold text-white">{title}</h3>
+              <h3 className="text-2xl font-semibold text-white">{title}</h3>
               <div className="absolute bottom-2 left-6">
                 <ItBridgeLogo width="80" showText />
               </div>
@@ -40,7 +40,7 @@ export default function Card({ item }: CardProps) {
 
           {/* New Content on Hover */}
           <div className="absolute inset-0 inset-x-6 bg-white translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-16 rounded-3xl">
-            <div className="p-6 flex flex-col justify-start gap-10 items-center h-full text-left">
+            <div className="p-6 flex flex-col justify-start gap-5 items-center h-full text-left">
               <div className="flex w-full items-center justify-between text-primary-700">
                 <h3 className="text-2xl font-semibold hover:underline cursor-pointer">
                   {title}
@@ -52,7 +52,7 @@ export default function Card({ item }: CardProps) {
                   <SlArrowRight className="text-xl text-primary-700" />
                 </Link>
               </div>
-              <h3 className="text-lg font-medium text-left w-full">
+              <h3 className="text-md font-medium text-left w-full">
                 {subtitle}
               </h3>
             </div>

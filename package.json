@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-google-maps/api": "^2.19.3",
     "classnames": "^2.5.1",
+    "dotenv": "^16.4.5",
     "next": "14.2.5",
     "react": "^18",
     "react-dom": "^18",
@@ -17,6 +19,7 @@
     "sharp": "^0.33.4"
   },
   "devDependencies": {
+    "@types/google.maps": "^3.55.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
