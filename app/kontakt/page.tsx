@@ -121,7 +121,7 @@ export default function Page() {
             showText
           />
         </div>
-        <div className="z-10 px-8 xl:max-w-[75%] w-full h-[90dvh] rounded-lg shadow-lg">
+        <div className="z-10 px-8 xl:max-w-[75%] w-full min-h-[90dvh] rounded-lg shadow-lg">
           <h2 className="relative text-4xl font-extrabold my-10 md:my-36 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
             KONTAKT
           </h2>
@@ -225,7 +225,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-            <div className="absolute pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0">
+            <div className="pt-3 pb-10  md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0">
               <Button
                 variant="warning"
                 className="w-full flex items-center justify-center px-14 xl:w-1/2"

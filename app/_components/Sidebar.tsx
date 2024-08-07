@@ -49,7 +49,7 @@ const Sidebar = ({
   ));
 
   return (
-    <div className="md:hidden">
+    <div className="md:hidden md:h-screen md:w-full">
       <button
         onClick={onToggle}
         className={`text-2xl py-4 pr-2 fixed top-2 right-4 z-50 ${
@@ -59,11 +59,11 @@ const Sidebar = ({
         {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
       </button>
       <aside
-        className={`fixed top-16 right-0 w-full h-screen bg-white text-black z-20 transform ${
+        className={`fixed right-0 w-fullflex bg-white text-black z-20 transform w-full h-full ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out overflow-hidden`}
+        } transition-transform duration-300 ease-in-out flex items-center justify-center`}
       >
-        <ul className="flex flex-col gap-10 items-start py-44 translate-x-1/3 text-xl w-full">
+        <ul className="flex flex-col gap-10 items-start text-xl -mt-24">
           {navigation}
         </ul>
       </aside>

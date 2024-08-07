@@ -17,6 +17,58 @@ import {
   skillsImg
 } from "./_utils";
 
+export const calendarCourses = [
+  {
+    name: "HR Starter",
+    location: "Code / Online",
+    date: "16. novembar 2024.",
+    status: "Upis u toku"
+  },
+  {
+    name: "HR Starter",
+    location: "Code / Online",
+    date: "26. oktobar 2024.",
+    status: "Upis u toku"
+  },
+
+  {
+    name: "Javni nastup i prezentacija",
+    location: "Code / Online",
+    date: "08. oktobar 2024.",
+    status: "Upis u toku"
+  },
+  {
+    name: "Veštine efektivnog liderstva",
+    location: "Code / Online",
+    date: "18. septembar 2024.",
+    status: "Upis u toku"
+  },
+  {
+    name: "HR Starter",
+    location: "Code / Online",
+    date: "14. septembar 2024.",
+    status: "Popunjeno"
+  },
+  {
+    name: "HR Starter",
+    location: "Code / Online",
+    date: "22. jun 2024.",
+    status: "Popunjeno"
+  },
+  {
+    name: "HR Starter",
+    location: "Code / Online",
+    date: "15. maj 2024.",
+    status: "Popunjeno"
+  },
+  {
+    name: "Veštine efektivnog liderstva",
+    location: "Code / Online",
+    date: "01. maj 2024.",
+    status: "Popunjeno"
+  }
+];
+
 export const courses = [
   {
     id: 1,
