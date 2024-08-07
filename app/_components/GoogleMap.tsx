@@ -29,6 +29,10 @@ const GoogleMapComponent = () => {
 
   const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
+  if (!googleMapsApiKey) {
+    return <div>Error: Google Maps API key is missing.</div>;
+  }
+
   return (
     <LoadScript googleMapsApiKey={googleMapsApiKey}>
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={15}>
