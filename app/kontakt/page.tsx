@@ -8,11 +8,7 @@ import { GoogleMap } from "@react-google-maps/api";
 
 import dynamic from "next/dynamic";
 import React from "react";
-
-const MapWithNoSSR = dynamic(() => import("../_components/GoogleMap"), {
-  ssr: false, // Import without server-side rendering
-  loading: () => <p>Loading...</p>
-});
+import GoogleMapComponent from "../_components/GoogleMap";
 
 interface FormData {
   ime: string;
@@ -241,8 +237,7 @@ export default function Page() {
           </form>
         </div>
       </section>
-
-      <MapWithNoSSR apiKey={apiKey} />
+      <GoogleMapComponent />
     </>
   );
 }
