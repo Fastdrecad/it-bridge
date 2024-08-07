@@ -11,8 +11,6 @@ import Link from "next/link";
 function Header() {
   const pathname = usePathname();
 
-  console.log(pathname);
-
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -38,8 +36,6 @@ function Header() {
       };
     }
   }, [isHomePage]);
-
-  console.log(isHomePage);
 
   return (
     <>

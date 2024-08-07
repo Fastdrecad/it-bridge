@@ -17,8 +17,9 @@ export default function Video() {
       </video>
       {/* Content */}
       <div className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 text-center">
-        <h1 className="text-4xl px-4 md:text-6xl text-white font-bold mb-10 tracking-tight leading-tight italic max-w-[700px] drop-shadow-lg">
-          Naši kursevi formiraju vašu budućnost
+        <h1 className="text-3xl px-4 md:text-5xl text-white font-bold mb-10 tracking-tight italic max-w-[700px] drop-shadow-lg">
+          Kursevi koji oblikuju vašu{" "}
+          <span className="text-warning-600">budućnost</span>
         </h1>
 
         <Button variant="primary" rounded className="bg-white ">
