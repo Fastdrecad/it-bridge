@@ -27,7 +27,8 @@ const GoogleMapComponent = () => {
     setSelectedPlace(null);
   }, []);
 
-  const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
+  const googleMapsApiKey =
+    (process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY as string) || "";
 
   if (!googleMapsApiKey) {
     return <div>Error: Google Maps API key is missing.</div>;
