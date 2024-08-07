@@ -1,5 +1,11 @@
 "use client";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+
+declare global {
+  interface Window {
+    initMap?: () => void;
+  }
+}
 
 const containerStyle = {
   width: "100%",
@@ -13,58 +19,44 @@ const center = {
 
 const GoogleMapComponent = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const [map, setMap] = useState<google.maps.Map | null>(null);
   const [loading, setLoading] = useState(true);
-
-  const handleMarkerClick = useCallback(() => {
-    if (map) {
-      map.setCenter(center);
-    }
-  }, [map]);
 
   useEffect(() => {
     const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
 
-    const loadGoogleMapsScript = () => {
-      return new Promise((resolve, reject) => {
-        if (document.getElementById("google-maps-script")) {
-          resolve(window.google);
-          return;
-        }
-
-        const script = document.createElement("script");
-        script.id = "google-maps-script";
-        script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}`;
-        script.async = true;
-        script.defer = true;
-        script.onload = () => resolve(window.google);
-        script.onerror = reject;
-        document.head.appendChild(script);
-      });
+    window.initMap = () => {
+      if (mapRef.current && window.google && window.google.maps) {
+        new window.google.maps.Map(mapRef.current, {
+          center,
+          zoom: 15
+        });
+        setLoading(false);
+      }
     };
 
-    loadGoogleMapsScript()
-      .then(() => {
-        if (mapRef.current && window.google) {
-          const newMap = new window.google.maps.Map(mapRef.current, {
-            center,
-            zoom: 15
-          });
-          setMap(newMap);
+    const loadGoogleMapsScript = () => {
+      if (document.getElementById("google-maps-script")) {
+        if (typeof window.google !== "undefined" && window.google.maps) {
+          if (window.initMap) {
+            window.initMap();
+          }
         }
-      })
-      .catch((error) => {
-        console.error("Failed to load Google Maps script:", error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.id = "google-maps-script";
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&callback=initMap&loading=async`;
+      script.async = true;
+      script.defer = true;
+      document.head.appendChild(script);
+    };
+
+    loadGoogleMapsScript();
 
     return () => {
-      // Clean up the script tag if necessary
-      const script = document.getElementById("google-maps-script");
-      if (script) {
-        script.remove();
+      if (window.initMap) {
+        delete window.initMap;
       }
     };
   }, []);
