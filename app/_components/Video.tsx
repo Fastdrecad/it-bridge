@@ -22,7 +22,7 @@ export default function Video() {
           <span className="text-warning-600">budućnost</span>
         </h1>
 
-        <Button variant="primary" rounded className="bg-white ">
+        <Button variant="primary" rounded>
           KATALOG TRENINGA
           <FaRegFile className="text-xl text-black" />
         </Button>

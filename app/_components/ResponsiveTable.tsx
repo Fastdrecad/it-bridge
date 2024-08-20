@@ -1,5 +1,6 @@
 import { FaCheck } from "react-icons/fa6";
 import { calendarCourses } from "../config";
+import { FaTimes } from "react-icons/fa";
 
 const ResponsiveTable = () => {
   return (
@@ -25,7 +26,9 @@ const ResponsiveTable = () => {
               key={index}
               className={`border-b ${
                 index % 2 === 0 ? "bg-purple-100" : "bg-white"
-              } md:table-row flex flex-col w-full`}
+              } md:table-row flex flex-col w-full ${
+                course.status === "Popunjeno" ? "brightness-[85%]" : ""
+              }`}
               style={
                 index === calendarCourses.length - 1
                   ? {
@@ -42,7 +45,7 @@ const ResponsiveTable = () => {
               <td className="py-3 px-6 flex items-center">
                 {course.status}
                 {course.status === "Popunjeno" && (
-                  <FaCheck className="ml-2 text-green-500" />
+                  <FaTimes className="ml-2 text-red-500" />
                 )}
               </td>
             </tr>

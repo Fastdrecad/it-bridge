@@ -28,7 +28,7 @@ const Sidebar = ({
       { href: "/", label: "O Nama" },
       { href: "/kursevi", label: "Kursevi" },
       { href: "/kalendar", label: "Kalendar" },
-      { href: "/mentorstvo", label: "Mentorstvo" },
+      // { href: "/mentorstvo", label: "Mentorstvo" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []

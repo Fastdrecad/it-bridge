@@ -9,8 +9,8 @@ export default function Page() {
         <Image
           src={calendarBg}
           fill
-          alt="background image"
-          className="object-left-top scale-150"
+          alt="Background Image"
+          className="object-left"
         />
       </div>
       <div className="max-w-6xl mx-auto z-10 relative">

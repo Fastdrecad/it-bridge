@@ -1,9 +1,4 @@
-import {
-  FaLinkedinIn,
-  FaFacebook,
-  FaInstagram,
-  FaVoicemail
-} from "react-icons/fa6";
+import { FaLinkedinIn, FaFacebook, FaInstagram } from "react-icons/fa6";
 
 import { MdOutlineEmail } from "react-icons/md";
 
@@ -47,7 +42,7 @@ export const calendarCourses = [
     name: "HR Starter",
     location: "Code / Online",
     date: "14. septembar 2024.",
-    status: "Popunjeno"
+    status: "Upis u toku"
   },
   {
     name: "HR Starter",
@@ -77,7 +72,7 @@ export const courses = [
       "Usavršite meke veštine uz naš personalizovani set obuka za maksimalnu efikasnost…",
     description: "",
     image: skillsImg,
-    url: "/"
+    url: "/kursevi/meke-vestine"
   },
   {
     id: 2,
@@ -86,7 +81,7 @@ export const courses = [
       "Usavršite komunikaciju, liderstvo i timski rad uz našu personalizovanu PCM obuku…",
     description: "",
     image: pcmImg,
-    url: "/"
+    url: "/kursevi/pcm"
   },
   {
     id: 3,
@@ -95,7 +90,7 @@ export const courses = [
       "Započnite karijeru u HR-u uz dvostruku ekspertizu i steknite veštine za uspešno upravljanje ljudskim resursima…",
     description: "Pokrenite karijeru u HR-u.",
     image: hrImg,
-    url: "/"
+    url: "/kursevi/hr-starter"
   },
   {
     id: 4,
@@ -104,7 +99,7 @@ export const courses = [
       "Otkrijte moć podataka, pretvorite ih u strateške uvide i iskoristite za bolje odluke i konkurentsku prednost.",
     description: "Unapredite poslovanje uz Power BI",
     image: pbiImg,
-    url: "/"
+    url: "/kursevi/power-bi"
   },
   {
     id: 5,
@@ -113,7 +108,7 @@ export const courses = [
       "Poboljšajte poslovnu komunikaciju u vašoj kompaniji uz naš tailor-made kurs Business English | German | French…",
     description: "",
     image: englishImg,
-    url: "/"
+    url: "/kursevi/business-english"
   },
   {
     id: 6,
@@ -122,7 +117,7 @@ export const courses = [
       "Savladajte automatsko testiranje softvera i unapredite svoju karijeru…",
     description: "",
     image: qaImg,
-    url: "/"
+    url: "/kursevi/qa"
   }
 ];
 
@@ -240,5 +235,46 @@ export const testimonials = [
     position: "HR & Payroll Manager",
     review:
       "Zahvalna sam na svim podeljenim iskustvima i podršci tokom ovog kursa. Bilo je pravo zadovoljstvo sarađivati sa vama. Uverena sam da će ovaj kurs inspirisati mnoge i omogućiti im da naprave značajan zaokret u svojoj karijeri.  "
+  }
+];
+
+export const heroSectionContent = [
+  {
+    title: "Otkrijte moć Power BI-ja",
+    subtitle: "Transformišite podatke u strateške uvide",
+    backgroundImage: "/power-bi.webp",
+    buttonLabel: "Zakažite sastanak",
+    buttonLink: "/kontakt"
+  },
+  {
+    title: "Napravite zaokret u karijeri i postanite deo HR-a",
+    subtitle:
+      "Vaš put ka uspehu u dinamičnom svetu ljudskih resursa počinje sa našim kursom *",
+    backgroundImage: "/hr.webp",
+    buttonLabel: "",
+    buttonLink: "/prijava"
+  },
+  {
+    title: "Otkrijte moć poslovnog engleskog",
+    subtitle:
+      "Kurs poslovnog engleskog će vam pomoći da usavršite jezičke veštine potrebne za profesionalno okruženje.",
+    backgroundImage: "/business-english.webp",
+    buttonLabel: "Saznajte više",
+    buttonLink: "/kursevi/business-english"
+  },
+  {
+    title: "Izgradite veštine koje prave razliku",
+    subtitle: "Transformišite podatke u strateške uvide",
+    backgroundImage: "/soft-skills.webp",
+    buttonLabel: "Zakažite sastanak",
+    buttonLink: "/kursevi/meke-vestine"
+  },
+  {
+    title: "Ovladavanje tehnikama za bolju komunikaciju",
+    subtitle:
+      "Savladajte PCM tehniku komunikacije i poboljšajte interakcije u poslovnom i privatnom životu.",
+    backgroundImage: "/pcm.webp",
+    buttonLabel: "Zakažite sastanak",
+    buttonLink: "/kursevi/pcm"
   }
 ];

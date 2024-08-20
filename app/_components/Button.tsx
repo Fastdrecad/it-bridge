@@ -66,7 +66,22 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   return (
-    <button {...rest} className={classes}>
+    <button
+      {...rest}
+      className={classes}
+      style={
+        variant === "primary"
+          ? {
+              border: "2px solid transparent",
+              borderRadius: rounded ? "9999px" : "4px", // Apply full rounding if rounded is true
+              backgroundImage:
+                "linear-gradient(white, white), linear-gradient(to right, #15103E, #A0C943)",
+              backgroundOrigin: "border-box",
+              backgroundClip: "padding-box, border-box"
+            }
+          : {}
+      }
+    >
       {children}
     </button>
   );

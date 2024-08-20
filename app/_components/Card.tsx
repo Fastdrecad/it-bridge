@@ -16,7 +16,7 @@ interface CardProps {
 }
 
 export default function Card({ item }: CardProps) {
-  const { title, image, subtitle } = item;
+  const { title, image, subtitle, url } = item;
   return (
     <li className="group relative">
       <article className="overflow-hidden shadow-custom transition-shadow duration-300 hover:shadow-custom rounded-3xl">
@@ -39,17 +39,19 @@ export default function Card({ item }: CardProps) {
           </div>
 
           {/* New Content on Hover */}
-          <div className="absolute inset-0 inset-x-6 bg-white translate-y-full transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-16 rounded-3xl">
+          <div className="absolute inset-0 inset-x-6 bg-white translate-y-52 transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-16 rounded-3xl">
             <div className="p-6 flex flex-col justify-start gap-5 items-center h-full text-left">
               <div className="flex w-full items-center justify-between text-primary-700">
-                <h3 className="text-2xl font-semibold hover:underline cursor-pointer">
-                  {title}
-                </h3>
+                <Link href={url}>
+                  <h3 className="text-2xl font-semibold hover:underline cursor-pointer">
+                    {title}
+                  </h3>
+                </Link>
                 <Link
-                  href="/learn-more"
-                  className="flex items-center justify-center border-2 border-primary-700 rounded-full w-8 h-8 self-start"
+                  href={url}
+                  className="flex items-center justify-center  bg-primary-700 rounded-full w-8 h-8 self-start"
                 >
-                  <SlArrowRight className="text-xl text-primary-700" />
+                  <SlArrowRight className="text-xl font-bold text-white" />
                 </Link>
               </div>
               <h3 className="text-md font-medium text-left w-full">
