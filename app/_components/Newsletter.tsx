@@ -85,7 +85,7 @@ export default function Newsletter() {
             </div>
             {error && <p className="text-red-500 text-center">{error}</p>}
             <div className="flex items-center justify-center">
-              <BlurstButton className="w-1/2 flex items-center justify-center text-secondary-500">
+              <BlurstButton className="w-1/2 text-secondary-500">
                 {" "}
                 <MdEmail className="text-2xl m-0 mr-2" />
                 Pošalji

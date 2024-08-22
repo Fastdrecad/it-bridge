@@ -29,7 +29,7 @@ export default function PowerBiCards() {
               </h3>
               <p className="text-gray-700">{item.description}</p>
             </div>
-            <div className="md:w-1/2 mt-4 md:mt-0 ">
+            <div className="md:w-1/2 md:mt-0 ">
               <div className="aspect-video">
                 <Image
                   src={item.img}

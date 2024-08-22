@@ -12,7 +12,6 @@ interface CourseGridProps {
 }
 
 const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
-  console.log(content);
   return (
     <div className="container mx-auto p-4 md:p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">

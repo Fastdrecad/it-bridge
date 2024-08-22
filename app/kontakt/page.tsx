@@ -114,7 +114,7 @@ export default function Page() {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center relative bg-secondary-500">
+      <section className="flex flex-col overflow-hidden items-center justify-center relative bg-secondary-500">
         <div className="absolute w-full h-full z-0 opacity-30 flex justify-center">
           <Image
             src={kontaktBg}
