@@ -1,8 +1,21 @@
+import BlurstButton from "@/app/_components/BlurstButton";
+import ContactUs from "@/app/_components/ContactUs";
+import CourseGrid from "@/app/_components/CourseGrid";
+import CourseScheduleTable from "@/app/_components/CourseScheduleTable";
+import FeatureList from "@/app/_components/FeatureList";
 import HeroSection from "@/app/_components/HeroSection";
-import { heroSectionContent } from "@/app/config";
+import TrainingStructure from "@/app/_components/TrainingStructure";
+import {
+  courseContent,
+  courseItems,
+  courseSchedules,
+  heroSectionContent,
+  pageFeatures
+} from "@/app/config";
+import { BsFileEarmarkPdf } from "react-icons/bs";
 
 export default function BusinessEnglishPage() {
-  const content = heroSectionContent[2]; // Index corresponds to the course in config.js
+  const content = heroSectionContent[3]; // Index corresponds to the course in config.js
 
   return (
     <>
@@ -13,6 +26,32 @@ export default function BusinessEnglishPage() {
         buttonLabel={content.buttonLabel}
         buttonLink={content.buttonLink}
       />
+      <FeatureList
+        heading="Zašto Business English | German | French?"
+        sections={pageFeatures.businessEnglish.sections}
+        flags={pageFeatures.businessEnglish.flags}
+      />
+      <CourseGrid
+        courseName="Meke veštine"
+        content={courseContent.businessEnglish}
+      />
+      <div className="container overflow-hidden mx-auto p-8 my-12 flex items-center justify-center">
+        <BlurstButton className=" text-white" color=" bg-secondary-500">
+          Preuzmite Program obuke{" "}
+          <BsFileEarmarkPdf className="text-xl text-white" />
+        </BlurstButton>
+      </div>
+      <TrainingStructure
+        items={courseItems.businessEnglish}
+        buttonLabel="Zakažite sastanak"
+      />
+      <div className="container mx-auto p-8">
+        <h1 className="text-3xl font-bold mb-8">
+          Detalji obuke Business English
+        </h1>
+        <CourseScheduleTable schedules={courseSchedules.businessEnglish} />
+      </div>
+      <ContactUs />
     </>
   );
 }

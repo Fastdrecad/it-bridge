@@ -3,6 +3,7 @@ import { useState } from "react";
 import Button from "@/app/_components/Button";
 import { MdEmail } from "react-icons/md";
 import ItBridgeLogo from "./ItBridgeLogo";
+import BlurstButton from "./BlurstButton";
 
 export default function Newsletter() {
   const [email, setEmail] = useState("");
@@ -37,12 +38,12 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="flex items-center justify-center min-h-[75vh] bg-gray-200 relative overflow-hidden">
-      <div className="absolute md:w-full h-full z-0 opacity-65 flex items-center justify-end md:mr-36">
-        <ItBridgeLogo width="900" />
+    <section className="flex items-center justify-center min-h-[75vh] bg-gradient-to-r from-[#15103E] to-[#A0C943] relative overflow-hidden">
+      <div className="absolute md:w-full h-full z-0 flex items-center justify-end md:mr-36">
+        <ItBridgeLogo width="900" color="#15103E" />
       </div>
-      <div className="p-6 rounded-lg  w-full max-w-screen-md z-10">
-        <h2 className="text-4xl font-bold mb-4 text-center">
+      <div className="p-6 rounded-lg  w-full max-w-screen-md z-10  text-white">
+        <h2 className="text-4xl font-bold mb-4 text-center ">
           Prijavite se za naš newsletter
         </h2>
         <p className="text-center mb-8 text-lg md:px-20">
@@ -84,14 +85,11 @@ export default function Newsletter() {
             </div>
             {error && <p className="text-red-500 text-center">{error}</p>}
             <div className="flex items-center justify-center">
-              <Button
-                variant="warning"
-                rounded
-                className="w-1/2 flex items-center justify-center"
-              >
+              <BlurstButton className="w-1/2 flex items-center justify-center text-secondary-500">
+                {" "}
                 <MdEmail className="text-2xl m-0 mr-2" />
                 Pošalji
-              </Button>
+              </BlurstButton>
             </div>
           </form>
         )}

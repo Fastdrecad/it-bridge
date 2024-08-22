@@ -26,10 +26,26 @@ const GoogleMapComponent = () => {
 
     window.initMap = () => {
       if (mapRef.current && window.google && window.google.maps) {
-        new window.google.maps.Map(mapRef.current, {
+        const map = new window.google.maps.Map(mapRef.current, {
           center,
           zoom: 15
         });
+
+        const marker = new window.google.maps.Marker({
+          position: center,
+          map: map,
+          title: "Obilićev Venac, Belgrade, Serbia"
+        });
+
+        const infoWindow = new window.google.maps.InfoWindow({
+          content:
+            "<div><strong>Obilićev Venac</strong><p>Belgrade, Serbia</p></div>"
+        });
+
+        marker.addListener("click", () => {
+          infoWindow.open(map, marker);
+        });
+
         setLoading(false);
       }
     };

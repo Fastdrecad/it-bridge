@@ -2,21 +2,23 @@ import ResponsiveTable from "@/app/_components/ResponsiveTable";
 import calendarBg from "@/public/kalendar.jpg";
 import Image from "next/image";
 
-export default function Page() {
+export default function KalendarPage() {
   return (
-    <div className="relative bg-purple-900 text-white min-h-screen w-full p-8  overflow-hidden">
+    <section className="relative bg-secondary-500 text-white min-h-screen w-full p-8 overflow-hidden">
       <div className="absolute inset-0 w-full h-full -z-0">
         <Image
           src={calendarBg}
           fill
           alt="Background Image"
-          className="object-left"
+          className="object-left object-cover"
         />
       </div>
       <div className="max-w-6xl mx-auto z-10 relative">
-        <h1 className="text-4xl font-bold mb-8">Kalendar obuka</h1>
+        <h1 className="relative text-4xl font-bold my-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600">
+          KALENDAR OBUKA
+        </h1>
         <ResponsiveTable />
       </div>
-    </div>
+    </section>
   );
 }

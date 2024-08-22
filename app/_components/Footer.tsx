@@ -43,7 +43,7 @@ export default function Footer() {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black bg-opacity-80 z-1"></div>
       {/* Content */}
-      <div className="flex flex-col justify-around items-center h-full z-10 px-10 py-16 relative text-white gap-8">
+      <div className="flex flex-col justify-around items-center h-full z-10 px-10 pt-16 relative text-white gap-8">
         {/* Parent */}
         <div className="flex flex-col flex-1 gap-4 w-full md:flex-row md:justify-around">
           {/* Content 1 */}
@@ -62,10 +62,12 @@ export default function Footer() {
           </div>
 
           {/* Content 2 */}
-          <div className="flex flex-col items-center text-center sm:text-left">
-            <h4 className="text-2xl font-medium mb-3">IT Bridge</h4>
-            <div className="flex">
-              <ul className="flex flex-col">
+          <div className="flex flex-col text-center sm:text-left items-center mt-4 md:mt-0">
+            <div className="flex items-start ms-4">
+              <h4 className="text-2xl font-medium mb-3">IT Bridge</h4>
+            </div>
+            <div className="">
+              <ul className="flex flex-col items-start">
                 {links.map((link, idx) => (
                   <Link
                     key={idx}
@@ -97,14 +99,14 @@ export default function Footer() {
         </div>
 
         {/* Footer */}
-        <div className="flex flex-col justify-center items-center h-auto text-xs text-gray-400">
+        <div className="flex flex-col justify-center items-center h-auto text-xs text-gray-400 mb-5">
           <div className="">
             Designed & Built by{" "}
             <Link
               href="https://andrijadesign.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-green-400 text-gray-300"
+              className="hover:text-green-500 text-gray-300"
             >
               Andrija Micunovic
             </Link>

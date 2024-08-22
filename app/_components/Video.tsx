@@ -1,5 +1,5 @@
 import Button from "./Button";
-import { FaRegFile } from "react-icons/fa";
+import { BsFileEarmarkPdf } from "react-icons/bs";
 
 export default function Video() {
   return (
@@ -17,14 +17,14 @@ export default function Video() {
       </video>
       {/* Content */}
       <div className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 text-center">
-        <h1 className="text-3xl px-4 md:text-5xl text-white font-bold mb-10 tracking-tight italic max-w-[700px] drop-shadow-lg">
+        <h1 className="text-3xl px-4 md:text-7xl uppercase text-white font-extrabold mb-10 tracking-wide  max-w-[1400px] drop-shadow-lg">
           Kursevi koji oblikuju vašu{" "}
           <span className="text-warning-600">budućnost</span>
         </h1>
 
         <Button variant="primary" rounded>
           KATALOG TRENINGA
-          <FaRegFile className="text-xl text-black" />
+          <BsFileEarmarkPdf className="text-xl text-black" />
         </Button>
       </div>
     </section>

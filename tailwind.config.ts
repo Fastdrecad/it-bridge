@@ -34,6 +34,7 @@ const config: Config = {
         "fill-300": "repeat(auto-fill, minmax(300px, 1fr))",
         "fill-250": "repeat(auto-fill, minmax(250px, 1fr))"
       },
+
       colors: {
         primary: {
           50: "#e0dbec", // very light purple, good for backgrounds or gradient top
@@ -54,7 +55,7 @@ const config: Config = {
           200: "#C4B2E9", // Soft lavender, useful for accents
           300: "#B198E2", // Mild lavender, good for actionable items or badges
           400: "#9E7EDB", // Brighter lavender, stands out for buttons or icons
-          500: "#8A64D4", // Moderate lavender, excellent for important components
+          500: "#15103E", // Moderate lavender, excellent for important components
           600: "#7650CD", // Vibrant lavender, useful for important calls to action
           700: "#6959CC", // Your base color, perfect for primary buttons or links
           800: "#5540B8", // Dark lavender, great for headers or important text

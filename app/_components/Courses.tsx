@@ -1,11 +1,22 @@
+"use client";
+
 import { courses } from "@/app/config";
 import Card from "@/app/_components/Card";
-import Button from "./Button";
+import { usePathname } from "next/navigation";
+import BlurstButton from "./BlurstButton";
 
 export default function Courses() {
+  const pathname = usePathname();
+
+  const isKurseviPage = pathname === "/kursevi";
+
   return (
-    <section className="text-center py-6 mx-auto w-full max-w-7xl my-5  px-4">
-      <h2 className="relative text-4xl font-extrabold mb-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success">
+    <section className="text-center mx-auto w-full max-w-7xl my-20 md:my-20 px-4">
+      <h2
+        className={`relative text-4xl font-extrabold mb-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success ${
+          isKurseviPage ? "text-white" : ""
+        }`}
+      >
         KURSEVI
       </h2>
       <ul className="grid grid-cols-fill-350 gap-8 relative mt-12 mx-auto">
@@ -13,10 +24,11 @@ export default function Courses() {
           <Card item={course} key={idx} />
         ))}
       </ul>
-      <div className="flex justify-center my-20">
-        <Button variant="warning" rounded className="px-12">
+      <div className="flex justify-center my-20 relative z-20">
+        {/* <Button variant="warning" rounded>
           KONTAKTIRAJTE NAS
-        </Button>
+        </Button> */}
+        <BlurstButton>KONTAKTIRAJTE NAS</BlurstButton>
       </div>
     </section>
   );

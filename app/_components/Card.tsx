@@ -2,6 +2,7 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import ItBridgeLogo from "./ItBridgeLogo";
 import { SlArrowRight } from "react-icons/sl";
+import { IoIosArrowDropright, IoIosArrowDroprightCircle } from "react-icons/io";
 
 interface Item {
   title: string;
@@ -31,7 +32,7 @@ export default function Card({ item }: CardProps) {
           {/* Default Content */}
           <div className="absolute w-full h-full top-0 left-0 flex flex-col">
             <div className="flex-1 flex items-center justify-center relative">
-              <h3 className="text-2xl font-semibold text-white">{title}</h3>
+              {/* <h3 className="text-2xl font-semibold text-white">{title}</h3> */}
               <div className="absolute bottom-2 left-6">
                 <ItBridgeLogo width="80" showText />
               </div>
@@ -41,17 +42,17 @@ export default function Card({ item }: CardProps) {
           {/* New Content on Hover */}
           <div className="absolute inset-0 inset-x-6 bg-white translate-y-52 transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-16 rounded-3xl">
             <div className="p-6 flex flex-col justify-start gap-5 items-center h-full text-left">
-              <div className="flex w-full items-center justify-between text-primary-700">
+              <div className="flex w-full items-center justify-between text-secondary-500">
                 <Link href={url}>
-                  <h3 className="text-2xl font-semibold hover:underline cursor-pointer">
+                  <h3 className="text-2xl font-semibold hover:underline">
                     {title}
                   </h3>
                 </Link>
                 <Link
                   href={url}
-                  className="flex items-center justify-center  bg-primary-700 rounded-full w-8 h-8 self-start"
+                  className="flex items-center justify-center rounded-full w-10 h-10 self-start "
                 >
-                  <SlArrowRight className="text-xl font-bold text-white" />
+                  <IoIosArrowDroprightCircle className="w-full h-full" />
                 </Link>
               </div>
               <h3 className="text-md font-medium text-left w-full">

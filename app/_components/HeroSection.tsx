@@ -31,10 +31,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
-        <h1 className="text-3xl px-4 md:text-5xl text-white font-bold mb-3 tracking-tight italic max-w-[700px] drop-shadow-lg text-center ">
+        <h1 className="text-3xl px-4 md:text-7xl text-white font-bold mb-8 tracking-tight italic max-w-screen-lg drop-shadow-lg text-center ">
           {title}
         </h1>
-        <p className="text-white text-xl mb-10 text-center">{subtitle}</p>
+        <p className="text-white text-md md:text-2xl mb-10 text-center w-3/4">
+          {subtitle}
+        </p>
         {buttonLabel && buttonLabel.trim() !== "" && (
           <Button variant="primary" rounded>
             {buttonLabel}

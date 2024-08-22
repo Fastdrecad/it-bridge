@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navigationLinks } from "../config";
+import { navigationLinks } from "@/app/config";
 
 interface SocialLinksProps {
   isScrolled: boolean;
@@ -32,6 +32,8 @@ export default function SocialLinks({
         {navigationLinks.map((link, index) => (
           <li className={linkClasses(index)} key={link.id}>
             <Link
+              target="_blank"
+              aria-label={link.ariaLabel}
               href={link.href}
               className="flex items-center justify-center text-sm"
             >

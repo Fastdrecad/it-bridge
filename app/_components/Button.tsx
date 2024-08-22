@@ -27,7 +27,7 @@ const Button: React.FC<ButtonProps> = ({
     },
     secondary: {
       bg: "bg-secondary-500",
-      text: "text-secondary-600",
+      text: "text-white",
       border: "border-secondary-600",
       hover: "hover:bg-secondary-600 hover:text-white"
     },
@@ -39,7 +39,7 @@ const Button: React.FC<ButtonProps> = ({
     },
     warning: {
       bg: "bg-warning-600",
-      text: "text-black",
+      text: "text-white",
       border: "border-warning-600",
       hover: "hover:bg-warning-800"
     },

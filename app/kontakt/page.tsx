@@ -1,14 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import ItBridgeLogo from "../_components/ItBridgeLogo";
+import ItBridgeLogo, { Dots } from "../_components/ItBridgeLogo";
 import Button from "../_components/Button";
+import kontaktBg from "@/public/kontakt-bg.jpg";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { GoogleMap } from "@react-google-maps/api";
 
 import dynamic from "next/dynamic";
 import React from "react";
 import GoogleMapComponent from "../_components/GoogleMap";
+import BlurstButton from "../_components/BlurstButton";
 
 interface FormData {
   ime: string;
@@ -112,16 +114,25 @@ export default function Page() {
 
   return (
     <>
-      <section className="flex flex-col items-center justify-center bg-primary-800 relative">
-        <div className="absolute w-full h-full z-0 opacity-10 flex justify-center">
-          <ItBridgeLogo
-            width="1560"
-            color="#8BFC40"
-            className="m-0 p-0"
-            showText
+      <section className="flex flex-col items-center justify-center relative bg-secondary-500">
+        <div className="absolute w-full h-full z-0 opacity-30 flex justify-center">
+          <Image
+            src={kontaktBg}
+            alt="Handshake"
+            className="object-cover"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
           />
         </div>
-        <div className="z-10 px-8 xl:max-w-[75%] w-full min-h-[90dvh] rounded-lg shadow-lg">
+        <ItBridgeLogo
+          width="100"
+          color="#8BFC40"
+          className="m-0 p-0 opacity-100 absolute right-12 md:bottom-16 hidden md:block"
+          showText
+          fill="white"
+        />
+        <div className="z-10 px-8 xl:max-w-[75%] w-full min-h-[90dvh] rounded-lg">
           <h2 className="relative text-4xl font-extrabold my-10 md:my-36 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
             KONTAKT
           </h2>
@@ -209,7 +220,7 @@ export default function Page() {
                   <textarea
                     name="poruka"
                     id="poruka"
-                    placeholder="Unesite poruku"
+                    placeholder="Unesi poruku"
                     rows={4}
                     value={formData.poruka}
                     onChange={handleChange}
@@ -226,13 +237,9 @@ export default function Page() {
               </div>
             </div>
             <div className="pt-3 pb-10  md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0">
-              <Button
-                variant="warning"
-                className="w-full flex items-center justify-center px-14 xl:w-1/2"
-                rounded
-              >
+              <BlurstButton className="w-full flex items-center justify-center px-14 xl:w-1/2">
                 Pošalji
-              </Button>
+              </BlurstButton>
             </div>
           </form>
         </div>
