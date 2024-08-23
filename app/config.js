@@ -1,3 +1,11 @@
+import { SiIbm } from "react-icons/si";
+import { SiCocacola } from "react-icons/si";
+import { SiSony } from "react-icons/si";
+import { FaMicrosoft } from "react-icons/fa6";
+import { SiGeneralelectric } from "react-icons/si";
+import { SiSchneiderelectric } from "react-icons/si";
+import { SiAccenture } from "react-icons/si";
+
 import {
   FaLinkedinIn,
   FaFacebook,
@@ -596,6 +604,15 @@ export const courseContent = {
       items: [
         "Naša obuka PCM pruža praktične veštine i tehnike koje će vašem timu pomoći da postigne bolje rezultate, stvori pozitivno radno okruženje i unapredi poslovne procese.",
         "Korisnici PCM (Process Communication Model) širom sveta.:"
+      ],
+      companyLogos: [
+        { icon: <SiIbm className="text-7xl" /> },
+        { icon: <SiCocacola className="text-7xl" /> },
+        { icon: <SiSony className="text-7xl" /> },
+        { icon: <FaMicrosoft className="text-4xl" /> },
+        { icon: <SiGeneralelectric className="text-4xl" /> },
+        { icon: <SiSchneiderelectric className="text-4xl" /> },
+        { icon: <SiAccenture className="text-4xl" /> }
       ]
     }
   ],

@@ -22,7 +22,7 @@ const FeatureList: React.FC<FeatureListProps> = ({
         <h2 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-3xl font-bold px-6 py-3 pe-12 rounded-r-full">
           {heading}
         </h2>
-        <ul className="mt-4 space-y-6 p-6 pt-16 md:pt-12">
+        <ul className="mt-4 space-y-6 p-6 pt-16 md:pt-16">
           {sections.map((section, index) => (
             <li key={index} className="flex items-start">
               <span className="text-[#15103E] font-bold text-lg mr-2">•</span>

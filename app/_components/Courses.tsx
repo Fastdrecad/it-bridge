@@ -4,6 +4,7 @@ import { courses } from "@/app/config";
 import Card from "@/app/_components/Card";
 import { usePathname } from "next/navigation";
 import BlurstButton from "./BlurstButton";
+import Link from "next/link";
 
 export default function Courses() {
   const pathname = usePathname();
@@ -24,11 +25,12 @@ export default function Courses() {
           <Card item={course} key={idx} />
         ))}
       </ul>
-      <div className="flex justify-center my-20 relative z-20">
-        {/* <Button variant="warning" rounded>
-          KONTAKTIRAJTE NAS
-        </Button> */}
-        <BlurstButton>KONTAKTIRAJTE NAS</BlurstButton>
+      <div className="flex justify-center my-20">
+        <Link href="/kontakt">
+          <BlurstButton className=" text-white" color="bg-secondary-500">
+            KONTAKTIRAJTE NAS
+          </BlurstButton>
+        </Link>
       </div>
     </section>
   );

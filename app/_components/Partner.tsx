@@ -1,13 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Button from "./Button";
 import { BsArrowRight } from "react-icons/bs";
 import { PlaneIcon } from "./ItBridgeLogo";
+import { useRouter } from "next/navigation";
 
 export default function Partner() {
   const [email, setEmail] = useState("");
   const [focus, setFocus] = useState(false);
+  const router = useRouter();
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (email) {
+      alert(`Email submitted: ${email}`);
+      router.push("/thank-you");
+    } else {
+      alert("Please enter a valid email address.");
+    }
+  };
 
   return (
     <section className="my-10 px-4">
@@ -25,21 +38,26 @@ export default function Partner() {
           </div>
           <div className="flex-1 flex flex-col items-start gap-4 w-full">
             <p>Za sva pitanja slobodno nas kontaktirajte</p>
-            <form action="submit" className="flex flex-col md:flex-row w-full">
+            <form
+              className="flex flex-col md:flex-row w-full"
+              onSubmit={handleSubmit}
+            >
               <input
                 type="email"
                 placeholder="Email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={`appearance-none border  w-full py-3 px-3 ${
-                  focus ? "text-warning-700" : "text-gray-700"
+                  focus
+                    ? "text-warning-700"
+                    : "text-gray-700 rounded-none appearance-none"
                 }   leading-tight focus:outline-none focus:shadow-outline text-md`}
                 onFocus={(e) => setFocus(true)}
                 onBlur={(e) => setFocus(false)}
               />
               <Button
                 variant="warning"
-                className="text-md text-nowrap  px-4 py-0 border flex justify-center"
+                className="text-md text-nowrap px-4 py-0 flex justify-center border-none rounded-none"
               >
                 Pitajte nas
                 <BsArrowRight className="text-xl font-bold" />

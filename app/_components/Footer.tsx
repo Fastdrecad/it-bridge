@@ -21,7 +21,6 @@ export default function Footer() {
       { href: "/", label: "O Nama" },
       { href: "/kursevi", label: "Kursevi" },
       { href: "/kalendar", label: "Kalendar" },
-      { href: "/mentorstvo", label: "Mentorstvo" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []
@@ -63,7 +62,7 @@ export default function Footer() {
 
           {/* Content 2 */}
           <div className="flex flex-col text-center sm:text-left items-center mt-4 md:mt-0">
-            <div className="flex items-start ms-4">
+            <div className="flex items-start ms-8">
               <h4 className="text-2xl font-medium mb-3">IT Bridge</h4>
             </div>
             <div className="">

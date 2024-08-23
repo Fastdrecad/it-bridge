@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "./Button";
 import BlurstButton from "./BlurstButton";
+import Link from "next/link";
 
 interface TrainingStructureProps {
   items: {
@@ -30,11 +31,12 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
           </div>
         ))}
       </div>
-      <div className="w-full flex justify-center mb-14 z-10 relative text-white">
-        <BlurstButton color="bg-secondary-500">{buttonLabel}</BlurstButton>
-        {/* <Button variant="secondary" rounded className="text-white">
-          {buttonLabel}
-        </Button> */}
+      <div className="w-full flex justify-center mb-14 z-10 relative">
+        <Link href="/kontakt">
+          <BlurstButton color="bg-secondary-500" className="text-white">
+            {buttonLabel}
+          </BlurstButton>
+        </Link>
       </div>
     </div>
   );

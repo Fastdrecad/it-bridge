@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 
 export default function PcmPage() {
-  const content = heroSectionContent[2]; // Index corresponds to the course in config.js
+  const content = heroSectionContent[2];
 
   return (
     <>
@@ -26,7 +26,7 @@ export default function PcmPage() {
         buttonLink={content.buttonLink}
       />
       <FeatureList heading="Zašto PCM?" sections={pageFeatures.pcm.sections} />
-      <CourseGrid courseName="Meke veštine" content={courseContent.pcm} />{" "}
+      <CourseGrid courseName="Meke veštine" content={courseContent.pcm} />
       <TrainingStructure
         items={courseItems.pcm}
         buttonLabel="Zakažite sastanak"

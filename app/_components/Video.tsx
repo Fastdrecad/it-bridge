@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "./Button";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 
@@ -21,11 +22,12 @@ export default function Video() {
           Kursevi koji oblikuju vašu{" "}
           <span className="text-warning-600">budućnost</span>
         </h1>
-
-        <Button variant="primary" rounded>
-          KATALOG TRENINGA
-          <BsFileEarmarkPdf className="text-xl text-black" />
-        </Button>
+        <Link href="/kursevi">
+          <Button variant="primary" rounded>
+            SAZNAJ VIŠE
+            {/* <BsFileEarmarkPdf className="text-xl text-black" /> */}
+          </Button>
+        </Link>
       </div>
     </section>
   );

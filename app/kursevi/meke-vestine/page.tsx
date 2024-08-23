@@ -35,12 +35,6 @@ export default function SoftSkillsPage() {
         courseName="Meke veštine"
         content={courseContent.softSkills}
       />
-      <div className="container overflow-hidden mx-auto p-8 my-12 flex items-center justify-center">
-        <BlurstButton className=" text-white" color=" bg-secondary-500">
-          Preuzmite Program obuke{" "}
-          <BsFileEarmarkPdf className="text-xl text-white" />
-        </BlurstButton>
-      </div>
       <TrainingStructure
         items={courseItems.softSkills}
         buttonLabel="Zakažite sastanak"

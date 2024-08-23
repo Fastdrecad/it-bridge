@@ -9,9 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        fly: "fly 4s ease-in-out infinite"
+        fly: "fly 4s ease-in-out infinite",
+        flash: "flash 100ms ease-in-out"
       },
       keyframes: {
+        flash: {
+          "0%": { opacity: "0" },
+          "50%": { opacity: "1" },
+          "100%": { opacity: "0" }
+        },
         fly: {
           "0%, 100%": { transform: "translateX(0) translateY(0) rotate(0deg)" },
           "25%": {

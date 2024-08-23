@@ -1,7 +1,5 @@
-import React from "react";
-import className from "classnames";
+import classNames from "classnames";
 
-// Define a type where each option is a separate type
 type ButtonVariant = "primary" | "secondary" | "success" | "warning" | "danger";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -13,75 +11,45 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  variant,
-  outline,
-  rounded,
+  variant = "primary",
+  outline = false,
+  rounded = false,
   ...rest
 }) => {
   const colors = {
     primary: {
-      bg: "bg-white",
-      text: "text-black",
-      border: "border-primary-500",
-      hover: "hover:bg-gray-100"
+      base: "bg-white text-black border-white border-2 border-white active:border-2 active:border-black",
+      hover:
+        "hover:bg-gradient-to-r hover:from-[#15103E] hover:to-[#A0C943] hover:text-white hover:border-white"
     },
     secondary: {
-      bg: "bg-secondary-500",
-      text: "text-white",
-      border: "border-secondary-600",
+      base: "bg-secondary-500 text-white border-secondary-600",
       hover: "hover:bg-secondary-600 hover:text-white"
     },
     success: {
-      bg: "bg-success-500",
-      text: "text-success-500",
-      border: "border-success-400",
+      base: "bg-success-500 text-white border-success-400",
       hover: "hover:bg-success-600 hover:text-white"
     },
     warning: {
-      bg: "bg-warning-600",
-      text: "text-white",
-      border: "border-warning-600",
-      hover: "hover:bg-warning-800"
+      base: "bg-warning-600  border-warning-600",
+      hover: "hover:bg-warning-800 hover:text-white"
     },
     danger: {
-      bg: "bg-red-500",
-      text: "text-red-500",
-      border: "border-red-500",
+      base: "bg-red-500 text-white border-red-500",
       hover: "hover:bg-red-600 hover:text-white"
     }
   };
 
-  // Define the base classes and conditional classes
-  const classes = className(
-    "flex items-center justify-center px-8 py-4 font-semibold tracking-wide transition duration-300 ease-in-out", // base classes
-    rest.className,
-    {
-      "rounded-full": rounded,
-      "bg-white": outline // apply white background if outline is true
-    },
-    variant && colors[variant].border, // Apply border color based on variant
-    variant && !outline && colors[variant].bg, // Apply background color if not outlined
-    variant && (outline ? colors[variant].text : "text-black"),
-    variant && colors[variant].hover // Apply hover effects
+  const classes = classNames(
+    "flex items-center justify-center px-14 py-4 font-semibold tracking-wide transition-all duration-300 ease-in-out", // base classes
+    rounded ? "rounded-full" : "rounded-none", // Apply rounded corners
+    outline ? "bg-transparent border-2" : colors[variant].base, // Apply border color based on variant and outline
+    colors[variant].hover, // Apply hover effects
+    rest.className // Apply additional classes passed via props
   );
 
   return (
-    <button
-      {...rest}
-      className={classes}
-      style={
-        variant === "primary"
-          ? {
-              border: "2px solid transparent",
-              borderRadius: rounded ? "9999px" : "4px", // Apply full rounding if rounded is true
-              backgroundImage:
-                "linear-gradient(white, white), linear-gradient(to right, #15103E, #A0C943)",
-              backgroundOrigin: "border-box",
-              backgroundClip: "padding-box, border-box"
-            }
-          : {}
-      }
-    >
+    <button {...rest} className={classes}>
       {children}
     </button>
   );

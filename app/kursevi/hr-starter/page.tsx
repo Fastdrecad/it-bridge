@@ -38,7 +38,7 @@ export default function HrStarterPage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <BlurstButton>
+          <BlurstButton color="bg-secondary-500" className="text-white">
             Preuzmite Program obuke <BsFileEarmarkPdf className="text-xl" />
           </BlurstButton>
         </Link>
