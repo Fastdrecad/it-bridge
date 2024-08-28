@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import Header from "@/app/_components/Header";
 import Footer from "@/app/_components/Footer";
+import ClientProviders from "./_contexts/ClientProviders";
 
 const montserrat = Montserrat({ subsets: ["latin"], display: "swap" });
 
@@ -26,7 +27,10 @@ export default function RootLayout({
         className={`${montserrat.className} antialiased bg-white text-primary-900 min-h-screen flex flex-col relative w-full`}
       >
         <Header />
-        <main className="flex-1 grid">{children}</main>
+        <ClientProviders>
+          <main className="flex-1 grid">{children}</main>
+        </ClientProviders>
+
         <Footer />
       </body>
     </html>

@@ -31,7 +31,7 @@ import {
   FaGraduationCap
 } from "react-icons/fa";
 
-import { MdOutlineEmail } from "react-icons/md";
+import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
 import powerBiImage1 from "@/public/PowerBI-kurs-1.jpg";
 import powerBiImage2 from "@/public/PowerBI-kurs-2.jpg";
 import powerBiImage3 from "@/public/power-bi.webp";
@@ -229,6 +229,17 @@ export const navigationLinks = [
     ),
     title: "office@itbridge-services.com",
     target: "_blank"
+  },
+  {
+    id: 5,
+    href: "tel:0621213309",
+    ariaLabel: "phone number",
+    rel: "noopener noreferrer",
+    icon: (
+      <MdOutlinePhone className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
+    ),
+    title: "062 121 3309",
+    target: "_blank"
   }
 ];
 
@@ -280,28 +291,28 @@ export const heroSectionContent = [
     subtitle:
       "Poboljšajte komunikaciju, liderstvo i timski rad za poslovni uspeh",
     backgroundImage: "/soft-skills.webp",
-    buttonLabel: "Zakažite sastanak",
+    buttonLabel: "",
     buttonLink: "/kursevi/meke-vestine"
   },
   {
     title: "PCM",
     subtitle: "Alati za uspešno komuniciranje i razumevanje",
     backgroundImage: "/pcm.webp",
-    buttonLabel: "Zakažite sastanak",
+    buttonLabel: "",
     buttonLink: "/kursevi/pcm"
   },
   {
     title: "Podignite poslovni engleski na viši nivo",
     subtitle: "Komunicirajte profesionalno i sigurno na engleskom jeziku",
     backgroundImage: "/business-english.webp",
-    buttonLabel: "Zakažite sastanak",
+    buttonLabel: "",
     buttonLink: "/kursevi/business-english"
   },
   {
     title: "Otkrijte moć Power BI-ja",
     subtitle: "Transformišite podatke u strateške uvide",
     backgroundImage: "/power-bi.webp",
-    buttonLabel: "Zakažite sastanak",
+    buttonLabel: "",
     buttonLink: "/kontakt"
   },
   {

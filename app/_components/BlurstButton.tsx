@@ -3,7 +3,7 @@ import classnames from "classnames";
 interface BlurstButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
-  color?: string; // Optional color prop
+  color?: string;
 }
 
 const BlurstButton: React.FC<BlurstButtonProps> = ({

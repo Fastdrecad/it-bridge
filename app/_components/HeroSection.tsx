@@ -6,15 +6,13 @@ interface HeroSectionProps {
   subtitle: string;
   backgroundImage: string;
   buttonLabel: string;
-  buttonLink: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   subtitle,
   backgroundImage,
-  buttonLabel,
-  buttonLink
+  buttonLabel
 }) => {
   return (
     <section className="relative w-full h-screen mx-auto md:-mt-28 -mt-16">
@@ -30,10 +28,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
-        <h1 className="text-3xl px-4 md:text-7xl text-white font-bold mb-8 tracking-wide italic drop-shadow-lg text-center ">
+        <h1 className="text-3xl px-4 md:text-7xl text-white font-bold mb-8 tracking-wide italic drop-shadow-lg text-center">
           {title}
         </h1>
-        <p className="text-white text-md md:text-xl mb-10 text-center w-3/4 ">
+        <p className="text-white text-md md:text-xl mb-10 text-center w-3/4">
           {subtitle}
         </p>
         {buttonLabel && buttonLabel.trim() !== "" && (

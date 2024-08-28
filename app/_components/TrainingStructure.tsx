@@ -1,7 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Button from "./Button";
 import BlurstButton from "./BlurstButton";
-import Link from "next/link";
+import { InlineWidget } from "react-calendly";
+import { useCalendly } from "../_contexts/CalendlyContext";
 
 interface TrainingStructureProps {
   items: {
@@ -9,12 +12,36 @@ interface TrainingStructureProps {
     label: string;
   }[];
   buttonLabel: string;
+  onButtonClick?: () => void;
 }
 
 const TrainingStructure: React.FC<TrainingStructureProps> = ({
   items,
   buttonLabel
 }) => {
+  const { isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        widgetRef.current &&
+        !widgetRef.current.contains(event.target as Node)
+      ) {
+        closeCalendly();
+      }
+    };
+
+    if (isCalendlyOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isCalendlyOpen, closeCalendly]);
+
   return (
     <div className="w-full my-20 bg-gradient-to-r from-[#15103E] to-[#A0C943] p-4 md:p-8 text-center">
       <h2 className="text-white text-4xl font-bold mt-10 mb-12">
@@ -32,12 +59,35 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
         ))}
       </div>
       <div className="w-full flex justify-center mb-14 z-10 relative">
-        <Link href="/kontakt">
-          <BlurstButton color="bg-secondary-500" className="text-white">
-            {buttonLabel}
-          </BlurstButton>
-        </Link>
+        <BlurstButton
+          color="bg-secondary-500"
+          className="text-white"
+          onClick={openCalendly} // Trigger Calendly widget
+        >
+          {buttonLabel}
+        </BlurstButton>
       </div>
+
+      {/* Calendly Widget Embed */}
+      {isCalendlyOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-20">
+          <div
+            ref={widgetRef}
+            className="relative w-full max-w-5xl mx-auto"
+            style={{ background: "none", padding: "0" }}
+          >
+            <InlineWidget
+              url="https://calendly.com/andrijas-micun/zakazite-sastanak-1"
+              styles={{
+                minWidth: "320px",
+                height: "700px", // Adjust as needed
+                width: "100%",
+                border: "none"
+              }}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

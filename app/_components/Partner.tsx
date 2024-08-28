@@ -37,7 +37,7 @@ export default function Partner() {
             </p>
           </div>
           <div className="flex-1 flex flex-col items-start gap-4 w-full">
-            <p>Za sva pitanja slobodno nas kontaktirajte</p>
+            {/* <p>Za sva pitanja slobodno nas kontaktirajte</p>
             <form
               className="flex flex-col md:flex-row w-full"
               onSubmit={handleSubmit}
@@ -62,7 +62,7 @@ export default function Partner() {
                 Pitajte nas
                 <BsArrowRight className="text-xl font-bold" />
               </Button>
-            </form>
+            </form> */}
             <PlaneIcon
               width={200}
               className="mt-8 animate-fly self-center mr-24"

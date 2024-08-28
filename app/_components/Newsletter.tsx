@@ -1,75 +1,94 @@
 "use client";
-import { useState } from "react";
-import Button from "@/app/_components/Button";
-import { MdEmail } from "react-icons/md";
+import { FormEvent, useState } from "react";
+import axios from "axios";
+import { MdEmail, MdCheckCircle } from "react-icons/md";
 import ItBridgeLogo from "./ItBridgeLogo";
 import BlurstButton from "./BlurstButton";
 
 export default function Newsletter() {
-  const [email, setEmail] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [status, setStatus] = useState<
+    "success" | "error" | "loading" | "idle"
+  >("idle");
+  const [responseMsg, setResponseMsg] = useState<string>("");
 
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState<string | null>(null); // Allow null and string
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    setStatus("loading");
 
     try {
-      const res = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ email })
+      const response = await axios.post("/api/subscribe", {
+        email,
+        firstName,
+        lastName
       });
-
-      if (res.status === 200) {
-        setSubmitted(true);
-        setEmail("");
+      setStatus("success");
+      setEmail("");
+      setFirstName("");
+      setLastName("");
+      setResponseMsg(response.data.message);
+    } catch (err) {
+      setStatus("error");
+      if (axios.isAxiosError(err) && err.response) {
+        setResponseMsg(
+          err.response.data.error || "An unexpected error occurred"
+        );
       } else {
-        const error = await res.json();
-        setError(error.error);
+        setResponseMsg("An unexpected error occurred");
       }
-    } catch (error) {
-      setError("Nešto je pošlo naopako. Molimo pokušajte ponovo kasnije.");
     }
-  };
+  }
 
   return (
     <section className="flex items-center justify-center min-h-[75vh] bg-gradient-to-r from-[#15103E] to-[#A0C943] relative overflow-hidden">
       <div className="absolute md:w-full h-full z-0 flex items-center justify-end md:mr-36">
         <ItBridgeLogo width="900" color="#15103E" />
       </div>
-      <div className="p-6 rounded-lg  w-full max-w-screen-md z-10  text-white">
-        <h2 className="text-4xl font-bold mb-4 text-center ">
-          Prijavite se za naš newsletter
-        </h2>
-        <p className="text-center mb-8 text-lg md:px-20">
-          Prijavite se putem emaila kako biste dobili dodatni materijal i bili u
-          toku sa novostima vezanim za naše obuke.
-        </p>
-        {submitted ? (
-          <p className="text-green-500 text-center">Hvala na prijavi!</p>
+      <div className="p-6 rounded-lg w-full max-w-screen-md z-10 text-white">
+        {/* Conditionally render the header and introductory text */}
+        {status !== "success" && (
+          <>
+            <h2 className="text-4xl font-bold mb-4 text-center">
+              Prijavite se za naš newsletter
+            </h2>
+            <p className="text-center mb-8 text-lg md:px-20">
+              Budite u toku sa najnovijim obukama i prilikama
+            </p>
+          </>
+        )}
+
+        {status === "success" ? (
+          <div className="text-center">
+            <MdCheckCircle className="text-5xl text-green-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold mb-2">Hvala vam!</h3>
+            <p className="mb-4">{responseMsg}</p>
+            <p>
+              Na email adresu <strong>{email}</strong> poslali smo potvrdu vaše
+              prijave. Proverite inbox i saznajte više o našim obukama.
+            </p>
+          </div>
         ) : (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubscribe}>
             <div className="mb-8">
               <input
-                type="firstName"
+                type="text"
                 id="firstName"
                 value={firstName}
-                onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
+                onChange={(e) => setFirstName(e.target.value)}
+                disabled={status === "loading"}
+                className="appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
                 placeholder="Ime"
                 required
               />
               <input
-                type="lastName"
+                type="text"
                 id="lastName"
                 value={lastName}
-                onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
+                onChange={(e) => setLastName(e.target.value)}
+                disabled={status === "loading"}
+                className="appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline mb-6"
                 placeholder="Prezime"
                 required
               />
@@ -78,18 +97,26 @@ export default function Newsletter() {
                 id="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className=" appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+                disabled={status === "loading"}
+                className="appearance-none border rounded-lg w-full py-3 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
                 placeholder="Email"
                 required
               />
             </div>
-            {error && <p className="text-red-500 text-center">{error}</p>}
             <div className="flex items-center justify-center">
-              <BlurstButton className="w-1/2 text-secondary-500">
-                {" "}
+              <BlurstButton
+                className="w-1/2 text-secondary-500"
+                disabled={status === "loading"}
+              >
                 <MdEmail className="text-2xl m-0 mr-2" />
-                Pošalji
+                Subscribe
               </BlurstButton>
+            </div>
+
+            <div className="server-message pt-4">
+              {status === "error" && (
+                <p className="text-orange-600">{responseMsg}</p>
+              )}
             </div>
           </form>
         )}

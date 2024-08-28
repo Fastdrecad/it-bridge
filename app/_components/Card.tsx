@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import ItBridgeLogo from "./ItBridgeLogo";
-import { SlArrowRight } from "react-icons/sl";
-import { IoIosArrowDropright, IoIosArrowDroprightCircle } from "react-icons/io";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
+import { motion } from "framer-motion";
 
 interface Item {
   title: string;
@@ -14,12 +14,34 @@ interface Item {
 
 interface CardProps {
   item: Item;
+  idx: number;
+  isKurseviPage?: boolean;
 }
 
-export default function Card({ item }: CardProps) {
+export default function Card({ item, idx, isKurseviPage }: CardProps) {
   const { title, image, subtitle, url } = item;
+
+  const animationDuration = isKurseviPage ? 0.6 : 1.4; // Faster on kursevi page
+  const delayPerCard = isKurseviPage ? 0.1 : 0.2;
+
+  const variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: animationDuration,
+        delay: idx * delayPerCard
+      }
+    }
+  };
+
   return (
-    <li className="group relative">
+    <motion.li
+      className="group relative"
+      initial="hidden"
+      animate="visible"
+      variants={variants}
+    >
       <article className="overflow-hidden shadow-custom transition-shadow duration-300 hover:shadow-custom rounded-3xl">
         <div className="relative w-full h-72">
           <Image
@@ -62,6 +84,6 @@ export default function Card({ item }: CardProps) {
           </div>
         </div>
       </article>
-    </li>
+    </motion.li>
   );
 }

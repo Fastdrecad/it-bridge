@@ -69,6 +69,7 @@ export default function Footer() {
               <ul className="flex flex-col items-start">
                 {links.map((link, idx) => (
                   <Link
+                    scroll={true}
                     key={idx}
                     href={link.href}
                     className="py-0.5 hover:underline"

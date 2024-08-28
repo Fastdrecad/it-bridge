@@ -25,6 +25,7 @@ export default function Navigation() {
   const navigation = links.map(({ href, label }) => (
     <li key={href}>
       <Link
+        scroll={true}
         href={href}
         className={`text-nowrap uppercase ${
           pathname === href ? "font-bold" : "font-medium"

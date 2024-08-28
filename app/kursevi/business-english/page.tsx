@@ -1,4 +1,5 @@
-import BlurstButton from "@/app/_components/BlurstButton";
+"use client";
+
 import ContactUs from "@/app/_components/ContactUs";
 import CourseGrid from "@/app/_components/CourseGrid";
 import CourseScheduleTable from "@/app/_components/CourseScheduleTable";
@@ -12,20 +13,13 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
-import { BsFileEarmarkPdf } from "react-icons/bs";
 
-export default function BusinessEnglishPage() {
-  const content = heroSectionContent[3]; // Index corresponds to the course in config.js
+const BusinessEnglishPage: React.FC = () => {
+  const content = heroSectionContent[3];
 
   return (
     <>
-      <HeroSection
-        title={content.title}
-        subtitle={content.subtitle}
-        backgroundImage={content.backgroundImage}
-        buttonLabel={content.buttonLabel}
-        buttonLink={content.buttonLink}
-      />
+      <HeroSection {...content} />
       <FeatureList
         heading="Zašto Business English | German | French?"
         sections={pageFeatures.businessEnglish.sections}
@@ -45,7 +39,10 @@ export default function BusinessEnglishPage() {
         </h1>
         <CourseScheduleTable schedules={courseSchedules.businessEnglish} />
       </div>
+
       <ContactUs />
     </>
   );
-}
+};
+
+export default BusinessEnglishPage;
