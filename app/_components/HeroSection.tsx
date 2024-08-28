@@ -6,6 +6,7 @@ interface HeroSectionProps {
   subtitle: string;
   backgroundImage: string;
   buttonLabel: string;
+  buttonLink: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
