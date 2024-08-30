@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Button from "./Button";
-import { BsFileEarmarkPdf } from "react-icons/bs";
 
 export default function Video() {
   return (
@@ -24,8 +23,7 @@ export default function Video() {
         </h1>
         <Link href="/kursevi">
           <Button variant="primary" rounded>
-            SAZNAJ VIŠE
-            {/* <BsFileEarmarkPdf className="text-xl text-black" /> */}
+            SAZNAJTE VIŠE
           </Button>
         </Link>
       </div>

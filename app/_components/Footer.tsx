@@ -46,17 +46,15 @@ export default function Footer() {
         {/* Parent */}
         <div className="flex flex-col flex-1 gap-4 w-full md:flex-row md:justify-around">
           {/* Content 1 */}
-          <div className="flex flex-col  text-center sm:text-left items-center ">
+          <div className="flex flex-col text-center sm:text-left items-center ">
             <div className="mb-4">
               <Link href="/">
                 <ItBridgeLogo />
               </Link>
             </div>
             <p className="font-normal">
-              <span>
-                Vaš pouzdani partner <br /> za obuke i treninge za <br />
-                kontuirani rast i razvoj
-              </span>
+              Vaš pouzdani partner <br />
+              Znanje koje transformiše, <br /> edukacija koja inspiriše
             </p>
           </div>
 
@@ -84,7 +82,7 @@ export default function Footer() {
 
         {/* Social Media Links */}
         <div className="flex flex-col flex-1 gap-4">
-          <p className="font-medium text-center">PRIDRUŽI NAM SE</p>
+          <p className="font-medium text-center">PRIDRUŽITE NAM SE</p>
           <div className="flex justify-center gap-10">
             {socialLinks.map((link, idx) => (
               <Link
@@ -106,9 +104,9 @@ export default function Footer() {
               href="https://andrijadesign.com/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-green-500 text-gray-300"
+              className="hover:text-warning-600 text-gray-300"
             >
-              Andrija Micunovic
+              Andrija Mićunović
             </Link>
           </div>
 

@@ -27,6 +27,24 @@ export async function POST(req: Request) {
     text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`
   };
 
+  // // Configure Nodemailer with Hostinger SMTP server
+  // const transporter = nodemailer.createTransport({
+  //   host: "smtp.titan.email",
+  //   port: 465,
+  //   secure: true,
+  //   auth: {
+  //     user: process.env.HOSTINGER_EMAIL_USER, // Your Hostinger email address
+  //     pass: process.env.HOSTINGER_EMAIL_PASSWORD // Your Hostinger email password
+  //   }
+  // });
+
+  // const mailOptions = {
+  //   from: process.env.HOSTINGER_EMAIL_USER, // Your Hostinger email address
+  //   to: "andrijas.micun@gmail.com", // The recipient email address
+  //   subject: `Nova poruka od ${ime} ${prezime}`,
+  //   text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`
+  // };
+
   try {
     await transporter.sendMail(mailOptions);
     return NextResponse.json(

@@ -5,9 +5,25 @@ import Testimonials from "@/app/_components/Testimonials";
 import Newsletter from "@/app/_components/Newsletter";
 import Partner from "@/app/_components/Partner";
 
-export default function Home() {
+export default function HomePage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://itbridge-services.com/",
+    "name": "IT Bridge EDU Center",
+    "description": "Investirajte u obuke koje donose rezultate.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IT Bridge EDU Center"
+    }
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Video />
       <About />
       <Courses />

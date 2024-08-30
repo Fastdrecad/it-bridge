@@ -109,7 +109,7 @@ export default function Newsletter() {
                 disabled={status === "loading"}
               >
                 <MdEmail className="text-2xl m-0 mr-2" />
-                Subscribe
+                Prijavite se
               </BlurstButton>
             </div>
 

@@ -11,7 +11,11 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
-import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "PCM"
+};
 
 export default function PcmPage() {
   const content = heroSectionContent[2];

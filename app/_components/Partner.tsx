@@ -27,13 +27,11 @@ export default function Partner() {
       <div className="flex max-w-[1140px] mx-auto">
         <div className="flex flex-col items-center lg:flex-row lg:items-start justify-between gap-16 md:gap-32">
           <div className="flex flex-col flex-1 gap-4 ">
-            <h2 className="text-3xl">
-              IT Bridge je Vaš partner <br /> u transformaciji
-            </h2>
+            <h2 className="text-3xl">Vaš partner u transformaciji</h2>
             <p>
-              Svakom transformacijom poslovanja klijenata transformišemo i sebe.
-              Ta neprekidna transformacija nam daje visok nivo spremnosti da
-              omogućimo uspešnu transformaciju svim našim klijentima.
+              IT Bridge je posvećen stvaranju vrednih partnerstava koja kroz
+              prilagođene programe omogućavaju rast i transformaciju vašeg
+              poslovanja.
             </p>
           </div>
           <div className="flex-1 flex flex-col items-start gap-4 w-full">

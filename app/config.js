@@ -69,7 +69,7 @@ export const calendarCourses = [
   {
     name: "HR Starter",
     location: "In-house / Online",
-    date: "14. septembar 2024.",
+    date: "21. septembar 2024.",
     status: "Upis u toku"
   },
   {
@@ -264,7 +264,7 @@ export const testimonials = [
     id: 3,
     name: "Anđela Stojanović",
     title: "HR Starter",
-    position: "HR recruiter",
+    position: "HR Recruiter",
     review:
       "Kurs, više od kursa zapravo. Pružio mi je dragocena praktična znanja i unapredio veštine što je rezultiralo promenom pozicije tokom kursa. Od logistike do HR-a. Moguće je! Prezadovoljna sam mentorkama i kompletnom organizacijom. Preporučujem svima koji žele da se bave HR-om. "
   },
@@ -272,7 +272,7 @@ export const testimonials = [
     id: 4,
     name: "Ana Kuzmanović",
     title: "HR Starter",
-    position: "HR & Payroll Manager",
+    position: "HR & Payroll Associate",
     review:
       "Zahvalna sam na svim podeljenim iskustvima i podršci tokom ovog kursa. Bilo je pravo zadovoljstvo sarađivati sa vama. Uverena sam da će ovaj kurs inspirisati mnoge i omogućiti im da naprave značajan zaokret u svojoj karijeri.  "
   }
@@ -614,7 +614,7 @@ export const courseContent = {
       title: "Zašto naša PCM obuka?",
       items: [
         "Naša obuka PCM pruža praktične veštine i tehnike koje će vašem timu pomoći da postigne bolje rezultate, stvori pozitivno radno okruženje i unapredi poslovne procese.",
-        "Korisnici PCM (Process Communication Model) širom sveta.:"
+        "Korisnici PCM (Process Communication Model) širom sveta:"
       ],
       companyLogos: [
         { icon: <SiIbm className="text-7xl" /> },
@@ -714,10 +714,10 @@ export const courseItems = {
 export const courseSchedules = {
   hr: [
     {
-      participants: "5-10",
+      participants: "5-8",
       location: "Online",
       schedule: "Vikendom / Dogovor",
-      duration: "18 sati / 6 nedelja",
+      duration: "24 sata / 6 nedelja",
       price: "27.900 din"
     }
   ],
@@ -754,8 +754,7 @@ export const courseSchedules = {
       participants: "4 - 6",
       location: "Online via MS Teams",
       schedule: "Dogovor",
-      duration: "32 časa / 8 nedelja",
-      price: "27.900 din"
+      duration: "32 časa / 8 nedelja"
     }
   ],
   powerBI: [
@@ -777,8 +776,8 @@ export const courseSchedules = {
       participants: "Do 8",
       location: "Online via MS Teams",
       schedule: "Dogovor",
-      duration: "18 sati / 6 nedelja",
-      price: "34.900 din"
+      duration: "32 sata / 6 nedelja",
+      price: "38.900 din"
     }
   ]
 };

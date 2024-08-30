@@ -2,7 +2,8 @@ import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import ItBridgeLogo from "./ItBridgeLogo";
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface Item {
   title: string;
@@ -16,13 +17,24 @@ interface CardProps {
   item: Item;
   idx: number;
   isKurseviPage?: boolean;
+  triggerAnimation: boolean;
+  animationProps: {
+    duration: number;
+    delay: number;
+  };
 }
 
-export default function Card({ item, idx, isKurseviPage }: CardProps) {
+const Card: React.FC<CardProps> = ({
+  item,
+  idx,
+  isKurseviPage,
+  triggerAnimation,
+  animationProps
+}) => {
   const { title, image, subtitle, url } = item;
 
-  const animationDuration = isKurseviPage ? 0.6 : 1.4; // Faster on kursevi page
-  const delayPerCard = isKurseviPage ? 0.1 : 0.2;
+  const animationDuration = isKurseviPage ? 0.6 : 1.4;
+  const delayPerCard = isKurseviPage ? 0.15 : 0.2;
 
   const variants = {
     hidden: { opacity: 0 },
@@ -86,4 +98,6 @@ export default function Card({ item, idx, isKurseviPage }: CardProps) {
       </article>
     </motion.li>
   );
-}
+};
+
+export default Card;

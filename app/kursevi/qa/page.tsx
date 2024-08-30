@@ -12,11 +12,16 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
+import { Metadata } from "next";
 import Link from "next/link";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 
+export const metadata: Metadata = {
+  title: "QA Automatizacija"
+};
+
 export default function QaPage() {
-  const content = heroSectionContent[5]; // Index corresponds to the course in config.js
+  const content = heroSectionContent[5];
 
   return (
     <>
@@ -46,7 +51,7 @@ export default function QaPage() {
       </div>
       <TrainingStructure
         items={courseItems.qaAutomation}
-        buttonLabel="Prijavi se"
+        buttonLabel="Prijavite se"
       />
       <div className="container mx-auto p-8">
         <h1 className="text-3xl font-bold mb-8">Detalji obuke QA Autimation</h1>

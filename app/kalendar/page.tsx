@@ -1,6 +1,11 @@
 import ResponsiveTable from "@/app/_components/ResponsiveTable";
 import calendarBg from "@/public/kalendar.jpg";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Kalendar"
+};
 
 export default function KalendarPage() {
   return (

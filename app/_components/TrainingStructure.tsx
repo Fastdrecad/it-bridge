@@ -77,7 +77,7 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
             style={{ background: "none", padding: "0" }}
           >
             <InlineWidget
-              url="https://calendly.com/andrijas-micun/zakazite-sastanak-1"
+              url="https://calendly.com/andri-m/zakazite-sastanak-1"
               styles={{
                 minWidth: "320px",
                 height: "700px", // Adjust as needed

@@ -20,3 +20,13 @@ declare global {
 }
 
 export {};
+
+export interface PageMetadata {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogUrl?: string;
+  ogType?: string;
+  ogImage?: string;
+  robots?: string;
+}

@@ -38,11 +38,11 @@ const FeatureList: React.FC<FeatureListProps> = ({
             {flags.map((flag, idx) => (
               <Image
                 key={idx}
-                src={flag} // Assuming you have the flags stored in a specific path
-                width="80" // Adjust the size as needed
-                height="80"
-                className="object-cover"
+                src={flag}
+                width={80}
+                height={80}
                 alt={`flag-${idx}`}
+                className="object-cover w-auto h-auto"
               />
             ))}
           </div>

@@ -12,8 +12,13 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
+import { Metadata } from "next";
 import Link from "next/link";
 import { BsFileEarmarkPdf } from "react-icons/bs";
+
+export const metadata: Metadata = {
+  title: "HR Starter"
+};
 
 export default function HrStarterPage() {
   const content = heroSectionContent[0];
@@ -44,7 +49,7 @@ export default function HrStarterPage() {
         </Link>
       </div>
 
-      <TrainingStructure items={courseItems.hr} buttonLabel="Prijavi se" />
+      <TrainingStructure items={courseItems.hr} buttonLabel="Prijavite se" />
 
       <div className="container mx-auto p-4 md:p-8">
         <h1 className="text-3xl font-bold mb-4 md:mb-8">

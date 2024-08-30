@@ -10,7 +10,7 @@ export default function SocialLinks({
   isScrolled,
   isHomePage
 }: SocialLinksProps) {
-  const containerClasses = `hidden md:flex flex-col justify-center py-2 gap-4 h-14 md:h-fit relative z-50 ${
+  const containerClasses = `hidden md:flex flex-col justify-center py-2 gap-4 h-14 md:h-fit relative  -z-[1] ${
     isHomePage
       ? isScrolled
         ? "bg-slate-50/70 backdrop-blur-xl text-black"
@@ -19,7 +19,7 @@ export default function SocialLinks({
   }`;
 
   const linkClasses = (index: number) =>
-    `px-4 md:px-3 ${
+    `px-4 md:px-3 select-none ${
       index !== 0 && ((isHomePage && isScrolled) || !isHomePage)
         ? "border-l border-black"
         : ""

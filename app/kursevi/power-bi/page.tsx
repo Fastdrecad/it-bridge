@@ -10,13 +10,16 @@ import FeatureList from "@/app/_components/FeatureList";
 import CourseGrid from "@/app/_components/CourseGrid";
 import TrainingStructure from "@/app/_components/TrainingStructure";
 import CourseScheduleTable from "@/app/_components/CourseScheduleTable";
-import BlurstButton from "@/app/_components/BlurstButton";
-import { BsFileEarmarkPdf } from "react-icons/bs";
 import ContactUs from "@/app/_components/ContactUs";
 import PowerBiCards from "@/app/_components/PowerBiCards";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Power BI"
+};
 
 export default function PowerBiPage() {
-  const content = heroSectionContent[4]; // Index corresponds to the course
+  const content = heroSectionContent[4];
 
   return (
     <>

@@ -1,5 +1,3 @@
-"use client";
-
 import ContactUs from "@/app/_components/ContactUs";
 import CourseGrid from "@/app/_components/CourseGrid";
 import CourseScheduleTable from "@/app/_components/CourseScheduleTable";
@@ -13,6 +11,11 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Bussiness English"
+};
 
 const BusinessEnglishPage: React.FC = () => {
   const content = heroSectionContent[3];

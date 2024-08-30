@@ -1,4 +1,9 @@
 import Courses from "@/app/_components/Courses";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kursevi"
+};
 
 export default function KurseviPage() {
   return (

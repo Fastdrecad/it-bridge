@@ -1,11 +1,12 @@
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo } from "react";
+import { useMemo, useState, useRef, useEffect } from "react";
 
 interface LinkItem {
   href: string;
   label: string;
+  subLinks?: LinkItem[];
 }
 
 interface SidebarProps {
@@ -22,31 +23,60 @@ const Sidebar = ({
   isScrolled
 }: SidebarProps) => {
   const pathname = usePathname();
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLLIElement>(null);
 
   const links: LinkItem[] = useMemo(
     () => [
       { href: "/", label: "O Nama" },
-      { href: "/kursevi", label: "Kursevi" },
+      {
+        href: "/kursevi",
+        label: "Kursevi",
+        subLinks: [
+          { href: "/kursevi/hr-starter", label: "HR" },
+          { href: "/kursevi/meke-vestine", label: "Soft Skills" },
+          { href: "/kursevi/business-english", label: "Business English" },
+          { href: "/kursevi/pcm", label: "PCM" },
+          { href: "/kursevi/power-bi", label: "Power BI" },
+          { href: "/kursevi/qa", label: "QA Automation" }
+        ]
+      },
       { href: "/kalendar", label: "Kalendar" },
-      // { href: "/mentorstvo", label: "Mentorstvo" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []
   );
 
-  const navigation = links.map(({ href, label }) => (
-    <li key={href} className="">
-      <Link
-        href={href}
-        className={`text-nowrap transition-colors uppercase ${
-          pathname === href ? "font-bold" : "font-medium"
-        }`}
-        onClick={onToggle}
-      >
-        {label}
-      </Link>
-    </li>
-  ));
+  const handleDropdownToggle = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setDropdownOpen((prevState) => !prevState);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
+      setDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
+
+  // Check if the pathname matches the main "Kursevi" link or any of its sublinks
+  const isKurseviActive =
+    links[1].subLinks?.some((subLink) => pathname === subLink.href) ||
+    pathname === "/kursevi";
 
   return (
     <div className="md:hidden md:h-screen md:w-full">
@@ -59,12 +89,95 @@ const Sidebar = ({
         {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
       </button>
       <aside
-        className={`fixed right-0 w-fullflex bg-white text-black z-20 transform w-full h-full ${
+        className={`fixed right-0 w-full bg-white text-black z-20 transform h-full ${
           isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out flex items-center justify-center`}
+        } transition-transform duration-300 ease-in-out`}
       >
-        <ul className="flex flex-col gap-10 items-start text-xl -mt-24">
-          {navigation}
+        {/* Fixed Top Section */}
+        <ul className="flex flex-col gap-4 items-start text-xl pl-36 pt-[12rem] pb-4">
+          <li>
+            <Link
+              href="/"
+              className={`text-nowrap uppercase ${
+                pathname === "/" ? "font-bold" : "font-medium"
+              }`}
+              onClick={onToggle}
+            >
+              O Nama
+            </Link>
+          </li>
+          <li className="relative z-50" ref={dropdownRef}>
+            <div className="flex items-center gap-1">
+              <Link
+                href="/kursevi"
+                className={`text-nowrap uppercase ${
+                  isKurseviActive ? "font-bold" : "font-medium"
+                }`}
+                onClick={onToggle}
+              >
+                Kursevi
+              </Link>
+              <div
+                className="cursor-pointer ml-2"
+                onClick={handleDropdownToggle}
+              >
+                {isDropdownOpen ? (
+                  <FaChevronUp className="text-sm" />
+                ) : (
+                  <FaChevronDown className="text-sm" />
+                )}
+              </div>
+            </div>
+            {isDropdownOpen && (
+              <ul className="mt-2 ms-2 space-y-2 bg-slate-100">
+                {links[1].subLinks?.map((subLink) => (
+                  <li key={subLink.href}>
+                    <Link
+                      href={subLink.href}
+                      className={`block px-2 py-1 text-sm ${
+                        pathname === subLink.href
+                          ? "bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm"
+                          : "hover:bg-gray-100 text-gray-700"
+                      }`}
+                      onClick={onToggle}
+                    >
+                      {subLink.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
+        </ul>
+
+        {/* Moving Bottom Section */}
+        <ul
+          className={`flex flex-col gap-4 items-start text-xl pl-36 transition-all duration-300 ${
+            isDropdownOpen ? "mt-4" : "mt-0"
+          }`}
+        >
+          <li>
+            <Link
+              href="/kalendar"
+              className={`text-nowrap uppercase ${
+                pathname === "/kalendar" ? "font-bold" : "font-medium"
+              }`}
+              onClick={onToggle}
+            >
+              Kalendar
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/kontakt"
+              className={`text-nowrap uppercase ${
+                pathname === "/kontakt" ? "font-bold" : "font-medium"
+              }`}
+              onClick={onToggle}
+            >
+              Kontakt
+            </Link>
+          </li>
         </ul>
       </aside>
     </div>

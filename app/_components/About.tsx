@@ -1,6 +1,6 @@
 export default function About() {
   return (
-    <section className="text-left max-w-7xl w-full mx-auto my-28 md:my-44 px-4">
+    <section className="text-left max-w-7xl w-full mx-auto my-28 md:mt-44 px-4">
       <h2 className="relative text-4xl font-extrabold my-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600">
         O NAMA
       </h2>

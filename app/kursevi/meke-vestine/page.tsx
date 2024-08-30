@@ -1,4 +1,3 @@
-import BlurstButton from "@/app/_components/BlurstButton";
 import ContactUs from "@/app/_components/ContactUs";
 import CourseGrid from "@/app/_components/CourseGrid";
 import CourseScheduleTable from "@/app/_components/CourseScheduleTable";
@@ -12,11 +11,14 @@ import {
   heroSectionContent,
   pageFeatures
 } from "@/app/config";
-import Link from "next/link";
-import { BsFileEarmarkPdf } from "react-icons/bs";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Meke veštine"
+};
 
 export default function SoftSkillsPage() {
-  const content = heroSectionContent[1]; // Index corresponds to the course in config.js
+  const content = heroSectionContent[1];
 
   return (
     <>
