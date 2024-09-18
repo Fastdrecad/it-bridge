@@ -105,10 +105,10 @@ export default function Newsletter() {
             </div>
             <div className="flex items-center justify-center">
               <BlurstButton
-                className="w-1/2 text-secondary-500"
+                className=" text-secondary-500 whitespace-nowrap w-2/3 md:w-1/2"
                 disabled={status === "loading"}
               >
-                <MdEmail className="text-2xl m-0 mr-2" />
+                <MdEmail className="text-xl md:text-2xl m-0 mr-2" />
                 Prijavite se
               </BlurstButton>
             </div>

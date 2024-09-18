@@ -26,8 +26,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <link rel="preload" href={imageUrl} as="image" />
       </Head>
 
-      <section className="relative w-full h-screen mx-auto md:-mt-28 -mt-16">
-        <div className="absolute top-0 left-0 w-full h-full">
+      <section className="w-full h-screen mx-auto -mt-44">
+        <div className="absolute top-0 left-0 w-full h-screen object-cover">
           <Image
             src={backgroundImage}
             alt={`Background image for ${title}`}

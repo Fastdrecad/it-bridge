@@ -37,6 +37,7 @@ export default function Footer() {
           quality={100}
           alt="Circular Stairs"
           className="object-cover object-center w-full h-full"
+          loading="lazy"
         />
       </div>
       {/* Overlay */}

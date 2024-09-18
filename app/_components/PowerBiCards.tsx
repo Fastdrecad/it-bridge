@@ -37,6 +37,7 @@ export default function PowerBiCards() {
                   width={300}
                   height={300}
                   className="object-cover w-full h-full"
+                  loading="lazy"
                 />
               </div>
             </div>

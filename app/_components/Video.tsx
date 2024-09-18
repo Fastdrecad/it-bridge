@@ -10,6 +10,7 @@ export default function Video() {
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute top-0 left-0 w-full h-screen object-cover m-0 p-0 z-0 backdrop-filter"
       >
         <source src="/it-bridge-loop.mp4" type="video/mp4" />

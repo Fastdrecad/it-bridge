@@ -25,11 +25,11 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <>
-      {/* <Head>
+      <Head>
         <link rel="preload" href={kontaktBg.src} as="image" />
-      </Head> */}
-      <section className="flex flex-col overflow-hidden items-center justify-center relative bg-secondary-500">
-        <div className="absolute w-full h-full z-0 opacity-30 flex justify-center">
+      </Head>
+      <section className="w-full h-screen flex flex-col overflow-hidden items-center justify-center">
+        <div className="absolute top-0 left-0 w-full h-screen object-cover">
           <Image
             src={kontaktBg}
             alt="Handshake"
@@ -38,7 +38,10 @@ export default function KontaktPage() {
             quality={100}
             priority
           />
+          {/* Overlay */}
+          <div className="absolute inset-0  bg-secondary-500 opacity-60 z-10"></div>
         </div>
+
         <ItBridgeLogo
           width="100"
           color="#8BFC40"

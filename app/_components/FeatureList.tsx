@@ -43,6 +43,7 @@ const FeatureList: React.FC<FeatureListProps> = ({
                 height={80}
                 alt={`flag-${idx}`}
                 className="object-cover w-auto h-auto"
+                loading="lazy"
               />
             ))}
           </div>

@@ -60,7 +60,6 @@ function Header() {
             <Navigation />
           </div>
         </div>
-
         <SocialLinks isScrolled={isScrolled} isHomePage={isHomePage} />
       </header>
 

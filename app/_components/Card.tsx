@@ -56,7 +56,8 @@ const Card: React.FC<CardProps> = ({
     >
       <article className="overflow-hidden shadow-custom transition-shadow duration-300 hover:shadow-custom rounded-3xl">
         <div className="relative w-full h-72">
-          <Image
+          <Image 
+            loading="lazy"
             src={image}
             alt={title}
             className="w-full h-full object-cover transition-transform duration-500 transform group-hover:scale-125"

@@ -6,13 +6,15 @@ import quoteImg from "@/public/quote-start.png";
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full min-h-[80vh] md:min-h-[80vh] my-20 text-black md:my-44 px-4 overflow-hidden">
+    <section className="relative w-full min-h-[80vh] md:min-h-[80vh] my-20 md:my-44 px-4 overflow-hidden">
       <div className="absolute inset-0 w-full h-full ">
         <Image
           src={bg}
           fill
           alt="background image"
           className="object-cover object-center"
+          loading="lazy"
+          quality={60}
         />
       </div>
       {/* Hero Wrapper */}
@@ -29,6 +31,7 @@ export default function Testimonials() {
                     src={quoteImg}
                     alt="quote start"
                     className="w-8 h-auto sm:w-10 md:w-12 lg:w-14 xl:w-16"
+                    loading="lazy"
                   />
                 </div>
                 <div className="absolute top-0 right-8 md:right-60 rotate-180">
@@ -36,6 +39,7 @@ export default function Testimonials() {
                     src={quoteImg}
                     alt="quote start"
                     className="w-8 h-auto sm:w-10 md:w-12 lg:w-14 xl:w-16"
+                    loading="lazy"
                   />
                 </div>
                 <div className="min-h-[400px] h-full w-2/3 md:w-1/2 text-center text-white flex flex-col relative justify-between items-center pb-5 gap-8">

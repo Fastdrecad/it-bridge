@@ -89,12 +89,12 @@ const Sidebar = ({
         {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
       </button>
       <aside
-        className={`fixed right-0 w-full bg-white text-black z-20 transform h-full ${
+        className={`fixed right-0 w-full bg-white text-black z-20 transform h-full text-xl ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
         {/* Fixed Top Section */}
-        <ul className="flex flex-col gap-4 items-start text-xl pl-36 pt-[12rem] pb-4">
+        <ul className="flex flex-col gap-4 items-start  pl-36 pt-[12rem] pb-4">
           <li>
             <Link
               href="/"
@@ -122,19 +122,19 @@ const Sidebar = ({
                 onClick={handleDropdownToggle}
               >
                 {isDropdownOpen ? (
-                  <FaChevronUp className="text-sm" />
+                  <FaChevronUp className="text-md" />
                 ) : (
-                  <FaChevronDown className="text-sm" />
+                  <FaChevronDown className="text-md" />
                 )}
               </div>
             </div>
             {isDropdownOpen && (
-              <ul className="mt-2 ms-2 space-y-2 bg-slate-100">
+              <ul className="mt-2 ms-2 space-y-2 bg-slate-100 py-3">
                 {links[1].subLinks?.map((subLink) => (
                   <li key={subLink.href}>
                     <Link
                       href={subLink.href}
-                      className={`block px-2 py-1 text-sm ${
+                      className={`block px-4 text-base leading-6 ${
                         pathname === subLink.href
                           ? "bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm"
                           : "hover:bg-gray-100 text-gray-700"
@@ -152,7 +152,7 @@ const Sidebar = ({
 
         {/* Moving Bottom Section */}
         <ul
-          className={`flex flex-col gap-4 items-start text-xl pl-36 transition-all duration-300 ${
+          className={`flex flex-col gap-4 items-start pl-36 transition-all duration-300 ${
             isDropdownOpen ? "mt-4" : "mt-0"
           }`}
         >

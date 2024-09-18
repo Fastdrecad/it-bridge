@@ -9,13 +9,15 @@ export const metadata: Metadata = {
 
 export default function KalendarPage() {
   return (
-    <section className="relative bg-secondary-500 text-white min-h-screen w-full px-8 overflow-hidden">
-      <div className="absolute inset-0 w-full h-full -z-0">
+    <section className="text-white min-h-screen w-full px-8 pb-8 overflow-hidden">
+      <div className="absolute inset-0 w-full h-screen object-cover -z-0">
         <Image
           src={calendarBg}
           fill
           alt="Background Image"
           className="object-left object-cover"
+          priority
+          quality={100}
         />
       </div>
       <div className="max-w-6xl mx-auto z-10 relative">

@@ -10,7 +10,8 @@ const config: Config = {
     extend: {
       animation: {
         fly: "fly 4s ease-in-out infinite",
-        flash: "flash 100ms ease-in-out"
+        flash: "flash 100ms ease-in-out",
+        spin: "spin 1s linear infinite"
       },
       keyframes: {
         flash: {

@@ -192,7 +192,7 @@ export const navigationLinks = [
     href: "https://www.linkedin.com/company/it-bridge-edu-center/",
     rel: "noopener noreferrer",
     icon: (
-      <FaLinkedinIn className="w-8 h-8 md:w-4 md:h-4 hover:text-indigo-700 transition duration-200" />
+      <FaLinkedinIn className="  hover:text-indigo-700 transition duration-200 lg:text-base text-3xl" />
     ),
     title: "IT Bridge EDU Center",
     target: "_blank"
@@ -204,7 +204,7 @@ export const navigationLinks = [
     rel: "noopener noreferrer",
     title: "IT Bridge",
     icon: (
-      <FaInstagram className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
+      <FaInstagram className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
     ),
     target: "_blank"
   },
@@ -214,7 +214,7 @@ export const navigationLinks = [
     ariaLabel: "IT Bridge Facebook profile",
     rel: "noopener noreferrer",
     icon: (
-      <FaFacebook className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
+      <FaFacebook className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
     ),
     title: "IT Bridge EDU Center",
     target: "_blank"
@@ -225,7 +225,7 @@ export const navigationLinks = [
     ariaLabel: "Email IT Bridge",
     rel: "noopener noreferrer",
     icon: (
-      <MdOutlineEmail className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
+      <MdOutlineEmail className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
     ),
     title: "office@itbridge-services.com",
     target: "_blank"
@@ -236,7 +236,7 @@ export const navigationLinks = [
     ariaLabel: "phone number",
     rel: "noopener noreferrer",
     icon: (
-      <MdOutlinePhone className="w-8 h-8 md:w-4 md:h-4  hover:text-indigo-700 transition duration-200" />
+      <MdOutlinePhone className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
     ),
     title: "062 121 3309",
     target: "_blank"

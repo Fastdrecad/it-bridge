@@ -1,63 +1,55 @@
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 
+// Email configuration from environment variables
+const senderEmail = process.env.SMTP_USER!;
+const senderPassword = process.env.SMTP_PASSWORD!;
+const recipientEmail = "andrija@andrijadesign.com";
+
 export async function POST(req: Request) {
-  const { ime, prezime, email, telefon, poruka } = await req.json();
-
-  if (!ime || !prezime || !email || !poruka) {
-    return NextResponse.json(
-      { error: "Sva polja su obavezna." },
-      { status: 400 }
-    );
-  }
-
-  // Konfiguriši nodemailer sa Gmail SMTP serverom
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.GMAIL_USER,
-      pass: process.env.GMAIL_PASSWORD
-    }
-  });
-
-  const mailOptions = {
-    from: email,
-    to: "andrijas.micun@gmail.com",
-    subject: `Nova poruka od ${ime} ${prezime}`,
-    text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`
-  };
-
-  // // Configure Nodemailer with Hostinger SMTP server
-  // const transporter = nodemailer.createTransport({
-  //   host: "smtp.titan.email",
-  //   port: 465,
-  //   secure: true,
-  //   auth: {
-  //     user: process.env.HOSTINGER_EMAIL_USER, // Your Hostinger email address
-  //     pass: process.env.HOSTINGER_EMAIL_PASSWORD // Your Hostinger email password
-  //   }
-  // });
-
-  // const mailOptions = {
-  //   from: process.env.HOSTINGER_EMAIL_USER, // Your Hostinger email address
-  //   to: "andrijas.micun@gmail.com", // The recipient email address
-  //   subject: `Nova poruka od ${ime} ${prezime}`,
-  //   text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`
-  // };
-
   try {
-    await transporter.sendMail(mailOptions);
+    const { ime, prezime, email, telefon, poruka } = await req.json();
+
+    if (!ime || !prezime || !email || !poruka) {
+      return NextResponse.json(
+        { error: "All required fields must be filled." },
+        { status: 400 }
+      );
+    }
+
+    // Create a Nodemailer transporter
+    const transporter = nodemailer.createTransport({
+      host: "smtp.titan.email",
+      port: 587,
+      auth: {
+        user: senderEmail,
+        pass: senderPassword
+      }
+    });
+
+    // Create the email options
+    const mailOptions = {
+      from: senderEmail,
+      to: recipientEmail,
+      subject: `Kontakt from ${ime} ${prezime}`,
+      text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`,
+      html: `<p><strong>Ime:</strong> ${ime}</p><p><strong>Prezime:</strong> ${prezime}</p><p><strong>Email:</strong> ${email}</p><p><strong>Telefon:</strong> ${telefon}</p><p><strong>Poruka:</strong> ${poruka}</p>`
+    };
+
+    // Send the email
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully.", info);
+
+    // You can implement the IMAP logic to append to the "Sent" folder here if needed
+
     return NextResponse.json(
-      { message: "Vaša poruka je uspešno poslata!" },
+      { message: "Email sent successfully." },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Greška pri slanju email-a:", error);
+    console.error("Error sending email:", error);
     return NextResponse.json(
-      {
-        error:
-          "Došlo je do greške pri slanju vaše poruke. Molimo vas pokušajte ponovo kasnije."
-      },
+      { error: "Failed to send email." },
       { status: 500 }
     );
   }
