@@ -1,16 +1,25 @@
 "use client";
 
-import { courses } from "@/app/config";
-import Card from "@/app/_components/Card";
-import { usePathname } from "next/navigation";
-import BlurstButton from "./BlurstButton";
-import Link from "next/link";
 import { useEffect, useState } from "react";
+
+import { usePathname, useRouter } from "next/navigation";
 import { useInView } from "react-intersection-observer";
+
+import Card from "@/app/_components/Card";
+
+// import { courses } from "@/app/config";
+import Button from "@/app/_components/common/Button/Button";
+import { courses } from "@/app/_data";
 
 export default function Courses() {
   const pathname = usePathname();
   const isKurseviPage = pathname === "/kursevi";
+
+  const router = useRouter();
+
+  const handleNavigate = () => {
+    router.push("/kontakt");
+  };
 
   const [animateCards, setAnimateCards] = useState(false);
 
@@ -31,7 +40,7 @@ export default function Courses() {
   };
 
   return (
-    <section className="text-center mx-auto w-full max-w-7xl my-20 md:my-20 px-4">
+    <section className="text-center mx-auto w-full max-w-7xl my-20 md:my-20 px-4 overflow-x-hidden">
       <h2
         className={`relative text-4xl font-extrabold mb-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success ${
           isKurseviPage ? "text-white" : ""
@@ -52,12 +61,10 @@ export default function Courses() {
           </div>
         ))}
       </ul>
-      <div className="flex justify-center my-20">
-        <Link href="/kontakt">
-          <BlurstButton className=" text-white" color="bg-secondary-500">
-            KONTAKTIRAJTE NAS
-          </BlurstButton>
-        </Link>
+      <div className="flex flex-col gap-48 justify-center items-center my-24">
+        <Button variant="secondary" onClick={handleNavigate}>
+          KONTAKTIRAJTE NAS
+        </Button>
       </div>
     </section>
   );

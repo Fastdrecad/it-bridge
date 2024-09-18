@@ -1,279 +1,133 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
-import axios from "axios";
-import BlurstButton from "../_components/BlurstButton";
-import { capitalizeFirstLetter } from "../_utils/stringUtils";
+import { FormEvent } from "react";
+
 import { MdCheckCircle } from "react-icons/md";
 import { motion } from "framer-motion";
 
-interface FormData {
-  ime: string;
-  prezime: string;
-  email: string;
-  telefon: string;
-  poruka: string;
-}
+import { capitalizeFirstLetter } from "../_utils/stringUtils";
 
-interface FormErrors {
-  ime?: string;
-  prezime?: string;
-  email?: string;
-  telefon?: string;
-  poruka?: string;
-}
+import Button from "@/app/_components/common/Button/Button";
 
-export default function KontaktForm() {
-  const [formData, setFormData] = useState<FormData>({
-    ime: "",
-    prezime: "",
-    email: "",
-    telefon: "",
-    poruka: ""
-  });
+import { inputs } from "@/app/_data";
+import useContactForm from "@/app/_hooks/useContactForm";
+import api from "@/app/_services/contactService";
 
-  const [formErrors, setFormErrors] = useState<FormErrors>({});
-  const [status, setStatus] = useState<
-    "success" | "error" | "loading" | "idle"
-  >("idle");
-  const [responseMsg, setResponseMsg] = useState<string>("");
+import FormInput from "@/app/_components/contact/FormInput";
+import { type } from "os";
+import { map } from "zod";
 
-  const formVariants = {
-    hidden: { scale: 0, filter: "blur(20px)" },
-    visible: {
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        scale: {
-          duration: 0.5,
-          ease: "easeInOut"
-        },
-        filter: {
-          duration: 0.5,
-          ease: "easeInOut"
-        }
+const formVariants = {
+  hidden: { scale: 0, filter: "blur(20px)" },
+  visible: {
+    scale: 1,
+    filter: "blur(0px)",
+    transition: {
+      scale: {
+        duration: 0.5,
+        ease: "easeInOut"
+      },
+      filter: {
+        duration: 0.5,
+        ease: "easeInOut"
       }
     }
-  };
+  }
+};
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = event.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
+export default function KontaktForm() {
+  const {
+    values,
+    handleChange,
+    isFormValidState,
+    loading,
+    setLoading,
+    responseMessage,
+    setResponseMessage
+  } = useContactForm();
 
-  const validateForm = (): FormErrors => {
-    let errors: FormErrors = {};
-    if (!formData.ime.trim()) {
-      errors.ime = "Ime je obavezno.";
-    }
-    if (!formData.prezime.trim()) {
-      errors.prezime = "Prezime je obavezno.";
-    }
-    if (!formData.email.trim()) {
-      errors.email = "Email je obavezan.";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email.trim())) {
-      errors.email = "Email nije ispravan.";
-    }
-    if (
-      formData.telefon &&
-      !/^\+?381[-. ]?([0-9]{2})[-. ]?([0-9]{3})[-. ]?([0-9]{3,4})$/.test(
-        formData.telefon.trim()
-      )
-    ) {
-      errors.telefon =
-        "Broj telefona nije ispravan. Molimo unesite broj u formatu +381 XX XXX XXXX.";
-    }
-    if (!formData.poruka.trim()) {
-      errors.poruka = "Poruka je obavezna.";
-    }
-    return errors;
-  };
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const errors = validateForm();
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      console.error("Form errors:", errors);
-      alert("Ispravite greške u formi.");
+    if (!isFormValidState) {
+      setResponseMessage("Please fill in all fields correctly.");
       return;
     }
 
-    // Formatiranje imena i prezimena
-    const formattedData = {
-      ...formData,
-      ime: capitalizeFirstLetter(formData.ime),
-      prezime: capitalizeFirstLetter(formData.prezime)
-    };
-
-    setStatus("loading");
+    setLoading(true);
+    setResponseMessage(null);
 
     try {
-      const response = await axios.post("/api/contact", formattedData);
+      const formattedData = {
+        ime: capitalizeFirstLetter(values.ime),
+        prezime: capitalizeFirstLetter(values.prezime),
+        email: values.email,
+        telefon: values.telefon,
+        poruka: values.poruka
+      };
+      const response = await api.post("/contact", formattedData); // Use service to send the form
       if (response.status === 200) {
-        setStatus("success");
-        setResponseMsg("Vaša poruka je uspešno poslata!");
-        setFormData({
-          ime: "",
-          prezime: "",
-          email: "",
-          telefon: "",
-          poruka: ""
-        });
-        setFormErrors({});
-      } else {
-        throw new Error("Greška pri slanju poruke.");
+        setResponseMessage("Your message has been sent successfully!");
       }
     } catch (error) {
-      console.error("Error:", error);
-      setStatus("error");
-      setResponseMsg(
-        "Došlo je do greške pri slanju poruke. Pokušajte ponovo kasnije."
-      );
+      setResponseMessage("There was an error sending your message.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <>
-      <div className="z-10 px-8 xl:max-w-[75%] w-full min-h-[90dvh] rounded-lg">
+      <div className="z-10 px-8 xl:max-w-[75%] w-full min-h-[95dvh] rounded-lg">
         <h2 className="relative text-4xl font-extrabold my-10 md:my-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
           KONTAKT
         </h2>
-        {status === "success" ? (
-          <div className="text-center text-white">
-            <MdCheckCircle className="text-5xl text-green-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2 ">Hvala vam!</h3>
-            <p className="mb-4">{responseMsg}</p>
-            <p>Obratićemo vam se u najkraćem mogućem roku.</p>
+        <motion.form
+          className="md:mt-4 space-y-6 relative"
+          onSubmit={handleSubmit}
+          initial="hidden"
+          animate="visible"
+          variants={formVariants}
+        >
+          <div className="flex flex-col md:flex-row gap-4 lg:gap-14">
+            <div className="flex-1 flex flex-col gap-4">
+              {inputs
+                .filter((input) => input.type !== "textarea")
+                .map((input) => (
+                  <FormInput
+                    key={input.id}
+                    {...input}
+                    value={values[input.name as keyof typeof values]}
+                    onChange={handleChange}
+                  />
+                ))}
+            </div>
+            <div className="flex-1">
+              <div className="relative h-full">
+                {inputs
+                  .filter((input) => input.type === "textarea")
+                  .map((input) => (
+                    <FormInput
+                      key={input.id}
+                      {...input}
+                      value={values[input.name as keyof typeof values]}
+                      onChange={handleChange}
+                    />
+                  ))}
+              </div>
+            </div>
           </div>
-        ) : (
-          <motion.form
-            className="md:mt-4 space-y-4 relative"
-            onSubmit={handleSubmit}
-            initial="hidden"
-            animate="visible"
-            variants={formVariants}
-          >
-            <div className="flex flex-col md:flex-row gap-8 lg:gap-14">
-              <div className="flex-1 flex flex-col gap-8">
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="ime"
-                    id="ime"
-                    placeholder="Ime"
-                    value={formData.ime}
-                    onChange={handleChange}
-                    disabled={status === "loading"}
-                    className={`w-full border rounded-lg py-3 px-3 ${
-                      formErrors.ime ? "border-red-500" : "border-gray-300"
-                    }  focus:outline-none focus:ring-primary-500 focus:border-primary-500`}
-                  />
-                  {formErrors.ime && (
-                    <p className="text-red-500 text-xs mt-1 absolute -bottom-5">
-                      {formErrors.ime}
-                    </p>
-                  )}
-                </div>
-                <div className="relative">
-                  <input
-                    type="text"
-                    id="prezime"
-                    name="prezime"
-                    placeholder="Prezime"
-                    value={formData.prezime}
-                    onChange={handleChange}
-                    disabled={status === "loading"}
-                    className={`w-full border rounded-lg py-3 px-3 ${
-                      formErrors.prezime ? "border-red-500" : "border-gray-300"
-                    }  focus:outline-none focus:ring-primary-500 focus:border-primary-500`}
-                  />
-                  {formErrors.prezime && (
-                    <p className="text-red-500 text-xs mt-1 absolute -bottom-5">
-                      {formErrors.prezime}
-                    </p>
-                  )}
-                </div>
-                <div className="relative">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    disabled={status === "loading"}
-                    className={`w-full border rounded-lg py-3 px-3 ${
-                      formErrors.email ? "border-red-500" : "border-gray-300"
-                    }  focus:outline-none focus:ring-primary-500 focus:border-primary-500`}
-                  />
-                  {formErrors.email && (
-                    <p className="text-red-500 text-xs mt-1 absolute -bottom-5">
-                      {formErrors.email}
-                    </p>
-                  )}
-                </div>
-                <div className="relative">
-                  <input
-                    type="tel"
-                    id="telefon"
-                    name="telefon"
-                    placeholder="Telefon"
-                    value={formData.telefon}
-                    onChange={handleChange}
-                    disabled={status === "loading"}
-                    className={`w-full pborder rounded-lg py-3 px-3 ${
-                      formErrors.telefon ? "border-red-500" : "border-gray-300"
-                    }  focus:outline-none focus:ring-primary-500 focus:border-primary-500`}
-                  />
-                  {formErrors.telefon && (
-                    <p className="text-red-500 text-xs mt-1 absolute -bottom-5">
-                      {formErrors.telefon}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div className="flex-1 ">
-                <div className="relative h-full">
-                  <textarea
-                    name="poruka"
-                    id="poruka"
-                    placeholder="Unesi poruku"
-                    rows={4}
-                    value={formData.poruka}
-                    onChange={handleChange}
-                    disabled={status === "loading"}
-                    className={`w-full border rounded-lg py-3 px-3 ${
-                      formErrors.poruka ? "border-red-500" : "border-gray-300"
-                    }  focus:outline-none focus:ring-primary-500 focus:border-primary-500 h-full`}
-                  ></textarea>
-                  {formErrors.poruka && (
-                    <p className="text-red-500 text-xs mt-1 absolute -bottom-5">
-                      {formErrors.poruka}
-                    </p>
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="pt-3 pb-10  md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0">
-              <BlurstButton
-                className="w-full flex items-center justify-center px-14 xl:w-1/2"
-                disabled={status === "loading"}
-              >
-                Pošalji
-              </BlurstButton>
-            </div>
-          </motion.form>
-        )}
-        {status === "error" && (
-          <p className="text-red-600 text-center mt-4">{responseMsg}</p>
-        )}
+          <div className="my-24 pt-10 pb-10 md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0 relative">
+            <Button
+              loading={loading}
+              disabled={!isFormValidState}
+              variant="secondary"
+              className="w-full flex items-center justify-center px-14 xl:w-1/2"
+            >
+              {loading ? "SLANJE..." : "POŠALJI"}
+            </Button>
+          </div>
+        </motion.form>
       </div>
     </>
   );

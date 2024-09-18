@@ -1,9 +1,11 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import ItBridgeLogo from "./ItBridgeLogo";
+
+import { motion } from "framer-motion";
+
 import { IoIosArrowDroprightCircle } from "react-icons/io";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+
+import ItBridgeLogo from "./icons/ItBridgeLogo";
 
 interface Item {
   title: string;
@@ -56,7 +58,7 @@ const Card: React.FC<CardProps> = ({
     >
       <article className="overflow-hidden shadow-custom transition-shadow duration-300 hover:shadow-custom rounded-3xl">
         <div className="relative w-full h-72">
-          <Image 
+          <Image
             loading="lazy"
             src={image}
             alt={title}

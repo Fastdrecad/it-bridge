@@ -7,8 +7,8 @@ type Section = {
 
 interface FeatureListProps {
   heading: string;
-  sections: Section[]; // Updated from `features` to `sections`
-  flags?: (string | StaticImageData)[]; // Allow either string paths or imported StaticImageData
+  sections: Section[];
+  flags?: (string | StaticImageData)[];
 }
 
 const FeatureList: React.FC<FeatureListProps> = ({
@@ -19,7 +19,7 @@ const FeatureList: React.FC<FeatureListProps> = ({
   return (
     <div className="container mx-auto p-4 md:p-8 my-20">
       <div className="bg-gray-50 shadow-md relative">
-        <h2 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-3xl font-bold px-6 py-3 pe-12 rounded-r-full">
+        <h2 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white  text-2xl font-bold px-6 py-3 pe-12 rounded-r-full">
           {heading}
         </h2>
         <ul className="mt-4 space-y-6 p-6 pt-16 md:pt-16">
@@ -38,7 +38,7 @@ const FeatureList: React.FC<FeatureListProps> = ({
             {flags.map((flag, idx) => (
               <Image
                 key={idx}
-                src={flag}
+                src={typeof flag === "string" ? flag : flag}
                 width={80}
                 height={80}
                 alt={`flag-${idx}`}

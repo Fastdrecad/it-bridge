@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { custom } from "zod";
 
 const config: Config = {
   content: [
@@ -33,7 +34,9 @@ const config: Config = {
         }
       },
       boxShadow: {
-        "custom": "0 0 11px rgba(33, 33, 33, 0.25)"
+        custom: "0 0 11px rgba(33, 33, 33, 0.25)",
+        headerCustom:
+          "0 1px 1px 0 rgba(65, 69, 73, 0.3), 0 1px 3px 1px rgba(65, 69, 73, 0.15)"
       },
       gridTemplateColumns: {
         // Custom responsive grid column setups

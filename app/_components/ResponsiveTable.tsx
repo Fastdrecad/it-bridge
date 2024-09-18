@@ -1,5 +1,6 @@
-import { calendarCourses } from "../config";
 import { FaTimes } from "react-icons/fa";
+
+import { calendarCourses } from "@/app/_data";
 
 const ResponsiveTable = () => {
   return (

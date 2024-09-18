@@ -5,7 +5,6 @@ import { FaMicrosoft } from "react-icons/fa6";
 import { SiGeneralelectric } from "react-icons/si";
 import { SiSchneiderelectric } from "react-icons/si";
 import { SiAccenture } from "react-icons/si";
-
 import {
   FaLinkedinIn,
   FaFacebook,
@@ -19,25 +18,22 @@ import {
   FaBullseye,
   FaChalkboardTeacher,
   FaTasks,
-  FaPen,
   FaComments,
-  FaLightbulb,
-  FaUserShield,
-  FaUserCog,
   FaChartLine,
-  FaUsers,
   FaClipboardList,
   FaClipboardCheck,
   FaGraduationCap
 } from "react-icons/fa";
-
 import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
-import powerBiImage1 from "@/public/PowerBI-kurs-1.jpg";
-import powerBiImage2 from "@/public/PowerBI-kurs-2.jpg";
-import powerBiImage3 from "@/public/power-bi.webp";
-import gb from "@/public/gb.jpg";
-import de from "@/public/de.jpg";
-import fr from "@/public/fr.jpg";
+
+import powerBiImage1 from "@/public/assets/images/courses/PowerBI-kurs-1.jpg";
+import powerBiImage2 from "@/public/assets/images/courses/PowerBI-kurs-2.jpg";
+import powerBiImage3 from "@/public/assets/images/courses/power-bi.webp";
+
+import gb from "@/public/assets/images/flags/gb.jpg";
+import de from "@/public/assets/images/flags/de.jpg";
+import fr from "@/public/assets/images/flags/fr.jpg";
+
 import { englishImg, hrImg, pcmImg, pbiImg, qaImg, skillsImg } from "./_utils";
 
 export const calendarCourses = [
@@ -157,7 +153,7 @@ export const socialLinks = [
     ariaLabel: "Visit IT Bridge's LinkedIn profile",
     rel: "noopener noreferrer",
     icon: (
-      <FaLinkedinIn className="w-8 h-8 text-white hover:text-indigo-700 transition duration-200" />
+      <FaLinkedinIn className="w-8 h-8 text-white  hover:text-warning-600 transition duration-200" />
     ),
     title: "IT Bridge EDU Center",
     target: "_blank"
@@ -168,7 +164,7 @@ export const socialLinks = [
     ariaLabel: "Visit IT Bridge's Facebook profile",
     rel: "noopener noreferrer",
     icon: (
-      <FaFacebook className="w-8 h-8 text-white hover:text-indigo-700 transition duration-200" />
+      <FaFacebook className="w-8 h-8 text-white hover:text-warning-600 transition duration-200" />
     ),
     title: "IT Bridge EDU Center",
     target: "_blank"
@@ -180,7 +176,7 @@ export const socialLinks = [
     rel: "noopener noreferrer",
     title: "IT Bridge",
     icon: (
-      <FaInstagram className="w-8 h-8 text-white hover:text-indigo-700 transition duration-200" />
+      <FaInstagram className="w-8 h-8 text-white  hover:text-warning-600 transition duration-200" />
     ),
     target: "_blank"
   }
@@ -191,9 +187,7 @@ export const navigationLinks = [
     id: 1,
     href: "https://www.linkedin.com/company/it-bridge-edu-center/",
     rel: "noopener noreferrer",
-    icon: (
-      <FaLinkedinIn className="  hover:text-indigo-700 transition duration-200 lg:text-base text-3xl" />
-    ),
+    icon: <FaLinkedinIn className="lg:text-base text-3xl" />,
     title: "IT Bridge EDU Center",
     target: "_blank"
   },
@@ -203,9 +197,7 @@ export const navigationLinks = [
     ariaLabel: "Visit IT Bridge's Instagram profile",
     rel: "noopener noreferrer",
     title: "IT Bridge",
-    icon: (
-      <FaInstagram className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
-    ),
+    icon: <FaInstagram className="lg:text-base text-3xl " />,
     target: "_blank"
   },
   {
@@ -213,9 +205,7 @@ export const navigationLinks = [
     href: "https://www.facebook.com/itbridge.edu",
     ariaLabel: "IT Bridge Facebook profile",
     rel: "noopener noreferrer",
-    icon: (
-      <FaFacebook className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
-    ),
+    icon: <FaFacebook className="lg:text-base text-3xl" />,
     title: "IT Bridge EDU Center",
     target: "_blank"
   },
@@ -224,9 +214,7 @@ export const navigationLinks = [
     href: "mailto:office@itbridge-services.com",
     ariaLabel: "Email IT Bridge",
     rel: "noopener noreferrer",
-    icon: (
-      <MdOutlineEmail className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
-    ),
+    icon: <MdOutlineEmail className="lg:text-base text-3xl" />,
     title: "office@itbridge-services.com",
     target: "_blank"
   },
@@ -235,9 +223,7 @@ export const navigationLinks = [
     href: "tel:0621213309",
     ariaLabel: "phone number",
     rel: "noopener noreferrer",
-    icon: (
-      <MdOutlinePhone className="lg:text-base text-3xl  hover:text-indigo-700 transition duration-200" />
-    ),
+    icon: <MdOutlinePhone className="lg:text-base text-3xl" />,
     title: "062 121 3309",
     target: "_blank"
   }
@@ -282,7 +268,7 @@ export const heroSectionContent = [
   {
     title: "Napravite zaokret u karijeri",
     subtitle: "Vaš put ka uspehu u HR-u počinje ovde",
-    backgroundImage: "/hr.webp",
+    backgroundImage: "/assets/images/courses/hr.webp",
     buttonLabel: "",
     buttonLink: "/prijava"
   },
@@ -290,35 +276,35 @@ export const heroSectionContent = [
     title: "Ovladajte mekim veštinama",
     subtitle:
       "Poboljšajte komunikaciju, liderstvo i timski rad za poslovni uspeh",
-    backgroundImage: "/soft-skills.webp",
+    backgroundImage: "/assets/images/courses/soft-skills.webp",
     buttonLabel: "",
     buttonLink: "/kursevi/meke-vestine"
   },
   {
     title: "PCM",
     subtitle: "Alati za uspešno komuniciranje i razumevanje",
-    backgroundImage: "/pcm.webp",
+    backgroundImage: "/assets/images/courses/pcm.webp",
     buttonLabel: "",
     buttonLink: "/kursevi/pcm"
   },
   {
     title: "Podignite poslovni engleski na viši nivo",
     subtitle: "Komunicirajte profesionalno i sigurno na engleskom jeziku",
-    backgroundImage: "/business-english.webp",
+    backgroundImage: "/assets/images/courses/business-english.webp",
     buttonLabel: "",
     buttonLink: "/kursevi/business-english"
   },
   {
     title: "Otkrijte moć Power BI-ja",
     subtitle: "Transformišite podatke u strateške uvide",
-    backgroundImage: "/power-bi.webp",
+    backgroundImage: "/assets/images/courses/power-bi.webp",
     buttonLabel: "",
     buttonLink: "/kontakt"
   },
   {
     title: " QA Automatizacija",
     subtitle: "Savladajte veštine koje transformišu kvalitet softvera",
-    backgroundImage: "/qa.webp",
+    backgroundImage: "/assets/images/courses/qa.webp",
     buttonLabel: "",
     buttonLink: "/kursevi/qa"
   }

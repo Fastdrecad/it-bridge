@@ -1,12 +1,14 @@
 "use client";
 
+import React, { useMemo } from "react";
+
 import Image from "next/image";
-import footer from "@/public/footer.png";
-import { socialLinks } from "@/app/config";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useMemo } from "react";
-import ItBridgeLogo from "./ItBridgeLogo";
+
+import ItBridgeLogo from "./icons/ItBridgeLogo";
+import { socialLinks } from "@/app/_data";
+
+import footer from "@/public/assets/images/backgrounds/footer-bg.png";
 
 interface LinkItem {
   href: string;
@@ -14,8 +16,6 @@ interface LinkItem {
 }
 
 export default function Footer() {
-  const pathname = usePathname();
-
   const links: LinkItem[] = useMemo(
     () => [
       { href: "/", label: "O Nama" },
@@ -71,9 +71,10 @@ export default function Footer() {
                     scroll={true}
                     key={idx}
                     href={link.href}
-                    className="py-0.5 hover:underline"
+                    className="group relative py-1"
                   >
                     {link.label}
+                    <span className="absolute left-1/2 bottom-0 h-0.5 w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
                   </Link>
                 ))}
               </ul>
@@ -86,13 +87,11 @@ export default function Footer() {
           <p className="font-medium text-center">PRIDRUŽITE NAM SE</p>
           <div className="flex justify-center gap-10">
             {socialLinks.map((link, idx) => (
-              <Link
-                href={link.href}
-                key={idx}
-                className="flex text-white hover:text-indigo-700"
-              >
-                {link.icon}
-              </Link>
+              <a href={link.href} key={idx} className="flex text-white">
+                {React.createElement(link.icon, {
+                  ...link.iconProps
+                })}
+              </a>
             ))}
           </div>
         </div>

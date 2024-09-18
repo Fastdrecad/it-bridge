@@ -1,10 +1,11 @@
-import Image, { StaticImageData } from "next/image";
+import { FC } from "react";
+import { StaticImageData } from "next/image";
 
 type CourseSection = {
   title: string;
   items: string[];
   flags?: (string | StaticImageData)[];
-  companyLogos?: { icon: JSX.Element }[];
+  companyLogos?: FC[];
 };
 
 interface CourseGridProps {
@@ -13,7 +14,7 @@ interface CourseGridProps {
 }
 
 const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
-  const logos = content[1].companyLogos;
+  const logos = content[1]?.companyLogos;
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -23,7 +24,7 @@ const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
             key={index}
             className="bg-gray-50 shadow-md relative pt-10 md:pt-4"
           >
-            <h3 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-3xl font-bold px-6 py-3 pe-12 rounded-r-full">
+            <h3 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 pe-12 rounded-r-full">
               {section.title}
             </h3>
             <ul className="list-disc space-y-2 p-6 pt-12 ps-10">
@@ -34,9 +35,9 @@ const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
               ))}
               {index === 1 && logos && (
                 <div className="flex flex-wrap items-center gap-6  mt-4">
-                  {logos.map((item, idx) => (
+                  {logos.map((LogoComponent, idx) => (
                     <div key={idx} className="flex items-center justify-center">
-                      {item.icon}
+                      <LogoComponent /> {/* Render the functional component */}
                     </div>
                   ))}
                 </div>

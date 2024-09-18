@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Navigation from "@/app/_components/Navigation";
 import SocialLinks from "./SocialLinks";
-import ItBridgeLogo from "./ItBridgeLogo";
+import ItBridgeLogo from "./icons/ItBridgeLogo";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
 
@@ -43,14 +43,14 @@ function Header() {
         className={`z-30 sticky top-0 w-full transition-colors duration-300 ${
           isHomePage
             ? isScrolled
-              ? "bg-slate-50/70 backdrop-blur-xl text-black"
+              ? "bg-slate-50/90 backdrop-blur-xl text-black shadow-headerCustom"
               : "bg-transparent text-white"
-            : "bg-slate-50/70 backdrop-blur-xl text-black"
+            : "bg-slate-50/90 backdrop-blur-xl text-black shadow-headerCustom"
         }`}
       >
         <div className="mx-3 p-1">
           <div className="md:flex md:justify-around sm:items-center mx-auto py-2 relative z-0">
-            <Link href="/" className="py-2 contents w-fit">
+            <Link href="/" className="group py-2 contents w-fit">
               <ItBridgeLogo
                 width="70"
                 showText={true}

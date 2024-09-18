@@ -1,10 +1,10 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import Button from "./Button";
+import Button from "./common/Button/Button";
 import { BsArrowRight } from "react-icons/bs";
-import { PlaneIcon } from "./ItBridgeLogo";
 import { useRouter } from "next/navigation";
+import PlaneIcon from "@/app/_components/icons/PlaneIcon";
 
 export default function Partner() {
   const [email, setEmail] = useState("");

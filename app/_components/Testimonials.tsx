@@ -1,12 +1,12 @@
 import Image from "next/image";
-import { testimonials } from "../config";
 import TestimonialItems from "./TestimonialItems";
-import bg from "@/public/testimonial-bg.jpg";
-import quoteImg from "@/public/quote-start.png";
+import bg from "@/public/assets/images/backgrounds/testimonial-bg.jpg";
+import quoteImg from "@/public/assets/images/quote-start.png";
+import { testimonials } from "@/app/_data";
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full min-h-[80vh] md:min-h-[80vh] my-20 md:my-44 px-4 overflow-hidden">
+    <section className="relative w-full min-h-[100vh] md:min-h-[80vh] my-20 md:my-44 px-4 overflow-hidden">
       <div className="absolute inset-0 w-full h-full ">
         <Image
           src={bg}

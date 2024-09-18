@@ -1,11 +1,11 @@
 import Image, { StaticImageData } from "next/image";
-import Button from "./Button";
-import Head from "next/head";
+import Button from "./common/Button/Button";
 
 interface HeroSectionProps {
   title: string;
   subtitle: string;
   backgroundImage: string | StaticImageData;
+  placeholderImage: string;
   buttonLabel: string;
   buttonLink?: string;
 }
@@ -14,6 +14,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   title,
   subtitle,
   backgroundImage,
+  placeholderImage,
   buttonLabel,
   buttonLink
 }) => {
@@ -22,12 +23,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <>
-      <Head>
-        <link rel="preload" href={imageUrl} as="image" />
-      </Head>
-
-      <section className="w-full h-screen mx-auto -mt-44">
-        <div className="absolute top-0 left-0 w-full h-screen object-cover">
+      <section className="w-full min-h-screen mx-auto flex flex-col">
+        <div className="absolute top-0 left-0 w-full min-h-screen object-cover">
           <Image
             src={backgroundImage}
             alt={`Background image for ${title}`}
@@ -35,6 +32,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             className="object-cover"
             quality={100}
             priority
+            blurDataURL={placeholderImage}
           />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>

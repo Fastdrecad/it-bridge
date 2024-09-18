@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // Email configuration from environment variables
 const senderEmail = process.env.SMTP_USER!;
 const senderPassword = process.env.SMTP_PASSWORD!;
-const recipientEmail = "andrija@andrijadesign.com";
+const recipientEmail = "office@itbridge-services.com";
 
 export async function POST(req: Request) {
   try {
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: senderEmail,
       to: recipientEmail,
-      subject: `Kontakt from ${ime} ${prezime}`,
+      subject: `Kontakt od ${ime} ${prezime}`,
       text: `Ime: ${ime}\nPrezime: ${prezime}\nEmail: ${email}\nTelefon: ${telefon}\n\nPoruka:\n${poruka}`,
       html: `<p><strong>Ime:</strong> ${ime}</p><p><strong>Prezime:</strong> ${prezime}</p><p><strong>Email:</strong> ${email}</p><p><strong>Telefon:</strong> ${telefon}</p><p><strong>Poruka:</strong> ${poruka}</p>`
     };

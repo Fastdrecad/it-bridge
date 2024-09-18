@@ -1,7 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
-import Button from "./_components/Button";
-import { NotFoundIcon } from "./_components/ItBridgeLogo";
+import Button from "./_components/common/Button/Button";
+import NotFoundIcon from "@/app/_components/icons/NotFoundIcon";
 
 export default function NotFound() {
   return (

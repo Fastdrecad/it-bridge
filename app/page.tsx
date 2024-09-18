@@ -13,7 +13,7 @@ export default function HomePage() {
     "name": "IT Bridge EDU Center",
     "description": "Investirajte u obuke koje donose rezultate.",
     "publisher": {
-      "@type": "Organization",
+      "@type": "",
       "name": "IT Bridge EDU Center"
     }
   };

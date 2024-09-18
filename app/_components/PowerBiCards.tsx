@@ -6,7 +6,7 @@ export default function PowerBiCards() {
     <section className="px-6 py-12 max-w-6xl mx-auto my-10 md:mt-44">
       {/* Gradient Title */}
       <div className="mb-8">
-        <h2 className="inline-block bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-3xl font-bold px-6 py-3 rounded-r-full">
+        <h2 className="inline-block bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 rounded-r-full">
           Ključne prednosti PBI-ja
         </h2>
       </div>

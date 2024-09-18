@@ -1,9 +1,9 @@
-import english from "/public/business-english.webp";
-import hr from "/public/hr.webp";
-import pcm from "/public/pcm.webp";
-import pbi from "/public/power-bi.webp";
-import qa from "/public/qa.webp";
-import skills from "/public/soft-skills.webp";
+import english from "/public/assets/images/courses/business-english.webp";
+import hr from "/public/assets/images/courses/hr.webp";
+import pcm from "/public/assets/images/courses/pcm.webp";
+import pbi from "/public/assets/images/courses/power-bi.webp";
+import qa from "/public/assets/images/courses/qa.webp";
+import skills from "/public/assets/images/courses/soft-skills.webp";
 
 export const englishImg = english;
 export const hrImg = hr;

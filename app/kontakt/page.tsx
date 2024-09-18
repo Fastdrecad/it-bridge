@@ -1,6 +1,6 @@
 import Image from "next/image";
-import ItBridgeLogo from "../_components/ItBridgeLogo";
-import kontaktBg from "@/public/kontakt-bg.jpg";
+import ItBridgeLogo from "../_components/icons/ItBridgeLogo";
+import kontaktBg from "@/public/assets/images/backgrounds/kontakt-bg.jpg";
 import GoogleMapComponent from "../_components/GoogleMap";
 import Head from "next/head";
 import { Metadata } from "next";
@@ -25,11 +25,8 @@ export const metadata: Metadata = {
 export default function KontaktPage() {
   return (
     <>
-      <Head>
-        <link rel="preload" href={kontaktBg.src} as="image" />
-      </Head>
-      <section className="w-full h-screen flex flex-col overflow-hidden items-center justify-center">
-        <div className="absolute top-0 left-0 w-full h-screen object-cover">
+      <section className="w-full flex flex-col overflow-hidden items-center justify-center relative">
+        <div className="absolute top-0 left-0 w-full min-h-[110vh] object-cover">
           <Image
             src={kontaktBg}
             alt="Handshake"
@@ -37,19 +34,21 @@ export default function KontaktPage() {
             fill
             quality={100}
             priority
+            blurDataURL="/public/assets/images/placeholders/placeholder-kontakt-bg.jpg"
           />
           {/* Overlay */}
           <div className="absolute inset-0  bg-secondary-500 opacity-60 z-10"></div>
         </div>
-
-        <ItBridgeLogo
-          width="100"
-          color="#8BFC40"
-          className="m-0 p-0 opacity-100 absolute right-12 md:bottom-16 hidden md:block"
-          showText
-          fill="white"
-        />
         <KontaktForm />
+        <div className="relative w-full flex justify-end ">
+          <ItBridgeLogo
+            width="100"
+            color="#8BFC40"
+            className="m-0 p-0 opacity-100 absolute me-6 md:bottom-16 hidden md:block"
+            showText
+            fill="white"
+          />
+        </div>
       </section>
       <GoogleMapComponent />
     </>

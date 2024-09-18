@@ -1,4 +1,10 @@
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect
+} from "react";
 
 interface CalendlyContextProps {
   isCalendlyOpen: boolean;
@@ -30,6 +36,20 @@ export const CalendlyProvider: React.FC<{ children: ReactNode }> = ({
   const closeCalendly = () => {
     setIsCalendlyOpen(false);
   };
+
+  // Use effect to disable scroll when Calendly is open
+  useEffect(() => {
+    if (isCalendlyOpen) {
+      document.body.style.overflow = "hidden"; // Disable scrolling
+    } else {
+      document.body.style.overflow = "auto"; // Re-enable scrolling
+    }
+
+    // Cleanup when the component is unmounted
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isCalendlyOpen]);
 
   return (
     <CalendlyContext.Provider

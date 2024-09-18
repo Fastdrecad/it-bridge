@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -37,6 +37,7 @@
     "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-icons": "^3.0.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "postcss": "^8",
