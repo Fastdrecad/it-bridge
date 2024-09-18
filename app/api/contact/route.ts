@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // Email configuration from environment variables
 const senderEmail = process.env.SMTP_USER!;
 const senderPassword = process.env.SMTP_PASSWORD!;
-const recipientEmail = "andrija@andrijadesign.com";
+const recipientEmail = "office@itbridge-services.com";
 
 export async function POST(req: Request) {
   try {
