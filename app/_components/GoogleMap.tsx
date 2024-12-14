@@ -1,88 +1,45 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import { Loader } from "@googlemaps/js-api-loader";
+import { useEffect, useRef } from "react";
 
-declare global {
-  interface Window {
-    initMap?: () => void;
-  }
+interface GoogleMapProps {
+  center?: { lat: number; lng: number };
+  zoom?: number;
 }
 
-const containerStyle = {
-  width: "100%",
-  height: "400px"
-};
-
-const center = {
-  lat: 44.8186, // Latitude of Obilićev Venac
-  lng: 20.4571 // Longitude of Obilićev Venac
-};
-
-const GoogleMapComponent = () => {
+export default function GoogleMap({
+  center = { lat: 44.8169, lng: 20.4568 },
+  zoom = 15
+}: GoogleMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const googleMapsApiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "";
+    const initMap = async () => {
+      const loader = new Loader({
+        apiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!,
+        version: "weekly",
+        libraries: ["marker"]
+      });
 
-    window.initMap = () => {
-      if (mapRef.current && window.google && window.google.maps) {
-        const map = new window.google.maps.Map(mapRef.current, {
-          center,
-          zoom: 15
-        });
+      await loader.load();
+      const { Map } = await google.maps;
+      const { AdvancedMarkerElement } = await loader.importLibrary("marker");
 
-        const marker = new window.google.maps.Marker({
-          position: center,
-          map: map,
-          title: "Obilićev Venac, Belgrade, Serbia"
-        });
+      const map = new Map(mapRef.current!, {
+        center,
+        zoom,
+        mapId: "IT_BRIDGE_MAP"
+      });
 
-        const infoWindow = new window.google.maps.InfoWindow({
-          content:
-            "<div><strong>Obilićev Venac</strong><p>Belgrade, Serbia</p></div>"
-        });
-
-        marker.addListener("click", () => {
-          infoWindow.open(map, marker);
-        });
-
-        setLoading(false);
-      }
+      new AdvancedMarkerElement({
+        map,
+        position: center,
+        title: "IT Bridge - Obilićev venac 18"
+      });
     };
 
-    const loadGoogleMapsScript = () => {
-      if (document.getElementById("google-maps-script")) {
-        if (typeof window.google !== "undefined" && window.google.maps) {
-          if (window.initMap) {
-            window.initMap();
-          }
-        }
-        return;
-      }
+    initMap();
+  }, [center, zoom]);
 
-      const script = document.createElement("script");
-      script.id = "google-maps-script";
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}&callback=initMap&loading=async`;
-      script.async = true;
-      script.defer = true;
-      document.head.appendChild(script);
-    };
-
-    loadGoogleMapsScript();
-
-    return () => {
-      if (window.initMap) {
-        delete window.initMap;
-      }
-    };
-  }, []);
-
-  return (
-    <div>
-      {loading ? <p>Loading map...</p> : null}
-      <div ref={mapRef} style={containerStyle}></div>
-    </div>
-  );
-};
-
-export default GoogleMapComponent;
+  return <div ref={mapRef} className="w-full h-[400px] rounded-lg" />;
+}

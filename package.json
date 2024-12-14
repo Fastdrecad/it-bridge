@@ -15,6 +15,7 @@
     "classnames": "^2.5.1",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.3.30",
+    "gsap": "^3.12.5",
     "imap": "^0.8.19",
     "mailgun-js": "^0.22.0",
     "mailparser": "^3.7.1",

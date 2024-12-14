@@ -1,12 +1,12 @@
 import { StaticImageData } from "next/image";
 
 import {
-  hrImg,
-  skillsImg,
-  pcmImg,
   englishImg,
+  excelImg,
+  hrImg,
   pbiImg,
-  qaImg
+  pcmImg,
+  skillsImg
 } from "@/app/_utils";
 
 export interface Course {
@@ -67,11 +67,10 @@ export const courses: Course[] = [
 
   {
     id: 6,
-    title: "QA Automation",
-    subtitle:
-      "Savladajte automatsko testiranje softvera i unapredite svoju karijeru…",
+    title: "Excel",
+    subtitle: "Savladajte Excel i unapredite svoju karijeru…",
     description: "",
-    image: qaImg,
-    url: "/kursevi/qa"
+    image: excelImg,
+    url: "/kursevi/excel"
   }
 ];

@@ -5,8 +5,8 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import ItBridgeLogo from "./icons/ItBridgeLogo";
 import { socialLinks } from "@/app/_data";
+import ItBridgeLogo from "./icons/ItBridgeLogo";
 
 import footer from "@/public/assets/images/backgrounds/footer-bg.png";
 
@@ -87,7 +87,12 @@ export default function Footer() {
           <p className="font-medium text-center">PRIDRUŽITE NAM SE</p>
           <div className="flex justify-center gap-10">
             {socialLinks.map((link, idx) => (
-              <a href={link.href} key={idx} className="flex text-white">
+              <a
+                href={link.href}
+                key={idx}
+                className="flex text-white"
+                target={link.target}
+              >
                 {React.createElement(link.icon, {
                   ...link.iconProps
                 })}

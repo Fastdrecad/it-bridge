@@ -69,7 +69,6 @@ const Card: React.FC<CardProps> = ({
           {/* Default Content */}
           <div className="absolute w-full h-full top-0 left-0 flex flex-col">
             <div className="flex-1 flex items-center justify-center relative">
-              {/* <h3 className="text-2xl font-semibold text-white">{title}</h3> */}
               <div className="absolute bottom-2 left-6">
                 <ItBridgeLogo width="80" showText />
               </div>
@@ -80,10 +79,9 @@ const Card: React.FC<CardProps> = ({
           <div className="absolute inset-0 inset-x-6 bg-white translate-y-52 transition duration-500 ease-in-out group-hover:opacity-100 group-hover:translate-y-16 rounded-3xl">
             <div className="p-6 flex flex-col justify-start gap-5 items-center h-full text-left">
               <div className="flex w-full items-center justify-between text-secondary-500">
-                <Link href={url}>
-                  <h3 className="text-2xl font-semibold hover:underline">
-                    {title}
-                  </h3>
+                <Link href={url} className="group relative py-1">
+                  <h3 className="text-2xl font-semibold">{title}</h3>
+                  <span className="absolute left-1/2 bottom-0 h-0.5 w-0 bg-secondary-500 transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0"></span>
                 </Link>
                 <Link
                   href={url}

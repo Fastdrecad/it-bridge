@@ -1,5 +1,12 @@
+import {
+  createBreadcrumbSchema,
+  createCourseMetadata,
+  createCourseSchema,
+  createFAQSchema
+} from "@/app/_lib/schemas";
 import { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import { BsFileEarmarkPdf } from "react-icons/bs";
 
 import Button from "@/app/_components/common/Button/Button";
@@ -18,9 +25,12 @@ import {
   pageFeatures
 } from "@/app/_data";
 
-export const metadata: Metadata = {
-  title: "HR Starter"
-};
+export const metadata: Metadata = createCourseMetadata(
+  "HR Starter",
+  "Profesionalna obuka za HR pozicije. Naučite sve potrebne veštine za uspešnu karijeru u HR-u kroz praktičan rad i realne primere.",
+  "hr-starter",
+  "hr"
+);
 
 export default function HrStarterPage() {
   const content = heroSectionContent[0];
@@ -29,8 +39,68 @@ export default function HrStarterPage() {
     (category) => category.categoryName === "hr"
   );
 
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Početna", item: "/" },
+    { name: "Kursevi", item: "/kursevi" },
+    { name: "HR Starter", item: "/kursevi/hr-starter" }
+  ]);
+
+  const faqSchema = createFAQSchema([
+    {
+      question: "Šta obuhvata HR Starter kurs?",
+      answer:
+        "Kurs obuhvata sve ključne oblasti HR-a: regrutaciju i selekciju, razvoj zaposlenih, radno pravo, administraciju, kompenzacije i beneficije, kao i HR analitiku."
+    },
+    {
+      question: "Da li je potrebno prethodno iskustvo u HR-u?",
+      answer:
+        "Ne, kurs je namenjen početnicima koji žele da započnu karijeru u HR-u. Program je dizajniran da vas vodi od osnova do naprednih koncepata."
+    },
+    {
+      question: "Kakve su mogućnosti zaposlenja nakon kursa?",
+      answer:
+        "Nakon kursa možete raditi kao HR asistent, HR generalist, recruiter ili se specijalizovati za određenu oblast HR-a. Pomažemo u povezivanju sa poslodavcima."
+    },
+    {
+      question: "Da li dobijam sertifikat?",
+      answer:
+        "Da, po završetku kursa dobijate sertifikat koji potvrđuje stečena znanja i veštine iz oblasti HR-a."
+    }
+  ]);
+
+  const courseSchema = createCourseSchema({
+    name: "HR Starter Kurs",
+    description:
+      "Sveobuhvatna obuka za početak karijere u HR-u. Praktičan pristup sa realnim primerima i projektima.",
+    courseCode: "HR-001",
+    duration: "P2M",
+    teaches: "Human Resources Management",
+    price: {
+      amount: 45000,
+      currency: "RSD"
+    },
+    level: "Beginner",
+    prerequisites: [
+      "Osnovno poznavanje poslovne komunikacije",
+      "Poznavanje engleskog jezika"
+    ],
+    instructor: {
+      name: "Jovana Jovanović",
+      description:
+        "Senior HR menadžer sa 10+ godina iskustva u vodećim kompanijama",
+      image: "/instructors/jovana.jpg"
+    }
+  });
+
   return (
     <>
+      <Script
+        id="hr-starter-course-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify([courseSchema, breadcrumbSchema, faqSchema])
+        }}
+      />
       <HeroSection {...content} />
       <FeatureList
         heading="Zašto kurs HR Starter?"

@@ -1,19 +1,19 @@
-import { FC } from "react";
 import { StaticImageData } from "next/image";
+import { FC } from "react";
 
 import {
-  IbmIcon,
+  AccentureIcon,
   CocaColaIcon,
-  SonyIcon,
-  MicrosoftIcon,
   GeneralElectricIcon,
+  IbmIcon,
+  MicrosoftIcon,
   SchneiderElectricIcon,
-  AccentureIcon
+  SonyIcon
 } from "./icons";
 
-import gb from "@/public/assets/images/flags/gb.jpg";
 import de from "@/public/assets/images/flags/de.jpg";
 import fr from "@/public/assets/images/flags/fr.jpg";
+import gb from "@/public/assets/images/flags/gb.jpg";
 
 interface CourseItem {
   title: string;
@@ -112,14 +112,19 @@ export const courseContent: CourseCategory = {
     {
       title: "Šta ćete naučiti?",
       items: [
-        "Naš program je dizajniran da osposobi   polaznike za samostalno korišćenje Power BI-a, optimizaciju poslovnih procesa i donošenje   informisanih odluka zasnovanih na podacima."
+        "Osnove Excel-a: Upoznavanje sa interfejsom, osnovnim funkcijama i radom sa podacima.",
+        "Napredne funkcije i analiza podataka: Kako koristiti funkcije kao što su VLOOKUP, SUMIF, COUNTIF, i druge.",
+        "Rad sa Pivot tabelama: Kreiranje i uređivanje Pivot tabela za analizu i izveštavanje.",
+        "Praktične vežbe: Kroz mnoge zadatke I vežbe, polaznici će primeniti naučeno na realnim poslovnim scenarijima.",
+        "Finalni test: Test u trajanju od 1h, koji omogućava polaznicima da primene naučene tehnike u stvarnim poslovnim situacijama."
       ]
     },
     {
       title: "Zašto baš mi?",
       items: [
-        "Naši predavači su Power BI developeri sa bogatim iskustvom u industriji.",
-        "Oni donose praktična znanja i primere iz stvarnih projekata, omogućavajući vam ne samo da savladate osnove, već i da koristite Power BI za unapređenje poslovnih procesa i donošenje informisanih odluka."
+        "Personalizovan pristup: Korišćenje vaših I naših podataka prilagođeno vašim potrebama.",
+        "Veća motivacija i brža primena u svakodnevnom radu: Učenje odmah korisno i primenjivo.",
+        "Iskusni mentori: Praktično znanje i stručnost u industriji, sa iskustvom u IT sektoru."
       ]
     }
   ],

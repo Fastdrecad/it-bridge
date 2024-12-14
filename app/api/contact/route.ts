@@ -1,5 +1,5 @@
-import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 // Email configuration from environment variables
 const senderEmail = process.env.SMTP_USER!;
@@ -19,8 +19,9 @@ export async function POST(req: Request) {
 
     // Create a Nodemailer transporter
     const transporter = nodemailer.createTransport({
-      host: "smtp.titan.email",
+      host: "smtp.hostinger.com",
       port: 587,
+      secure: false,
       auth: {
         user: senderEmail,
         pass: senderPassword

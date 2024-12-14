@@ -28,10 +28,10 @@ export default function Navigation() {
           { href: "/kursevi/business-english", label: "Business English" },
           { href: "/kursevi/pcm", label: "PCM" },
           { href: "/kursevi/power-bi", label: "Power BI" },
-          { href: "/kursevi/qa", label: "QA Automation" }
+          { href: "/kursevi/excel", label: "Excel" }
         ]
       },
-      { href: "/kalendar", label: "Kalendar" },
+      // { href: "/kalendar", label: "Kalendar" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []

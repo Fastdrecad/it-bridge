@@ -1,58 +1,24 @@
 import { MetadataRoute } from "next";
+import { courses } from "./_data/courses";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  return [
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/hr-starter`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/meke-vestine`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/business-english`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/pcm`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/power-bi`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/qa`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/qa`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/qa`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kursevi/qa`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kalendar`,
-      lastModified: new Date()
-    },
-    {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/kontakt`,
-      lastModified: new Date()
-    }
-  ];
+export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = "https://itbridge-services.com";
+
+  // Base routes
+  const routes = ["", "/kursevi", "/kalendar", "/kontakt"].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const, // Možda "yearly" zavisno od sadržaja
+    priority: route === "" ? 1 : 0.8
+  }));
+
+  // Course routes
+  const courseRoutes = courses.map((course) => ({
+    url: `${baseUrl}/kursevi/${course.url}`, // Prilagoditi URL ako je potrebno
+    lastModified: new Date(), // Možda želite koristiti datum poslednje izmene kursa
+    changeFrequency: "monthly" as const, // Možda "yearly"
+    priority: 0.6
+  }));
+
+  return [...routes, ...courseRoutes];
 }

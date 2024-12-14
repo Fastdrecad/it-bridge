@@ -41,13 +41,13 @@ export const courseSchedules: Record<string, CourseSchedule[]> = {
       participants: "5-12",
       location: "In house",
       schedule: "Dogovor",
-      duration: "6 sati / 1 dana"
+      duration: "6 sati / 1 dan"
     }
   ],
   businessEnglish: [
     {
       participants: "4 - 6",
-      location: "Online via MS Teams",
+      location: "Online",
       schedule: "Dogovor",
       duration: "32 časa / 8 nedelja"
     }
@@ -55,24 +55,18 @@ export const courseSchedules: Record<string, CourseSchedule[]> = {
   powerBI: [
     {
       participants: "5-10",
-      location: "In house",
+      location: "Online",
       schedule: "Dogovor",
-      duration: "12 sati / 2 dana"
-    },
-    {
-      participants: "5-10",
-      location: "Hybrid",
-      schedule: "Dogovor",
-      duration: "16 sati"
+      duration: "2 puta / 6 nedelja"
     }
   ],
-  qa: [
+  excel: [
     {
-      participants: "Do 8",
-      location: "Online via MS Teams",
+      participants: "Do 10",
+      location: "Online",
       schedule: "Dogovor",
-      duration: "32 sata / 6 nedelja",
-      price: "38.900 din"
+      duration: "2 puta / 4 nedelje",
+      price: ""
     }
   ]
 };

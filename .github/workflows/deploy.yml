@@ -1,0 +1,70 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          npm audit
+
+      - name: Build
+        run: npm run build
+
+      - name: SSH into VPS and deploy
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /var/www
+
+            # Check if the repository already exists
+            if [ ! -d "/var/www/it-bridge" ]; then
+              # If the repository does not exist, clone it
+              git clone https://github.com/Fastdrecad/it-bridge.git it-bridge
+              cd it-bridge
+
+              # Set environment variables
+              set -a
+              source .env
+              set +a
+
+              npm ci
+              npm run build
+              pm2 start ecosystem.config.js
+            else
+              # If the repository exists, do git pull
+              cd /var/www/it-bridge
+
+              # Set environment variables
+              set -a
+              source .env
+              set +a
+
+              git fetch --all
+              git reset --hard origin/master
+
+              npm cache clean --force
+              npm ci
+              npm run build
+              pm2 reload ecosystem.config.js
+            fi

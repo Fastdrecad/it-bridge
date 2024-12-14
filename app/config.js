@@ -1,40 +1,49 @@
-import { SiIbm } from "react-icons/si";
-import { SiCocacola } from "react-icons/si";
-import { SiSony } from "react-icons/si";
-import { FaMicrosoft } from "react-icons/fa6";
-import { SiGeneralelectric } from "react-icons/si";
-import { SiSchneiderelectric } from "react-icons/si";
-import { SiAccenture } from "react-icons/si";
-import {
-  FaLinkedinIn,
-  FaFacebook,
-  FaInstagram,
-  FaPenToSquare,
-  FaStar,
-  FaHandshake,
-  FaUsersGear
-} from "react-icons/fa6";
 import {
   FaBullseye,
   FaChalkboardTeacher,
-  FaTasks,
-  FaComments,
   FaChartLine,
-  FaClipboardList,
   FaClipboardCheck,
-  FaGraduationCap
+  FaClipboardList,
+  FaComments,
+  FaGraduationCap,
+  FaTasks
 } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaHandshake,
+  FaInstagram,
+  FaLinkedinIn,
+  FaMicrosoft,
+  FaPenToSquare,
+  FaStar,
+  FaUsersGear
+} from "react-icons/fa6";
 import { MdOutlineEmail, MdOutlinePhone } from "react-icons/md";
+import {
+  SiAccenture,
+  SiCocacola,
+  SiGeneralelectric,
+  SiIbm,
+  SiSchneiderelectric,
+  SiSony
+} from "react-icons/si";
 
 import powerBiImage1 from "@/public/assets/images/courses/PowerBI-kurs-1.jpg";
 import powerBiImage2 from "@/public/assets/images/courses/PowerBI-kurs-2.jpg";
 import powerBiImage3 from "@/public/assets/images/courses/power-bi.webp";
 
-import gb from "@/public/assets/images/flags/gb.jpg";
 import de from "@/public/assets/images/flags/de.jpg";
 import fr from "@/public/assets/images/flags/fr.jpg";
+import gb from "@/public/assets/images/flags/gb.jpg";
 
-import { englishImg, hrImg, pcmImg, pbiImg, qaImg, skillsImg } from "./_utils";
+import {
+  englishImg,
+  excelImg,
+  hrImg,
+  pbiImg,
+  pcmImg,
+  skillsImg
+} from "./_utils";
 
 export const calendarCourses = [
   {
@@ -137,12 +146,11 @@ export const courses = [
 
   {
     id: 6,
-    title: "QA Automation",
-    subtitle:
-      "Savladajte automatsko testiranje softvera i unapredite svoju karijeru…",
+    title: "Excel",
+    subtitle: "Savladajte Excel i unapredite svoju karijeru…",
     description: "",
-    image: qaImg,
-    url: "/kursevi/qa"
+    image: excelImg,
+    url: "/kursevi/excel"
   }
 ];
 
@@ -302,11 +310,11 @@ export const heroSectionContent = [
     buttonLink: "/kontakt"
   },
   {
-    title: " QA Automatizacija",
-    subtitle: "Savladajte veštine koje transformišu kvalitet softvera",
-    backgroundImage: "/assets/images/courses/qa.webp",
+    title: "Excel",
+    subtitle: "Savladajte Excel i unapredite svoju karijeru",
+    backgroundImage: "/assets/images/courses/excel.webp",
     buttonLabel: "",
-    buttonLink: "/kursevi/qa"
+    buttonLink: "/kursevi/excel"
   }
 ];
 
@@ -581,8 +589,8 @@ export const courseContent = {
     {
       title: "Zašto baš mi?",
       items: [
-        "Naši predavači su Power BI developeri sa bogatim iskustvom u industriji.",
-        "Oni donose praktična znanja i primere iz stvarnih projekata, omogućavajući vam ne samo da savladate osnove, već i da koristite Power BI za unapređenje poslovnih procesa i donošenje informisanih odluka."
+        "Personalizovan pristup: Korišćenje vaših I naših podataka prilagođeno vašim potrebama.",
+        "Veća motivacija i brža primena u svakodnevnom radu: Učenje odmah korisno i primenjivo."
       ]
     }
   ],

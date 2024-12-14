@@ -1,7 +1,7 @@
-import { FaBars, FaTimes, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useMemo, useState, useRef, useEffect } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { FaBars, FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
 
 interface LinkItem {
   href: string;
@@ -38,7 +38,7 @@ const Sidebar = ({
           { href: "/kursevi/business-english", label: "Business English" },
           { href: "/kursevi/pcm", label: "PCM" },
           { href: "/kursevi/power-bi", label: "Power BI" },
-          { href: "/kursevi/qa", label: "QA Automation" }
+          { href: "/kursevi/excel", label: "Excel" }
         ]
       },
       { href: "/kalendar", label: "Kalendar" },
@@ -156,7 +156,7 @@ const Sidebar = ({
             isDropdownOpen ? "mt-4" : "mt-0"
           }`}
         >
-          <li>
+          {/* <li>
             <Link
               href="/kalendar"
               className={`text-nowrap uppercase ${
@@ -166,7 +166,7 @@ const Sidebar = ({
             >
               Kalendar
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link
               href="/kontakt"
