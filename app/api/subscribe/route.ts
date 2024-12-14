@@ -1,96 +1,49 @@
 import axios from "axios";
-import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
+import { NextResponse } from "next/server";
 
-// Define response data type
-type Data = { message?: string; error?: string };
-
-// Email validation schema
-const EmailSchema = z
-  .string()
-  .email({ message: "Please enter a valid email address" });
-
-// Subscription handler function
-export async function POST(req: NextRequest) {
-  // 1. Validate email address
-  const body = await req.json();
-  const emailValidation = EmailSchema.safeParse(body.email);
-
-  if (!emailValidation.success) {
-    return NextResponse.json(
-      { error: "Unesite ispravnu email adresu" },
-      { status: 400 }
-    );
-  }
-
-  // 2. Retrieve Mailchimp credentials from environment variables
-  const API_KEY = process.env.MAILCHIMP_API_KEY;
-  const API_SERVER = process.env.MAILCHIMP_API_SERVER;
-  const AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID;
-
-  if (!API_KEY || !API_SERVER || !AUDIENCE_ID) {
-    return NextResponse.json(
-      { error: "Missing Mailchimp environment variables" },
-      { status: 500 }
-    );
-  }
-
-  // 3. Construct Mailchimp API request URL
-  const url = `https://${API_SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
-
-  // 4. Prepare request data
-  const data = {
-    email_address: emailValidation.data,
-    status: "subscribed",
-    merge_fields: {
-      FNAME: body.firstName,
-      LNAME: body.lastName
-    }
-  };
-
-  // 5. Set request headers
-  const options = {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Basic ${Buffer.from(`anystring:${API_KEY}`).toString(
-        "base64"
-      )}`
-    }
-  };
-
-  // 6. Send POST request to Mailchimp API
+export async function POST(req: Request) {
   try {
-    const response = await axios.post(url, data, options);
-    if (response.status === 200) {
-      return NextResponse.json(
-        { message: "Odlično! Uspešno ste se prijavili na naš newsletter!" },
-        { status: 201 }
-      );
-    }
-  } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.error(
-        `${error.response?.status}`,
-        `${error.response?.data.title}`,
-        `${error.response?.data.detail}`
-      );
+    const { email, firstName, lastName } = await req.json();
 
-      if (error.response?.data.title === "Member Exists") {
-        return NextResponse.json(
-          {
-            error: "Ovaj email je već prijavljen 🧐"
-          },
-          { status: 400 }
-        );
+    const apiKey = process.env.MAILER_API_KEY;
+    const url = "https://connect.mailerlite.com/api/subscribers";
+
+    const response = await axios.post(
+      url,
+      {
+        email: email,
+        fields: {
+          name: `${firstName} ${lastName}`,
+          first_name: firstName,
+          last_name: lastName
+        },
+        groups: [process.env.MAILER_LIST_ID]
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json",
+          "Authorization": `Bearer ${apiKey}`
+        }
       }
-    }
+    );
+
+    console.log("MailerLite API response:", response.data);
 
     return NextResponse.json(
       {
-        error:
-          "Oops! Došlo je do greške prilikom prijave. Molimo vas da nas kontaktirate putem emaila i mi ćemo vas ručno dodati na listu."
+        message:
+          "Na email adresu poslali smo potvrdu vaše prijave. Proverite inbox i saznajte više o našim obukama."
       },
-      { status: 500 }
+      { status: 200 }
     );
+  } catch (error: unknown) {
+    if (axios.isAxiosError(error)) {
+      console.error("MailerLite API error:", {
+        status: error.response?.status,
+        data: error.response?.data
+      });
+    }
+    return NextResponse.json({ error: "Failed to subscribe" }, { status: 500 });
   }
 }

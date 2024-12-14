@@ -1,6 +1,3 @@
-import test from "node:test";
-import { type } from "os";
-import { ChangeEvent, FC } from "react";
 import { useState } from "react";
 
 interface FormInputProps {
@@ -33,6 +30,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
     type,
     id,
     pattern,
+    value,
     ...inputProps
   } = props;
 
@@ -41,39 +39,48 @@ const FormInput: React.FC<FormInputProps> = (props) => {
   ) => {
     onChange(e); // Propagate the change first
 
+    const currentValue = e.target.value;
+    let isValidInput = true;
+
+    // Provera pattern-a (za email)
     if (pattern) {
       const regex = new RegExp(pattern);
-      setIsValid(regex.test(e.target.value));
-    } else {
-      setIsValid(true); // No pattern means always valid unless overridden by specific logic
+      isValidInput = isValidInput && regex.test(currentValue);
     }
 
-    // Additional validations for textarea based on length
-    if (type === "textarea" && (minLength || maxLength)) {
-      const length = e.target.value.length;
-      setIsValid(
-        (minLength ? length >= minLength : true) &&
-          (maxLength ? length <= maxLength : true)
-      );
+    // Provera minLength (za ime i prezime)
+    if (minLength && currentValue.length > 0) {
+      isValidInput = isValidInput && currentValue.length >= minLength;
     }
+
+    // Provera maxLength
+    if (maxLength) {
+      isValidInput = isValidInput && currentValue.length <= maxLength;
+    }
+
+    setIsValid(isValidInput);
   };
 
   const handleBlur = () => {
-    setIsFocused(true); // Only check for errors after the field has been touched
+    setIsFocused(true);
+
+    if (minLength && value.length > 0) {
+      setIsValid(value.length >= minLength);
+    }
   };
 
-  const inputClassName = `w-full border rounded-lg py-3 px-3 ${
+  const inputClassName = `w-full text-black border rounded-md py-2 px-3 ${
     isFocused && !isValid ? "border-red-500" : "border-gray-300"
   } focus:outline-none focus:ring-primary-500 focus:border-primary-500`;
 
   return (
     <div className="relative flex flex-col h-full">
-      <label className="text-white" htmlFor={id.toString()}>
+      {/* <label className="text-white" htmlFor={id.toString()}>
         {label}
-      </label>
+      </label> */}
       {type === "textarea" ? (
         <textarea
-          className={`${inputClassName} leading-6 h-full`}
+          className={`${inputClassName} leading-6 h-full min-h-[72px]`}
           id={id.toString()}
           {...inputProps}
           onChange={handleInputChange}
@@ -81,6 +88,7 @@ const FormInput: React.FC<FormInputProps> = (props) => {
           data-focused={isFocused.toString()}
           minLength={minLength}
           maxLength={maxLength}
+          rows={6}
         />
       ) : (
         <input
@@ -92,14 +100,14 @@ const FormInput: React.FC<FormInputProps> = (props) => {
           onBlur={handleBlur}
           data-focused={isFocused.toString()}
           pattern={pattern}
+          minLength={minLength}
+          maxLength={maxLength}
         />
       )}
-      {/* {!isValid && errorMessage && (
-        <span className="text-red-500 text-xs mt-1">{errorMessage}</span>
-      )} */}
       <span
-        className={`text-red-500 text-xs mt-1 ${
-          !isValid && errorMessage ? "visible" : "invisible"
+        style={{ color: "red" }}
+        className={`text-xs mt-1 h-5 block ${
+          isFocused && !isValid ? "visible" : "invisible"
         }`}
       >
         {errorMessage}

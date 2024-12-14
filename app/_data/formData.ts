@@ -1,6 +1,3 @@
-import { type } from "os";
-
-// Input fields configuration for form
 export const inputs = [
   {
     id: 1,

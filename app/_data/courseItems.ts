@@ -73,7 +73,7 @@ export const courseItems: CourseCategory[] = [
     ]
   },
   {
-    categoryName: "qaAutomation",
+    categoryName: "excel",
     icons: [
       { icon: "FaBullseye", label: "Postavljanje ciljeva" },
       { icon: "FaChalkboardTeacher", label: "Realizacija programa" },

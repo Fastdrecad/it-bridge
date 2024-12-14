@@ -2,6 +2,11 @@ import Button from "@/app/_components/common/Button/Button";
 import Link from "next/link";
 
 export default function Video() {
+  const videoUrl =
+    "https://res.cloudinary.com/dgxi5mtlo/video/upload/f_auto,q_auto/v1734198042/it-bridge.mp4";
+  // const videoUrl =
+  //   "https://res.cloudinary.com/dgxi5mtlo/video/upload/f_auto,q_auto,w_1280,h_720/v1734198042/it-bridge.mp4";
+
   return (
     <section className="w-full h-screen mx-auto -mt-44">
       {/* Video Hero */}
@@ -13,7 +18,7 @@ export default function Video() {
         preload="auto"
         className="absolute top-0 left-0 w-full h-screen object-cover m-0 p-0 z-0 backdrop-filter"
       >
-        <source src="/assets/videos/it-bridge-loop.mp4" type="video/mp4" />
+        <source src={videoUrl} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 

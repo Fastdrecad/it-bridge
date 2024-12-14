@@ -139,9 +139,9 @@ export const pageFeatures: Record<string, PageFeature> = {
   softwareTesting: {
     sections: [
       {
-        title: "Kompletan transfer znanja",
+        title: "Struktura i organizacija kursa",
         description:
-          "Oko testiranja i kvaliteta nema kompromisa, a naše obuke pružaju kompletan transfer znanja koji omogućava brzu prekvalifikaciju u IT sektor. Naši polaznici će biti spremni za ozbiljan, zahtevan i dobro plaćen posao."
+          "Format: Kurs se izvodi online (putem MS Teams-a, Google Meet-a i drugih platformi)."
       },
       {
         title: "Efikasno učenje sa mentorom",
@@ -149,19 +149,9 @@ export const pageFeatures: Record<string, PageFeature> = {
           "Kurs se odvija online uz direktnu interakciju sa mentorom. Učenje na svojim i tuđim greškama omogućava brže usvajanje znanja i odmah primenljive veštine."
       },
       {
-        title: "Sveobuhvatan program",
+        title: "Prilagođen sadržaj",
         description:
-          "Kurs uključuje sveobuhvatan i koncizan nastavni plan i program koji se sprovodi do kraja kursa, obuhvatajući sve aspekte automatskog testiranja softvera."
-      },
-      {
-        title: "Praktična primena",
-        description:
-          "Kurs nudi intenzivan praktičan rad kroz vežbe i zadatke, uključujući pripremu za završni ispit i simulaciju ispita. Praktičan rad omogućava polaznicima da usvoje i primene naučeno znanje u stvarnim situacijama."
-      },
-      {
-        title: "Podrška i sertifikacija",
-        description:
-          "Uključuje podršku posvećenog mentora tokom trajanja kursa, kao i lekcije u online formatu. Po završetku kursa, polaznici dobijaju sertifikat i pomoć u pripremi CV-ja, portfolia i intervjua sa našim HR timom."
+          " Kurs pokriva osnove i napredne funkcionalnosti Excel-a, uključujući rad sa formulama, analizom podataka, pivot tabelama, grafikama i makroima, sa konkretnim primerima i vežbama iz realnog života."
       }
     ]
     // No flags for softwareTesting

@@ -1,5 +1,4 @@
 import type { Config } from "tailwindcss";
-import { custom } from "zod";
 
 const config: Config = {
   content: [

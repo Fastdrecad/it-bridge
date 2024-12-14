@@ -10,7 +10,7 @@ export interface HeroSectionContent {
 export const heroSectionContent: HeroSectionContent[] = [
   {
     title: "Napravite zaokret u karijeri",
-    subtitle: "Vaš put ka uspehu u HR-u počinje ovde",
+    subtitle: "Vaš put ka uspehu u HR-u počinje sa nama",
     backgroundImage: "/assets/images/courses/hr.webp",
     placeholderImage: "/assets/images/placeholders/placeholder-hr.jpg",
     buttonLabel: "",
@@ -51,9 +51,9 @@ export const heroSectionContent: HeroSectionContent[] = [
     buttonLink: "/kontakt"
   },
   {
-    title: " QA Automatizacija",
-    subtitle: "Savladajte veštine koje transformišu kvalitet softvera",
-    backgroundImage: "/assets/images/courses/qa.webp",
+    title: " Excel",
+    subtitle: "Povećajte produktivnost vaših timova",
+    backgroundImage: "/assets/images/courses/excel.webp",
     placeholderImage: "/assets/images/placeholders/placeholder-qa.jpg",
     buttonLabel: "",
     buttonLink: "/kursevi/qa"

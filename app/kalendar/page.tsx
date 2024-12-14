@@ -1,10 +1,37 @@
 import ResponsiveTable from "@/app/_components/ResponsiveTable";
+import calendarBg from "@/public/assets/images/backgrounds/kalendar.jpg";
 import { Metadata } from "next";
 import Image from "next/image";
-import calendarBg from "@/public/assets/images/backgrounds/kalendar.jpg";
 
 export const metadata: Metadata = {
-  title: "Kalendar"
+  title: "Kalendar Obuka | IT Bridge EDU Center",
+  description:
+    "Pregledajte raspored svih aktuelnih IT obuka i treninga. Planirajte svoje usavršavanje unapred.",
+  openGraph: {
+    title: "Kalendar Obuka | IT Bridge EDU Center",
+    description: "Pregledajte raspored svih aktuelnih IT obuka i treninga.",
+    url: "https://itbridge-services.com/kalendar",
+    type: "website",
+    siteName: "IT Bridge EDU Center",
+    locale: "sr_RS",
+    images: [
+      {
+        url: "/og-image-calendar.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Kalendar IT Bridge obuka"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@itbridge",
+    creator: "@itbridge",
+    images: "/og-image-calendar.jpg"
+  },
+  alternates: {
+    canonical: "https://itbridge-services.com/kalendar"
+  }
 };
 
 export default function KalendarPage() {
