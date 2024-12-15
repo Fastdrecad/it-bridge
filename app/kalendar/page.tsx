@@ -1,5 +1,5 @@
 import ResponsiveTable from "@/app/_components/ResponsiveTable";
-import calendarBg from "@/public/assets/images/backgrounds/kalendar.jpg";
+import calendarBg from "@/public/assets/images/backgrounds/kalendar.webp";
 import { Metadata } from "next";
 import Image from "next/image";
 

@@ -52,7 +52,7 @@ export const organizationSchema = {
   "@type": "EducationalOrganization",
   name: baseMetadata.siteName,
   url: baseMetadata.siteUrl,
-  logo: `${baseMetadata.siteUrl}/logo.png`,
+  logo: `${baseMetadata.siteUrl}/logo.webp`,
   description: "Profesionalni IT treninzi i obuke za kompanije i pojedince",
   address: {
     "@type": "PostalAddress",

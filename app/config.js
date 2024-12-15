@@ -28,8 +28,8 @@ import {
   SiSony
 } from "react-icons/si";
 
-import powerBiImage1 from "@/public/assets/images/courses/PowerBI-kurs-1.jpg";
-import powerBiImage2 from "@/public/assets/images/courses/PowerBI-kurs-2.jpg";
+import powerBiImage1 from "@/public/assets/images/courses/PowerBI-kurs-1.webp";
+import powerBiImage2 from "@/public/assets/images/courses/PowerBI-kurs-2.webp";
 import powerBiImage3 from "@/public/assets/images/courses/power-bi.webp";
 
 import de from "@/public/assets/images/flags/de.jpg";

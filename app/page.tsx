@@ -8,6 +8,8 @@ import Newsletter from "@/app/_components/Newsletter";
 import Partner from "@/app/_components/Partner";
 import Testimonials from "@/app/_components/Testimonials";
 import Video from "@/app/_components/Video";
+import Loading from "@/app/loading";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
@@ -80,7 +82,7 @@ export default function HomePage() {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     name: "IT Bridge EDU Center",
-    image: "https://itbridge-services.com/logo.png",
+    image: "https://itbridge-services.com/logo.webp",
     description: "Profesionalni centar za IT obuke i treninge",
     address: {
       "@type": "PostalAddress",
@@ -114,12 +116,14 @@ export default function HomePage() {
           ])
         }}
       />
-      <Video />
-      <About />
-      <Courses />
-      <Testimonials />
-      <Partner />
-      <Newsletter />
+      <Suspense fallback={<Loading />}>
+        <Video />
+        <About />
+        <Courses />
+        <Testimonials />
+        <Partner />
+        <Newsletter />
+      </Suspense>
     </>
   );
 }

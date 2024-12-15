@@ -1,4 +1,5 @@
-import { useState } from "react";
+import useDebounce from "@/app/_hooks/useDebounce";
+import { useEffect, useState } from "react";
 
 interface FormInputProps {
   id: number;
@@ -21,6 +22,9 @@ const FormInput: React.FC<FormInputProps> = (props) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isValid, setIsValid] = useState(true);
 
+  // Debounce the value for validation
+  const debouncedValue = useDebounce(props.value, 300);
+
   const {
     onChange,
     errorMessage,
@@ -37,29 +41,30 @@ const FormInput: React.FC<FormInputProps> = (props) => {
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    onChange(e); // Propagate the change first
+    onChange(e);
+  };
 
-    const currentValue = e.target.value;
+  // Use debounced value for validation
+  useEffect(() => {
+    if (!isFocused) return;
+
     let isValidInput = true;
 
-    // Provera pattern-a (za email)
     if (pattern) {
       const regex = new RegExp(pattern);
-      isValidInput = isValidInput && regex.test(currentValue);
+      isValidInput = isValidInput && regex.test(debouncedValue);
     }
 
-    // Provera minLength (za ime i prezime)
-    if (minLength && currentValue.length > 0) {
-      isValidInput = isValidInput && currentValue.length >= minLength;
+    if (minLength && debouncedValue.length > 0) {
+      isValidInput = isValidInput && debouncedValue.length >= minLength;
     }
 
-    // Provera maxLength
     if (maxLength) {
-      isValidInput = isValidInput && currentValue.length <= maxLength;
+      isValidInput = isValidInput && debouncedValue.length <= maxLength;
     }
 
     setIsValid(isValidInput);
-  };
+  }, [debouncedValue, pattern, minLength, maxLength, isFocused]);
 
   const handleBlur = () => {
     setIsFocused(true);

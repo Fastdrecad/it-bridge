@@ -1,8 +1,8 @@
+import { testimonials } from "@/app/_data";
+import bg from "@/public/assets/images/backgrounds/testimonial-bg.webp";
+import quoteImg from "@/public/assets/images/quote-start.png";
 import Image from "next/image";
 import TestimonialItems from "./TestimonialItems";
-import bg from "@/public/assets/images/backgrounds/testimonial-bg.jpg";
-import quoteImg from "@/public/assets/images/quote-start.png";
-import { testimonials } from "@/app/_data";
 
 export default function Testimonials() {
   return (

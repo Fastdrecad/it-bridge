@@ -8,7 +8,7 @@ import Link from "next/link";
 import { socialLinks } from "@/app/_data";
 import ItBridgeLogo from "./icons/ItBridgeLogo";
 
-import footer from "@/public/assets/images/backgrounds/footer-bg.png";
+import footer from "@/public/assets/images/backgrounds/footer-bg.webp";
 
 interface LinkItem {
   href: string;
@@ -20,7 +20,6 @@ export default function Footer() {
     () => [
       { href: "/", label: "O Nama" },
       { href: "/kursevi", label: "Kursevi" },
-      { href: "/kalendar", label: "Kalendar" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []

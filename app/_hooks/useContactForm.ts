@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import useDebounce from "./useDebounce";
 
 interface FormValues {
   ime: string;
@@ -17,11 +18,13 @@ const useContactForm = () => {
     poruka: ""
   });
 
+  // Debounce the form values
+  const debouncedValues = useDebounce<FormValues>(values, 300);
+
   const [isFormValidState, setIsFormValidState] = useState(false);
   const [loading, setLoading] = useState(false);
   const [responseMessage, setResponseMessage] = useState<string | null>(null);
 
-  // Handle input changes
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -29,23 +32,23 @@ const useContactForm = () => {
     setValues((prevValues) => ({ ...prevValues, [name]: value }));
   };
 
-  // Effect to validate the form whenever values change
+  // Use debounced values for validation
   useEffect(() => {
     const isFormValid =
-      values.ime.trim().length >= 3 &&
-      values.ime.trim().length <= 15 &&
-      /^[A-Za-z]{3,15}$/.test(values.ime) &&
-      values.prezime.trim().length >= 3 &&
-      values.prezime.trim().length <= 15 &&
-      /^[A-Za-z]{3,15}$/.test(values.prezime) &&
-      /^\S+@\S+\.\S+$/.test(values.email) &&
-      values.email.trim().length >= 10 &&
-      /^[0-9]{9,10}$/.test(values.telefon) &&
-      values.poruka.length >= 10 &&
-      values.poruka.length <= 300;
+      debouncedValues.ime.trim().length >= 3 &&
+      debouncedValues.ime.trim().length <= 15 &&
+      /^[A-Za-z]{3,15}$/.test(debouncedValues.ime) &&
+      debouncedValues.prezime.trim().length >= 3 &&
+      debouncedValues.prezime.trim().length <= 15 &&
+      /^[A-Za-z]{3,15}$/.test(debouncedValues.prezime) &&
+      /^\S+@\S+\.\S+$/.test(debouncedValues.email) &&
+      debouncedValues.email.trim().length >= 10 &&
+      /^[0-9]{9,10}$/.test(debouncedValues.telefon) &&
+      debouncedValues.poruka.length >= 10 &&
+      debouncedValues.poruka.length <= 300;
 
     setIsFormValidState(isFormValid);
-  }, [values]); // Dependency array to run the effect when values change
+  }, [debouncedValues]);
 
   return {
     values,

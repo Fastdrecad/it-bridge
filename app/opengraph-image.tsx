@@ -14,6 +14,6 @@ export default async function Image() {
   return OpenGraphImage({
     title: "IT Bridge EDU Center",
     description: "Profesionalni centar za IT obuke i treninge",
-    imagePath: "/logo.png"
+    imagePath: "/logo.webp"
   });
 }

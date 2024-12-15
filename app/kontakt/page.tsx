@@ -1,4 +1,4 @@
-import kontaktBg from "@/public/assets/images/backgrounds/kontakt-bg.jpg";
+import kontaktBg from "@/public/assets/images/backgrounds/kontakt-bg.webp";
 import { Metadata } from "next";
 import Image from "next/image";
 import GoogleMap from "../_components/GoogleMap";
@@ -48,7 +48,7 @@ export default function KontaktPage() {
             fill
             quality={100}
             priority
-            blurDataURL="/public/assets/images/placeholders/placeholder-kontakt-bg.jpg"
+            blurDataURL="/public/assets/images/placeholders/placeholder-kontakt-bg.webp"
           />
           {/* Overlay */}
           <div className="absolute inset-0  bg-secondary-500 opacity-60 z-10"></div>

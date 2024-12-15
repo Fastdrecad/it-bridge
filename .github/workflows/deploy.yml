@@ -27,17 +27,35 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd /var/www/it-bridge
+            # Proverite da li direktorijum /var/www/it-bridge postoji
+            if [ ! -d "/var/www/it-bridge/.git" ]; then
+              echo "Directory does not exist or is not a Git repository, creating and cloning the repo..."
+              cd /var/www
+              git clone https://github.com/Fastdrecad/it-bridge.git it-bridge
+            else
+              echo "Directory exists, pulling latest changes..."
+              cd /var/www/it-bridge
+              git pull origin master
+            fi
 
-            # Set environment variables
-            set -a
-            source .env
-            set +a
+            # Proveri da li .env fajl postoji
+            if [ ! -f "/var/www/it-bridge/.env" ]; then
+              echo "Warning: .env file does not exist, skipping environment variables setup"
+            else
+              # Set environment variables only if .env exists
+              set -a
+              source /var/www/it-bridge/.env
+              set +a
+            fi
 
-            git pull origin master
+            # Install dependencies and build
+            if [ -f "package.json" ]; then
+              npm install
+              npm run build
+            else
+              echo "Error: package.json not found, skipping npm install"
+              exit 1
+            fi
 
-            npm install
-
-            npm run build
-
+            # Restart PM2 process or start if not running
             pm2 restart it-bridge || pm2 start npm --name "it-bridge" -- start
