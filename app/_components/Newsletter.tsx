@@ -68,7 +68,7 @@ export default function Newsletter() {
         {status !== "success" && (
           <>
             <h2 className="text-4xl font-bold mb-4 text-center">
-              Prijavite se za naš newsletter
+              Prijavite se na naš newsletter
             </h2>
             <p className="text-center mb-8 text-lg md:px-20">
               Budite u toku sa najnovijim obukama i prilikama
@@ -109,7 +109,7 @@ export default function Newsletter() {
                 className="text-secondary-500 whitespace-nowrap md:w-2/5"
                 disabled={status === "loading" || !isFormValidState}
               >
-                {status === "loading" ? "Slanje..." : "Prijavite se"}
+                {status === "loading" ? "Slanje..." : "Potvrdite"}
                 <MdEmail className="text-xl md:text-2xl m-0 ms-2" />
               </Button>
             </div>

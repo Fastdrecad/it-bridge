@@ -27,7 +27,9 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            # Proverite da li direktorijum /var/www/it-bridge postoji
+            set -x  # Enable debug output
+
+            # check if directory /var/www/it-bridge exists
             if [ ! -d "/var/www/it-bridge/.git" ]; then
               echo "Directory does not exist or is not a Git repository, creating and cloning the repo..."
               cd /var/www
@@ -35,18 +37,24 @@ jobs:
             else
               echo "Directory exists, pulling latest changes..."
               cd /var/www/it-bridge
+
+              # Fetch latest changes to ensure we are in sync
+              git fetch origin
               git pull origin master
             fi
 
-            # Proveri da li .env fajl postoji
-            if [ ! -f "/var/www/it-bridge/.env" ]; then
-              echo "Warning: .env file does not exist, skipping environment variables setup"
-            else
-              # Set environment variables only if .env exists
-              set -a
-              source /var/www/it-bridge/.env
-              set +a
-            fi
+            echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" > /var/www/it-bridge/.env
+            echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}" >> /var/www/it-bridge/.env
+            echo "MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}" >> /var/www/it-bridge/.env
+            echo "MAILCHIMP_AUDIENCE_ID=${{ secrets.MAILCHIMP_AUDIENCE_ID }}" >> /var/www/it-bridge/.env
+            echo "MAILCHIMP_API_SERVER=${{ secrets.MAILCHIMP_API_SERVER }}" >> /var/www/it-bridge/.env
+            echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> /var/www/it-bridge/.env
+            echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> /var/www/it-bridge/.env
+            echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> /var/www/it-bridge/.env
+            echo "MAILER_API_KEY=${{ secrets.MAILER_API_KEY }}" >> /var/www/it-bridge/.env
+            echo "MAILER_LIST_ID=${{ secrets.MAILER_LIST_ID }}" >> /var/www/it-bridge/.env
+
+            cd /var/www/it-bridge
 
             # Install dependencies and build
             if [ -f "package.json" ]; then
@@ -58,4 +66,5 @@ jobs:
             fi
 
             # Restart PM2 process or start if not running
+            pm2 list
             pm2 restart it-bridge || pm2 start npm --name "it-bridge" -- start
