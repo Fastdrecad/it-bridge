@@ -42,11 +42,17 @@ export default function KalendarPage() {
           src={calendarBg}
           fill
           alt="Background Image"
-          className="object-left object-cover"
+          className="object-cover"
           priority
           quality={75}
           placeholder="blur"
           blurDataURL="/assets/images/placeholders/placeholder-kalendar-bg.jpg"
+          sizes="100vw"
+          style={{
+            backgroundImage: `url(/assets/images/placeholders/placeholder-kalendar-bg.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary-500 to-transparent/30"></div>
       </div>
