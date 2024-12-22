@@ -50,20 +50,84 @@ export const createCourseMetadata = (
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOrganization",
-  name: baseMetadata.siteName,
-  url: baseMetadata.siteUrl,
-  logo: `${baseMetadata.siteUrl}/logo.webp`,
+  name: "IT Bridge EDU Center",
+  url: "https://itbridge-services.com",
+  logo: "https://itbridge-services.com/logo.webp",
   description: "Profesionalni IT treninzi i obuke za kompanije i pojedince",
   address: {
     "@type": "PostalAddress",
     addressCountry: "RS",
-    addressLocality: "Belgrade"
+    addressLocality: "Belgrade",
+    streetAddress: "Obilićev venac 18",
+    postalCode: "11000"
   },
   contactPoint: {
     "@type": "ContactPoint",
     telephone: "+381621213309",
     email: "office@itbridge-services.com",
     contactType: "customer service"
+  },
+  potentialAction: [
+    {
+      "@type": "ViewAction",
+      name: "Pogledaj Kurseve",
+      target: "https://itbridge-services.com/kursevi"
+    },
+    {
+      "@type": "ViewAction",
+      name: "Zakaži Konsultacije",
+      target: "https://itbridge-services.com/kontakt"
+    }
+  ],
+  sameAs: [
+    "https://www.linkedin.com/company/it-bridge-edu-center/",
+    "https://www.facebook.com/itbridge.edu?locale=ms_MY",
+    "https://www.instagram.com/itbridge/"
+  ],
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": "https://itbridge-services.com",
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "QA Kursevi",
+          description:
+            "Obuka za software testere - manuelno i automatsko testiranje",
+          url: "https://itbridge-services.com/qa"
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Power BI",
+          description: "Napredna analiza i vizuelizacija podataka",
+          url: "https://itbridge-services.com/power-bi"
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "PCM Trening",
+          description: "Process Communication Model obuke",
+          url: "https://itbridge-services.com/pcm"
+        },
+        {
+          "@type": "ListItem",
+          position: 4,
+          name: "Business English",
+          description: "Kursevi poslovnog engleskog jezika",
+          url: "https://itbridge-services.com/business-english"
+        },
+        {
+          "@type": "ListItem",
+          position: 5,
+          name: "HR Starter",
+          description: "Program za početak karijere u HR-u",
+          url: "https://itbridge-services.com/hr-starter"
+        }
+      ]
+    }
   }
 };
 

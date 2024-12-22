@@ -24,15 +24,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <>
       <section className="w-full min-h-screen mx-auto flex flex-col">
-        <div className="absolute top-0 left-0 w-full min-h-screen object-cover">
+        <div className="absolute top-0 left-0 w-full min-h-screen">
           <Image
             src={backgroundImage}
             alt={`Background image for ${title}`}
             fill
             className="object-cover"
-            quality={100}
+            quality={75}
             priority
+            placeholder="blur"
             blurDataURL={placeholderImage}
+            sizes="100vw"
           />
           <div className="absolute inset-0 bg-black bg-opacity-60"></div>
         </div>

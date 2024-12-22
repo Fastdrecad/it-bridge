@@ -66,13 +66,12 @@ export default function HomePage() {
     "@type": "WebSite",
     name: "IT Bridge EDU Center",
     url: "https://itbridge-services.com",
-    description: "Profesionalni centar za IT obuke i treninge",
     potentialAction: {
       "@type": "SearchAction",
       target: {
         "@type": "EntryPoint",
         urlTemplate:
-          "https://itbridge-services.com/search?q={search_term_string}"
+          "https://itbridge-services.com/pretraga?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -105,15 +104,10 @@ export default function HomePage() {
   return (
     <>
       <Script
-        id="homepage-schema"
+        id="homepage-schemas"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
-            websiteSchema,
-            localBusinessSchema,
-            breadcrumbSchema,
-            faqSchema
-          ])
+          __html: JSON.stringify([websiteSchema, breadcrumbSchema, faqSchema])
         }}
       />
       <Suspense fallback={<Loading />}>

@@ -46,9 +46,10 @@ export default function KontaktPage() {
             alt="Handshake"
             className="object-cover"
             fill
-            quality={100}
+            quality={75}
             priority
-            blurDataURL="/public/assets/images/placeholders/placeholder-kontakt-bg.webp"
+            placeholder="blur"
+            blurDataURL="/assets/images/placeholders/placeholder-kontakt-bg.jpg"
           />
           {/* Overlay */}
           <div className="absolute inset-0  bg-secondary-500 opacity-60 z-10"></div>

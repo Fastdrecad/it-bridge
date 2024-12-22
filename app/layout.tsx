@@ -20,11 +20,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://itbridge-services.com"),
   title: {
-    default: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
-    template: "%s "
+    default: "IT Bridge | Profesionalne IT Obuke i Kursevi u Srbiji",
+    template: "%s | IT Bridge EDU Center"
   },
   description:
-    "Investirajte u obuke koje donose rezultate. Efikasni trening programi za vaše timove. Mi smo Vaš pouzdani partner u transformaciji kroz obuke.",
+    "IT Bridge EDU Center nudi profesionalne IT obuke, kurseve i treninge. Specijalizovani smo za QA, Power BI, PCM i Business English obuke. ✓ Sertifikovani predavači ✓ Praktično znanje",
   openGraph: {
     type: "website",
     locale: "sr_RS",
@@ -72,7 +72,8 @@ export const metadata: Metadata = {
     }
   },
   verification: {
-    google: "your-google-site-verification" // Add your Google verification code
+    google:
+      "google-site-verification=xMJ8Ik4XxqWgg9HH0lD166DCi-JZSgTnybwHR_nbiRA"
   },
   manifest: "/manifest.json",
   icons: {

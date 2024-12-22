@@ -44,8 +44,9 @@ export default function KalendarPage() {
           alt="Background Image"
           className="object-left object-cover"
           priority
-          quality={100}
-          blurDataURL="/public/assets/images/placeholders/placeholder-kalendar-bg.jpg"
+          quality={75}
+          placeholder="blur"
+          blurDataURL="/assets/images/placeholders/placeholder-kalendar-bg.jpg"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary-500 to-transparent/30"></div>
       </div>

@@ -4,18 +4,18 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
       {
-        userAgent: "*", // Omogućava svim pretraživačima pristup
+        userAgent: "*", // It allows all search engines to access
         allow: "/",
-        disallow: ["/private/", "/admin/", "/login/"], // Blokira pristup određenim stranicama
-        crawlDelay: 5 // Dodajte pauzu između zahteva, ako je potrebno
+        disallow: ["/private/", "/admin/", "/login/"], // It blocks access to certain pages
+        crawlDelay: 5 // Add a delay between requests, if necessary
       },
       {
-        userAgent: "Googlebot", // Specifične instrukcije za Googlebot
+        userAgent: "Googlebot", // Specific instructions for Googlebot
         allow: "/",
         disallow: ["/private/"],
-        crawlDelay: 2 // Pauza od 2 sekunde za Googlebot
+        crawlDelay: 2 // 2 second delay for Googlebot
       }
     ],
-    sitemap: "https://itbridge-services.com/sitemap.xml" // Tačan URL za sitemap
+    sitemap: "https://itbridge-services.com/sitemap.xml" // Correct URL for sitemap
   };
 }
