@@ -18,7 +18,7 @@ export default function Navigation() {
 
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", label: "O Nama" },
+      { href: "/", label: "Početna" },
       {
         href: "/kursevi",
         label: "Kursevi",
@@ -31,7 +31,7 @@ export default function Navigation() {
           { href: "/kursevi/excel", label: "Excel" }
         ]
       },
-      // { href: "/kalendar", label: "Kalendar" },
+      { href: "/o-nama", label: "O Nama" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []

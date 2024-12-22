@@ -28,7 +28,7 @@ const Sidebar = ({
 
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", label: "O Nama" },
+      { href: "/", label: "Početna" },
       {
         href: "/kursevi",
         label: "Kursevi",
@@ -41,6 +41,7 @@ const Sidebar = ({
           { href: "/kursevi/excel", label: "Excel" }
         ]
       },
+      { href: "/o-nama", label: "O Nama" },
       { href: "/kalendar", label: "Kalendar" },
       { href: "/kontakt", label: "Kontakt" }
     ],
@@ -93,92 +94,87 @@ const Sidebar = ({
           isOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
-        {/* Fixed Top Section */}
-        <ul className="flex flex-col gap-4 items-start  pl-36 pt-[12rem] pb-4">
-          <li>
-            <Link
-              href="/"
-              className={`text-nowrap uppercase ${
-                pathname === "/" ? "font-bold" : "font-medium"
-              }`}
-              onClick={onToggle}
-            >
-              O Nama
-            </Link>
-          </li>
-          <li className="relative z-50" ref={dropdownRef}>
-            <div className="flex items-center gap-1">
+        <div className="flex h-screen mt-20">
+          {/* Fixed Top Section */}
+          <ul className="inline-block mx-20 w-full">
+            <li className="my-2">
               <Link
-                href="/kursevi"
+                href="/"
                 className={`text-nowrap uppercase ${
-                  isKurseviActive ? "font-bold" : "font-medium"
+                  pathname === "/" ? "font-bold" : "font-medium"
                 }`}
                 onClick={onToggle}
               >
-                Kursevi
+                Početna
               </Link>
-              <div
-                className="cursor-pointer ml-2"
-                onClick={handleDropdownToggle}
-              >
-                {isDropdownOpen ? (
-                  <FaChevronUp className="text-md" />
-                ) : (
-                  <FaChevronDown className="text-md" />
-                )}
+            </li>
+            <li className="relative z-50 my-2" ref={dropdownRef}>
+              <div className="flex items-center gap-1">
+                <Link
+                  href="/kursevi"
+                  className={`text-nowrap uppercase ${
+                    isKurseviActive ? "font-bold" : "font-medium"
+                  }`}
+                  onClick={onToggle}
+                >
+                  Kursevi
+                </Link>
+                <div
+                  className="cursor-pointer ml-2"
+                  onClick={handleDropdownToggle}
+                >
+                  {isDropdownOpen ? (
+                    <FaChevronUp className="text-md" />
+                  ) : (
+                    <FaChevronDown className="text-md" />
+                  )}
+                </div>
               </div>
-            </div>
-            {isDropdownOpen && (
-              <ul className="mt-2 ms-2 space-y-2 bg-slate-100 py-3">
-                {links[1].subLinks?.map((subLink) => (
-                  <li key={subLink.href}>
-                    <Link
-                      href={subLink.href}
-                      className={`block px-4 text-base leading-6 ${
-                        pathname === subLink.href
-                          ? "bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm"
-                          : "hover:bg-gray-100 text-gray-700"
-                      }`}
-                      onClick={onToggle}
-                    >
-                      {subLink.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        </ul>
+              {isDropdownOpen && (
+                <ul className="mt-2 ms-2 space-y-2 bg-slate-100 py-3">
+                  {links[1].subLinks?.map((subLink) => (
+                    <li key={subLink.href}>
+                      <Link
+                        href={subLink.href}
+                        className={`block px-4 text-base leading-6 ${
+                          pathname === subLink.href
+                            ? "bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm"
+                            : "hover:bg-gray-100 text-gray-700"
+                        }`}
+                        onClick={onToggle}
+                      >
+                        {subLink.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
 
-        {/* Moving Bottom Section */}
-        <ul
-          className={`flex flex-col gap-4 items-start pl-36 transition-all duration-300 ${
-            isDropdownOpen ? "mt-4" : "mt-0"
-          }`}
-        >
-          {/* <li>
-            <Link
-              href="/kalendar"
-              className={`text-nowrap uppercase ${
-                pathname === "/kalendar" ? "font-bold" : "font-medium"
-              }`}
-              onClick={onToggle}
-            >
-              Kalendar
-            </Link>
-          </li> */}
-          <li>
-            <Link
-              href="/kontakt"
-              className={`text-nowrap uppercase ${
-                pathname === "/kontakt" ? "font-bold" : "font-medium"
-              }`}
-              onClick={onToggle}
-            >
-              Kontakt
-            </Link>
-          </li>
-        </ul>
+            <li className="my-2">
+              <Link
+                href="/o-nama"
+                className={`text-nowrap uppercase ${
+                  pathname === "/o-nama" ? "font-bold" : "font-medium"
+                }`}
+                onClick={onToggle}
+              >
+                O Nama
+              </Link>
+            </li>
+            <li className="my-2">
+              <Link
+                href="/kontakt"
+                className={`text-nowrap uppercase ${
+                  pathname === "/kontakt" ? "font-bold" : "font-medium"
+                }`}
+                onClick={onToggle}
+              >
+                Kontakt
+              </Link>
+            </li>
+          </ul>
+        </div>
       </aside>
     </div>
   );

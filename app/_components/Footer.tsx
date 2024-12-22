@@ -18,8 +18,9 @@ interface LinkItem {
 export default function Footer() {
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", label: "O Nama" },
+      { href: "/", label: "Početna" },
       { href: "/kursevi", label: "Kursevi" },
+      { href: "/o-nama", label: "O Nama" },
       { href: "/kontakt", label: "Kontakt" }
     ],
     []

@@ -20,33 +20,52 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://itbridge-services.com"),
   title: {
-    default: "IT Bridge | Profesionalne IT Obuke i Kursevi u Srbiji",
+    default: "IT Bridge EDU Center | Personalizovane obuke i kursevi",
     template: "%s | IT Bridge EDU Center"
   },
   description:
-    "IT Bridge EDU Center nudi profesionalne IT obuke, kurseve i treninge. Specijalizovani smo za QA, Power BI, PCM i Business English obuke. ✓ Sertifikovani predavači ✓ Praktično znanje",
+    "Obuke i kursevi po meri Vaše kompanije. Povećajte produktivnost vaših timova uz praktične personalizovane kurseve.",
   openGraph: {
     type: "website",
     locale: "sr_RS",
     url: "https://itbridge-services.com",
     siteName: "IT Bridge EDU Center",
-    title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
+    title: "IT Bridge EDU Center | Personalizovane obuke i treninzi",
     description:
-      "Investirajte u obuke koje donose rezultate. Efikasni trening programi za vaše timove.",
+      " Unapredite produktivnost vaših timova kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-ja i mekih veština.",
     images: [
       {
-        url: "/og-image.jpg", // You'll need to add this image
+        url: "https://itbridge-services.com/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "IT Bridge EDU Center"
+        alt: "IT Bridge EDU Center",
+        type: "image/jpeg"
       }
     ]
   },
+  other: {
+    "og:image:secure_url": "https://itbridge-services.com/og-image.jpg",
+    "og:image:type": "image/jpeg",
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:alt": "IT Bridge EDU Center",
+    "msapplication-TileImage": "https://itbridge-services.com/og-image.jpg",
+    "msapplication-TileColor": "#ffffff",
+    "msapplication-config": "/browserconfig.xml"
+  },
   twitter: {
     card: "summary_large_image",
-    site: "@itbridge", // Add your Twitter handle
+    site: "@itbridge",
     creator: "@itbridge",
-    images: "/og-image.jpg" // Same image as OpenGraph
+    title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
+    description:
+      "Profesionalni centar za IT obuke i treninge. Unapredite svoje znanje kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-a i mekih veština.",
+    images: {
+      url: "https://itbridge-services.com/og-image.jpg",
+      alt: "IT Bridge EDU Center",
+      width: 1200,
+      height: 630
+    }
   },
   keywords: [
     "IT obuke",
@@ -79,10 +98,6 @@ export const metadata: Metadata = {
   icons: {
     icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png" }]
-  },
-  other: {
-    "msapplication-TileColor": "#ffffff",
-    "msapplication-config": "/browserconfig.xml"
   },
   alternates: {
     languages: {

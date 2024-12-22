@@ -157,9 +157,9 @@ export const courseContent: CourseCategory = {
   ],
   businessEnglish: [
     {
-      title: "Business English A2, B1 i B2",
+      title: "Business English A2, B1, B2, C1",
       items: [
-        "Pružamo sveobuhvatne kurseve poslovnog engleskog jezika za nivoe A2, B1, B2, osmišljene da unaprede vašu poslovnu komunikaciju.",
+        "Pružamo sveobuhvatne kurseve poslovnog engleskog jezika za nivoe A2, B1, B2, C1 osmišljene da unaprede vašu poslovnu komunikaciju.",
         "Razumemo jedinstvene potrebe svake kompanije i kreiramo prilagodljive programe koji se fokusiraju na specifične zahteve vašeg tima.",
         "Kroz simulacije stvarnih poslovnih situacija i zadataka relevantnih za vašu industriju putem MS Teams platforme.",
         "Naši profesori, master filolozi anglisti sa bogatim iskustvom u radu s korporativnim klijentima, garantuju kvalitetnu obuku.",

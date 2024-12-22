@@ -1,7 +1,6 @@
 export const homePageMetadata = {
-  title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
-  description:
-    "IT Bridge EDU Center pruža profesionalne IT obuke i treninge u Beogradu. Specijalizovani smo za QA, Power BI, PCM i Business English obuke. ✓ Sertifikovani predavači",
+  title: "IT Bridge EDU Center | Personalizovane obuke i treninzi",
+  description: "",
   keywords:
     "IT obuke, IT treninzi, edukacija, Power BI, QA, PCM, Business English",
   ogUrl: "https://itbridge-services.com",
@@ -24,9 +23,8 @@ export const kurseviPageMetadata = {
 
 export const oNamaPageMetadata = {
   title: "O Nama | IT Bridge EDU Center",
-  description:
-    "IT Bridge EDU Center je vodeći centar za IT edukaciju u Beogradu. Saznajte više o našem timu, misiji i viziji.",
-  keywords: "IT edukacija, IT centar, IT Bridge tim, o nama",
+  description: "IT Bridge edukativni centar Vaš partner u transformaciji.",
+  keywords: "kursevi za kompanije, IT Bridge EDU Center, o nama",
   ogUrl: "https://itbridge-services.com/o-nama",
   ogType: "article",
   ogImage: "https://itbridge-services.com/images/about-preview.jpg",
@@ -58,7 +56,7 @@ export const pcmPageMetadata = {
 export const kontaktPageMetadata = {
   title: "Kontakt | IT Bridge EDU Center",
   description:
-    "Kontaktirajte IT Bridge EDU Center za više informacija o našim kursevima i obukama. Zakažite konsultacije ili se prijavite za kurs.",
+    "Kontaktirajte IT Bridge EDU Center za više informacija o našim kursevima i obukama. Zakažite konsultacije ili se prijavite na kurs.",
   keywords: "kontakt, IT Bridge kontakt, prijava za kurs, konsultacije",
   ogUrl: "https://itbridge-services.com/kontakt",
   ogType: "article",
@@ -69,7 +67,7 @@ export const kontaktPageMetadata = {
 export const kalendarPageMetadata = {
   title: "Kalendar Obuka | IT Bridge EDU Center",
   description:
-    "Pogledajte raspored predstojećih IT obuka i treninga. Rezervišite svoje mesto na vreme i započnite svoje IT usavršavanje.",
+    "Pogledajte raspored predstojećiobuka i treninga. Rezervišite svoje mesto na vreme i započnite svoje usavršavanje.",
   keywords: "kalendar obuka, raspored kurseva, IT treninzi termini",
   ogUrl: "https://itbridge-services.com/kalendar",
   ogType: "article",
@@ -78,9 +76,9 @@ export const kalendarPageMetadata = {
 };
 
 export const powerBiPageMetadata = {
-  title: "Power BI Kurs | Napredna Analiza Podataka | IT Bridge",
+  title: "Power BI Kurs | Napredna analiza Podataka | IT Bridge",
   description:
-    "Savladajte Microsoft Power BI kroz praktičnu obuku. Naučite vizuelizaciju podataka, DAX formule i kreiranje interaktivnih dashboard-a.",
+    "Savladajte MS Power BI kroz praktičnu personalizovanu obuku. Naučite da samostalno koristite ovaj alat. Naučitevizuelizaciju podataka, DAX formule i kreiranje interaktivnih dashboard-a.",
   keywords:
     "Power BI kurs, Power BI obuka, analiza podataka, vizuelizacija podataka",
   ogUrl: "https://itbridge-services.com/power-bi",
@@ -114,7 +112,7 @@ export const mekeVestinePageMetadata = {
 export const hrStarterPageMetadata = {
   title: "HR Starter Kurs | Obuka za HR Profesionalce | IT Bridge",
   description:
-    "Započnite karijeru u HR-u kroz naš sveobuhvatni HR Starter program. Naučite regrutaciju, selekciju i HR administraciju.",
+    "Započnite karijeru u HR-u kroz naš sveobuhvatni HR Starter program uz dvostruku ekspertizu.",
   keywords: "HR kurs, HR obuka, ljudski resursi, HR Starter",
   ogUrl: "https://itbridge-services.com/hr-starter",
   ogType: "article",

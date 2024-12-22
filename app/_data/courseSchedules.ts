@@ -9,7 +9,7 @@ export interface CourseSchedule {
 export const courseSchedules: Record<string, CourseSchedule[]> = {
   hr: [
     {
-      participants: "5-8",
+      participants: "Do 10",
       location: "Online",
       schedule: "Vikendom / Dogovor",
       duration: "24 sata / 6 nedelja",

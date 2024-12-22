@@ -68,7 +68,7 @@ export default function Newsletter() {
         {status !== "success" && (
           <>
             <h2 className="text-4xl font-bold mb-4 text-center">
-              Prijavite se na naš newsletter
+              Prijavite se za naš newsletter
             </h2>
             <p className="text-center mb-8 text-lg md:px-20">
               Budite u toku sa najnovijim obukama i prilikama

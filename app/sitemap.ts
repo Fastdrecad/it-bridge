@@ -7,15 +7,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "", // Homepage
     "/kursevi",
-    "/o-nama",
-    "/qa",
-    "/pcm",
+    "/kursevi/qa",
+    "/kursevi/pcm",
+    "/kursevi/power-bi",
+    "/kursevi/business-english",
+    "/kursevi/meke-vestine",
+    "/kursevi/hr-starter",
     "/kontakt",
-    "/kalendar",
-    "/power-bi",
-    "/business-english",
-    "/meke-vestine",
-    "/hr-starter"
+    "/kalendar"
   ];
 
   // Create sitemap entries for each route
@@ -23,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
-    priority: route === "" ? 1 : 0.8 // Homepage has priority 1, other pages 0.8
+    priority: route === "" ? 1 : route.startsWith("/kursevi/") ? 0.9 : 0.8
   }));
 
   return sitemap;
