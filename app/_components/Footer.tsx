@@ -115,7 +115,7 @@ export default function Footer() {
             </Link>
           </div>
 
-          <div>© 2025. All Rights Reserved</div>
+          <div>© {new Date().getFullYear()}. All Rights Reserved</div>
         </div>
       </div>
     </footer>

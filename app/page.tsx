@@ -10,12 +10,13 @@ import Testimonials from "@/app/_components/Testimonials";
 import Video from "@/app/_components/Video";
 
 export const metadata: Metadata = {
-  title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
+  title: "Obuke i kursevi | IT Bridge EDU Center",
   description:
-    "Profesionalni centar za IT obuke i treninge. Unapredite svoje znanje kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-a i mekih veština.",
+    "Personalizovani kursevi za kompanije: Business English | MS Office | Power BI | Soft Skills",
   openGraph: {
-    title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
-    description: "Profesionalni centar za IT obuke i treninge",
+    title: "Obuke i kursevi | IT Bridge EDU Center",
+    description:
+      "Personalizovani kursevi za kompanije: Business English | MS Office | Power BI | Soft Skills",
     url: "https://itbridge-services.com",
     type: "website",
     siteName: "IT Bridge EDU Center",

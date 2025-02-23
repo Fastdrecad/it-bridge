@@ -5,12 +5,11 @@ import { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
-  title: "Kursevi i Obuke | IT Bridge EDU Center",
-  description:
-    "Istražite našu ponudu profesionalnih IT obuka i treninga. Pronađite pravi kurs za vaš tim ili karijeru.",
+  title: "Kursevi i Treninzi za kompanije | IT Bridge EDU Center",
+  description: "Zajedno pretvaramo potencijal u konkretne rezultate.",
   openGraph: {
-    title: "Kursevi i Obuke | IT Bridge EDU Center",
-    description: "Istražite našu ponudu profesionalnih IT obuka i treninga.",
+    title: "Kursevi i Treninzi za kompanije | IT Bridge EDU Center",
+    description: "Zajedno pretvaramo potencijal u konkretne rezultate.",
     url: "https://itbridge-services.com/kursevi"
   },
   alternates: {

@@ -52,7 +52,7 @@ export const valuesCard = [
   {
     title: "Autentičnost",
     description:
-      "Naš odnos prema klijentima je overljiv i autentičan, pa se trudimo da razumemo njihove potrebe i ciljeve na istinski način.",
+      "Naš odnos prema klijentima je poverljiv i autentičan, pa se trudimo da razumemo njihove potrebe i ciljeve na istinski način.",
     icon: StarIcon
   },
   {
