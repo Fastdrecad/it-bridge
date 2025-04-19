@@ -9,14 +9,18 @@ import {
   useState,
   ReactNode
 } from "react";
-import { testimonials } from "../config";
+import { testimonials } from "../_data";
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from "react-icons/md";
 
 interface TestimonialItemsProps {
   children: ReactNode;
+  title?: string;
 }
 
-export default function TestimonialItems({ children }: TestimonialItemsProps) {
+export default function TestimonialItems({
+  children,
+  title = "TESTIMONIJALI"
+}: TestimonialItemsProps) {
   const containerRef = useRef<HTMLUListElement>(null);
   const intervalRef = useRef<number | null>(null);
   const [current, setCurrent] = useState(1);
@@ -162,8 +166,8 @@ export default function TestimonialItems({ children }: TestimonialItemsProps) {
 
   return (
     <div className="w-full relative">
-      <h2 className="relative text-2xl md:text-4xl font-extrabold mb-20  text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success text-white">
-        TESTIMONIJALI
+      <h2 className="relative text-2xl md:text-4xl font-extrabold mb-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-10px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 bg-success text-white">
+        {title}
       </h2>
       <button
         className="absolute top-1/2 outline-none bg-transparent text-white left-1 md:left-4 z-10"
@@ -191,17 +195,19 @@ export default function TestimonialItems({ children }: TestimonialItemsProps) {
 
       {/* Dots */}
       <div className="flex justify-center items-center mt-3 text-center">
-        {testimonials.map((_, slideIndex) => (
-          <div
-            key={slideIndex}
-            className={`mx-2 my-0 cursor-pointer text-xs md:text-lg ${
-              current === slideIndex + 1 ? "text-warning-600" : "text-white"
-            }`}
-            onClick={() => goToSlide(slideIndex + 1)}
-          >
-            &#11044;
-          </div>
-        ))}
+        {Array.isArray(children)
+          ? Children.toArray(children).map((_, slideIndex) => (
+              <div
+                key={slideIndex}
+                className={`mx-2 my-0 cursor-pointer text-xs md:text-lg ${
+                  current === slideIndex + 1 ? "text-warning-600" : "text-white"
+                }`}
+                onClick={() => goToSlide(slideIndex + 1)}
+              >
+                &#11044;
+              </div>
+            ))
+          : null}
       </div>
     </div>
   );

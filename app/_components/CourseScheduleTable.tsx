@@ -1,4 +1,8 @@
+"use client";
+
 import React from "react";
+import { useTranslation } from "react-i18next";
+import "@/app/_lib/i18n";
 
 interface CourseSchedule {
   participants: string;
@@ -16,6 +20,7 @@ const CourseScheduleTable: React.FC<CourseScheduleTableProps> = ({
   schedules
 }) => {
   const hasPriceColumn = schedules.some((schedule) => !!schedule.price);
+  const { t } = useTranslation();
 
   return (
     <div className="overflow-x-auto">
@@ -29,11 +34,23 @@ const CourseScheduleTable: React.FC<CourseScheduleTableProps> = ({
                 borderTopRightRadius: "20px"
               }}
             >
-              <th className="py-3 px-6">Broj polaznika</th>
-              <th className="py-3 px-6">Mesto</th>
-              <th className="py-3 px-6">Termin</th>
-              <th className="py-3 px-6">Ukupno trajanje</th>
-              {hasPriceColumn && <th className="py-3 px-6">Cena</th>}
+              <th className="py-3 px-6">
+                {t("CALENDAR.TABLE.PARTICIPANTS", "Broj polaznika")}
+              </th>
+              <th className="py-3 px-6">
+                {t("CALENDAR.TABLE.LOCATION", "Mesto")}
+              </th>
+              <th className="py-3 px-6">
+                {t("CALENDAR.TABLE.SCHEDULE", "Termin")}
+              </th>
+              <th className="py-3 px-6">
+                {t("CALENDAR.TABLE.DURATION", "Ukupno trajanje")}
+              </th>
+              {hasPriceColumn && (
+                <th className="py-3 px-6">
+                  {t("CALENDAR.TABLE.PRICE", "Cena")}
+                </th>
+              )}
             </tr>
           </thead>
           <tbody>
@@ -75,24 +92,28 @@ const CourseScheduleTable: React.FC<CourseScheduleTableProps> = ({
             className="bg-white border border-gray-300 rounded-lg mb-4 "
           >
             <div className="p-4 bg-[#cfe3a0] rounded-t-lg">
-              <strong>Broj polaznika: </strong>
+              <strong>
+                {t("CALENDAR.TABLE.PARTICIPANTS", "Broj polaznika")}:{" "}
+              </strong>
               {schedule.participants}
             </div>
             <div className="p-4">
-              <strong>Mesto: </strong>
+              <strong>{t("CALENDAR.TABLE.LOCATION", "Mesto")}: </strong>
               {schedule.location}
             </div>
             <div className="p-4 bg-[#cfe3a0]">
-              <strong>Termin: </strong>
+              <strong>{t("CALENDAR.TABLE.SCHEDULE", "Termin")}: </strong>
               {schedule.schedule}
             </div>
             <div className="p-4">
-              <strong>Ukupno trajanje: </strong>
+              <strong>
+                {t("CALENDAR.TABLE.DURATION", "Ukupno trajanje")}:{" "}
+              </strong>
               {schedule.duration}
             </div>
             {hasPriceColumn && (
               <div className="p-4 bg-[#cfe3a0] rounded-b-lg">
-                <strong>Cena: </strong>
+                <strong>{t("CALENDAR.TABLE.PRICE", "Cena")}: </strong>
                 {schedule.price || "N/A"}
               </div>
             )}

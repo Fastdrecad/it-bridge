@@ -3,13 +3,16 @@
 import Image, { StaticImageData } from "next/image";
 import Button from "./common/Button/Button";
 import { useState } from "react";
+import LocalizedText from "./LocalizedText";
+import { MultilingualText } from "@/app/_data/heroSection";
 
 interface HeroSectionProps {
-  title: string;
-  subtitle: string;
+  title: string | MultilingualText;
+  subtitle: string | MultilingualText;
   backgroundImage: StaticImageData;
-  buttonLabel: string;
+  buttonLabel: string | MultilingualText;
   buttonLink?: string;
+  translationKey?: string;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -17,7 +20,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   subtitle,
   backgroundImage,
   buttonLabel,
-  buttonLink
+  buttonLink,
+  translationKey
 }) => {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
@@ -26,7 +30,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <div className="absolute top-0 left-0 w-full min-h-screen">
         <Image
           src={backgroundImage}
-          alt={`Background image for ${title}`}
+          alt={`Background image for ${
+            typeof title === "string" ? title : "hero section"
+          }`}
           fill
           className={`object-cover transition-opacity duration-500 ${
             isImageLoaded ? "opacity-100" : "opacity-0"
@@ -50,14 +56,29 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         }`}
       >
         <h1 className="text-3xl px-4 md:text-7xl text-white font-bold mb-8 tracking-wide italic drop-shadow-lg text-center">
-          {title}
+          <LocalizedText
+            content={title}
+            translationKey={
+              translationKey ? `${translationKey}.TITLE` : undefined
+            }
+          />
         </h1>
         <p className="text-white text-md md:text-xl mb-10 text-center w-3/4">
-          {subtitle}
+          <LocalizedText
+            content={subtitle}
+            translationKey={
+              translationKey ? `${translationKey}.SUBTITLE` : undefined
+            }
+          />
         </p>
-        {buttonLabel && buttonLabel.trim() !== "" && (
+        {buttonLabel && (
           <Button variant="primary" rounded>
-            {buttonLabel}
+            <LocalizedText
+              content={buttonLabel}
+              translationKey={
+                translationKey ? `${translationKey}.BUTTON` : undefined
+              }
+            />
           </Button>
         )}
       </div>

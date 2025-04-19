@@ -1,20 +1,86 @@
+"use client";
+
 import { FC } from "react";
 import { StaticImageData } from "next/image";
+import { useTranslation } from "react-i18next";
+import { MultilingualText } from "@/app/_data/heroSection";
 
 type CourseSection = {
-  title: string;
-  items: string[];
+  title: string | MultilingualText;
+  items: (string | MultilingualText)[];
   flags?: (string | StaticImageData)[];
   companyLogos?: FC[];
 };
 
 interface CourseGridProps {
-  courseName: string;
+  courseName: string | MultilingualText;
   content: CourseSection[];
+  translationKey?: string;
 }
 
-const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
-  const logos = content[1]?.companyLogos;
+const CourseGrid: React.FC<CourseGridProps> = ({
+  courseName,
+  content = [],
+  translationKey
+}) => {
+  // Safely access the content array with null checks
+  const logos =
+    content && content.length > 1 && content[1]?.companyLogos
+      ? content[1].companyLogos
+      : undefined;
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+
+  // Ensure language is properly detected
+  console.log("Current language:", currentLang);
+
+  // Improved handling of multilingual content
+  const getLocalizedText = (
+    text: string | MultilingualText,
+    fallback: string,
+    sectionIndex?: number,
+    itemIndex?: number
+  ): string => {
+    // If translation key is provided and indices are available, use it
+    if (translationKey && sectionIndex !== undefined) {
+      const sectionKey = `${translationKey}.SECTION_${sectionIndex}`;
+
+      if (itemIndex !== undefined) {
+        const itemTranslation = t(`${sectionKey}.ITEM_${itemIndex}`, {
+          defaultValue: ""
+        });
+        if (itemTranslation) return itemTranslation;
+      } else {
+        const titleTranslation = t(`${sectionKey}.TITLE`, { defaultValue: "" });
+        if (titleTranslation) return titleTranslation;
+      }
+    }
+
+    // If text is a multilingual object
+    if (typeof text === "object" && text !== null) {
+      // First try exact current language match
+      if (text[currentLang] && text[currentLang].trim() !== "") {
+        return text[currentLang];
+      }
+
+      // Then fallback chain: current language -> english -> serbian -> empty string
+      const fallbacks = [text.en, text.sr, text.de, text.fr, ""];
+      for (const fallback of fallbacks) {
+        if (fallback && fallback.trim() !== "") {
+          return fallback;
+        }
+      }
+
+      return fallback;
+    }
+
+    // If it's a string, return it directly
+    return text || fallback;
+  };
+
+  if (!content || content.length === 0) {
+    return null;
+  }
 
   return (
     <div className="container mx-auto p-4 md:p-8">
@@ -25,19 +91,19 @@ const CourseGrid: React.FC<CourseGridProps> = ({ courseName, content }) => {
             className="bg-gray-50 shadow-md relative pt-10 md:pt-4"
           >
             <h3 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 pe-12 rounded-r-full">
-              {section.title}
+              {getLocalizedText(section.title, "", index)}
             </h3>
             <ul className="list-disc space-y-2 p-6 pt-12 ps-10">
               {section.items.map((item, idx) => (
                 <li key={idx} className="text-gray-700">
-                  {item}
+                  {getLocalizedText(item, "", index, idx)}
                 </li>
               ))}
               {index === 1 && logos && (
-                <div className="flex flex-wrap items-center gap-6  mt-4">
+                <div className="flex flex-wrap items-center gap-6 mt-4">
                   {logos.map((LogoComponent, idx) => (
                     <div key={idx} className="flex items-center justify-center">
-                      <LogoComponent /> {/* Render the functional component */}
+                      <LogoComponent />
                     </div>
                   ))}
                 </div>

@@ -1,62 +1,90 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import axios from "axios";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { MdCheckCircle, MdEmail } from "react-icons/md";
 
 import Button from "@/app/_components/common/Button/Button";
 import { newsletterInputs } from "@/app/_data";
-import useNewsletterForm from "@/app/_hooks/useNewsletterForm";
 import { capitalizeFirstLetter } from "../_utils/stringUtils";
-import FormInput from "./contact/FormInput";
 import ItBridgeLogo from "./icons/ItBridgeLogo";
+import "@/app/_lib/i18n";
+import {
+  getNewsletterSchema,
+  NewsletterFormValues
+} from "@/app/_validations/newsletterSchema";
+import i18next from "@/app/_lib/i18n";
+import FormInput from "@/app/_components/contact/FormInput";
 
 export default function Newsletter() {
-  const { values, errors, handleChange, isFormValidState } =
-    useNewsletterForm();
+  const { t } = useTranslation();
   const [status, setStatus] = useState<
     "success" | "error" | "loading" | "idle"
   >("idle");
   const [responseMsg, setResponseMsg] = useState<string>("");
+  const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
 
-  async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+    reset
+  } = useForm<NewsletterFormValues>({
+    resolver: zodResolver(getNewsletterSchema()),
+    mode: "onBlur" // Validate on blur for better UX
+  });
 
-    if (!isFormValidState) {
-      setStatus("error");
-      setResponseMsg("Molimo popunite sva polja ispravno.");
-      return;
-    }
+  // Reset form validation when language changes
+  useEffect(() => {
+    const handleLanguageChanged = () => {
+      if (currentLanguage !== i18next.language) {
+        setCurrentLanguage(i18next.language);
+        // Reset with current values to trigger revalidation with new language
+        reset({}, { keepValues: true });
+      }
+    };
 
+    i18next.on("languageChanged", handleLanguageChanged);
+
+    return () => {
+      i18next.off("languageChanged", handleLanguageChanged);
+    };
+  }, [reset, currentLanguage]);
+
+  const onSubmit: SubmitHandler<NewsletterFormValues> = async (data) => {
     setStatus("loading");
 
     try {
       const response = await axios.post("/api/subscribe", {
-        email: values.email.trim(),
-        firstName: capitalizeFirstLetter(values.firstName.trim()),
-        lastName: capitalizeFirstLetter(values.lastName.trim())
+        firstName: capitalizeFirstLetter(data.firstName.trim()),
+        lastName: capitalizeFirstLetter(data.lastName.trim()),
+        email: data.email.trim()
       });
 
       setStatus("success");
       setResponseMsg(response.data.message);
+      reset();
     } catch (err: unknown) {
       console.error("Subscription error:", err);
       setStatus("error");
       if (axios.isAxiosError(err) && err.response) {
         setResponseMsg(
-          err.response.data.error || "Došlo je do greške prilikom prijave"
+          err.response.data.error || t("NEWSLETTER.FORM.SERVER_ERROR")
         );
       } else {
-        setResponseMsg("Došlo je do greške prilikom prijave");
+        setResponseMsg(t("NEWSLETTER.FORM.SERVER_ERROR"));
       }
     }
-  }
+  };
 
   const resetForm = () => {
     setStatus("idle");
     setResponseMsg("");
+    reset();
   };
 
   return (
@@ -68,10 +96,10 @@ export default function Newsletter() {
         {status !== "success" && (
           <>
             <h2 className="text-4xl font-bold mb-4 text-center">
-              Prijavite se za naš newsletter
+              {t("NEWSLETTER.TITLE")}
             </h2>
             <p className="text-center mb-8 text-lg md:px-20">
-              Budite u toku sa najnovijim obukama i prilikama
+              {t("NEWSLETTER.SUBTITLE")}
             </p>
           </>
         )}
@@ -79,38 +107,42 @@ export default function Newsletter() {
         {status === "success" ? (
           <div className="text-center">
             <MdCheckCircle className="text-5xl text-warning-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold mb-2">Hvala vam!</h3>
+            <h3 className="text-2xl font-bold mb-2">
+              {t("NEWSLETTER.FORM.THANKS_TITLE")}
+            </h3>
             <p className="mb-4">{responseMsg}</p>
             <Button
               variant="success"
               className="mt-4 m-auto"
               onClick={resetForm}
             >
-              Nova prijava
+              {t("NEWSLETTER.FORM.NEW_SUBSCRIPTION")}
             </Button>
           </div>
         ) : (
-          <form onSubmit={handleSubscribe} className="space-y-4">
-            <div className="mb-8 space-y-2">
-              {newsletterInputs.map((input) => (
-                <FormInput
-                  key={input.id}
-                  {...input}
-                  value={values[input.name as keyof typeof values]}
-                  onChange={handleChange}
-                  errorMessage={errors[input.name as keyof typeof errors]}
-                />
-              ))}
-            </div>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {newsletterInputs.map((input) => (
+              <FormInput
+                key={input.id}
+                id={input.id}
+                name={input.name}
+                type={input.type}
+                placeholder={t(input.placeholder)}
+                label={t(input.label)}
+                register={register}
+                error={errors[input.name]}
+              />
+            ))}
 
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center w-fit mx-auto">
               <Button
                 variant="success"
-                className="text-secondary-500 whitespace-nowrap md:w-2/5"
-                disabled={status === "loading" || !isFormValidState}
+                className="text-secondary-500 whitespace-nowrap w-full"
+                disabled={status === "loading"}
+                loading={status === "loading"}
               >
-                {status === "loading" ? "Slanje..." : "Potvrdite"}
-                <MdEmail className="text-xl md:text-2xl m-0 ms-2" />
+                {t("NEWSLETTER.FORM.SUBMIT")}
+                <MdEmail className="text-xl m-0 ms-2" />
               </Button>
             </div>
 

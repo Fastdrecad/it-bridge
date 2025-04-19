@@ -14,10 +14,11 @@ import {
 import de from "@/public/assets/images/flags/de.jpg";
 import fr from "@/public/assets/images/flags/fr.jpg";
 import gb from "@/public/assets/images/flags/gb.jpg";
+import { MultilingualText } from "./heroSection";
 
 interface CourseItem {
-  title: string;
-  items: string[];
+  title: string | MultilingualText;
+  items: (string | MultilingualText)[];
   companyLogos?: FC[];
   button?: string;
   flags?: StaticImageData[];
@@ -30,21 +31,71 @@ interface CourseCategory {
 export const courseContent: CourseCategory = {
   softSkills: [
     {
-      title: "Asertivna komunikacija",
+      title: {
+        sr: "Asertivna komunikacija",
+        en: "Assertive Communication",
+        de: "Durchsetzungsfähige Kommunikation",
+        fr: "Communication assertive"
+      },
       items: [
-        "Uvod u asertivnu komunikaciju",
-        "Veštine asertivne komunikacije",
-        "Primena asertivne komunikacije",
-        "Najbolja praksa i održavanje"
+        {
+          sr: "Uvod u asertivnu komunikaciju",
+          en: "Introduction to assertive communication",
+          de: "Einführung in die durchsetzungsfähige Kommunikation",
+          fr: "Introduction à la communication assertive"
+        },
+        {
+          sr: "Veštine asertivne komunikacije",
+          en: "Assertive communication skills",
+          de: "Fähigkeiten zur durchsetzungsfähigen Kommunikation",
+          fr: "Compétences en communication assertive"
+        },
+        {
+          sr: "Primena asertivne komunikacije",
+          en: "Application of assertive communication",
+          de: "Anwendung durchsetzungsfähiger Kommunikation",
+          fr: "Application de la communication assertive"
+        },
+        {
+          sr: "Najbolja praksa i održavanje",
+          en: "Best practices and maintenance",
+          de: "Beste Praktiken und Wartung",
+          fr: "Meilleures pratiques et maintenance"
+        }
       ]
     },
     {
-      title: "Rezilijentnost",
+      title: {
+        sr: "Rezilijentnost",
+        en: "Resilience",
+        de: "Resilienz",
+        fr: "Résilience"
+      },
       items: [
-        "Definicija rezilijentnosti i njen značaj za prevazilaženje izazova i stresnih situacija",
-        "Razvoj emocionalne inteligencije i samoregulacije",
-        "Razvijanje mentalne fleksibilnosti i optimizma",
-        "Praktična primena i održavanje"
+        {
+          sr: "Definicija rezilijentnosti i njen značaj za prevazilaženje izazova i stresnih situacija",
+          en: "Definition of resilience and its importance for overcoming challenges and stressful situations",
+          de: "Definition von Resilienz und ihre Bedeutung für die Bewältigung von Herausforderungen und Stresssituationen",
+          fr: "Définition de la résilience et son importance pour surmonter les défis et les situations stressantes"
+        },
+        {
+          sr: "Razvoj emocionalne inteligencije i samoregulacije",
+          en: "Development of emotional intelligence and self-regulation",
+          de: "Entwicklung emotionaler Intelligenz und Selbstregulierung",
+          fr: "Développement de l'intelligence émotionnelle et de l'autorégulation"
+        },
+        {
+          sr: "Razvijanje mentalne fleksibilnosti i optimizma",
+          en: "Developing mental flexibility and optimism",
+          de: "Entwicklung mentaler Flexibilität und Optimismus",
+          fr: "Développement de la flexibilité mentale et de l'optimisme"
+        },
+        {
+          sr: "Praktična primena i održavanje",
+          en: "Practical application and maintenance",
+          de: "Praktische Anwendung und Aufrechterhaltung",
+          fr: "Application pratique et maintenance"
+        }
       ]
     },
     {
@@ -157,28 +208,108 @@ export const courseContent: CourseCategory = {
   ],
   businessEnglish: [
     {
-      title: "Business English A2, B1, B2, C1",
+      title: {
+        sr: "Business English A2, B1, B2, C1",
+        en: "Business English A2, B1, B2, C1",
+        de: "Business Englisch A2, B1, B2, C1",
+        fr: "Anglais des affaires A2, B1, B2, C1"
+      },
       items: [
-        "Pružamo sveobuhvatne kurseve poslovnog engleskog jezika za nivoe A2, B1, B2, C1 osmišljene da unaprede vašu poslovnu komunikaciju.",
-        "Razumemo jedinstvene potrebe svake kompanije i kreiramo prilagodljive programe koji se fokusiraju na specifične zahteve vašeg tima.",
-        "Kroz simulacije stvarnih poslovnih situacija i zadataka relevantnih za vašu industriju putem MS Teams platforme.",
-        "Naši profesori, master filolozi anglisti sa bogatim iskustvom u radu s korporativnim klijentima, garantuju kvalitetnu obuku.",
-        "Koristimo priznate materijale kao što su Oxford i Cambridge literatura, Market Leader, Pearson, Business Benchmark, ESL Pals i Lingua House.",
-        "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
-        "Završno usmeno i pismeno testiranje"
+        {
+          sr: "Pružamo sveobuhvatne kurseve poslovnog engleskog jezika za nivoe A2, B1, B2, C1 osmišljene da unaprede vašu poslovnu komunikaciju.",
+          en: "We provide comprehensive business English courses for levels A2, B1, B2, C1 designed to enhance your business communication.",
+          de: "Wir bieten umfassende Business-Englischkurse für die Niveaus A2, B1, B2, C1 an, die Ihre geschäftliche Kommunikation verbessern sollen.",
+          fr: "Nous proposons des cours complets d'anglais des affaires pour les niveaux A2, B1, B2, C1 conçus pour améliorer votre communication professionnelle."
+        },
+        {
+          sr: "Razumemo jedinstvene potrebe svake kompanije i kreiramo prilagodljive programe koji se fokusiraju na specifične zahteve vašeg tima.",
+          en: "We understand the unique needs of each company and create adaptable programs that focus on the specific requirements of your team.",
+          de: "Wir verstehen die einzigartigen Bedürfnisse jedes Unternehmens und erstellen anpassbare Programme, die sich auf die spezifischen Anforderungen Ihres Teams konzentrieren.",
+          fr: "Nous comprenons les besoins uniques de chaque entreprise et créons des programmes adaptables qui se concentrent sur les exigences spécifiques de votre équipe."
+        },
+        {
+          sr: "Kroz simulacije stvarnih poslovnih situacija i zadataka relevantnih za vašu industriju putem MS Teams platforme.",
+          en: "Through simulations of real business situations and tasks relevant to your industry via MS Teams platform.",
+          de: "Durch Simulationen realer Geschäftssituationen und für Ihre Branche relevante Aufgaben über die MS Teams-Plattform.",
+          fr: "Par des simulations de situations commerciales réelles et des tâches pertinentes pour votre secteur via la plateforme MS Teams."
+        },
+        {
+          sr: "Naši profesori, master filolozi anglisti sa bogatim iskustvom u radu s korporativnim klijentima, garantuju kvalitetnu obuku.",
+          en: "Our professors, master philologists specializing in English with extensive experience working with corporate clients, guarantee quality training.",
+          de: "Unsere Professoren, Masterphilologen mit Spezialisierung auf Englisch und umfangreicher Erfahrung in der Arbeit mit Firmenkunden, garantieren qualitativ hochwertige Schulungen.",
+          fr: "Nos professeurs, philologues spécialisés en anglais avec une vaste expérience de travail avec des clients d'entreprise, garantissent une formation de qualité."
+        },
+        {
+          sr: "Koristimo priznate materijale kao što su Oxford i Cambridge literatura, Market Leader, Pearson, Business Benchmark, ESL Pals i Lingua House.",
+          en: "We use recognized materials such as Oxford and Cambridge literature, Market Leader, Pearson, Business Benchmark, ESL Pals, and Lingua House.",
+          de: "Wir verwenden anerkannte Materialien wie Oxford- und Cambridge-Literatur, Market Leader, Pearson, Business Benchmark, ESL Pals und Lingua House.",
+          fr: "Nous utilisons des matériels reconnus tels que la littérature d'Oxford et de Cambridge, Market Leader, Pearson, Business Benchmark, ESL Pals et Lingua House."
+        },
+        {
+          sr: "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
+          en: "We regularly assess participant progress and provide detailed reports to ensure the course meets your goals.",
+          de: "Wir bewerten regelmäßig den Fortschritt der Teilnehmer und erstellen detaillierte Berichte, um sicherzustellen, dass der Kurs Ihre Ziele erfüllt.",
+          fr: "Nous évaluons régulièrement les progrès des participants et fournissons des rapports détaillés pour assurer que le cours répond à vos objectifs."
+        },
+        {
+          sr: "Završno usmeno i pismeno testiranje",
+          en: "Final oral and written testing",
+          de: "Abschließende mündliche und schriftliche Prüfung",
+          fr: "Tests finaux oraux et écrits"
+        }
       ],
       flags: [gb, de, fr]
     },
     {
-      title: "English for HR",
+      title: {
+        sr: "English for HR",
+        en: "English for HR",
+        de: "Englisch für HR",
+        fr: "Anglais pour RH"
+      },
       items: [
-        "Kurs English for HR za profesionalce u oblasti ljudskih resursa, omogućavajući im da unaprede veštine komunikacije i efikasno upravljaju poslovnim procesima na engleskom jeziku.",
-        "Fokusiramo se na HR teme kao što su zapošljavanje, selekcija, obuka zaposlenih i upravljanje konfliktima.",
-        "Kroz praktične zadatke i realne primere, polaznici stiču veštine koje mogu odmah primeniti u svom radu.",
-        "Nudimo fleksibilne rasporede časova preko MS Teams platforme, prilagođene potrebama vašeg tima.",
-        "Koristimo priznate materijale koje kombinujemo sa našim prilagođenim resursima i vežbama",
-        "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
-        "Završno usmeno i pismeno testiranje"
+        {
+          sr: "Kurs English for HR za profesionalce u oblasti ljudskih resursa, omogućavajući im da unaprede veštine komunikacije i efikasno upravljaju poslovnim procesima na engleskom jeziku.",
+          en: "The English for HR course for human resources professionals, enabling them to enhance communication skills and efficiently manage business processes in English.",
+          de: "Der Kurs 'Englisch für HR' für Fachleute im Bereich Personalwesen, der ihnen ermöglicht, ihre Kommunikationsfähigkeiten zu verbessern und Geschäftsprozesse auf Englisch effizient zu verwalten.",
+          fr: "Le cours d'anglais pour les RH destiné aux professionnels des ressources humaines, leur permettant d'améliorer leurs compétences en communication et de gérer efficacement les processus d'entreprise en anglais."
+        },
+        {
+          sr: "Fokusiramo se na HR teme kao što su zapošljavanje, selekcija, obuka zaposlenih i upravljanje konfliktima.",
+          en: "We focus on HR topics such as recruitment, selection, employee training, and conflict management.",
+          de: "Wir konzentrieren uns auf HR-Themen wie Rekrutierung, Auswahl, Mitarbeiterschulung und Konfliktmanagement.",
+          fr: "Nous nous concentrons sur les sujets RH tels que le recrutement, la sélection, la formation des employés et la gestion des conflits."
+        },
+        {
+          sr: "Kroz praktične zadatke i realne primere, polaznici stiču veštine koje mogu odmah primeniti u svom radu.",
+          en: "Through practical tasks and real examples, participants acquire skills they can immediately apply in their work.",
+          de: "Durch praktische Aufgaben und reale Beispiele erwerben die Teilnehmer Fähigkeiten, die sie sofort in ihrer Arbeit anwenden können.",
+          fr: "Grâce à des tâches pratiques et des exemples réels, les participants acquièrent des compétences qu'ils peuvent immédiatement appliquer dans leur travail."
+        },
+        {
+          sr: "Nudimo fleksibilne rasporede časova preko MS Teams platforme, prilagođene potrebama vašeg tima.",
+          en: "We offer flexible class schedules via MS Teams platform, tailored to your team's needs.",
+          de: "Wir bieten flexible Kurspläne über die MS Teams-Plattform an, die auf die Bedürfnisse Ihres Teams zugeschnitten sind.",
+          fr: "Nous proposons des horaires de cours flexibles via la plateforme MS Teams, adaptés aux besoins de votre équipe."
+        },
+        {
+          sr: "Koristimo priznate materijale koje kombinujemo sa našim prilagođenim resursima i vežbama",
+          en: "We use recognized materials combined with our customized resources and exercises.",
+          de: "Wir verwenden anerkannte Materialien in Kombination mit unseren angepassten Ressourcen und Übungen.",
+          fr: "Nous utilisons des matériels reconnus combinés à nos ressources et exercices personnalisés."
+        },
+        {
+          sr: "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
+          en: "We regularly assess participant progress and provide detailed reports to ensure the course meets your goals.",
+          de: "Wir bewerten regelmäßig den Fortschritt der Teilnehmer und erstellen detaillierte Berichte, um sicherzustellen, dass der Kurs Ihre Ziele erfüllt.",
+          fr: "Nous évaluons régulièrement les progrès des participants et fournissons des rapports détaillés pour assurer que le cours répond à vos objectifs."
+        },
+        {
+          sr: "Završno usmeno i pismeno testiranje",
+          en: "Final oral and written testing",
+          de: "Abschließende mündliche und schriftliche Prüfung",
+          fr: "Tests finaux oraux et écrits"
+        }
       ]
     }
   ]

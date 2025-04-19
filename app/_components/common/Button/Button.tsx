@@ -57,9 +57,8 @@ const Button: React.FC<ButtonProps> = ({
     rounded ? "rounded-full" : "rounded-none", // Apply rounded corners
     outline ? "bg-transparent border-2" : colors[variant].base, // Apply border color based on variant and outline
     colors[variant].hover, // Apply hover effects
-    // rest.className // Apply additional classes passed via props
     className, // Custom classNames passed in via props
-    { "opacity-50 cursor-not-allowed pointer-events-none": disabled } // Apply disabled styles
+    { "opacity-50 cursor-not-allowed pointer-events-none": disabled || loading } // Apply disabled styles
   );
 
   return (
@@ -68,8 +67,17 @@ const Button: React.FC<ButtonProps> = ({
       className={classes}
       onClick={onClick}
       disabled={disabled || loading}
+      aria-busy={loading}
+      type={rest.type || "submit"}
     >
-      {children}
+      {loading ? (
+        <div className="flex items-center justify-center">
+          <div className="spinner-mini mr-2" />
+          {typeof children === "string" ? "Processing..." : children}
+        </div>
+      ) : (
+        children
+      )}
     </button>
   );
 };

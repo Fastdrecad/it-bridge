@@ -7,9 +7,15 @@ import SocialLinks from "./SocialLinks";
 import ItBridgeLogo from "./icons/ItBridgeLogo";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
+import LanguageSwitcher from "./common/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
+import "../_lib/i18n"; // Import to ensure i18n is initialized
+import { FaBars } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 
 function Header() {
   const pathname = usePathname();
+  const { i18n } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,7 +55,7 @@ function Header() {
         }`}
       >
         <div className="mx-3 p-1">
-          <div className="md:flex md:justify-around sm:items-center mx-auto py-2 relative z-0">
+          <div className="flex justify-between md:justify-around sm:items-center mx-auto py-2 relative z-0">
             <Link href="/" className="group py-2 contents w-fit">
               <ItBridgeLogo
                 width="70"
@@ -57,12 +63,36 @@ function Header() {
                 color={isHomePage && !isScrolled ? "white" : "black"}
               />
             </Link>
-            <Navigation />
+            <div className="flex items-center">
+              <div className="flex items-center gap-4">
+                <LanguageSwitcher
+                  className={`ml-4 ${
+                    isHomePage && !isScrolled ? "text-white" : "text-black"
+                  }`}
+                />
+                <button
+                  onClick={handleToggle}
+                  className={`text-2xl py-4 pr-2 md:hidden  ${
+                    isHomePage
+                      ? isScrolled
+                        ? "text-black"
+                        : "text-white"
+                      : "text-black"
+                  }`}
+                >
+                  {isOpen ? (
+                    <FaTimes className="m-0" />
+                  ) : (
+                    <FaBars className="m-0" />
+                  )}
+                </button>
+                <Navigation />
+              </div>
+            </div>
           </div>
         </div>
         <SocialLinks isScrolled={isScrolled} isHomePage={isHomePage} />
       </header>
-
       <Sidebar
         isOpen={isOpen}
         onToggle={handleToggle}

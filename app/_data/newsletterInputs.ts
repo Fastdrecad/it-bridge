@@ -1,29 +1,29 @@
 export const newsletterInputs = [
   {
     id: 1,
-    name: "firstName",
+    name: "firstName" as const,
     type: "text",
-    placeholder: "Ime",
-    label: "Ime",
-    errorMessage: "Ime mora imati najmanje 2 karaktera",
+    placeholder: "NEWSLETTER.FORM.FIRST_NAME",
+    label: "NEWSLETTER.FORM.FIRST_NAME",
+    errorMessage: "NEWSLETTER.VALIDATION.FIRST_NAME_MIN",
     minLength: 2
   },
   {
     id: 2,
-    name: "lastName",
+    name: "lastName" as const,
     type: "text",
-    placeholder: "Prezime",
-    label: "Prezime",
-    errorMessage: "Prezime mora imati najmanje 2 karaktera",
+    placeholder: "NEWSLETTER.FORM.LAST_NAME",
+    label: "NEWSLETTER.FORM.LAST_NAME",
+    errorMessage: "NEWSLETTER.VALIDATION.LAST_NAME_MIN",
     minLength: 2
   },
   {
     id: 3,
-    name: "email",
+    name: "email" as const,
     type: "email",
-    placeholder: "Email",
-    label: "Email",
-    errorMessage: "Unesite validnu email adresu",
+    placeholder: "NEWSLETTER.FORM.EMAIL",
+    label: "NEWSLETTER.FORM.EMAIL",
+    errorMessage: "NEWSLETTER.VALIDATION.EMAIL_INVALID",
     pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"
   }
 ];

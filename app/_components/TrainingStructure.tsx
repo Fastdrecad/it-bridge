@@ -6,25 +6,67 @@ import { InlineWidget } from "react-calendly";
 import { IoIosClose } from "react-icons/io";
 
 import { useCalendly } from "../_contexts/CalendlyContext";
+import { useTranslation } from "react-i18next";
 
 import Button from "./common/Button/Button";
 import { CourseItem } from "@/app/_data";
 import IconWithLabel from "@/app/_components/icons/IconWithLabel";
+import { MultilingualText } from "@/app/_data/heroSection";
 
 interface TrainingStructureProps {
   items: CourseItem[];
-  buttonLabel: string;
+  buttonLabel: string | MultilingualText;
+  title?: string | MultilingualText;
   onButtonClick?: () => void;
 }
 
 const TrainingStructure: React.FC<TrainingStructureProps> = ({
   items = [],
   buttonLabel,
+  title,
   onButtonClick
 }) => {
   const { isCalendlyOpen, openCalendly, closeCalendly } = useCalendly();
+  const { i18n, t } = useTranslation();
+  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
 
   const widgetRef = useRef<HTMLDivElement>(null);
+
+  // Improved handling of multilingual content
+  const getLocalizedText = (
+    text: string | MultilingualText | undefined,
+    defaultValue: string
+  ): string => {
+    if (!text) return defaultValue;
+
+    // If text is a string, return it directly
+    if (typeof text === "string") return text;
+
+    // If text is a multilingual object
+    // First try current language
+    if (text[currentLang] && text[currentLang].trim() !== "") {
+      return text[currentLang];
+    }
+
+    // Then fallback chain
+    const fallbacks = [text.en, text.sr, text.de, text.fr];
+    for (const fallback of fallbacks) {
+      if (fallback && fallback.trim() !== "") {
+        return fallback;
+      }
+    }
+
+    return defaultValue;
+  };
+
+  const displayTitle = getLocalizedText(
+    title,
+    t("COMMON.TRAINING_STRUCTURE", "Struktura obuke")
+  );
+  const displayButtonLabel = getLocalizedText(
+    buttonLabel,
+    t("COMMON.SIGN_UP", "Prijavite se")
+  );
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -48,7 +90,7 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
   return (
     <div className="w-full my-20 bg-gradient-to-r from-[#15103E] to-[#A0C943] p-4 md:p-8 text-center">
       <h2 className="text-white text-4xl font-bold mt-10 mb-12">
-        Struktura obuke
+        {displayTitle}
       </h2>
       <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-4 mb-16">
         {items.map((item, index) => (
@@ -60,9 +102,9 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
           variant="secondary"
           color="bg-secondary-500"
           className="text-white"
-          onClick={openCalendly}
+          onClick={onButtonClick || openCalendly}
         >
-          {buttonLabel}
+          {displayButtonLabel}
         </Button>
       </div>
 
@@ -74,6 +116,7 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
               <Button
                 className="!px-0 me-3 aspect-square rounded-none w-12 h-12"
                 variant="success"
+                onClick={closeCalendly}
               >
                 <IoIosClose className="text-5xl m-0" />
               </Button>

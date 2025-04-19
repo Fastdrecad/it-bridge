@@ -1,5 +1,10 @@
 import { createBreadcrumbSchema, createFAQSchema } from "@/app/_lib/schemas";
 import { Metadata } from "next";
+import {
+  getMetadataByLocale,
+  homeMetadataTranslations
+} from "@/app/_lib/metadata";
+import { i18nConfig } from "@/app/_lib/i18n-config";
 import Script from "next/script";
 
 import About from "@/app/_components/About";
@@ -9,28 +14,21 @@ import Partner from "@/app/_components/Partner";
 import Testimonials from "@/app/_components/Testimonials";
 import Video from "@/app/_components/Video";
 
-export const metadata: Metadata = {
-  title: "Obuke i kursevi | IT Bridge EDU Center",
-  description:
-    "Personalizovani kursevi za kompanije: Business English | MS Office | Power BI | Soft Skills",
-  openGraph: {
-    title: "Obuke i kursevi | IT Bridge EDU Center",
-    description:
-      "Personalizovani kursevi za kompanije: Business English | MS Office | Power BI | Soft Skills",
-    url: "https://itbridge-services.com",
-    type: "website",
-    siteName: "IT Bridge EDU Center",
-    locale: "sr_RS",
-    images: [
-      {
-        url: "/og-image-home.jpg",
-        width: 1200,
-        height: 630,
-        alt: "IT Bridge EDU Center - Profesionalne IT Obuke"
-      }
-    ]
-  }
-};
+export async function generateMetadata({
+  params
+}: {
+  params: any;
+}): Promise<Metadata> {
+  // Default to first language in i18n config if no locale found in params
+  const locale = params.locale || i18nConfig.fallbackLocale;
+
+  return getMetadataByLocale(
+    locale,
+    homeMetadataTranslations,
+    "/images/home-og.jpg",
+    "/"
+  );
+}
 
 export default function HomePage() {
   const breadcrumbSchema = createBreadcrumbSchema([

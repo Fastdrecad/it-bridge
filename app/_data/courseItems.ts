@@ -1,6 +1,13 @@
 export interface CourseItem {
   icon: string;
-  label: string;
+  label:
+    | string
+    | {
+        sr: string;
+        en: string;
+        de: string;
+        fr: string;
+      };
 }
 
 export interface CourseCategory {
@@ -12,74 +19,310 @@ export const courseItems: CourseCategory[] = [
   {
     categoryName: "hr",
     icons: [
-      { icon: "FaBullseye", label: "Postavljanje ciljeva" },
-      { icon: "FaChalkboardTeacher", label: "Realizacija programa" },
-      { icon: "FaTasks", label: "Vežbe i zadaci" },
-      { icon: "BsPencilSquare", label: "Samoevaluacija" },
-      { icon: "FaComments", label: "Evaluacija i feedback" }
+      {
+        icon: "FaBullseye",
+        label: {
+          sr: "Postavljanje ciljeva",
+          en: "Goal Setting",
+          de: "Zielsetzung",
+          fr: "Définition des objectifs"
+        }
+      },
+      {
+        icon: "FaChalkboardTeacher",
+        label: {
+          sr: "Realizacija programa",
+          en: "Program Implementation",
+          de: "Programmumsetzung",
+          fr: "Mise en œuvre du programme"
+        }
+      },
+      {
+        icon: "FaTasks",
+        label: {
+          sr: "Vežbe i zadaci",
+          en: "Exercises and Tasks",
+          de: "Übungen und Aufgaben",
+          fr: "Exercices et tâches"
+        }
+      },
+      {
+        icon: "BsPencilSquare",
+        label: {
+          sr: "Samoevaluacija",
+          en: "Self-evaluation",
+          de: "Selbstevaluierung",
+          fr: "Auto-évaluation"
+        }
+      },
+      {
+        icon: "FaComments",
+        label: {
+          sr: "Evaluacija i feedback",
+          en: "Evaluation and Feedback",
+          de: "Evaluierung und Feedback",
+          fr: "Évaluation et retour d'information"
+        }
+      }
     ]
   },
   {
     categoryName: "softSkills",
     icons: [
-      { icon: "FaHandshake", label: "Razumevanje potreba klijenta" },
-      { icon: "FaClipboardList", label: "Izrada plana obuke" },
+      {
+        icon: "FaHandshake",
+        label: {
+          sr: "Razumevanje potreba klijenta",
+          en: "Understanding Client Needs",
+          de: "Verstehen der Kundenbedürfnisse",
+          fr: "Comprendre les besoins du client"
+        }
+      },
+      {
+        icon: "FaClipboardList",
+        label: {
+          sr: "Izrada plana obuke",
+          en: "Training Plan Development",
+          de: "Entwicklung des Schulungsplans",
+          fr: "Élaboration du plan de formation"
+        }
+      },
       {
         icon: "FaChalkboardTeacher",
-        label: "Teorijski delovi i praktične vežbe"
+        label: {
+          sr: "Teorijski delovi i praktične vežbe",
+          en: "Theoretical Parts and Practical Exercises",
+          de: "Theoretische Teile und praktische Übungen",
+          fr: "Parties théoriques et exercices pratiques"
+        }
       },
-      { icon: "FaChartLine", label: "Praktične vežbe i simulacije" },
-      { icon: "FaStar", label: "Evaluacija i feedback" }
+      {
+        icon: "FaChartLine",
+        label: {
+          sr: "Praktične vežbe i simulacije",
+          en: "Practical Exercises and Simulations",
+          de: "Praktische Übungen und Simulationen",
+          fr: "Exercices pratiques et simulations"
+        }
+      },
+      {
+        icon: "FaStar",
+        label: {
+          sr: "Evaluacija i feedback",
+          en: "Evaluation and Feedback",
+          de: "Evaluierung und Feedback",
+          fr: "Évaluation et retour d'information"
+        }
+      }
     ]
   },
   {
     categoryName: "pcm",
     icons: [
-      { icon: "FaHandshake", label: "Razumevanje potreba klijenta" },
-      { icon: "FaClipboardList", label: "Izrada plana obuke" },
+      {
+        icon: "FaHandshake",
+        label: {
+          sr: "Razumevanje potreba klijenta",
+          en: "Understanding Client Needs",
+          de: "Verstehen der Kundenbedürfnisse",
+          fr: "Comprendre les besoins du client"
+        }
+      },
+      {
+        icon: "FaClipboardList",
+        label: {
+          sr: "Izrada plana obuke",
+          en: "Training Plan Development",
+          de: "Entwicklung des Schulungsplans",
+          fr: "Élaboration du plan de formation"
+        }
+      },
       {
         icon: "FaChalkboardTeacher",
-        label: "Teorijski delovi i praktične vežbe"
+        label: {
+          sr: "Teorijski delovi i praktične vežbe",
+          en: "Theoretical Parts and Practical Exercises",
+          de: "Theoretische Teile und praktische Übungen",
+          fr: "Parties théoriques et exercices pratiques"
+        }
       },
-      { icon: "FaUsersCog", label: "Primenjivanje stečenih veština u praksi" },
-      { icon: "FaStar", label: "Evaluacija" }
+      {
+        icon: "FaUsersCog",
+        label: {
+          sr: "Primenjivanje stečenih veština u praksi",
+          en: "Applying Acquired Skills in Practice",
+          de: "Anwendung erworbener Fähigkeiten in der Praxis",
+          fr: "Application des compétences acquises en pratique"
+        }
+      },
+      {
+        icon: "FaStar",
+        label: {
+          sr: "Evaluacija",
+          en: "Evaluation",
+          de: "Evaluierung",
+          fr: "Évaluation"
+        }
+      }
     ]
   },
   {
     categoryName: "businessEnglish",
     icons: [
-      { icon: "FaClipboardCheck", label: "Testiranje i razvrstavanje" },
-      { icon: "FaBullseye", label: "Postavljanje ciljeva" },
-      { icon: "FaChalkboardTeacher", label: "Realizacija programa" },
-      { icon: "FaTasks", label: "Vežbe i zadaci" },
-      { icon: "BsPencilSquare", label: "Samoevaluacija" },
-      { icon: "FaGraduationCap", label: "Završno testiranje" }
+      {
+        icon: "FaClipboardCheck",
+        label: {
+          sr: "Testiranje i razvrstavanje",
+          en: "Testing and Classification",
+          de: "Testen und Klassifizierung",
+          fr: "Test et classification"
+        }
+      },
+      {
+        icon: "FaBullseye",
+        label: {
+          sr: "Postavljanje ciljeva",
+          en: "Goal Setting",
+          de: "Zielsetzung",
+          fr: "Définition des objectifs"
+        }
+      },
+      {
+        icon: "FaChalkboardTeacher",
+        label: {
+          sr: "Realizacija programa",
+          en: "Program Implementation",
+          de: "Programmumsetzung",
+          fr: "Mise en œuvre du programme"
+        }
+      },
+      {
+        icon: "FaTasks",
+        label: {
+          sr: "Vežbe i zadaci",
+          en: "Exercises and Tasks",
+          de: "Übungen und Aufgaben",
+          fr: "Exercices et tâches"
+        }
+      },
+      {
+        icon: "BsPencilSquare",
+        label: {
+          sr: "Samoevaluacija",
+          en: "Self-evaluation",
+          de: "Selbstevaluierung",
+          fr: "Auto-évaluation"
+        }
+      },
+      {
+        icon: "FaGraduationCap",
+        label: {
+          sr: "Završno testiranje",
+          en: "Final Testing",
+          de: "Abschlussprüfung",
+          fr: "Test final"
+        }
+      }
     ]
   },
   {
     categoryName: "powerBI",
     icons: [
-      { icon: "FaHandshake", label: "Razumevanje potreba klijenata" },
+      {
+        icon: "FaHandshake",
+        label: {
+          sr: "Razumevanje potreba klijenata",
+          en: "Understanding Client Needs",
+          de: "Verstehen der Kundenbedürfnisse",
+          fr: "Comprendre les besoins du client"
+        }
+      },
       {
         icon: "FaClipboardList",
-        label: "Izrada plana obuke"
+        label: {
+          sr: "Izrada plana obuke",
+          en: "Training Plan Development",
+          de: "Entwicklung des Schulungsplans",
+          fr: "Élaboration du plan de formation"
+        }
       },
       {
         icon: "FaChalkboardTeacher",
-        label: "Teorijski delovi i praktične vežbe"
+        label: {
+          sr: "Teorijski delovi i praktične vežbe",
+          en: "Theoretical Parts and Practical Exercises",
+          de: "Theoretische Teile und praktische Übungen",
+          fr: "Parties théoriques et exercices pratiques"
+        }
       },
-      { icon: "FaUsersCog", label: "Primena stečenih veština u praksi" },
-      { icon: "FaStar", label: "Evaluacija" }
+      {
+        icon: "FaUsersCog",
+        label: {
+          sr: "Primena stečenih veština u praksi",
+          en: "Applying Acquired Skills in Practice",
+          de: "Anwendung erworbener Fähigkeiten in der Praxis",
+          fr: "Application des compétences acquises en pratique"
+        }
+      },
+      {
+        icon: "FaStar",
+        label: {
+          sr: "Evaluacija",
+          en: "Evaluation",
+          de: "Evaluierung",
+          fr: "Évaluation"
+        }
+      }
     ]
   },
   {
     categoryName: "excel",
     icons: [
-      { icon: "FaBullseye", label: "Postavljanje ciljeva" },
-      { icon: "FaChalkboardTeacher", label: "Realizacija programa" },
-      { icon: "FaTasks", label: "Vežbe i zadaci" },
-      { icon: "BsPencilSquare", label: "Evaluacija" },
-      { icon: "FaGraduationCap", label: "Završno testiranje" }
+      {
+        icon: "FaBullseye",
+        label: {
+          sr: "Postavljanje ciljeva",
+          en: "Goal Setting",
+          de: "Zielsetzung",
+          fr: "Définition des objectifs"
+        }
+      },
+      {
+        icon: "FaChalkboardTeacher",
+        label: {
+          sr: "Realizacija programa",
+          en: "Program Implementation",
+          de: "Programmumsetzung",
+          fr: "Mise en œuvre du programme"
+        }
+      },
+      {
+        icon: "FaTasks",
+        label: {
+          sr: "Vežbe i zadaci",
+          en: "Exercises and Tasks",
+          de: "Übungen und Aufgaben",
+          fr: "Exercices et tâches"
+        }
+      },
+      {
+        icon: "BsPencilSquare",
+        label: {
+          sr: "Evaluacija",
+          en: "Evaluation",
+          de: "Evaluierung",
+          fr: "Évaluation"
+        }
+      },
+      {
+        icon: "FaGraduationCap",
+        label: {
+          sr: "Završno testiranje",
+          en: "Final Testing",
+          de: "Abschlussprüfung",
+          fr: "Test final"
+        }
+      }
     ]
   }
 ];

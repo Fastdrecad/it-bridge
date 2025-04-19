@@ -2,6 +2,7 @@ import kontaktBg from "@/public/assets/images/backgrounds/kontakt-bg.webp";
 import Image from "next/image";
 import ItBridgeLogo from "./icons/ItBridgeLogo";
 import KontaktForm from "./KontaktForm";
+import LanguageSwitcher from "./common/LanguageSwitcher";
 
 export default function KontaktHero() {
   return (

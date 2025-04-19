@@ -4,8 +4,10 @@ import Button from "@/app/_components/common/Button/Button";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Video() {
+  const { t } = useTranslation();
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoUrl =
@@ -78,12 +80,14 @@ export default function Video() {
       {/* Content */}
       <div className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 text-center">
         <h1 className="text-3xl px-4 md:text-7xl uppercase text-white font-extrabold mb-10 tracking-wide max-w-[1400px] drop-shadow-lg">
-          Kursevi koji oblikuju vašu{" "}
-          <span className="text-warning-600">budućnost</span>
+          {t("HOME.VIDEO.HERO_TITLE_PART_1")}{" "}
+          <span className="text-warning-600">
+            {t("HOME.VIDEO.HERO_TITLE_PART_2")}
+          </span>
         </h1>
         <Link href="/kursevi">
           <Button variant="success" rounded>
-            SAZNAJTE VIŠE
+            {t("HOME.VIDEO.LEARN_MORE")}
           </Button>
         </Link>
       </div>

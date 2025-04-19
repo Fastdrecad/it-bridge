@@ -4,10 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
+import { useTranslation } from "react-i18next";
 
 interface LinkItem {
   href: string;
-  label: string;
+  labelKey: string;
   subLinks?: LinkItem[];
 }
 
@@ -15,24 +16,26 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  const { t } = useTranslation();
 
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", label: "Početna" },
+      { href: "/", labelKey: "HEADER.HOME" },
       {
         href: "/kursevi",
-        label: "Kursevi",
+        labelKey: "HEADER.COURSES",
         subLinks: [
-          { href: "/kursevi/hr-starter", label: "HR" },
-          { href: "/kursevi/meke-vestine", label: "Soft Skills" },
-          { href: "/kursevi/business-english", label: "Business English" },
-          { href: "/kursevi/pcm", label: "PCM" },
-          { href: "/kursevi/power-bi", label: "Power BI" },
-          { href: "/kursevi/excel", label: "Excel" }
+          { href: "/kursevi/hr-starter", labelKey: "HR" },
+          { href: "/kursevi/meke-vestine", labelKey: "Soft Skills" },
+          { href: "/kursevi/business-english", labelKey: "Business English" },
+          { href: "/kursevi/pcm", labelKey: "PCM" },
+          { href: "/kursevi/power-bi", labelKey: "Power BI" },
+          { href: "/kursevi/excel", labelKey: "Excel" }
         ]
       },
-      { href: "/o-nama", label: "O Nama" },
-      { href: "/kontakt", label: "Kontakt" }
+      { href: "/o-nama", labelKey: "HEADER.ABOUT" },
+      { href: "/kalendar", labelKey: "HEADER.CALENDAR" },
+      { href: "/kontakt", labelKey: "HEADER.CONTACT" }
     ],
     []
   );
@@ -63,7 +66,7 @@ export default function Navigation() {
     };
   }, [isDropdownOpen]);
 
-  const navigation = links.map(({ href, label, subLinks }) => {
+  const navigation = links.map(({ href, labelKey, subLinks }) => {
     const isActive =
       pathname === href ||
       (subLinks && subLinks.some((link) => pathname === link.href));
@@ -71,8 +74,8 @@ export default function Navigation() {
     return (
       <li
         key={href}
-        className="relative z-50"
-        ref={label === "Kursevi" ? dropdownRef : null}
+        className="relative z-50 hover:text-primary-700"
+        ref={labelKey === "HEADER.COURSES" ? dropdownRef : null}
       >
         {subLinks ? (
           <div className="flex items-center gap-1">
@@ -84,7 +87,7 @@ export default function Navigation() {
               }`}
               onClick={() => setDropdownOpen(false)}
             >
-              {label}
+              {t(labelKey)}
             </Link>
 
             {/* Dropdown Icon */}
@@ -104,7 +107,7 @@ export default function Navigation() {
             }`}
             onClick={() => setDropdownOpen(false)}
           >
-            {label}
+            {t(labelKey)}
           </Link>
         )}
 
@@ -121,7 +124,7 @@ export default function Navigation() {
                   }`}
                   onClick={() => setDropdownOpen(false)}
                 >
-                  {subLink.label}
+                  {subLink.labelKey}
                 </Link>
               </li>
             ))}

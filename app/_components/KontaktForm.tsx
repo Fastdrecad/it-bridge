@@ -1,14 +1,22 @@
 "use client";
 
 import Button from "@/app/_components/common/Button/Button";
-import FormInput from "@/app/_components/contact/FormInput";
 import LoadingSpinner from "@/app/_components/LoadingSpinner";
-import { inputs } from "@/app/_data";
-import useContactForm from "@/app/_hooks/useContactForm";
+import { formInputs } from "@/app/_data";
 import api from "@/app/_services/contactService";
 import { AnimatePresence, motion } from "framer-motion";
-import { FormEvent, useState } from "react";
+import { useState, useEffect } from "react";
 import { capitalizeFirstLetter } from "../_utils/stringUtils";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  getContactSchema,
+  ContactFormValues
+} from "@/app/_validations/contactSchema";
+import { useTranslation } from "react-i18next";
+import i18next from "@/app/_lib/i18n"; // Import to ensure i18n is initialized
+import FormInput from "@/app/_components/contact/FormInput";
+import PhoneInputField from "@/app/_components/contact/PhoneInputField";
 
 const formVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -41,44 +49,60 @@ const successMessageVariants = {
 };
 
 export default function KontaktForm() {
-  const {
-    values,
-    handleChange,
-    isFormValidState,
-    responseMessage,
-    setResponseMessage
-  } = useContactForm();
-
+  const { t } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    formState: { errors, isValid },
+    reset
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(getContactSchema()),
+    mode: "onSubmit" // Change from onBlur to onSubmit
+  });
 
-    if (!isFormValidState) {
-      setResponseMessage("Please fill in all fields correctly.");
-      return;
-    }
+  // Reset form validation when language changes
+  useEffect(() => {
+    const handleLanguageChanged = () => {
+      if (currentLanguage !== i18next.language) {
+        setCurrentLanguage(i18next.language);
+        // Reset with current values to trigger revalidation with new language
+        reset({}, { keepValues: true });
+      }
+    };
 
+    i18next.on("languageChanged", handleLanguageChanged);
+
+    return () => {
+      i18next.off("languageChanged", handleLanguageChanged);
+    };
+  }, [reset, currentLanguage]);
+
+  const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
     setIsLoading(true);
-    setResponseMessage(null);
+    setServerError(null);
 
     try {
       const formattedData = {
-        ime: capitalizeFirstLetter(values.ime),
-        prezime: capitalizeFirstLetter(values.prezime),
-        email: values.email,
-        telefon: values.telefon,
-        poruka: values.poruka
+        ime: capitalizeFirstLetter(data.ime),
+        prezime: capitalizeFirstLetter(data.prezime),
+        email: data.email,
+        telefon: data.telefon,
+        poruka: data.poruka
       };
+
       const response = await api.post("/contact", formattedData);
       if (response.status === 200) {
         setSuccess(true);
       }
     } catch (error) {
-      setResponseMessage(
-        "Došlo je do greške prilikom slanja poruke. Molimo pokušajte ponovo."
-      );
+      setServerError(t("CONTACT.FORM.ERROR"));
     } finally {
       setIsLoading(false);
     }
@@ -87,7 +111,7 @@ export default function KontaktForm() {
   return (
     <div className="z-10 px-8 xl:max-w-[60%] w-full rounded-lg">
       <h2 className="relative text-4xl font-extrabold my-10 md:my-20 text-center after:content-[''] after:absolute after:left-1/2 after:bottom-[-20px] after:transform after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600 text-white">
-        KONTAKT
+        {t("CONTACT.FORM.TITLE")}
       </h2>
 
       <AnimatePresence mode="wait">
@@ -100,12 +124,9 @@ export default function KontaktForm() {
             className="bg-green-100 border border-green-400 text-green-700 px-8 py-6 rounded-lg shadow-lg text-center max-w-2xl mx-auto"
           >
             <h3 className="text-xl font-semibold mb-2">
-              Uspešno poslata poruka!
+              {t("CONTACT.FORM.SUCCESS_TITLE")}
             </h3>
-            <p className="text-lg">
-              Hvala vam na interesovanju. Kontaktiraćemo vas u najkraćem mogućem
-              roku.
-            </p>
+            <p className="text-lg">{t("CONTACT.FORM.SUCCESS_MESSAGE")}</p>
           </motion.div>
         ) : isLoading ? (
           <motion.div
@@ -116,41 +137,69 @@ export default function KontaktForm() {
             className="flex flex-col items-center justify-center space-y-4 py-20"
           >
             <LoadingSpinner />
-            <p className="text-white text-lg">Šalje se vaša poruka...</p>
+            <p className="text-white text-lg">{t("CONTACT.FORM.LOADING")}</p>
           </motion.div>
         ) : (
           <motion.form
             key="form"
             className="md:mt-4 space-y-6 relative"
-            onSubmit={handleSubmit}
+            onSubmit={handleSubmit(onSubmit)}
             variants={formVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
           >
-            <div className="flex flex-col md:flex-row gap-8">
-              <div className="flex-1 flex flex-col gap-4">
-                {inputs
-                  .filter((input) => input.type !== "textarea")
+            <div className="flex flex-col md:flex-row md:gap-12">
+              <div className="flex-1 flex flex-col">
+                {formInputs
+                  .filter(
+                    (input) =>
+                      input.type !== "textarea" && input.name !== "telefon"
+                  )
                   .map((input) => (
                     <FormInput
                       key={input.id}
-                      {...input}
-                      value={values[input.name as keyof typeof values]}
-                      onChange={handleChange}
+                      id={input.id}
+                      name={input.name}
+                      type={input.type}
+                      placeholder={t(
+                        `CONTACT.FORM.${input.name.toUpperCase()}`
+                      )}
+                      label={t(`CONTACT.FORM.${input.name.toUpperCase()}`)}
+                      register={register}
+                      error={errors[input.name]}
                     />
                   ))}
+
+                <PhoneInputField
+                  id={4}
+                  name="telefon"
+                  placeholder={t("CONTACT.FORM.TELEFON")}
+                  label={t("CONTACT.FORM.TELEFON")}
+                  register={register}
+                  error={errors.telefon}
+                  control={control}
+                  setValue={setValue}
+                />
               </div>
               <div className="flex-1">
                 <div className="relative h-full">
-                  {inputs
+                  {formInputs
                     .filter((input) => input.type === "textarea")
                     .map((input) => (
                       <FormInput
                         key={input.id}
-                        {...input}
-                        value={values[input.name as keyof typeof values]}
-                        onChange={handleChange}
+                        id={input.id}
+                        name={input.name}
+                        type={input.type}
+                        placeholder={t(
+                          `CONTACT.FORM.${input.name.toUpperCase()}`
+                        )}
+                        label={t(`CONTACT.FORM.${input.name.toUpperCase()}`)}
+                        register={register}
+                        error={errors[input.name]}
+                        minLength={input.minLength}
+                        maxLength={input.maxLength}
                       />
                     ))}
                 </div>
@@ -158,21 +207,22 @@ export default function KontaktForm() {
             </div>
             <div className="my-24 pt-10 pb-10 md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0 relative">
               <Button
-                disabled={!isFormValidState}
+                disabled={isLoading}
                 variant="secondary"
                 className="w-full flex items-center justify-center px-14 xl:w-1/2"
+                loading={isLoading}
               >
-                Pošalji
+                {t("CONTACT.FORM.SEND")}
               </Button>
             </div>
 
-            {responseMessage && (
+            {serverError && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
               >
-                {responseMessage}
+                {serverError}
               </motion.div>
             )}
           </motion.form>

@@ -4,21 +4,36 @@ import { useEffect, useState } from "react";
 
 import { usePathname, useRouter } from "next/navigation";
 import { useInView } from "react-intersection-observer";
+import { useTranslation } from "react-i18next";
 
 import Card from "@/app/_components/Card";
 
 // import { courses } from "@/app/config";
 import Button from "@/app/_components/common/Button/Button";
 import { courses } from "@/app/_data";
+import "@/app/_lib/i18n";
 
 export default function Courses() {
+  const { t } = useTranslation();
   const pathname = usePathname();
-  const isKurseviPage = pathname === "/kursevi";
+  const isKurseviPage =
+    pathname === "/kursevi" ||
+    pathname === "/en/kursevi" ||
+    pathname === "/de/kursevi" ||
+    pathname === "/fr/kursevi";
 
   const router = useRouter();
 
   const handleNavigate = () => {
-    router.push("/kontakt");
+    if (pathname?.includes("/en")) {
+      router.push("/en/kontakt");
+    } else if (pathname?.includes("/de")) {
+      router.push("/de/kontakt");
+    } else if (pathname?.includes("/fr")) {
+      router.push("/fr/kontakt");
+    } else {
+      router.push("/kontakt");
+    }
   };
 
   const [animateCards, setAnimateCards] = useState(false);
@@ -46,7 +61,7 @@ export default function Courses() {
           isKurseviPage ? "text-white" : ""
         }`}
       >
-        KURSEVI
+        {t("COURSES.TITLE")}
       </h2>
       <ul className="grid grid-cols-fill-350 gap-8 relative mt-12 mx-auto">
         {courses.map((course, idx) => (
@@ -63,7 +78,7 @@ export default function Courses() {
       </ul>
       <div className="flex flex-col gap-48 justify-center items-center my-24">
         <Button variant="secondary" onClick={handleNavigate}>
-          KONTAKTIRAJTE NAS
+          {t("HOME.COURSES.CONTACT_BUTTON")}
         </Button>
       </div>
     </section>

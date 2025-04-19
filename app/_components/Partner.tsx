@@ -1,12 +1,15 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "./common/Button/Button";
 import { BsArrowRight } from "react-icons/bs";
 import { useRouter } from "next/navigation";
 import PlaneIcon from "@/app/_components/icons/PlaneIcon";
+import "@/app/_lib/i18n";
 
 export default function Partner() {
+  const { t } = useTranslation();
   const [email, setEmail] = useState("");
   const [focus, setFocus] = useState(false);
   const router = useRouter();
@@ -18,7 +21,7 @@ export default function Partner() {
       alert(`Email submitted: ${email}`);
       router.push("/thank-you");
     } else {
-      alert("Please enter a valid email address.");
+      alert(t("PARTNER.VALIDATION.EMAIL_REQUIRED"));
     }
   };
 
@@ -27,22 +30,18 @@ export default function Partner() {
       <div className="flex max-w-[1140px] mx-auto">
         <div className="flex flex-col items-center lg:flex-row lg:items-start justify-between gap-16 md:gap-32">
           <div className="flex flex-col flex-1 gap-4 ">
-            <h2 className="text-3xl">Vaš partner u transformaciji</h2>
-            <p>
-              IT Bridge je posvećen stvaranju vrednih partnerstava koja kroz
-              prilagođene programe omogućavaju rast i transformaciju vašeg
-              poslovanja.
-            </p>
+            <h2 className="text-3xl">{t("PARTNER.TITLE")}</h2>
+            <p>{t("PARTNER.DESCRIPTION")}</p>
           </div>
           <div className="flex-1 flex flex-col items-start gap-4 w-full">
-            {/* <p>Za sva pitanja slobodno nas kontaktirajte</p>
+            {/* <p>{t("PARTNER.CONTACT_PROMPT")}</p>
             <form
               className="flex flex-col md:flex-row w-full"
               onSubmit={handleSubmit}
             >
               <input
                 type="email"
-                placeholder="Email"
+                placeholder={t("PARTNER.EMAIL_PLACEHOLDER")}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className={`appearance-none border  w-full py-3 px-3 ${
@@ -57,7 +56,7 @@ export default function Partner() {
                 variant="warning"
                 className="text-md text-nowrap px-4 py-0 flex justify-center border-none rounded-none"
               >
-                Pitajte nas
+                {t("PARTNER.BUTTON")}
                 <BsArrowRight className="text-xl font-bold" />
               </Button>
             </form> */}

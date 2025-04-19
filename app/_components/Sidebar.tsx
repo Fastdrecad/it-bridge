@@ -2,10 +2,12 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { FaBars, FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
+import LanguageSwitcher from "./common/LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 interface LinkItem {
   href: string;
-  label: string;
+  labelKey: string;
   subLinks?: LinkItem[];
 }
 
@@ -16,34 +18,30 @@ interface SidebarProps {
   onToggle: () => void;
 }
 
-const Sidebar = ({
-  isOpen,
-  onToggle,
-  isHomePage,
-  isScrolled
-}: SidebarProps) => {
+const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
   const pathname = usePathname();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
+  const { t } = useTranslation();
 
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", label: "Početna" },
+      { href: "/", labelKey: "HEADER.HOME" },
       {
         href: "/kursevi",
-        label: "Kursevi",
+        labelKey: "HEADER.COURSES",
         subLinks: [
-          { href: "/kursevi/hr-starter", label: "HR" },
-          { href: "/kursevi/meke-vestine", label: "Soft Skills" },
-          { href: "/kursevi/business-english", label: "Business English" },
-          { href: "/kursevi/pcm", label: "PCM" },
-          { href: "/kursevi/power-bi", label: "Power BI" },
-          { href: "/kursevi/excel", label: "Excel" }
+          { href: "/kursevi/hr-starter", labelKey: "HR" },
+          { href: "/kursevi/meke-vestine", labelKey: "Soft Skills" },
+          { href: "/kursevi/business-english", labelKey: "Business English" },
+          { href: "/kursevi/pcm", labelKey: "PCM" },
+          { href: "/kursevi/power-bi", labelKey: "Power BI" },
+          { href: "/kursevi/excel", labelKey: "Excel" }
         ]
       },
-      { href: "/o-nama", label: "O Nama" },
-      { href: "/kalendar", label: "Kalendar" },
-      { href: "/kontakt", label: "Kontakt" }
+      { href: "/o-nama", labelKey: "HEADER.ABOUT" },
+      { href: "/kalendar", labelKey: "HEADER.CALENDAR" },
+      { href: "/kontakt", labelKey: "HEADER.CONTACT" }
     ],
     []
   );
@@ -81,14 +79,14 @@ const Sidebar = ({
 
   return (
     <div className="md:hidden md:h-screen md:w-full">
-      <button
+      {/* <button
         onClick={onToggle}
         className={`text-2xl py-4 pr-2 fixed top-2 right-4 z-50 ${
           isHomePage ? (isScrolled ? "text-black" : "text-white") : "text-black"
         }`}
       >
         {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
-      </button>
+      </button> */}
       <aside
         className={`fixed right-0 w-full bg-white text-black z-20 transform h-full text-xl ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -105,7 +103,7 @@ const Sidebar = ({
                 }`}
                 onClick={onToggle}
               >
-                Početna
+                {t("HEADER.HOME")}
               </Link>
             </li>
             <li className="relative z-50 my-2" ref={dropdownRef}>
@@ -117,7 +115,7 @@ const Sidebar = ({
                   }`}
                   onClick={onToggle}
                 >
-                  Kursevi
+                  {t("HEADER.COURSES")}
                 </Link>
                 <div
                   className="cursor-pointer ml-2"
@@ -143,7 +141,7 @@ const Sidebar = ({
                         }`}
                         onClick={onToggle}
                       >
-                        {subLink.label}
+                        {subLink.labelKey}
                       </Link>
                     </li>
                   ))}
@@ -159,7 +157,18 @@ const Sidebar = ({
                 }`}
                 onClick={onToggle}
               >
-                O Nama
+                {t("HEADER.ABOUT")}
+              </Link>
+            </li>
+            <li className="my-2">
+              <Link
+                href="/kalendar"
+                className={`text-nowrap uppercase ${
+                  pathname === "/kalendar" ? "font-bold" : "font-medium"
+                }`}
+                onClick={onToggle}
+              >
+                {t("HEADER.CALENDAR")}
               </Link>
             </li>
             <li className="my-2">
@@ -170,8 +179,18 @@ const Sidebar = ({
                 }`}
                 onClick={onToggle}
               >
-                Kontakt
+                {t("HEADER.CONTACT")}
               </Link>
+            </li>
+
+            {/* Language Switcher in sidebar */}
+            <li className="mt-8 mb-2">
+              <div className="flex items-center">
+                <span className="uppercase mr-4 font-medium">
+                  {t("HEADER.LANGUAGE")}:
+                </span>
+                <LanguageSwitcher className="text-black" />
+              </div>
             </li>
           </ul>
         </div>

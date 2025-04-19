@@ -109,9 +109,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="sr" suppressHydrationWarning={true}>
       <head>
@@ -125,8 +125,11 @@ export default function RootLayout({
       </head>
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header />
+
         <ClientProviders>
-          <main className="flex-1 grid">{children}</main>
+          <main id="main-content" className="flex-1 min-h-screen grid">
+            {children}
+          </main>
         </ClientProviders>
         <Footer />
       </body>
