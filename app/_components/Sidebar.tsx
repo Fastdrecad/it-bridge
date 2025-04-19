@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaBars, FaChevronDown, FaChevronUp, FaTimes } from "react-icons/fa";
-import LanguageSwitcher from "./common/LanguageSwitcher";
 import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface LinkItem {
   href: string;
@@ -79,14 +78,6 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
 
   return (
     <div className="md:hidden md:h-screen md:w-full">
-      {/* <button
-        onClick={onToggle}
-        className={`text-2xl py-4 pr-2 fixed top-2 right-4 z-50 ${
-          isHomePage ? (isScrolled ? "text-black" : "text-white") : "text-black"
-        }`}
-      >
-        {isOpen ? <FaTimes className="m-0" /> : <FaBars className="m-0" />}
-      </button> */}
       <aside
         className={`fixed right-0 w-full bg-white text-black z-20 transform h-full text-xl ${
           isOpen ? "translate-x-0" : "translate-x-full"
@@ -122,9 +113,9 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                   onClick={handleDropdownToggle}
                 >
                   {isDropdownOpen ? (
-                    <FaChevronUp className="text-md" />
+                    <Icon icon="mdi:chevron-up" className="text-2xl" />
                   ) : (
-                    <FaChevronDown className="text-md" />
+                    <Icon icon="mdi:chevron-down" className="text-2xl" />
                   )}
                 </div>
               </div>
@@ -160,7 +151,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                 {t("HEADER.ABOUT")}
               </Link>
             </li>
-            <li className="my-2">
+            {/* <li className="my-2">
               <Link
                 href="/kalendar"
                 className={`text-nowrap uppercase ${
@@ -170,7 +161,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
               >
                 {t("HEADER.CALENDAR")}
               </Link>
-            </li>
+            </li> */}
             <li className="my-2">
               <Link
                 href="/kontakt"
@@ -181,16 +172,6 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
               >
                 {t("HEADER.CONTACT")}
               </Link>
-            </li>
-
-            {/* Language Switcher in sidebar */}
-            <li className="mt-8 mb-2">
-              <div className="flex items-center">
-                <span className="uppercase mr-4 font-medium">
-                  {t("HEADER.LANGUAGE")}:
-                </span>
-                <LanguageSwitcher className="text-black" />
-              </div>
             </li>
           </ul>
         </div>

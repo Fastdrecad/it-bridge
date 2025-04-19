@@ -57,7 +57,7 @@ export const fr = {
       BUTTON: "En savoir plus"
     },
     ABOUT: {
-      TITLE: "À propos d'IT Bridge",
+      TITLE: "À Propos de Nous",
       DESCRIPTION:
         "Nous sommes votre partenaire de confiance dans la transformation par la formation, l'éducation et l'amélioration des affaires. Nous offrons un soutien et une expertise pour vous aider à réaliser le plein potentiel de vos équipes.",
       PARAGRAPH_1:

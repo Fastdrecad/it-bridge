@@ -1,5 +1,6 @@
 "use client";
 
+import "../_lib/i18n"; // Import to ensure i18n is initialized
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Navigation from "@/app/_components/Navigation";
@@ -8,14 +9,10 @@ import ItBridgeLogo from "./icons/ItBridgeLogo";
 import Sidebar from "./Sidebar";
 import Link from "next/link";
 import LanguageSwitcher from "./common/LanguageSwitcher";
-import { useTranslation } from "react-i18next";
-import "../_lib/i18n"; // Import to ensure i18n is initialized
-import { FaBars } from "react-icons/fa";
-import { FaTimes } from "react-icons/fa";
+import { Icon } from "@iconify/react";
 
 function Header() {
   const pathname = usePathname();
-  const { i18n } = useTranslation();
 
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -81,12 +78,12 @@ function Header() {
                   }`}
                 >
                   {isOpen ? (
-                    <FaTimes className="m-0" />
+                    <Icon icon="mdi:close" className="m-0" />
                   ) : (
-                    <FaBars className="m-0" />
+                    <Icon icon="mdi:menu" className="m-0" />
                   )}
                 </button>
-                <Navigation />
+                <Navigation isHomePage={isHomePage} isScrolled={isScrolled} />
               </div>
             </div>
           </div>

@@ -130,7 +130,7 @@ export default function Footer() {
                 aria-label={t("FOOTER.SOCIAL_ARIA", { platform: link.title })}
                 rel={link.rel}
               >
-                {React.createElement(link.icon, {
+                {React.createElement(link.iconComponent, {
                   ...link.iconProps
                 })}
               </a>

@@ -3,16 +3,24 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa6";
 import { useTranslation } from "react-i18next";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface LinkItem {
   href: string;
   labelKey: string;
   subLinks?: LinkItem[];
+  isHomePage?: boolean;
+  isScrolled?: boolean;
 }
 
-export default function Navigation() {
+export default function Navigation({
+  isHomePage,
+  isScrolled
+}: {
+  isHomePage: boolean;
+  isScrolled: boolean;
+}) {
   const pathname = usePathname();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -34,7 +42,7 @@ export default function Navigation() {
         ]
       },
       { href: "/o-nama", labelKey: "HEADER.ABOUT" },
-      { href: "/kalendar", labelKey: "HEADER.CALENDAR" },
+      // { href: "/kalendar", labelKey: "HEADER.CALENDAR" },
       { href: "/kontakt", labelKey: "HEADER.CONTACT" }
     ],
     []
@@ -74,7 +82,13 @@ export default function Navigation() {
     return (
       <li
         key={href}
-        className="relative z-50 hover:text-primary-700"
+        className={`relative z-50  ${
+          isHomePage
+            ? isScrolled
+              ? "hover:text-primary-700"
+              : "hover:text-warning-600"
+            : "hover:text-primary-700"
+        }`}
         ref={labelKey === "HEADER.COURSES" ? dropdownRef : null}
       >
         {subLinks ? (
@@ -93,9 +107,9 @@ export default function Navigation() {
             {/* Dropdown Icon */}
             <div className="cursor-pointer ml-2" onClick={handleDropdownToggle}>
               {isDropdownOpen ? (
-                <FaChevronUp className="text-sm" />
+                <Icon icon="mdi:chevron-up" className="text-sm" />
               ) : (
-                <FaChevronDown className="text-sm" />
+                <Icon icon="mdi:chevron-down" className="text-sm" />
               )}
             </div>
           </div>

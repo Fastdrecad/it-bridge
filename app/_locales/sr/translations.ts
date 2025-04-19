@@ -57,7 +57,7 @@ export const sr = {
       BUTTON: "Saznaj više"
     },
     ABOUT: {
-      TITLE: "O IT Bridge-u",
+      TITLE: "O Nama",
       DESCRIPTION:
         "Mi smo Vaš pouzdan partner u transformaciji kroz obuke, edukaciju i unapređenje poslovanja. Pružamo podršku i stručnost kako biste ostvarili pun potencijal vaših timova.",
       PARAGRAPH_1:
