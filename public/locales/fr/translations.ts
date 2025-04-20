@@ -633,5 +633,8 @@ export const fr = {
         ITEM_4: "Gestion des partenariats internationaux"
       }
     }
+  },
+  POWER_BI_CARDS: {
+    TITLE: "Avantages clés de PBI"
   }
 };

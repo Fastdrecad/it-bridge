@@ -22,6 +22,7 @@ import CourseGrid from "@/components/course/CourseGrid";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
+import PowerBiCards from "@/components/PowerBiCards";
 
 export default function PowerBiContent() {
   const { t, i18n } = useTranslation();
@@ -98,6 +99,8 @@ export default function PowerBiContent() {
         }}
       />
       <HeroSection {...heroProps} />
+
+      <PowerBiCards />
 
       <FeatureList
         heading={t("COURSES.POWER_BI.FEATURE_LIST.HEADING")}

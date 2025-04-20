@@ -10,3 +10,4 @@ export * from "./newsletterInputs";
 export * from "./courseFeatures";
 export * from "./socialLinks";
 export * from "./testimonials";
+export * from "./powerBiCards";

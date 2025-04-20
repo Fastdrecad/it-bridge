@@ -634,5 +634,8 @@ export const de = {
         ITEM_4: "Management internationaler Partnerschaften"
       }
     }
+  },
+  POWER_BI_CARDS: {
+    TITLE: "Hauptvorteile von PBI"
   }
 };

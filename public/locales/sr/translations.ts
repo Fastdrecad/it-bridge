@@ -765,5 +765,8 @@ export const sr = {
         ITEM_4: "Upravljanje međunarodnim partnerstvima"
       }
     }
+  },
+  POWER_BI_CARDS: {
+    TITLE: "Ključne prednosti PBI-ja"
   }
 };

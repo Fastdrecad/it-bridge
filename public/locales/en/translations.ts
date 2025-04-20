@@ -772,6 +772,9 @@ export const en = {
         ITEM_4: "Managing international partnerships"
       }
     }
+  },
+  POWER_BI_CARDS: {
+    TITLE: "Key Benefits of PBI"
   }
 };
 
