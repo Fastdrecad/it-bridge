@@ -29,13 +29,12 @@ jobs:
           script: |
             set -x  # Enable debug output
 
-            # check if directory /var/www/it-bridge exists
-            if [ ! -d "/var/www/it-bridge/.git" ]; then
-              echo "Directory does not exist or is not a Git repository, creating and cloning the repo..."
-              cd /var/www
-              git clone https://github.com/Fastdrecad/it-bridge.git it-bridge
-            else
-              echo "Directory exists, pulling latest changes..."
+            echo "📁 Listing contents of /var/www before deploy:"
+            ls -la /var/www
+
+            # Check if /var/www/it-bridge is a valid Git repo
+            if [ -d "/var/www/it-bridge/.git" ]; then
+              echo "✅ Git repo found, pulling latest changes..."
               cd /var/www/it-bridge
 
               # Create backup
@@ -50,8 +49,12 @@ jobs:
 
               git fetch origin
               git pull origin master
+            else
+              echo "📁 No valid Git repo found. Resetting directory and cloning fresh copy..."
+              rm -rf /var/www/it-bridge
+              git clone https://github.com/Fastdrecad/it-bridge.git /var/www/it-bridge
             fi
-
+            echo "🔐 Writing environment variables..."
             echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" > /var/www/it-bridge/.env
             echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}" >> /var/www/it-bridge/.env
             echo "MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}" >> /var/www/it-bridge/.env
@@ -66,6 +69,7 @@ jobs:
             cd /var/www/it-bridge
 
             # Install dependencies and build
+            echo "📦 Installing dependencies..."
             if [ -f "package.json" ]; then
               npm install
               npm run build
@@ -75,5 +79,8 @@ jobs:
             fi
 
             # Restart PM2 process or start if not running
+            echo "🚀 Restarting PM2 process..."
             pm2 list
             pm2 restart it-bridge || pm2 start npm --name "it-bridge" -- start
+
+            echo "🎉 Deployment complete!"
