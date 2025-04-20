@@ -3,7 +3,7 @@
 import { FC } from "react";
 import { StaticImageData } from "next/image";
 import { useTranslation } from "react-i18next";
-import { MultilingualText } from "@/app/_data/heroSection";
+import { MultilingualText } from "@/data/heroSection";
 
 type CourseSection = {
   title: string | MultilingualText;

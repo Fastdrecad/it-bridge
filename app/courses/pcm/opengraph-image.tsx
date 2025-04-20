@@ -1,10 +1,11 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "PCM Kurs | IT Bridge EDU Center";
+export const alt = "Project Cycle Management Kurs | IT Bridge EDU Center";
 export const size = {
   width: 1200,
   height: 630
@@ -15,15 +16,14 @@ export const contentType = "image/png";
  * Generate Open Graph image for PCM course page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../../../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #005B9A, #003B64)",
+          background: "linear-gradient(to bottom, #FF8000, #CC6600)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -72,21 +72,14 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Process Communication Model
+            Napredno upravljanje projektnim ciklusom
           </p>
         </div>
       </div>
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

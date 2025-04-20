@@ -1,10 +1,11 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Meke Veštine Kurs | IT Bridge EDU Center";
+export const alt = "Soft Skills Kurs | IT Bridge EDU Center";
 export const size = {
   width: 1200,
   height: 630
@@ -15,15 +16,14 @@ export const contentType = "image/png";
  * Generate Open Graph image for Soft Skills course page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../../../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #6366F1, #4F46E5)",
+          background: "linear-gradient(to bottom, #7B68EE, #5F4BBD)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -61,7 +61,7 @@ export default async function Image() {
               lineHeight: 1.2
             }}
           >
-            Meke Veštine Kurs
+            Soft Skills Kurs
           </h1>
           <p
             style={{
@@ -79,14 +79,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

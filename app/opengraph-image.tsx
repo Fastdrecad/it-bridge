@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -12,19 +13,17 @@ export const size = {
 export const contentType = "image/png";
 
 /**
- * Generate Open Graph image using the Next.js Image Response API
- * https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image
+ * Generate Open Graph image for the main page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #003087, #0058a3)",
+          background: "linear-gradient(to bottom, #005B9A, #003B64)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -80,14 +79,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

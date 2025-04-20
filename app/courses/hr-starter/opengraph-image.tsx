@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -15,15 +16,14 @@ export const contentType = "image/png";
  * Generate Open Graph image for HR Starter course page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../../../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #003087, #0058a3)",
+          background: "linear-gradient(to bottom, #6C63FF, #4C46B2)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -72,21 +72,14 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Profesionalna obuka za HR pozicije
+            Započnite karijeru u ljudskim resursima
           </p>
         </div>
       </div>
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

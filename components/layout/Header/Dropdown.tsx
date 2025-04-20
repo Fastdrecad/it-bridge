@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { courses } from "../config"; // Importing the courses array
+import { courses } from "@/data/courses"; // Importing the courses array
 
 const Dropdown: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

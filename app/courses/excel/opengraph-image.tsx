@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -15,9 +16,8 @@ export const contentType = "image/png";
  * Generate Open Graph image for Excel course page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../../../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
@@ -79,14 +79,7 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

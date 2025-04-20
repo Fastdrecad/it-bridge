@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -15,15 +16,14 @@ export const contentType = "image/png";
  * Generate Open Graph image for Power BI course page
  */
 export default async function Image() {
-  const interSemiBold = fetch(
-    new URL("../../../public/assets/fonts/inter-semibold.ttf", import.meta.url)
-  ).then((res) => res.arrayBuffer());
+  // Get font configuration
+  const fonts = await getInterFontConfig();
 
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #F2C811, #F2B200)",
+          background: "linear-gradient(to bottom, #F2C811, #D9B310)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -45,7 +45,7 @@ export default async function Image() {
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="https://itbridge-services.com/course-images/power-bi.png"
+            src="https://itbridge-services.com/course-images/powerbi.png"
             alt="Power BI Logo"
             width={200}
             height={200}
@@ -72,21 +72,14 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Profesionalna vizualizacija i analiza podataka
+            Vizualizacija i analiza podataka
           </p>
         </div>
       </div>
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Inter",
-          data: await interSemiBold,
-          style: "normal",
-          weight: 600
-        }
-      ]
+      fonts
     }
   );
 }

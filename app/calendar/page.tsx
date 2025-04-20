@@ -1,4 +1,4 @@
-import calendarBg from "@/public/assets/images/backgrounds/kalendar.webp";
+import calendarBg from "@/public/assets/images/backgrounds/calendar.webp";
 import { Metadata } from "next";
 import {
   getMetadataByLocale,
