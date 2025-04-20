@@ -1,29 +1,108 @@
 import { MetadataRoute } from "next";
 
+/**
+ * Generates sitemap.xml with best SEO practices
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://itbridge-services.com";
+  const lastModified = new Date();
 
-  // Define all routes
-  const routes = [
-    "", // Homepage
-    "/kursevi",
-    "/kursevi/qa",
-    "/kursevi/pcm",
-    "/kursevi/power-bi",
-    "/kursevi/business-english",
-    "/kursevi/meke-vestine",
-    "/kursevi/hr-starter",
-    "/kontakt",
-    "/kalendar"
+  // Core pages
+  const coreRoutes = [
+    {
+      url: baseUrl,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 1
+    },
+    {
+      url: `${baseUrl}/about`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/contact`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/calendar`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9
+    }
   ];
 
-  // Create sitemap entries for each route
-  const sitemap: MetadataRoute.Sitemap = routes.map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: route === "" ? 1 : route.startsWith("/kursevi/") ? 0.9 : 0.8
-  }));
+  // Course pages
+  const courseRoutes = [
+    {
+      url: `${baseUrl}/courses`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9
+    },
+    {
+      url: `${baseUrl}/qa`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/pcm`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/power-bi`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/business-english`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/soft-skills`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    },
+    {
+      url: `${baseUrl}/hr-starter`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.8
+    }
+  ];
 
-  return sitemap;
+  // Localized routes - add other locales
+  const localizedRoutes = [
+    {
+      url: `${baseUrl}/en`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9
+    },
+    {
+      url: `${baseUrl}/de`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9
+    },
+    {
+      url: `${baseUrl}/fr`,
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.9
+    }
+  ];
+
+  return [...coreRoutes, ...courseRoutes, ...localizedRoutes];
 }

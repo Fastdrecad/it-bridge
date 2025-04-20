@@ -1,0 +1,9 @@
+export { default as ClientsIcon } from "./ClientsIcon";
+export { default as EarthIcon } from "./EarthIcon";
+export { default as FlowerIcon } from "./FlowerIcon";
+export { default as HandshakeIcon } from "./HandshakeIcon";
+export { default as HeartIcon } from "./HeartIcon";
+export { default as ItBridgeLogo } from "./ItBridgeLogo";
+export { default as NotFoundIcon } from "./NotFoundIcon";
+export { default as PlaneIcon } from "./PlaneIcon";
+export { default as StarIcon } from "./StarIcon";

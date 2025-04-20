@@ -18,7 +18,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/components/*": ["./components/*"]
     }
   },
   "include": [
@@ -27,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "build/types/**/*.ts",
-    "app/_utils/index.js"
+    "utils/index.ts"
   ],
   "exclude": ["node_modules"]
 }

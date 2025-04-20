@@ -4,9 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev -H 0.0.0.0",
-    "build": "next build",
+    "build": "next build && npm run generate-sitemap",
     "start": "next start -p 1979",
-    "lint": "next lint"
+    "lint": "next lint",
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "generate-og-images": "node scripts/generate-og-images.js",
+    "prepare-seo": "npm run generate-og-images && npm run generate-sitemap"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -14,6 +17,7 @@
     "@react-google-maps/api": "^2.19.3",
     "@sendgrid/mail": "^8.1.3",
     "axios": "^1.7.5",
+    "canvas": "^2.11.2",
     "classnames": "^2.5.1",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.15.0",

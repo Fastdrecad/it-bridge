@@ -1,18 +1,15 @@
-import { createBreadcrumbSchema, createFAQSchema } from "@/app/_lib/schemas";
+import About from "@/app/home/_components/AboutSection";
+import Courses from "@/components/course/Courses";
+import Newsletter from "@/app/home/_components/NewsletterSection";
+import Partner from "@/app/home/_components/PartnerSection";
+import Testimonials from "@/app/home/_components/TestimonialsSection";
+import Video from "@/app/home/_components/VideoSection";
+import { i18nConfig } from "@/lib/i18n-config";
+import { homeMetadataTranslations } from "@/lib/metadata";
+import { getMetadataByLocale } from "@/lib/metadata";
+import { createBreadcrumbSchema, createFAQSchema } from "@/lib/schemas";
 import { Metadata } from "next";
-import {
-  getMetadataByLocale,
-  homeMetadataTranslations
-} from "@/app/_lib/metadata";
-import { i18nConfig } from "@/app/_lib/i18n-config";
 import Script from "next/script";
-
-import About from "@/app/_components/About";
-import Courses from "@/app/_components/Courses";
-import Newsletter from "@/app/_components/Newsletter";
-import Partner from "@/app/_components/Partner";
-import Testimonials from "@/app/_components/Testimonials";
-import Video from "@/app/_components/Video";
 
 export async function generateMetadata({
   params

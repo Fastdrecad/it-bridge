@@ -1,21 +1,28 @@
 import { MetadataRoute } from "next";
 
+/**
+ * Generates robots.txt with best SEO practices
+ * @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/robots
+ */
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = "https://itbridge-services.com";
+
   return {
-    rules: [
-      {
-        userAgent: "*", // It allows all search engines to access
-        allow: "/",
-        disallow: ["/private/", "/admin/", "/login/"], // It blocks access to certain pages
-        crawlDelay: 5 // Add a delay between requests, if necessary
-      },
-      {
-        userAgent: "Googlebot", // Specific instructions for Googlebot
-        allow: "/",
-        disallow: ["/private/"],
-        crawlDelay: 2 // 2 second delay for Googlebot
-      }
-    ],
-    sitemap: "https://itbridge-services.com/sitemap.xml" // Correct URL for sitemap
+    rules: {
+      userAgent: "*",
+      allow: "/",
+      disallow: [
+        "/api/",
+        "/admin/",
+        "/_next/",
+        "/private/",
+        "*.json$", // Prevent crawling of JSON files
+        "*.js$", // Prevent crawling of JS files
+        "*.css$" // Prevent crawling of CSS files
+      ]
+    },
+    // Include sitemap paths
+    sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl
   };
 }
