@@ -44,6 +44,12 @@ export default function RootLayout({
           property="og:image:secure_url"
           content="https://itbridge-services.com/og/opengraph-image.png"
         />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/png" />
+
+        {/* Facebook specific tags */}
+        <meta property="fb:app_id" content="1234567890" />
       </head>
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header />
