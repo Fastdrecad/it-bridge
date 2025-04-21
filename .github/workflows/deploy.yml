@@ -13,74 +13,95 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Next.js app
         run: npm run build
 
-      - name: SSH into VPS and deploy
+      - name: Deploy to VPS
         uses: appleboy/ssh-action@v0.1.7
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            set -x  # Enable debug output
+            set -e # Exit immediately if a command exits with a non-zero status
 
-            echo "📁 Listing contents of /var/www before deploy:"
-            ls -la /var/www
+            APP_DIR="/var/www/it-bridge"
+            DEPLOY_DIR="/var/www/it-bridge-deploy"
+            BACKUP_DIR="/var/www/backups"
+            TIMESTAMP=$(date +%Y%m%d%H%M%S)
 
-            # Check if /var/www/it-bridge is a valid Git repo
-            if [ -d "/var/www/it-bridge/.git" ]; then
-              echo "✅ Git repo found, pulling latest changes..."
-              cd /var/www/it-bridge
+            # Ensure directories exist
+            mkdir -p ${BACKUP_DIR}
+            mkdir -p ${DEPLOY_DIR}
 
-              # Create backup
-              timestamp=$(date +%Y%m%d%H%M%S)
-              cp -r /var/www/it-bridge /var/www/it-bridge-backup-$timestamp
+            # Clone the latest code to the deployment directory
+            echo "🔄 Fetching latest code..."
+            rm -rf ${DEPLOY_DIR}
+            git clone --depth=1 https://github.com/Fastdrecad/it-bridge.git ${DEPLOY_DIR}
 
-              # Check for uncommitted changes
-              if ! git diff-index --quiet HEAD --; then
-                echo "⚠️ Uncommitted changes found. Aborting pull to avoid overwriting."
-                exit 1
+            # Create backup if the app directory exists
+            if [ -d "${APP_DIR}" ]; then
+              echo "📦 Creating backup..."
+              tar -czf ${BACKUP_DIR}/it-bridge-${TIMESTAMP}.tar.gz -C /var/www it-bridge
+              
+              # Preserve .env file if it exists
+              if [ -f "${APP_DIR}/.env" ]; then
+                cp ${APP_DIR}/.env ${DEPLOY_DIR}/.env
               fi
-
-              git fetch origin
-              git pull origin master
-            else
-              echo "📁 No valid Git repo found. Resetting directory and cloning fresh copy..."
-              rm -rf /var/www/it-bridge
-              git clone https://github.com/Fastdrecad/it-bridge.git /var/www/it-bridge
             fi
-            echo "🔐 Writing environment variables..."
-            echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" > /var/www/it-bridge/.env
-            echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}" >> /var/www/it-bridge/.env
-            echo "MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}" >> /var/www/it-bridge/.env
-            echo "MAILCHIMP_AUDIENCE_ID=${{ secrets.MAILCHIMP_AUDIENCE_ID }}" >> /var/www/it-bridge/.env
-            echo "MAILCHIMP_API_SERVER=${{ secrets.MAILCHIMP_API_SERVER }}" >> /var/www/it-bridge/.env
-            echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> /var/www/it-bridge/.env
-            echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> /var/www/it-bridge/.env
-            echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> /var/www/it-bridge/.env
-            echo "MAILER_API_KEY=${{ secrets.MAILER_API_KEY }}" >> /var/www/it-bridge/.env
-            echo "MAILER_LIST_ID=${{ secrets.MAILER_LIST_ID }}" >> /var/www/it-bridge/.env
 
-            cd /var/www/it-bridge
+            # Write environment variables if .env doesn't exist
+            if [ ! -f "${DEPLOY_DIR}/.env" ]; then
+              echo "🔐 Writing environment variables..."
+              echo "NEXT_PUBLIC_BASE_URL=${{ secrets.NEXT_PUBLIC_BASE_URL }}" > ${DEPLOY_DIR}/.env
+              echo "NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}" >> ${DEPLOY_DIR}/.env
+              echo "MAILCHIMP_API_KEY=${{ secrets.MAILCHIMP_API_KEY }}" >> ${DEPLOY_DIR}/.env
+              echo "MAILCHIMP_AUDIENCE_ID=${{ secrets.MAILCHIMP_AUDIENCE_ID }}" >> ${DEPLOY_DIR}/.env
+              echo "MAILCHIMP_API_SERVER=${{ secrets.MAILCHIMP_API_SERVER }}" >> ${DEPLOY_DIR}/.env
+              echo "SMTP_USER=${{ secrets.SMTP_USER }}" >> ${DEPLOY_DIR}/.env
+              echo "SMTP_PASSWORD=${{ secrets.SMTP_PASSWORD }}" >> ${DEPLOY_DIR}/.env
+              echo "SMTP_HOST=${{ secrets.SMTP_HOST }}" >> ${DEPLOY_DIR}/.env
+              echo "MAILER_API_KEY=${{ secrets.MAILER_API_KEY }}" >> ${DEPLOY_DIR}/.env
+              echo "MAILER_LIST_ID=${{ secrets.MAILER_LIST_ID }}" >> ${DEPLOY_DIR}/.env
+            fi
 
             # Install dependencies and build
             echo "📦 Installing dependencies..."
-            if [ -f "package.json" ]; then
-              npm install
-              npm run build
-            else
-              echo "Error: package.json not found, skipping npm install"
-              exit 1
-            fi
+            cd ${DEPLOY_DIR}
+            npm ci
+            npm run build
 
-            # Restart PM2 process or start if not running
-            echo "🚀 Restarting PM2 process..."
-            pm2 list
+            # Swap directories atomically
+            echo "🚀 Deploying new version..."
+            rm -rf ${APP_DIR}.old
+            if [ -d "${APP_DIR}" ]; then
+              mv ${APP_DIR} ${APP_DIR}.old
+            fi
+            mv ${DEPLOY_DIR} ${APP_DIR}
+
+            # Restart the application
+            echo "🔄 Restarting application..."
+            cd ${APP_DIR}
             pm2 restart it-bridge || pm2 start npm --name "it-bridge" -- start
 
-            echo "🎉 Deployment complete!"
+            # Clean up old files
+            echo "🧹 Cleaning up..."
+            rm -rf ${APP_DIR}.old
+
+            # Keep only the 5 most recent backups
+            cd ${BACKUP_DIR}
+            ls -tp | grep -v '/$' | tail -n +6 | xargs -I {} rm -- {}
+
+            echo "✅ Deployment complete!"
