@@ -25,7 +25,7 @@ export const courses: Course[] = [
       "Započnite karijeru u HR-u uz dvostruku ekspertizu i steknite veštine za uspešno upravljanje ljudskim resursima…",
     description: "Pokrenite karijeru u HR-u.",
     image: hrImg,
-    url: "/hr-starter"
+    url: "/courses/hr-starter"
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ export const courses: Course[] = [
       "Usavršite meke veštine uz naš personalizovani set obuka za maksimalnu efikasnost…",
     description: "",
     image: skillsImg,
-    url: "/meke-vestine"
+    url: "/courses/soft-skills"
   },
   {
     id: 3,
@@ -43,7 +43,7 @@ export const courses: Course[] = [
       "Usavršite komunikaciju, liderstvo i timski rad uz našu personalizovanu PCM obuku…",
     description: "",
     image: pcmImg,
-    url: "/pcm"
+    url: "/courses/pcm"
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ export const courses: Course[] = [
       "Poboljšajte poslovnu komunikaciju u vašoj kompaniji uz naš tailor-made kurs Business English | German | French…",
     description: "",
     image: englishImg,
-    url: "/business-english"
+    url: "/courses/business-english"
   },
   {
     id: 5,
@@ -61,7 +61,7 @@ export const courses: Course[] = [
       "Otkrijte moć podataka, pretvorite ih u strateške uvide i iskoristite za bolje odluke i konkurentsku prednost.",
     description: "Unapredite poslovanje uz Power BI",
     image: pbiImg,
-    url: "/power-bi"
+    url: "/courses/power-bi"
   },
 
   {
@@ -70,6 +70,6 @@ export const courses: Course[] = [
     subtitle: "Savladajte Excel i unapredite svoju karijeru…",
     description: "",
     image: excelImg,
-    url: "/excel"
+    url: "/courses/excel"
   }
 ];

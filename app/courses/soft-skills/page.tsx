@@ -21,7 +21,7 @@ export async function generateMetadata({
     locale,
     mekeVestineMetadataTranslations,
     "/images/courses/soft-skills-og.jpg",
-    "/meke-vestine"
+    "/soft-skills"
   );
 }
 

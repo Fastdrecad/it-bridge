@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -16,14 +15,11 @@ export const contentType = "image/png";
  * Generate Open Graph image for Soft Skills course page
  */
 export default async function Image() {
-  // Get font configuration
-  const fonts = await getInterFontConfig();
-
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #7B68EE, #5F4BBD)",
+          background: "linear-gradient(to bottom, #7928CA, #4F189D)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -31,7 +27,7 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "center",
           padding: "40px",
-          fontFamily: "Inter"
+          fontFamily: "system-ui"
         }}
       >
         <div
@@ -43,17 +39,10 @@ export default async function Image() {
             textAlign: "center"
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://itbridge-services.com/course-images/soft-skills.png"
-            alt="Soft Skills Logo"
-            width={200}
-            height={200}
-            style={{ marginBottom: 40 }}
-          />
-          <h1
+          <div
             style={{
               fontSize: 64,
+              fontWeight: "bold",
               color: "white",
               marginBottom: 24,
               textAlign: "center",
@@ -62,7 +51,7 @@ export default async function Image() {
             }}
           >
             Soft Skills Kurs
-          </h1>
+          </div>
           <p
             style={{
               fontSize: 32,
@@ -72,14 +61,13 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Razvoj ključnih komunikacionih i liderskih veština
+            Razvoj mekih veština za poslovni uspeh
           </p>
         </div>
       </div>
     ),
     {
-      ...size,
-      fonts
+      ...size
     }
   );
 }

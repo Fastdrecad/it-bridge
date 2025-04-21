@@ -448,6 +448,14 @@ export const fr = {
         }
       }
     },
+    COMPANY: {
+      TITLE: "NOTRE ENTREPRISE",
+      FOUNDED: "Fondée en 2020 à Belgrade, Serbie",
+      DESCRIPTION:
+        "IT Bridge a débuté comme un centre éducatif spécialisé axé sur la fourniture de formations informatiques et professionnelles de haute qualité. Commençant avec une petite équipe d'éducateurs dévoués, nous sommes devenus un partenaire de confiance pour les entreprises à travers la Serbie et la région.",
+      APPROACH:
+        "Notre approche unique combine expérience pratique de l'industrie et expertise éducative, nous permettant de créer des programmes qui répondent aux besoins réels des entreprises et aident les individus comme les organisations à atteindre leur plein potentiel."
+    },
     JOIN_US: {
       TITLE:
         "Vous voulez faire partie de notre équipe ? L'éducation est votre passion ?",
@@ -636,5 +644,12 @@ export const fr = {
   },
   POWER_BI_CARDS: {
     TITLE: "Avantages clés de PBI"
+  },
+  NOT_FOUND: {
+    TITLE: "Oups ! Page non trouvée",
+    SUBTITLE: "Nous ne trouvons pas la page que vous recherchez",
+    DESCRIPTION:
+      "La page a peut-être été déplacée, supprimée ou n'a jamais existé.",
+    BUTTON: "Retour à l'accueil"
   }
 };

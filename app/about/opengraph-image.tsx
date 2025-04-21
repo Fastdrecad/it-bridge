@@ -4,7 +4,7 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Power BI Kurs | IT Bridge EDU Center";
+export const alt = "About IT Bridge EDU Center";
 export const size = {
   width: 1200,
   height: 630
@@ -12,14 +12,14 @@ export const size = {
 export const contentType = "image/png";
 
 /**
- * Generate Open Graph image for Power BI course page
+ * Generate Open Graph image for the About page
  */
 export default async function Image() {
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #F2C811, #E3A410)",
+          background: "linear-gradient(to bottom, #005B9A, #003B64)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -50,7 +50,7 @@ export default async function Image() {
               lineHeight: 1.2
             }}
           >
-            Power BI Kurs
+            About IT Bridge EDU Center
           </div>
           <p
             style={{
@@ -61,7 +61,7 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Napredna vizuelizacija i analiza podataka
+            Learn more about our educational services
           </p>
         </div>
       </div>

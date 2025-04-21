@@ -61,6 +61,22 @@ export default function AboutUsContent() {
     <section className="text-left md:max-w-7xl w-full mx-auto px-4 my-10 md:my-20 overflow-x-hidden">
       <div className="md:px-20">
         <div className="flex flex-col space-y-12 md:space-y-15 justify-start">
+          {/* Company information section */}
+          <div className="relative">
+            <h2 className="relative text-4xl text-left md:text-center font-extrabold mt-10 mb-10 md:mb-16 after:content-[''] after:absolute after:bottom-[-10px] after:transform after:left-0 after:-translate-x-0 md:after:left-1/2 md:after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600">
+              {t("ABOUT.COMPANY.TITLE")}
+            </h2>
+            <p className="text-left md:text-center text-lg font-semibold mb-4">
+              {t("ABOUT.COMPANY.FOUNDED")}
+            </p>
+            <p className="text-left md:text-center text-lg mb-4">
+              {t("ABOUT.COMPANY.DESCRIPTION")}
+            </p>
+            <p className="text-left md:text-center text-lg">
+              {t("ABOUT.COMPANY.APPROACH")}
+            </p>
+          </div>
+
           {translatedValuesContent.map((value) => (
             <div key={value.title} className="relative">
               <h2 className="relative text-4xl text-left md:text-center font-extrabold mt-10 mb-10 md:mb-16 after:content-[''] after:absolute after:bottom-[-10px] after:transform after:left-0 after:-translate-x-0 md:after:left-1/2 md:after:-translate-x-1/2 after:w-20 after:h-1 after:bg-warning-600">

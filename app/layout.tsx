@@ -35,6 +35,15 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema)
           }}
         />
+        {/* Force social media platforms to refresh OpenGraph data */}
+        <meta
+          property="og:image:url"
+          content="https://itbridge-services.com/og/opengraph-image.png"
+        />
+        <meta
+          property="og:image:secure_url"
+          content="https://itbridge-services.com/og/opengraph-image.png"
+        />
       </head>
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header />

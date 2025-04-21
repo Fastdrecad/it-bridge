@@ -45,7 +45,7 @@ export default function Footer() {
         translationKey: "HEADER.COURSES"
       },
       {
-        href: `${langPrefix}/o-nama`,
+        href: `${langPrefix}/about`,
         label: "O Nama",
         translationKey: "HEADER.ABOUT"
       },

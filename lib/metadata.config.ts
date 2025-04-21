@@ -41,11 +41,11 @@ export const defaultMetadata: Metadata = {
       "Unapredite produktivnost vaših timova kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-ja i mekih veština.",
     images: [
       {
-        url: `${BASE_URL}/og-image.jpg`,
+        url: `${BASE_URL}/og/opengraph-image.png`,
         width: 1200,
         height: 630,
         alt: "IT Bridge EDU Center",
-        type: "image/jpeg"
+        type: "image/png"
       }
     ]
   },
@@ -57,7 +57,7 @@ export const defaultMetadata: Metadata = {
     description:
       "Profesionalni centar za IT obuke i treninge. Unapredite svoje znanje kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-a i mekih veština.",
     images: {
-      url: `${BASE_URL}/og-image.jpg`,
+      url: `${BASE_URL}/og/opengraph-image.png`,
       alt: "IT Bridge EDU Center",
       width: 1200,
       height: 630

@@ -453,51 +453,55 @@ export const powerBiMetadataTranslations: LocalizedMetadata = {
  */
 export const oNamaMetadataTranslations: LocalizedMetadata = {
   sr: {
-    title: "O Nama | IT Bridge EDU Center",
+    title: "O Nama | IT Bridge EDU Centar",
     description:
-      "IT Bridge edukativni centar - Vaš partner u profesionalnoj transformaciji. Saznajte više o našoj misiji, vrednostima i stručnom timu.",
+      "IT Bridge EDU Centar, osnovan 2020. godine, je vaš pouzdan partner za transformaciju kroz obuku, edukaciju i poboljšanje poslovanja. Saznajte više o nama, našoj misiji i vrednostima.",
     keywords: [
       "o nama",
       "IT Bridge",
       "edukativni centar",
       "tim stručnjaka",
-      "misija i vizija"
+      "misija i vizija",
+      "osnovano 2020"
     ]
   },
   en: {
     title: "About Us | IT Bridge EDU Center",
     description:
-      "IT Bridge educational center - Your partner in professional transformation. Learn more about our mission, values, and expert team.",
+      "IT Bridge EDU Center, founded in 2020, is your reliable partner for transformation through training, education, and business improvement. Learn more about us, our mission, and values.",
     keywords: [
       "about us",
       "IT Bridge",
       "educational center",
       "expert team",
-      "mission and vision"
+      "mission and vision",
+      "founded 2020"
     ]
   },
   de: {
     title: "Über Uns | IT Bridge EDU Center",
     description:
-      "IT Bridge Bildungszentrum - Ihr Partner bei der beruflichen Transformation. Erfahren Sie mehr über unsere Mission, Werte und unser Expertenteam.",
+      "IT Bridge EDU Center, gegründet 2020, ist Ihr zuverlässiger Partner für Transformation durch Training, Bildung und Geschäftsverbesserung. Erfahren Sie mehr über uns, unsere Mission und Werte.",
     keywords: [
       "über uns",
       "IT Bridge",
       "Bildungszentrum",
       "Expertenteam",
-      "Mission und Vision"
+      "Mission und Vision",
+      "gegründet 2020"
     ]
   },
   fr: {
-    title: "À Propos | IT Bridge EDU Center",
+    title: "À Propos de Nous | IT Bridge EDU Center",
     description:
-      "Centre éducatif IT Bridge - Votre partenaire dans la transformation professionnelle. En savoir plus sur notre mission, nos valeurs et notre équipe d'experts.",
+      "IT Bridge EDU Center, fondé en 2020, est votre partenaire fiable pour la transformation par la formation, l'éducation et l'amélioration des affaires. Apprenez-en plus sur nous, notre mission et nos valeurs.",
     keywords: [
       "à propos",
       "IT Bridge",
       "centre éducatif",
       "équipe d'experts",
-      "mission et vision"
+      "mission et vision",
+      "fondé en 2020"
     ]
   }
 };

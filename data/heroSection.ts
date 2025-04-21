@@ -46,7 +46,7 @@ export const heroSectionContent: HeroSectionContent[] = [
       de: "",
       fr: ""
     },
-    buttonLink: "/prijava",
+    buttonLink: "/courses/prijava",
     translationKey: "HERO_SECTION.HR_STARTER"
   },
   {
@@ -69,7 +69,7 @@ export const heroSectionContent: HeroSectionContent[] = [
       de: "",
       fr: ""
     },
-    buttonLink: "/meke-vestine",
+    buttonLink: "/courses/soft-skills",
     translationKey: "HERO_SECTION.SOFT_SKILLS"
   },
   {
@@ -92,7 +92,7 @@ export const heroSectionContent: HeroSectionContent[] = [
       de: "",
       fr: ""
     },
-    buttonLink: "/pcm",
+    buttonLink: "/courses/pcm",
     translationKey: "HERO_SECTION.PCM"
   },
   {
@@ -115,7 +115,7 @@ export const heroSectionContent: HeroSectionContent[] = [
       de: "",
       fr: ""
     },
-    buttonLink: "/business-english",
+    buttonLink: "/courses/business-english",
     translationKey: "HERO_SECTION.BUSINESS_ENGLISH"
   },
   {

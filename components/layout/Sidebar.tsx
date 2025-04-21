@@ -39,7 +39,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
         ]
       },
       { href: "/about", labelKey: "HEADER.ABOUT" },
-      { href: "/calendar", labelKey: "HEADER.CALENDAR" },
+      // { href: "/calendar", labelKey: "HEADER.CALENDAR" },
       { href: "/contact", labelKey: "HEADER.CONTACT" }
     ],
     []
@@ -100,7 +100,7 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
             <li className="relative z-50 my-2" ref={dropdownRef}>
               <div className="flex items-center gap-1">
                 <Link
-                  href=""
+                  href="/courses"
                   className={`text-nowrap uppercase ${
                     isKurseviActive ? "font-bold" : "font-medium"
                   }`}
@@ -142,9 +142,9 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
 
             <li className="my-2">
               <Link
-                href="/o-nama"
+                href="/about"
                 className={`text-nowrap uppercase ${
-                  pathname === "/o-nama" ? "font-bold" : "font-medium"
+                  pathname === "/about" ? "font-bold" : "font-medium"
                 }`}
                 onClick={onToggle}
               >

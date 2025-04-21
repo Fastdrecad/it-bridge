@@ -1,11 +1,10 @@
 import { ImageResponse } from "next/og";
-import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
 
 // Image metadata
-export const alt = "Project Cycle Management Kurs | IT Bridge EDU Center";
+export const alt = "Project & Change Management Kurs | IT Bridge EDU Center";
 export const size = {
   width: 1200,
   height: 630
@@ -13,17 +12,14 @@ export const size = {
 export const contentType = "image/png";
 
 /**
- * Generate Open Graph image for PCM course page
+ * Generate Open Graph image for Project & Change Management course page
  */
 export default async function Image() {
-  // Get font configuration
-  const fonts = await getInterFontConfig();
-
   return new ImageResponse(
     (
       <div
         style={{
-          background: "linear-gradient(to bottom, #FF8000, #CC6600)",
+          background: "linear-gradient(to bottom, #3B82F6, #1D4ED8)",
           width: "100%",
           height: "100%",
           display: "flex",
@@ -31,7 +27,7 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "center",
           padding: "40px",
-          fontFamily: "Inter"
+          fontFamily: "system-ui"
         }}
       >
         <div
@@ -43,17 +39,10 @@ export default async function Image() {
             textAlign: "center"
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://itbridge-services.com/course-images/pcm.png"
-            alt="PCM Logo"
-            width={200}
-            height={200}
-            style={{ marginBottom: 40 }}
-          />
-          <h1
+          <div
             style={{
               fontSize: 64,
+              fontWeight: "bold",
               color: "white",
               marginBottom: 24,
               textAlign: "center",
@@ -61,8 +50,8 @@ export default async function Image() {
               lineHeight: 1.2
             }}
           >
-            PCM Kurs
-          </h1>
+            Project & Change Management
+          </div>
           <p
             style={{
               fontSize: 32,
@@ -72,14 +61,13 @@ export default async function Image() {
               maxWidth: 800
             }}
           >
-            Napredno upravljanje projektnim ciklusom
+            Upravljanje projektima i promenama u organizaciji
           </p>
         </div>
       </div>
     ),
     {
-      ...size,
-      fonts
+      ...size
     }
   );
 }

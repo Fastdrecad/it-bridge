@@ -446,6 +446,14 @@ export const sr = {
         }
       }
     },
+    COMPANY: {
+      TITLE: "NAŠA KOMPANIJA",
+      FOUNDED: "Osnovana 2020. godine u Beogradu, Srbija",
+      DESCRIPTION:
+        "IT Bridge je počeo kao specijalizovani edukativni centar fokusiran na pružanje visokokvalitetnih IT i profesionalnih obuka. Počevši sa malim timom posvećenih edukatora, izrasli smo u pouzdanog partnera za kompanije širom Srbije i regiona.",
+      APPROACH:
+        "Naš jedinstveni pristup kombinuje praktično iskustvo iz industrije sa edukativnom ekspertizom, što nam omogućava da kreiramo programe koji odgovaraju stvarnim poslovnim potrebama i pomažu i pojedincima i organizacijama da dostignu svoj puni potencijal."
+    },
     JOIN_US: {
       TITLE: "Želite da postanete deo našeg tima? Edukacija je Vaša strast?",
       DESCRIPTION:
@@ -768,5 +776,12 @@ export const sr = {
   },
   POWER_BI_CARDS: {
     TITLE: "Ključne prednosti PBI-ja"
+  },
+  NOT_FOUND: {
+    TITLE: "Ups! Stranica nije pronađena",
+    SUBTITLE: "Izgleda da ne možemo da pronađemo stranicu koju tražite",
+    DESCRIPTION:
+      "Stranica je možda premeštena, izbrisana ili možda nikada nije postojala.",
+    BUTTON: "Vrati se na početnu"
   }
 };

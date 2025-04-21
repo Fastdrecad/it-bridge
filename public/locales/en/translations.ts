@@ -444,6 +444,14 @@ export const en = {
         }
       }
     },
+    COMPANY: {
+      TITLE: "OUR COMPANY",
+      FOUNDED: "Founded in 2020 in Belgrade, Serbia",
+      DESCRIPTION:
+        "IT Bridge began as a specialized educational center focused on delivering high-quality IT and professional training. Starting with a small team of dedicated educators, we've grown to become a trusted partner for companies across Serbia and the region.",
+      APPROACH:
+        "Our unique approach combines practical industry experience with educational expertise, allowing us to create programs that address real business needs and help both individuals and organizations reach their full potential."
+    },
     JOIN_US: {
       TITLE: "Want to become part of our team? Is education your passion?",
       DESCRIPTION:
@@ -775,6 +783,13 @@ export const en = {
   },
   POWER_BI_CARDS: {
     TITLE: "Key Benefits of PBI"
+  },
+  NOT_FOUND: {
+    TITLE: "Oops! Page Not Found",
+    SUBTITLE: "We can't seem to find the page you're looking for",
+    DESCRIPTION:
+      "The page may have been moved, deleted, or perhaps never existed.",
+    BUTTON: "Back to Home"
   }
 };
 

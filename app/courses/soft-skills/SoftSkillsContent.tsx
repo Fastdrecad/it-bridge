@@ -35,8 +35,8 @@ export default function SoftSkillsContent() {
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Početna", item: "/" },
-    { name: "Kursevi", item: "" },
-    { name: "Meke Veštine", item: "/meke-vestine" }
+    { name: "Kursevi", item: "/courses" },
+    { name: "Meke Veštine", item: "/soft-skills" }
   ]);
 
   const faqSchema = createFAQSchema([

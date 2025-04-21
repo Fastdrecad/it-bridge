@@ -171,12 +171,88 @@ export default function CoursesPage() {
         url: `https://itbridge-services.com${langPrefix}${course.url}`,
         name: course.title,
         description: course.description
-      }))
+      })),
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": "https://itbridge-services.com",
+        mainEntity: {
+          "@type": "ItemList",
+          itemListElement: [
+            {
+              "@type": "ListItem",
+              position: 1,
+              name: "QA Kursevi",
+              description:
+                "Obuka za software testere - manuelno i automatsko testiranje",
+              url: "https://itbridge-services.com/qa"
+            }
+            // Additional courses...
+          ]
+        }
+      }
+    }
+  };
+
+  const navigationSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://itbridge-services.com",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://itbridge-services.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    },
+    "hasPart": {
+      "@type": "SiteNavigationElement",
+      "name": "Main Navigation",
+      "itemListElement": [
+        {
+          "@type": "SiteNavigationElement",
+          "position": 1,
+          "name": "HR Starter",
+          "url": "https://itbridge-services.com/courses/hr-starter"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 2,
+          "name": "Soft Skills",
+          "url": "https://itbridge-services.com/courses/soft-skills"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 3,
+          "name": "PCM",
+          "url": "https://itbridge-services.com/courses/pcm"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 4,
+          "name": "Business English",
+          "url": "https://itbridge-services.com/courses/business-english"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 5,
+          "name": "Power BI",
+          "url": "https://itbridge-services.com/courses/power-bi"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "position": 6,
+          "name": "Excel",
+          "url": "https://itbridge-services.com/courses/excel"
+        }
+      ]
     }
   };
 
   // Create array of schemas to pass to client component
-  const schemas = [organizationSchema, breadcrumbSchema, faqSchema];
+  const schemas = [
+    organizationSchema,
+    breadcrumbSchema,
+    faqSchema,
+    navigationSchema
+  ];
 
   return <CoursesContent schemas={schemas} />;
 }

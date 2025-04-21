@@ -1,5 +1,4 @@
 import { ImageResponse } from "next/og";
-import { getInterFontConfig } from "@/lib/opengraph-utils";
 
 // Route segment config
 export const runtime = "edge";
@@ -16,9 +15,6 @@ export const contentType = "image/png";
  * Generate Open Graph image for Excel course page
  */
 export default async function Image() {
-  // Get font configuration
-  const fonts = await getInterFontConfig();
-
   return new ImageResponse(
     (
       <div
@@ -31,7 +27,7 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "center",
           padding: "40px",
-          fontFamily: "Inter"
+          fontFamily: "system-ui"
         }}
       >
         <div
@@ -43,17 +39,10 @@ export default async function Image() {
             textAlign: "center"
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="https://itbridge-services.com/course-images/excel.png"
-            alt="Excel Logo"
-            width={200}
-            height={200}
-            style={{ marginBottom: 40 }}
-          />
-          <h1
+          <div
             style={{
               fontSize: 64,
+              fontWeight: "bold",
               color: "white",
               marginBottom: 24,
               textAlign: "center",
@@ -62,7 +51,7 @@ export default async function Image() {
             }}
           >
             Excel Kurs
-          </h1>
+          </div>
           <p
             style={{
               fontSize: 32,
@@ -78,8 +67,7 @@ export default async function Image() {
       </div>
     ),
     {
-      ...size,
-      fonts
+      ...size
     }
   );
 }
