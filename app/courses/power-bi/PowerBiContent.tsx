@@ -2,6 +2,8 @@
 
 import Script from "next/script";
 import { useTranslation } from "react-i18next";
+import { useEffect } from "react";
+import { useFacebookPixel } from "@/hooks/useFacebookPixel";
 
 import powerBI from "@/public/assets/images/courses/power-bi.webp";
 import {
@@ -27,6 +29,7 @@ import PowerBiCards from "@/components/PowerBiCards";
 export default function PowerBiContent() {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { trackViewContent } = useFacebookPixel();
 
   // Get language specific course schedules
   const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
@@ -35,27 +38,7 @@ export default function PowerBiContent() {
     (category) => category.categoryName === "powerBI"
   );
 
-  const breadcrumbSchema = createBreadcrumbSchema([
-    { name: t("BREADCRUMB.HOME"), item: "/" },
-    { name: t("BREADCRUMB.COURSES"), item: "" },
-    { name: t("BREADCRUMB.POWER_BI"), item: "/power-bi" }
-  ]);
-
-  const faqSchema = createFAQSchema([
-    {
-      question: t("COURSES.POWER_BI.FAQ.QUESTION_1"),
-      answer: t("COURSES.POWER_BI.FAQ.ANSWER_1")
-    },
-    {
-      question: t("COURSES.POWER_BI.FAQ.QUESTION_2"),
-      answer: t("COURSES.POWER_BI.FAQ.ANSWER_2")
-    },
-    {
-      question: t("COURSES.POWER_BI.FAQ.QUESTION_3"),
-      answer: t("COURSES.POWER_BI.FAQ.ANSWER_3")
-    }
-  ]);
-
+  // Move schema creation before useEffect to use its values
   const courseSchema = createCourseSchema({
     name: t("COURSES.POWER_BI.TITLE"),
     description: t("COURSES.POWER_BI.DESCRIPTION"),
@@ -80,6 +63,32 @@ export default function PowerBiContent() {
       description: t("COURSES.POWER_BI.INSTRUCTOR.DESCRIPTION")
     }
   });
+
+  useEffect(() => {
+    // Track course view with dynamic values
+    trackViewContent(t("COURSES.POWER_BI.TITLE"), "course", "RSD", 45000);
+  }, [trackViewContent, t]);
+
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: t("BREADCRUMB.HOME"), item: "/" },
+    { name: t("BREADCRUMB.COURSES"), item: "" },
+    { name: t("BREADCRUMB.POWER_BI"), item: "/power-bi" }
+  ]);
+
+  const faqSchema = createFAQSchema([
+    {
+      question: t("COURSES.POWER_BI.FAQ.QUESTION_1"),
+      answer: t("COURSES.POWER_BI.FAQ.ANSWER_1")
+    },
+    {
+      question: t("COURSES.POWER_BI.FAQ.QUESTION_2"),
+      answer: t("COURSES.POWER_BI.FAQ.ANSWER_2")
+    },
+    {
+      question: t("COURSES.POWER_BI.FAQ.QUESTION_3"),
+      answer: t("COURSES.POWER_BI.FAQ.ANSWER_3")
+    }
+  ]);
 
   const heroProps = {
     title: t("HERO_SECTION.POWER_BI.TITLE"),

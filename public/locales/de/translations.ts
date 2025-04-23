@@ -590,20 +590,16 @@ export const de = {
     },
     POWER_BI: {
       SECTION_0: {
-        TITLE: "Datenanalyse",
-        ITEM_0: "Datenimport und -transformation",
-        ITEM_1: "Datenmodellierung und Beziehungen",
-        ITEM_2: "Erstellung von DAX-Formeln",
-        ITEM_3: "Erstellung von Visualisierungen",
-        ITEM_4: "Gestaltungsprinzipien für Dashboards"
+        TITLE: "Was werden Sie lernen?",
+        ITEM_0:
+          "Unser Programm ist darauf ausgerichtet, Teilnehmer für die eigenständige Nutzung von Power BI, die Optimierung von Geschäftsprozessen und datengestützte Entscheidungsfindung zu qualifizieren."
       },
       SECTION_1: {
-        TITLE: "Geschäftsanwendungen",
-        ITEM_0: "Verkaufs- und Marketinganalysen",
-        ITEM_1: "Finanzberichterstattung",
-        ITEM_2: "Leistungsüberwachung",
-        ITEM_3: "Echtzeit-Datenvisualisierung",
-        ITEM_4: "Unterstützung strategischer Entscheidungen"
+        TITLE: "Warum wir?",
+        ITEM_0:
+          "Unsere Dozenten sind Power BI-Entwickler mit umfangreicher Branchenerfahrung.",
+        ITEM_1:
+          "Sie bringen praktisches Wissen und Beispiele aus realen Projekten mit, sodass Sie nicht nur die Grundlagen beherrschen, sondern Power BI auch zur Verbesserung von Geschäftsprozessen und für fundierte Entscheidungen nutzen können."
       }
     },
     SOFT_SKILLS: {

@@ -589,20 +589,16 @@ export const fr = {
     },
     POWER_BI: {
       SECTION_0: {
-        TITLE: "Analyse des données",
-        ITEM_0: "Chargement et transformation des données",
-        ITEM_1: "Modélisation des données et relations",
-        ITEM_2: "Création de formules DAX",
-        ITEM_3: "Création de visualisations",
-        ITEM_4: "Principes de conception de tableaux de bord"
+        TITLE: "Que vais-je apprendre ?",
+        ITEM_0:
+          "Notre programme est conçu pour permettre aux participants d'utiliser Power BI de manière autonome, d'optimiser les processus métier et de prendre des décisions basées sur les données."
       },
       SECTION_1: {
-        TITLE: "Applications professionnelles",
-        ITEM_0: "Analytique des ventes et du marketing",
-        ITEM_1: "Reporting financier",
-        ITEM_2: "Suivi de la performance",
-        ITEM_3: "Visualisation des données en temps réel",
-        ITEM_4: "Support à la prise de décision stratégique"
+        TITLE: "Pourquoi nous choisir ?",
+        ITEM_0:
+          "Nos formateurs sont des développeurs Power BI avec une vaste expérience dans l'industrie.",
+        ITEM_1:
+          "Ils apportent des connaissances pratiques et des exemples de projets réels, vous permettant non seulement de maîtriser les bases, mais aussi d'utiliser Power BI pour améliorer les processus métier et prendre des décisions éclairées."
       }
     },
     SOFT_SKILLS: {

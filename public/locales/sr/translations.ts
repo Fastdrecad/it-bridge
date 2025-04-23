@@ -721,20 +721,16 @@ export const sr = {
     },
     POWER_BI: {
       SECTION_0: {
-        TITLE: "Analiza podataka",
-        ITEM_0: "Učitavanje i transformacija podataka",
-        ITEM_1: "Modeliranje podataka i relacije",
-        ITEM_2: "Kreiranje DAX formula",
-        ITEM_3: "Kreiranje vizualizacija",
-        ITEM_4: "Principi dizajna kontrolnih tabli"
+        TITLE: "Šta ćete naučiti?",
+        ITEM_0:
+          "Naš program je dizajniran da osposobi polaznike za samostalno korišćenje Power BI-a, optimizaciju poslovnih procesa i donošenje informisanih odluka zasnovanih na podacima."
       },
       SECTION_1: {
-        TITLE: "Poslovne primene",
-        ITEM_0: "Analitika prodaje i marketinga",
-        ITEM_1: "Finansijsko izveštavanje",
-        ITEM_2: "Praćenje performansi",
-        ITEM_3: "Vizualizacija podataka u realnom vremenu",
-        ITEM_4: "Podrška strateškom odlučivanju"
+        TITLE: "Zašto baš mi?",
+        ITEM_0:
+          "Naši predavači su Power BI developeri sa bogatim iskustvom u industriji.",
+        ITEM_1:
+          "Oni donose praktična znanja i primere iz stvarnih projekata, omogućavajući vam ne samo da savladate osnove, već i da koristite Power BI za unapređenje poslovnih procesa i donošenje informisanih odluka."
       }
     },
     SOFT_SKILLS: {

@@ -31,9 +31,6 @@ const CourseGrid: React.FC<CourseGridProps> = ({
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
 
-  // Ensure language is properly detected
-  console.log("Current language:", currentLang);
-
   // Improved handling of multilingual content
   const getLocalizedText = (
     text: string | MultilingualText,

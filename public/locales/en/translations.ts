@@ -728,20 +728,16 @@ export const en = {
     },
     POWER_BI: {
       SECTION_0: {
-        TITLE: "Data Analysis",
-        ITEM_0: "Data loading and transformation",
-        ITEM_1: "Data modeling and relationships",
-        ITEM_2: "Creating DAX formulas",
-        ITEM_3: "Building visualizations",
-        ITEM_4: "Dashboard design principles"
+        TITLE: "What You'll Learn",
+        ITEM_0:
+          "Our program is designed to equip participants with independent Power BI usage, business process optimization, and data-driven decision making."
       },
       SECTION_1: {
-        TITLE: "Business Applications",
-        ITEM_0: "Sales and marketing analytics",
-        ITEM_1: "Financial reporting",
-        ITEM_2: "Performance tracking",
-        ITEM_3: "Real-time data visualization",
-        ITEM_4: "Strategic decision-making support"
+        TITLE: "Why Choose Us?",
+        ITEM_0:
+          "Our instructors are Power BI developers with extensive industry experience.",
+        ITEM_1:
+          "They bring practical knowledge and examples from real projects, enabling you not only to master the basics but also to use Power BI for improving business processes and making informed decisions."
       }
     },
     SOFT_SKILLS: {
