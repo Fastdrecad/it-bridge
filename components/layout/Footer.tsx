@@ -18,7 +18,11 @@ interface LinkItem {
   translationKey: string;
 }
 
-export default function Footer() {
+interface FooterProps {
+  children?: React.ReactNode;
+}
+
+export default function Footer({ children }: FooterProps) {
   const { t, i18n } = useTranslation();
   const pathname = usePathname();
 
@@ -156,6 +160,7 @@ export default function Footer() {
             © {new Date().getFullYear()}. {t("FOOTER.ALL_RIGHTS_RESERVED")}
           </div>
         </div>
+        {children}
       </div>
     </footer>
   );
