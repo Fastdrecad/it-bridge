@@ -94,7 +94,7 @@ export default function SoftSkillsContent() {
 
       <FeatureList
         heading={{
-          sr: "Zašto Meke veštine?",
+          sr: "Zašto Soft Skills?",
           en: "Why Soft Skills?",
           de: "Warum Soft Skills?",
           fr: "Pourquoi les soft skills?"

@@ -78,11 +78,11 @@ export default function BusinessEnglishContent() {
   });
 
   const heroProps = {
-    title: t("HERO_SECTION.POWER_BI.TITLE"),
-    subtitle: t("HERO_SECTION.POWER_BI.SUBTITLE"),
+    title: t("HERO_SECTION.BUSINESS_ENGLISH.TITLE"),
+    subtitle: t("HERO_SECTION.BUSINESS_ENGLISH.SUBTITLE"),
     backgroundImage: businessEnglish,
-    buttonLabel: t("HERO_SECTION.POWER_BI.BUTTON"),
-    buttonLink: "/contact"
+    buttonLabel: "",
+    buttonLink: ""
   };
 
   return (

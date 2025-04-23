@@ -99,7 +99,7 @@ export const courseItems: CourseCategory[] = [
       {
         icon: "FaChartLine",
         label: {
-          sr: "Praktične vežbe i simulacije",
+          sr: "Evaluacija i konstruktivni feedback",
           en: "Practical Exercises and Simulations",
           de: "Praktische Übungen und Simulationen",
           fr: "Exercices pratiques et simulations"

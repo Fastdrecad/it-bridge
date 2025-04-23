@@ -1,6 +1,8 @@
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header/Header";
 import ClientProviders from "@/contexts/ClientProviders";
+import CookieConsentManager from "@/components/consent/CookieConsentManager";
+import MetaPixel from "@/components/nalytics/MetaPixel";
 import { organizationSchema } from "@/lib/schemas";
 import { defaultMetadata } from "@/lib/metadata.config";
 import "@/app/globals.css";
@@ -35,7 +37,7 @@ export default function RootLayout({
             __html: JSON.stringify(organizationSchema)
           }}
         />
-        {/* Force social media platforms to refresh OpenGraph data */}
+        <MetaPixel />
         <meta
           property="og:image:url"
           content="https://itbridge-services.com/og/opengraph-image.png"
@@ -47,19 +49,20 @@ export default function RootLayout({
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/png" />
-
-        {/* Facebook specific tags */}
-        <meta property="fb:app_id" content="1234567890" />
+        <meta
+          property="fb:app_id"
+          content={process.env.NEXT_PUBLIC_FB_APP_ID}
+        />
       </head>
       <body className={montserrat.className} suppressHydrationWarning={true}>
         <Header />
-
         <ClientProviders>
           <main id="main-content" className="flex-1 min-h-screen grid">
             {children}
           </main>
         </ClientProviders>
         <Footer />
+        <CookieConsentManager />
       </body>
     </html>
   );

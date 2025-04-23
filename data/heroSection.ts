@@ -120,7 +120,7 @@ export const heroSectionContent: HeroSectionContent[] = [
   },
   {
     title: {
-      sr: "Otkrijte moć Power BI-ja",
+      sr: "Podignite poslovni engleski na viši nivo",
       en: "Discover the power of Power BI",
       de: "Entdecken Sie die Kraft von Power BI",
       fr: "Découvrez la puissance de Power BI"

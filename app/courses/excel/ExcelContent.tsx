@@ -29,7 +29,7 @@ export default function ExcelContent() {
   const { t, i18n } = useTranslation();
   const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
 
-  const content = heroSectionContent[3]; // Assuming Excel is the 4th hero section content
+  const content = heroSectionContent[5]; // Assuming Excel is the 4th hero section content
 
   const excelCategory = courseItems.find(
     (category) => category.categoryName === "excel"

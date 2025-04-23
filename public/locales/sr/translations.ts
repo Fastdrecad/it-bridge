@@ -57,7 +57,7 @@ export const sr = {
       BUTTON: "Saznaj više"
     },
     ABOUT: {
-      TITLE: "O Nama",
+      TITLE: "ZAŠTO MI?",
       DESCRIPTION:
         "Mi smo Vaš pouzdan partner u transformaciji kroz obuke, edukaciju i unapređenje poslovanja. Pružamo podršku i stručnost kako biste ostvarili pun potencijal vaših timova.",
       PARAGRAPH_1:
@@ -413,7 +413,7 @@ export const sr = {
     MISSION: {
       TITLE: "MISIJA",
       DESCRIPTION:
-        "Naša misija je da postanemo servant leader No1 u pružanju tailor-made edukacija najvišeg kvaliteta koje osnažuju pojedince i kompanije da ostvare svoj puni potencijal, prilagođavajući se potrebama savremenog poslovnog sveta. Dozvolite nam da vas inspirišemo i osnažimo da prevaziđete granice jer vaš uspeh je naša strast i predanost dok gradimo pouzdano partnerstvo radi zajedničkog napretka."
+        "Naša misija je da postanemo lider u pružanju personalizovanih edukacija najvišeg kvaliteta koje omogućavaju pojedincima i kompanijama da ostvare svoj puni potencijal odgovarajući na izazove savremenog poslovnog sveta."
     },
     VALUES: {
       TITLE: "VREDNOSTI",
@@ -448,11 +448,11 @@ export const sr = {
     },
     COMPANY: {
       TITLE: "NAŠA KOMPANIJA",
-      FOUNDED: "Osnovana 2020. godine u Beogradu, Srbija",
+      FOUNDED: "Osnovana 2023. godine kao specijalizovani edukativni centar",
       DESCRIPTION:
-        "IT Bridge je počeo kao specijalizovani edukativni centar fokusiran na pružanje visokokvalitetnih IT i profesionalnih obuka. Počevši sa malim timom posvećenih edukatora, izrasli smo u pouzdanog partnera za kompanije širom Srbije i regiona.",
+        "Fokusiramo se na pružanje personalizovanih obuka koje odgovaraju stvarnim potrebama tržišta. Naš pristup kombinuje praktično industrijsko iskustvo i edukativnu ekspertizu, što nam omogućava da razvijamo programe koji unapređuju efikasnost i timsku saradnju. ",
       APPROACH:
-        "Naš jedinstveni pristup kombinuje praktično iskustvo iz industrije sa edukativnom ekspertizom, što nam omogućava da kreiramo programe koji odgovaraju stvarnim poslovnim potrebama i pomažu i pojedincima i organizacijama da dostignu svoj puni potencijal."
+        ". Naša primarna ciljna grupa su timovi u automotive i IT industrijama, sa posebnim naglaskom na sektore inženjeringa i HR-a."
     },
     JOIN_US: {
       TITLE: "Želite da postanete deo našeg tima? Edukacija je Vaša strast?",
@@ -467,7 +467,7 @@ export const sr = {
   },
   CONTACT_US: {
     LINK: "Kontaktirajte nas",
-    DESCRIPTION: "za dodatne informacije i razrešenje svih nedoumica."
+    DESCRIPTION: "za dodatne informacije."
   },
   HERO_SECTION: {
     HOME: {
@@ -482,9 +482,8 @@ export const sr = {
       BUTTON: "Prijavite se"
     },
     SOFT_SKILLS: {
-      TITLE: "Ovladajte mekim veštinama",
-      SUBTITLE:
-        "Poboljšajte komunikaciju, liderstvo i timski rad za poslovni uspeh",
+      TITLE: "Razvijte veštine koje prave razliku",
+      SUBTITLE: "Izgradite snažne komunikacijske i liderske veštine",
       BUTTON: "Saznajte više"
     },
     PCM: {
@@ -548,12 +547,12 @@ export const sr = {
       }
     },
     SOFT_SKILLS: {
-      HEADING: "Zašto Meke veštine?",
+      HEADING: "Zašto Soft Skills?",
       SECTIONS: {
         EFFECTIVE_COMMUNICATION: {
           TITLE: "Efikasna komunikacija",
           DESCRIPTION:
-            "Naš program omogućava vašem timu da efikasnije komunicira, rešava probleme i vodi, što direktno utiče na produktivnost i uspeh organizacije."
+            "Naš program omogućava vašem timu da komunicira jasnije, brže rešava probleme i preuzima inicijativu, što direktno utiče na produktivnost i uspeh vaše kompanije."
         },
         TRANSFORMATIVE_POWER: {
           TITLE: "Transformativna moć",
@@ -667,19 +666,20 @@ export const sr = {
   COURSE_GRID: {
     HR_STARTER: {
       SECTION_0: {
-        TITLE: "Šta ćete naučiti",
-        ITEM_0: "Proces regrutacije i selekcije",
-        ITEM_1: "Onboarding i razvoj zaposlenih",
-        ITEM_2: "Upravljanje performansama",
-        ITEM_3: "HR analitika i izveštavanje",
+        TITLE: "Šta ćete naučiti?",
+        ITEM_0: "Razumevanje HR funkcija i tržišta rada",
+        ITEM_1: "Regrutacija i selekcija",
+        ITEM_2: "Onboarding i Employee Engagement",
+        ITEM_3: "Offboarding, konsolidacija i finalni feedback ",
         ITEM_4: "Osnove radnog prava"
       },
       SECTION_1: {
         TITLE: "Benefiti za karijeru",
-        ITEM_0: "Ulazak u HR profesiju",
+        ITEM_0: "Prelazak u HR ",
         ITEM_1: "Praktične veštine primenjive od prvog dana",
-        ITEM_2: "Mogućnosti umrežavanja sa HR profesionalcima",
-        ITEM_3: "Priznati sertifikat u oblasti",
+        ITEM_2: "Umrežavanje sa HR profesionalcima",
+        ITEM_3:
+          "Sertifikat koji potvrđuje stečene veštine i dostignuće tokom kursa",
         ITEM_4: "Mogućnosti napredovanja u karijeri"
       }
     },
@@ -747,11 +747,11 @@ export const sr = {
         ITEM_4: "Rešavanje konflikata"
       },
       SECTION_1: {
-        TITLE: "Liderstvo i timski rad",
-        ITEM_0: "Izgradnja tima i saradnja",
-        ITEM_1: "Stilovi i pristupi liderstvu",
-        ITEM_2: "Razvoj emocionalne inteligencije",
-        ITEM_3: "Upravljanje vremenom i prioritetima",
+        TITLE: "Asertivnost",
+        ITEM_0: "Jasno izražavanje mišljenja i potreba",
+        ITEM_1: "Balans između pasivnosti i agresije",
+        ITEM_2: "Konstruktivno rešavanje konflikata",
+        ITEM_3: "Samopouzdanje u konkretnim poslovnim situacijama",
         ITEM_4: "Prilagodljivost i otpornost"
       }
     },
@@ -759,17 +759,16 @@ export const sr = {
       SECTION_0: {
         TITLE: "Jezičke veštine",
         ITEM_0: "Poslovna korespondencija",
-        ITEM_1: "Prezentacioni vokabular i tehnike",
-        ITEM_2: "Terminologija i učešće na sastancima",
-        ITEM_3: "Jezik pregovaranja",
-        ITEM_4: "Terminologija specifična za industriju"
+        ITEM_1: "Aktivno učešće na sastancima i pregovorima",
+        ITEM_2: "Prezentacioni vokabular i izražavanje ideja",
+        ITEM_3: "Terminologija prilagođena vašoj industriji"
       },
       SECTION_1: {
         TITLE: "Praktična primena",
         ITEM_0: "Međunarodna poslovna komunikacija",
-        ITEM_1: "Međukulturalna svest",
-        ITEM_2: "Učešće na globalnom tržištu",
-        ITEM_3: "Priprema poslovnih dokumenata",
+        ITEM_1: "Razvijanje međukulturalne svesti",
+        ITEM_2: "Efikasno učešće na globalnom tržištu",
+        ITEM_3: "Pisanje i priprema poslovnih dokumenata",
         ITEM_4: "Upravljanje međunarodnim partnerstvima"
       }
     }

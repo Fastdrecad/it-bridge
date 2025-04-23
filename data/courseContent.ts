@@ -101,24 +101,22 @@ export const courseContent: CourseCategory = {
     {
       title: "Liderske veštine",
       items: [
-        "Osnove liderskih veština",
-        "Različiti stilovi liderstva i kako ih prilagoditi situacijama",
-        "Tehnike efektivne komunikacije i motivisanje tima",
-        "Procesi i tehnike donošenja odluka u liderstvu",
-        "Identifikacija i razvoj potencijala članova tima, delegiranje zadataka",
-        "Praktične vežbe i simulacije",
-        "Evaluacija i feedback"
+        "Osnove efektivnog liderstva",
+        "Prilagodljivi stilovi liderstva",
+        "Komunikacija i motivacija timai motivisanje tima",
+        "Donošenje odluka i delegiranje zadataka",
+        "Praktične vežbe i simulacije liderskih izazova",
+        "Evaluacija i konstruktivni feedback"
       ]
     },
     {
-      title: "Prezentacione veštine",
+      title: "Rezilijentnost",
       items: [
-        "Osnovne tehnike i principi",
-        "Kreiranje efektivnih prezentacija",
-        "Upotreba govora tela, facijalne ekspresije i kontakta očima",
-        "Upravljanje stresom i prevazilaženje treme",
-        "Postavljanje pitanja i upravljanje povratnim informacijama",
-        "Simulacija nastupa i analiza performansi"
+        "Prilagodljivost u promenama",
+        "Upravljanje stresom",
+        "Održavanje pozitivnog stava",
+        "Samosvest i samopouzdanje",
+        "Učenje iz neuspeha"
       ]
     }
   ],
@@ -238,24 +236,6 @@ export const courseContent: CourseCategory = {
           en: "Our professors, master philologists specializing in English with extensive experience working with corporate clients, guarantee quality training.",
           de: "Unsere Professoren, Masterphilologen mit Spezialisierung auf Englisch und umfangreicher Erfahrung in der Arbeit mit Firmenkunden, garantieren qualitativ hochwertige Schulungen.",
           fr: "Nos professeurs, philologues spécialisés en anglais avec une vaste expérience de travail avec des clients d'entreprise, garantissent une formation de qualité."
-        },
-        {
-          sr: "Koristimo priznate materijale kao što su Oxford i Cambridge literatura, Market Leader, Pearson, Business Benchmark, ESL Pals i Lingua House.",
-          en: "We use recognized materials such as Oxford and Cambridge literature, Market Leader, Pearson, Business Benchmark, ESL Pals, and Lingua House.",
-          de: "Wir verwenden anerkannte Materialien wie Oxford- und Cambridge-Literatur, Market Leader, Pearson, Business Benchmark, ESL Pals und Lingua House.",
-          fr: "Nous utilisons des matériels reconnus tels que la littérature d'Oxford et de Cambridge, Market Leader, Pearson, Business Benchmark, ESL Pals et Lingua House."
-        },
-        {
-          sr: "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
-          en: "We regularly assess participant progress and provide detailed reports to ensure the course meets your goals.",
-          de: "Wir bewerten regelmäßig den Fortschritt der Teilnehmer und erstellen detaillierte Berichte, um sicherzustellen, dass der Kurs Ihre Ziele erfüllt.",
-          fr: "Nous évaluons régulièrement les progrès des participants et fournissons des rapports détaillés pour assurer que le cours répond à vos objectifs."
-        },
-        {
-          sr: "Završno usmeno i pismeno testiranje",
-          en: "Final oral and written testing",
-          de: "Abschließende mündliche und schriftliche Prüfung",
-          fr: "Tests finaux oraux et écrits"
         }
       ],
       flags: [gb, de, fr]
@@ -297,18 +277,6 @@ export const courseContent: CourseCategory = {
           en: "We use recognized materials combined with our customized resources and exercises.",
           de: "Wir verwenden anerkannte Materialien in Kombination mit unseren angepassten Ressourcen und Übungen.",
           fr: "Nous utilisons des matériels reconnus combinés à nos ressources et exercices personnalisés."
-        },
-        {
-          sr: "Redovno ocenjujemo napredak polaznika i pružamo detaljne izveštaje kako bismo osigurali da kurs ispunjava vaše ciljeve.",
-          en: "We regularly assess participant progress and provide detailed reports to ensure the course meets your goals.",
-          de: "Wir bewerten regelmäßig den Fortschritt der Teilnehmer und erstellen detaillierte Berichte, um sicherzustellen, dass der Kurs Ihre Ziele erfüllt.",
-          fr: "Nous évaluons régulièrement les progrès des participants et fournissons des rapports détaillés pour assurer que le cours répond à vos objectifs."
-        },
-        {
-          sr: "Završno usmeno i pismeno testiranje",
-          en: "Final oral and written testing",
-          de: "Abschließende mündliche und schriftliche Prüfung",
-          fr: "Tests finaux oraux et écrits"
         }
       ]
     }

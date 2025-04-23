@@ -75,7 +75,7 @@ export default function Video() {
       </video>
 
       {/* Overlay za bolji kontrast teksta */}
-      <div className="absolute inset-0 bg-black bg-opacity-40 z-[1]"></div>
+      <div className="absolute top-0 left-0 w-full h-screen bg-black bg-opacity-40 z-[1]"></div>
 
       {/* Content */}
       <div className="absolute top-0 left-0 w-full h-screen flex flex-col items-center justify-center z-10 text-center">

@@ -26,7 +26,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Double expertise"
         },
         description: {
-          sr: "Naši mentori su iskusni HR regruteri i biznis partneri koji pružaju neophodnu podršku tokom 6 nedelja. Kroz praktične primere i realne situacije iz poslovnog okruženja, osposobićete se za efikasno upravljanje ljudskim resursima, omogućavajući brži prelazak u novu karijeru.",
+          sr: "Naši mentori, iskusni HR Manager-I i HR Business Partners, pružiće vam potrebnu podršku tokom 6 nedelja. Kroz praktične primere i realne poslovne situacije, usvojićete veštine efikasnog upravljanja ljudskim resursima i lakši prelazak u HR.",
           en: "Our mentors are experienced HR recruiters and business partners who provide essential support over 6 weeks. Through practical examples and real business situations, you'll be trained in effective human resource management, enabling a faster transition to a new career.",
           de: "Unsere Mentoren sind erfahrene HR-Recruiter und Geschäftspartner, die über 6 Wochen die notwendige Unterstützung bieten. Durch praktische Beispiele und reale Situationen aus dem Geschäftsumfeld werden Sie für ein effektives Personalmanagement ausgebildet, das einen schnelleren Übergang in eine neue Karriere ermöglicht.",
           fr: "Nos mentors sont des recruteurs RH expérimentés et des partenaires commerciaux qui fournissent un soutien essentiel pendant 6 semaines. Grâce à des exemples pratiques et des situations commerciales réelles, vous serez formé à la gestion efficace des ressources humaines, permettant une transition plus rapide vers une nouvelle carrière."
@@ -40,7 +40,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Approche interactive"
         },
         description: {
-          sr: "Intenzivna interakcija sa mentorima i praktičan rad kroz vežbe i zadatke, koji vam pomažu da primenite stečeno znanje u stvarnim situacijama.",
+          sr: "Kroz interakciju sa mentorima i praktičan rad, stičete sigurnost u primeni novih veština.",
           en: "Intensive interaction with mentors and practical work through exercises and tasks that help you apply acquired knowledge in real situations.",
           de: "Intensive Interaktion mit Mentoren und praktische Arbeit durch Übungen und Aufgaben, die Ihnen helfen, das erworbene Wissen in realen Situationen anzuwenden.",
           fr: "Interaction intensive avec les mentors et travail pratique à travers des exercices et des tâches qui vous aident à appliquer les connaissances acquises dans des situations réelles."
@@ -54,7 +54,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Soutien et certificat"
         },
         description: {
-          sr: "Završite kurs sa konkretnim primenljivim znanjem, podrškom u pripremi za zaokret u karijeri i sertifikatom koji je dokaz vašeg truda i rada.",
+          sr: "Završite kurs sa praktičnim znanjem, podrškom u karijernoj tranziciji i sertifikatom koji potvrđuje vaš trud i uspeh.",
           en: "Complete the course with concrete applicable knowledge, support in preparing for a career change, and a certificate that proves your effort and work.",
           de: "Schließen Sie den Kurs mit konkretem anwendbarem Wissen ab, mit Unterstützung bei der Vorbereitung auf einen Karrierewechsel und einem Zertifikat, das Ihre Mühe und Arbeit beweist.",
           fr: "Terminez le cours avec des connaissances concrètes applicables, un soutien dans la préparation d'un changement de carrière et un certificat qui prouve votre effort et votre travail."
@@ -148,7 +148,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Expertise et expérience"
         },
         description: {
-          sr: "Naši profesori su stručnjaci sa bogatim iskustvom u radu sa korporativnim klijentima, pružajući vam visokokvalitetnu obuku koja se temelji na stvarnim poslovnim situacijama.",
+          sr: "Naš tim čine profesori engleskog jezika sa bogatim iskustvom u radu sa korporacijama. Znanje koje prenose zasniva se na stvarnim poslovnim situacijama i konkretnim izazovima iz prakse.iskustvom u radu sa korporativnim klijentima, pružajući vam visokokvalitetnu obuku koja se temelji na stvarnim poslovnim situacijama.",
           en: "Our professors are experts with extensive experience working with corporate clients, providing you with high-quality training based on real business situations.",
           de: "Unsere Professoren sind Experten mit umfangreicher Erfahrung in der Zusammenarbeit mit Unternehmenskunden und bieten Ihnen qualitativ hochwertige Schulungen auf der Grundlage realer Geschäftssituationen.",
           fr: "Nos professeurs sont des experts avec une vaste expérience de travail avec des clients corporatifs, vous fournissant une formation de haute qualité basée sur des situations commerciales réelles."
@@ -162,7 +162,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Flexibilité"
         },
         description: {
-          sr: "Nudimo časove prilagođene vašem rasporedu, omogućavajući vam učenje bez ometanja svakodnevnih poslovnih aktivnosti, čime osiguravamo da se obuka uklopi u vaš radni dan.",
+          sr: "Kurs se prilagođava vašem ritmu i radnom rasporedu, bez prekidanja svakodnevnih aktivnosti., omogućavajući vam učenje bez ometanja svakodnevnih poslovnih aktivnosti, čime osiguravamo da se obuka uklopi u vaš radni dan.",
           en: "We offer classes tailored to your schedule, allowing you to learn without disrupting daily business activities, ensuring that the training fits into your workday.",
           de: "Wir bieten Kurse, die auf Ihren Zeitplan zugeschnitten sind, sodass Sie lernen können, ohne die täglichen Geschäftsaktivitäten zu stören, und stellen sicher, dass die Schulung in Ihren Arbeitstag passt.",
           fr: "Nous proposons des cours adaptés à votre emploi du temps, vous permettant d'apprendre sans perturber les activités commerciales quotidiennes, en veillant à ce que la formation s'intègre dans votre journée de travail."
@@ -176,7 +176,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Résultats"
         },
         description: {
-          sr: "Posvećeni smo vašem uspehu i redovno pratimo napredak vašeg tima. Pružamo kontinuiranu podršku i jednom mesečno izdajemo relacione izveštaje o napretku svakog polaznika, kako biste u svakom trenutku imali uvid u njihov razvoj i postignuća.",
+          sr: "Pratimo napredak svakog polaznika tokom celog trajanja kursa. Na kraju programa dostavljamo sveobuhvatan izveštaj sa analizom učinka i preporukama za dalji razvoj.",
           en: "We are committed to your success and regularly monitor the progress of your team. We provide continuous support and issue monthly progress reports for each participant, so you can have insight into their development and achievements at any time.",
           de: "Wir setzen uns für Ihren Erfolg ein und überwachen regelmäßig die Fortschritte Ihres Teams. Wir bieten kontinuierliche Unterstützung und erstellen monatliche Fortschrittsberichte für jeden Teilnehmer, damit Sie jederzeit Einblick in deren Entwicklung und Erfolge haben.",
           fr: "Nous nous engageons pour votre succès et surveillons régulièrement les progrès de votre équipe. Nous fournissons un soutien continu et émettons des rapports d'avancement mensuels pour chaque participant, afin que vous puissiez avoir un aperçu de leur développement et de leurs réalisations à tout moment."
@@ -207,7 +207,7 @@ export const courseFeatures: Record<string, PageFeature> = {
       },
       {
         title: {
-          sr: "Aktualni izveštaji u oblaku",
+          sr: "Aktuelni izveštaji u oblaku",
           en: "Real-time Cloud Reports",
           de: "Echtzeit-Cloud-Berichte",
           fr: "Rapports cloud en temps réel"
@@ -274,7 +274,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Communication efficace"
         },
         description: {
-          sr: "Naš program omogućava vašem timu da efikasnije komunicira, rešava probleme i vodi, što direktno utiče na produktivnost i uspeh organizacije.",
+          sr: "Naš program omogućava vašem timu da komunicira jasnije, brže rešava probleme i preuzima inicijativu što direktno utiče na produktivnost i uspeh vaše kompanije.",
           en: "Our program enables your team to communicate more efficiently, solve problems, and lead, which directly impacts the productivity and success of the organization.",
           de: "Unser Programm ermöglicht es Ihrem Team, effizienter zu kommunizieren, Probleme zu lösen und zu führen, was sich direkt auf die Produktivität und den Erfolg der Organisation auswirkt.",
           fr: "Notre programme permet à votre équipe de communiquer plus efficacement, de résoudre des problèmes et de diriger, ce qui impacte directement la productivité et le succès de l'organisation."
@@ -288,7 +288,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Pouvoir transformateur"
         },
         description: {
-          sr: "Verujemo u transformativnu moć mekih veština i posvećeni smo njihovom razvoju kod vaših zaposlenih kako bi vaša kompanija ostvarila dugoročne rezultate.",
+          sr: "Meke veštine menjaju timsku dinamiku, jačaju saradnju i doprinose dugoročnom rastu vaše kompanije.",
           en: "We believe in the transformative power of soft skills and are committed to developing them in your employees so that your company can achieve long-term results.",
           de: "Wir glauben an die transformative Kraft von Soft Skills und setzen uns dafür ein, sie bei Ihren Mitarbeitern zu entwickeln, damit Ihr Unternehmen langfristige Ergebnisse erzielen kann.",
           fr: "Nous croyons au pouvoir transformateur des soft skills et nous nous engageons à les développer chez vos employés afin que votre entreprise puisse obtenir des résultats à long terme."
@@ -302,7 +302,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Formation structurée"
         },
         description: {
-          sr: "Treninzi se sastoje od 4 modula, svaki koji kombinuje teorijsko predavanje sa interaktivnim vežbama, studijama slučaja, diskusijama i feedback sesijama. Ovaj pristup omogućava polaznicima da steknu praktično iskustvo i primene naučene veštine u stvarnim situacijama.",
+          sr: "Fokus je na praktičnosti – veštine koje učimo odmah se prenose u radnu praksu vašeg tima.",
           en: "The training consists of 4 modules, each combining theoretical lectures with interactive exercises, case studies, discussions, and feedback sessions. This approach allows participants to gain practical experience and apply learned skills in real situations.",
           de: "Die Schulung besteht aus 4 Modulen, die jeweils theoretische Vorträge mit interaktiven Übungen, Fallstudien, Diskussionen und Feedback-Sitzungen kombinieren. Dieser Ansatz ermöglicht es den Teilnehmern, praktische Erfahrungen zu sammeln und erlernte Fähigkeiten in realen Situationen anzuwenden.",
           fr: "La formation se compose de 4 modules, chacun combinant des conférences théoriques avec des exercices interactifs, des études de cas, des discussions et des sessions de feedback. Cette approche permet aux participants d'acquérir une expérience pratique et d'appliquer les compétences apprises dans des situations réelles."
@@ -316,7 +316,7 @@ export const courseFeatures: Record<string, PageFeature> = {
           fr: "Application pratique"
         },
         description: {
-          sr: "Naši kursevi su dizajnirani da obezbede konkretne rezultate i primenljive veštine koje mogu direktno poboljšati performanse vašeg tima i doprineti uspehu vaše organizacije.",
+          sr: "Sve što učesnici nauče ima jasnu svrhu – unapređenje rada, timske dinamike i konkretnih poslovnih rezultata.",
           en: "Our courses are designed to provide concrete results and applicable skills that can directly improve your team's performance and contribute to the success of your organization.",
           de: "Unsere Kurse sind darauf ausgelegt, konkrete Ergebnisse und anwendbare Fähigkeiten zu vermitteln, die die Leistung Ihres Teams direkt verbessern und zum Erfolg Ihrer Organisation beitragen können.",
           fr: "Nos cours sont conçus pour fournir des résultats concrets et des compétences applicables qui peuvent directement améliorer les performances de votre équipe et contribuer au succès de votre organisation."
