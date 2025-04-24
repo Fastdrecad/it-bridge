@@ -1,6 +1,3 @@
-"use client";
-
-import { useTranslation } from "react-i18next";
 import { UseFormRegister, FieldError, Path } from "react-hook-form";
 
 // Generic type for form values
@@ -20,8 +17,6 @@ interface FormInputProps<T extends FormValues = FormValues> {
 }
 
 const FormInput = <T extends FormValues>(props: FormInputProps<T>) => {
-  const { t } = useTranslation();
-
   const {
     name,
     type,
@@ -40,10 +35,10 @@ const FormInput = <T extends FormValues>(props: FormInputProps<T>) => {
   } focus:outline-none focus:ring-primary-500 focus:border-primary-500`;
 
   return (
-    <div className="relative flex flex-col w-full mb-8">
+    <div className="relative flex flex-col w-full mb-8 h-full">
       {type === "textarea" ? (
         <textarea
-          className={`${inputClassName} leading-6 h-full min-h-[72px]`}
+          className={`${inputClassName} leading-6 h-full`}
           id={id.toString()}
           placeholder={placeholder}
           rows={6}

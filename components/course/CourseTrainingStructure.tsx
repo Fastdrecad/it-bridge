@@ -88,7 +88,7 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
   }, [isCalendlyOpen, closeCalendly]);
 
   return (
-    <div className="w-full my-20 bg-gradient-to-r from-[#15103E] to-[#A0C943] p-4 md:p-8 text-center">
+    <section className="w-full my-20 bg-gradient-to-r from-[#15103E] to-[#A0C943] p-4 md:p-8 text-center">
       <h2 className="text-white text-4xl font-bold mt-10 mb-12">
         {displayTitle}
       </h2>
@@ -140,7 +140,7 @@ const TrainingStructure: React.FC<TrainingStructureProps> = ({
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

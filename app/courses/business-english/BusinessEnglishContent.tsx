@@ -93,6 +93,7 @@ export default function BusinessEnglishContent() {
       <HeroSection {...content} />
 
       <CourseFeatureList
+        id="business-english"
         heading={t("COURSES.BUSINESS_ENGLISH.FEATURE_LIST.HEADING")}
         sections={courseFeatures.businessEnglish.sections}
         flags={courseFeatures.businessEnglish.flags}

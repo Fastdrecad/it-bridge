@@ -41,7 +41,7 @@ const CourseGrid: React.FC<CourseGridProps> = ({ content = [] }) => {
   }
 
   return (
-    <div className="container mx-auto p-4 md:p-8">
+    <section className="container mx-auto p-4 md:p-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
         {content.map((section, index) => (
           <div
@@ -84,7 +84,7 @@ const CourseGrid: React.FC<CourseGridProps> = ({ content = [] }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

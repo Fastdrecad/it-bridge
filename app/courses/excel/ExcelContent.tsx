@@ -106,6 +106,7 @@ export default function ExcelContent() {
       <HeroSection {...content} />
 
       <CourseFeatureList
+        id="excel"
         headingTranslationKey="COURSES.COURSE_ITEMS.EXCEL.FEATURES.HEADING"
         sections={courseFeatures.excel.sections}
       />

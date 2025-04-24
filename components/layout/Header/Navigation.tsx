@@ -107,9 +107,9 @@ export default function Navigation({
             {/* Dropdown Icon */}
             <div className="cursor-pointer ml-2" onClick={handleDropdownToggle}>
               {isDropdownOpen ? (
-                <Icon icon="mdi:chevron-up" className="text-sm" />
+                <Icon icon="mdi:chevron-up" className="text-2xl" />
               ) : (
-                <Icon icon="mdi:chevron-down" className="text-sm" />
+                <Icon icon="mdi:chevron-down" className="text-2xl" />
               )}
             </div>
           </div>

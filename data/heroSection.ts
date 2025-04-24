@@ -18,22 +18,22 @@ export interface HeroSectionContent {
 export const heroSectionContent: HeroSectionContent[] = [
   {
     backgroundImage: hrImage,
-    buttonLink: "/courses/hr-starter",
+    buttonLink: "/contact",
     translationKey: "HERO_SECTION.HR_STARTER"
   },
   {
     backgroundImage: softSkillsImage,
-    buttonLink: "/courses/soft-skills",
+    buttonLink: "#soft-skills",
     translationKey: "HERO_SECTION.SOFT_SKILLS"
   },
   {
     backgroundImage: pcmImage,
-    buttonLink: "/courses/pcm",
+    buttonLink: "#pcm",
     translationKey: "HERO_SECTION.PCM"
   },
   {
     backgroundImage: businessEnglishImage,
-    buttonLink: "/courses/business-english",
+    buttonLink: "#business-english",
     translationKey: "HERO_SECTION.BUSINESS_ENGLISH"
   },
   {
@@ -43,7 +43,7 @@ export const heroSectionContent: HeroSectionContent[] = [
   },
   {
     backgroundImage: excelImage,
-    buttonLink: "/courses/excel",
+    buttonLink: "#excel",
     translationKey: "HERO_SECTION.EXCEL"
   }
 ];

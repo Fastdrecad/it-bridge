@@ -183,7 +183,7 @@ export default function ContactForm() {
                 />
               </div>
               <div className="flex-1">
-                <div className="relative h-full">
+                <div className="relative h-full pb-8">
                   {formInputs
                     .filter((input) => input.type === "textarea")
                     .map((input) => (
@@ -205,7 +205,7 @@ export default function ContactForm() {
                 </div>
               </div>
             </div>
-            <div className="my-24 pt-10 pb-10 md:pt-10 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0 relative">
+            <div className="pb-20 w-full md:w-1/2 md:pr-4 lg:pr-7 xl:pr-0 relative">
               <Button
                 disabled={isLoading}
                 variant="secondary"

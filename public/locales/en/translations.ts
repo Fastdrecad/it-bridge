@@ -56,7 +56,7 @@ export const en = {
       BUTTON: "Learn More"
     },
     ABOUT: {
-      TITLE: "About Us",
+      TITLE: "WHY US?",
       DESCRIPTION:
         "We are your reliable partner in transformation through training, education, and business improvement. We provide support and expertise to help you realize the full potential of your teams.",
       PARAGRAPH_1:

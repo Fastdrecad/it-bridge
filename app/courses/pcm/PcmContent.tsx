@@ -104,6 +104,7 @@ export default function PcmContent() {
       <HeroSection {...content} />
 
       <CourseFeatureList
+        id="pcm"
         headingTranslationKey="COURSES.COURSE_ITEMS.PCM.FEATURES.HEADING"
         sections={courseFeatures.pcm.sections}
       />

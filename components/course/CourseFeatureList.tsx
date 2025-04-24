@@ -20,13 +20,15 @@ interface FeatureListProps {
   headingTranslationKey?: string;
   sections: Section[];
   flags?: (string | StaticImageData)[];
+  id?: string;
 }
 
 const CourseFeatureList: React.FC<FeatureListProps> = ({
   heading,
   headingTranslationKey,
   sections,
-  flags
+  flags,
+  id
 }) => {
   const { t } = useTranslation();
   const { currentLanguage } = useLanguageChange();
@@ -38,7 +40,7 @@ const CourseFeatureList: React.FC<FeatureListProps> = ({
     : heading?.[currentLanguage];
 
   return (
-    <div className="container mx-auto p-4 md:p-8 my-20">
+    <section id={id} className="container mx-auto p-4 md:p-8 my-20">
       <div className="bg-gray-50 shadow-md relative">
         <h2 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 pe-12 rounded-r-full">
           {displayHeading}
@@ -84,7 +86,7 @@ const CourseFeatureList: React.FC<FeatureListProps> = ({
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

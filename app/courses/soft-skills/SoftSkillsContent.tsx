@@ -95,6 +95,7 @@ export default function SoftSkillsContent() {
       <HeroSection {...content} />
 
       <CourseFeatureList
+        id="soft-skills"
         headingTranslationKey="COURSES.COURSE_ITEMS.SOFT_SKILLS.FEATURES.HEADING"
         sections={courseFeatures.softSkills.sections}
       />
@@ -108,12 +109,12 @@ export default function SoftSkillsContent() {
         />
       )}
 
-      <div className="container mx-auto p-4 md:p-8">
+      <section className="container mx-auto p-4 md:p-8">
         <h1 className="text-2xl font-bold mb-4 md:mb-8">
           {t("COURSES.COURSE_ITEMS.SOFT_SKILLS.DETAILS")}
         </h1>
         <CourseScheduleTable schedules={localizedSchedules.softSkills} />
-      </div>
+      </section>
       <ContactUs />
     </>
   );
