@@ -102,32 +102,55 @@ export const fr = {
         TITLE: "RH",
         SUBTITLE:
           "Commencez votre carrière dans les RH avec une double expertise et acquérez des compétences pour une gestion réussie des ressources humaines...",
-        DESCRIPTION: "Lancez votre carrière RH."
+        DESCRIPTION: "Lancez votre carrière RH.",
+        BUTTON: "Programme de formation",
+        DETAILS: "Détails de la formation HR Starter",
+        FEATURES: {
+          HEADING: "Pourquoi le cours RH Starter ?"
+        }
       },
       SOFT_SKILLS: {
         TITLE: "Soft Skills",
         SUBTITLE:
-          "Perfectionnez vos compétences douces avec notre ensemble de formations personnalisées pour une efficacité maximale..."
+          "Perfectionnez vos compétences douces avec notre ensemble de formations personnalisées pour une efficacité maximale...",
+        DETAILS: "Détails de la formation Soft Skills",
+        FEATURES: {
+          HEADING: "Pourquoi les Soft Skills?"
+        }
       },
       PCM: {
         TITLE: "PCM",
         SUBTITLE:
-          "Communication parfaite, leadership et travail d'équipe avec notre formation PCM personnalisée..."
+          "Communication parfaite, leadership et travail d'équipe avec notre formation PCM personnalisée...",
+        DETAILS: "Détails de la formation PCM",
+        FEATURES: {
+          HEADING: "Pourquoi PCM?"
+        }
       },
       BUSINESS_ENGLISH: {
         TITLE: "Business English",
         SUBTITLE:
-          "Améliorez la communication professionnelle dans votre entreprise avec notre cours sur mesure d'Anglais | Allemand | Français des Affaires..."
+          "Améliorez la communication professionnelle dans votre entreprise avec notre cours sur mesure d'Anglais | Allemand | Français des Affaires...",
+        FEATURES: {
+          HEADING: "Pourquoi l'Anglais | Allemand | Français des Affaires?"
+        }
       },
       POWER_BI: {
         TITLE: "Power BI",
         SUBTITLE:
           "Découvrez la puissance des données, transformez-les en insights stratégiques et utilisez-les pour de meilleures décisions et un avantage concurrentiel.",
-        DESCRIPTION: "Améliorez votre entreprise avec Power BI"
+        DESCRIPTION: "Améliorez votre entreprise avec Power BI",
+        FEATURES: {
+          HEADING: "Pourquoi Power BI?"
+        }
       },
       EXCEL: {
         TITLE: "Excel",
-        SUBTITLE: "Maîtrisez Excel et faites progresser votre carrière..."
+        SUBTITLE: "Maîtrisez Excel et faites progresser votre carrière...",
+        DETAILS: "Détails du cours Excel",
+        FEATURES: {
+          HEADING: "Pourquoi Excel?"
+        }
       }
     },
     FAQ: {

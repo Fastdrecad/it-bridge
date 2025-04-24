@@ -9,7 +9,7 @@ import { useCalendly } from "@/contexts/CalendlyContext";
 import { useTranslation } from "react-i18next";
 
 import Button from "@/components/common/Button/Button";
-import { MultilingualText } from "@/data/heroSection";
+import { MultilingualText } from "@/types/common";
 import { CourseItem } from "@/data/courseItems";
 import IconWithLabel from "@/components/common/IconWithLabel";
 

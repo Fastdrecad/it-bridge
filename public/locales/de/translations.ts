@@ -102,32 +102,55 @@ export const de = {
         TITLE: "HR",
         SUBTITLE:
           "Starten Sie Ihre Karriere im HR-Bereich mit doppelter Expertise und erwerben Sie Fähigkeiten für erfolgreiches Personalmanagement...",
-        DESCRIPTION: "Starten Sie Ihre HR-Karriere."
+        DESCRIPTION: "Starten Sie Ihre HR-Karriere.",
+        BUTTON: "Trainingsprogramm",
+        DETAILS: "HR Starter Trainingsdetails",
+        FEATURES: {
+          HEADING: "Warum HR Starter Kurs?"
+        }
       },
       SOFT_SKILLS: {
         TITLE: "Soft Skills",
         SUBTITLE:
-          "Perfektionieren Sie Ihre Soft Skills mit unserem personalisierten Schulungsset für maximale Effizienz..."
+          "Perfektionieren Sie Ihre Soft Skills mit unserem personalisierten Schulungsset für maximale Effizienz...",
+        DETAILS: "Soft Skills Trainingsdetails",
+        FEATURES: {
+          HEADING: "Warum Soft Skills?"
+        }
       },
       PCM: {
         TITLE: "PCM",
         SUBTITLE:
-          "Perfekte Kommunikation, Führung und Teamarbeit mit unserem personalisierten PCM-Training..."
+          "Perfekte Kommunikation, Führung und Teamarbeit mit unserem personalisierten PCM-Training...",
+        DETAILS: "PCM Trainingsdetails",
+        FEATURES: {
+          HEADING: "Warum PCM?"
+        }
       },
       BUSINESS_ENGLISH: {
         TITLE: "Business English",
         SUBTITLE:
-          "Verbessern Sie die Geschäftskommunikation in Ihrem Unternehmen mit unserem maßgeschneiderten Business English | German | French Kurs..."
+          "Verbessern Sie die Geschäftskommunikation in Ihrem Unternehmen mit unserem maßgeschneiderten Business English | German | French Kurs...",
+        FEATURES: {
+          HEADING: "Warum Business English | German | French?"
+        }
       },
       POWER_BI: {
         TITLE: "Power BI",
         SUBTITLE:
           "Entdecken Sie die Kraft der Daten, verwandeln Sie sie in strategische Einblicke und nutzen Sie sie für bessere Entscheidungen und Wettbewerbsvorteile.",
-        DESCRIPTION: "Verbessern Sie Ihr Geschäft mit Power BI"
+        DESCRIPTION: "Verbessern Sie Ihr Geschäft mit Power BI",
+        FEATURES: {
+          HEADING: "Warum Power BI?"
+        }
       },
       EXCEL: {
         TITLE: "Excel",
-        SUBTITLE: "Meistern Sie Excel und bringen Sie Ihre Karriere voran..."
+        SUBTITLE: "Meistern Sie Excel und bringen Sie Ihre Karriere voran...",
+        DETAILS: "Excel-Kursdetails",
+        FEATURES: {
+          HEADING: "Warum Excel?"
+        }
       }
     },
     FAQ: {

@@ -14,7 +14,7 @@ import {
 import de from "@/public/assets/images/flags/de.jpg";
 import fr from "@/public/assets/images/flags/fr.jpg";
 import gb from "@/public/assets/images/flags/gb.jpg";
-import { MultilingualText } from "./heroSection";
+import { MultilingualText } from "@/types/common";
 
 interface CourseItem {
   title: string | MultilingualText;

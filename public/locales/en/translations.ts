@@ -100,32 +100,55 @@ export const en = {
         TITLE: "HR",
         SUBTITLE:
           "Start your career in HR with dual expertise and gain skills for successful human resource management...",
-        DESCRIPTION: "Start your HR career."
+        DESCRIPTION: "Start your HR career.",
+        BUTTON: "Training Program",
+        DETAILS: "HR Training Details",
+        FEATURES: {
+          HEADING: "Why HR Starter Course?"
+        }
       },
       SOFT_SKILLS: {
         TITLE: "Soft Skills",
         SUBTITLE:
-          "Perfect your soft skills with our personalized set of trainings for maximum efficiency..."
+          "Perfect your soft skills with our personalized set of trainings for maximum efficiency...",
+        DETAILS: "Soft Skills Training Details",
+        FEATURES: {
+          HEADING: "Why Soft Skills?"
+        }
       },
       PCM: {
         TITLE: "PCM",
         SUBTITLE:
-          "Perfect communication, leadership, and teamwork with our personalized PCM training..."
+          "Perfect communication, leadership, and teamwork with our personalized PCM training...",
+        DETAILS: "PCM Training Details",
+        FEATURES: {
+          HEADING: "Why PCM?"
+        }
       },
       BUSINESS_ENGLISH: {
         TITLE: "Business English",
         SUBTITLE:
-          "Improve business communication in your company with our tailor-made Business English | German | French course..."
+          "Improve business communication in your company with our tailor-made Business English | German | French course...",
+        FEATURES: {
+          HEADING: "Why Business English | German | French?"
+        }
       },
       POWER_BI: {
         TITLE: "Power BI",
         SUBTITLE:
           "Discover the power of data, transform it into strategic insights, and use it for better decisions and competitive advantage.",
-        DESCRIPTION: "Improve your business with Power BI"
+        DESCRIPTION: "Improve your business with Power BI",
+        FEATURES: {
+          HEADING: "Why Power BI?"
+        }
       },
       EXCEL: {
         TITLE: "Excel",
-        SUBTITLE: "Master Excel and advance your career..."
+        SUBTITLE: "Master Excel and advance your career...",
+        DETAILS: "Excel Course Details",
+        FEATURES: {
+          HEADING: "Why Excel?"
+        }
       }
     },
     FAQ: {

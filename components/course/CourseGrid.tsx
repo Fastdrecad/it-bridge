@@ -2,8 +2,8 @@
 
 import { FC } from "react";
 import { StaticImageData } from "next/image";
-import { useTranslation } from "react-i18next";
-import { MultilingualText } from "@/data/heroSection";
+import { MultilingualText, SupportedLanguage } from "@/types/common";
+import { useLanguageChange } from "@/hooks/i18n";
 
 type CourseSection = {
   title: string | MultilingualText;
@@ -13,65 +13,26 @@ type CourseSection = {
 };
 
 interface CourseGridProps {
-  courseName: string | MultilingualText;
   content: CourseSection[];
-  translationKey?: string;
 }
 
-const CourseGrid: React.FC<CourseGridProps> = ({
-  courseName,
-  content = [],
-  translationKey
-}) => {
+const CourseGrid: React.FC<CourseGridProps> = ({ content = [] }) => {
   // Safely access the content array with null checks
   const logos =
     content && content.length > 1 && content[1]?.companyLogos
       ? content[1].companyLogos
       : undefined;
-  const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { currentLanguage } = useLanguageChange();
 
   // Improved handling of multilingual content
   const getLocalizedText = (
     text: string | MultilingualText,
     fallback: string,
-    sectionIndex?: number,
-    itemIndex?: number
+    lang: SupportedLanguage
   ): string => {
-    // If translation key is provided and indices are available, use it
-    if (translationKey && sectionIndex !== undefined) {
-      const sectionKey = `${translationKey}.SECTION_${sectionIndex}`;
-
-      if (itemIndex !== undefined) {
-        const itemTranslation = t(`${sectionKey}.ITEM_${itemIndex}`, {
-          defaultValue: ""
-        });
-        if (itemTranslation) return itemTranslation;
-      } else {
-        const titleTranslation = t(`${sectionKey}.TITLE`, { defaultValue: "" });
-        if (titleTranslation) return titleTranslation;
-      }
-    }
-
-    // If text is a multilingual object
     if (typeof text === "object" && text !== null) {
-      // First try exact current language match
-      if (text[currentLang] && text[currentLang].trim() !== "") {
-        return text[currentLang];
-      }
-
-      // Then fallback chain: current language -> english -> serbian -> empty string
-      const fallbacks = [text.en, text.sr, text.de, text.fr, ""];
-      for (const fallback of fallbacks) {
-        if (fallback && fallback.trim() !== "") {
-          return fallback;
-        }
-      }
-
-      return fallback;
+      return text[lang] || text.en || text.sr || text.de || text.fr || fallback;
     }
-
-    // If it's a string, return it directly
     return text || fallback;
   };
 
@@ -88,12 +49,12 @@ const CourseGrid: React.FC<CourseGridProps> = ({
             className="bg-gray-50 shadow-md relative pt-10 md:pt-4"
           >
             <h3 className="absolute top-0 transform -translate-y-1/2 bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 pe-12 rounded-r-full">
-              {getLocalizedText(section.title, "", index)}
+              {getLocalizedText(section.title, "", currentLanguage)}
             </h3>
             <ul className="list-disc space-y-2 p-6 pt-12 ps-10">
               {section.items.map((item, idx) => (
                 <li key={idx} className="text-gray-700">
-                  {getLocalizedText(item, "", index, idx)}
+                  {getLocalizedText(item, "", currentLanguage)}
                 </li>
               ))}
               {index === 1 && logos && (

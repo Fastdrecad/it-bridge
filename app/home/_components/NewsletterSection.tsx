@@ -16,7 +16,6 @@ import Button from "@/components/common/Button/Button";
 import { newsletterInputs } from "@/data/newsletterInputs";
 import FormInput from "@/components/form/FormInput";
 import { ItBridgeLogo } from "@/components/icons";
-import i18next from "@/hooks/i18n";
 
 export default function Newsletter() {
   const { t } = useTranslation();
@@ -24,7 +23,6 @@ export default function Newsletter() {
     "success" | "error" | "loading" | "idle"
   >("idle");
   const [responseMsg, setResponseMsg] = useState<string>("");
-  const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
 
   const {
     register,
@@ -35,23 +33,6 @@ export default function Newsletter() {
     resolver: zodResolver(getNewsletterSchema()),
     mode: "onBlur" // Validate on blur for better UX
   });
-
-  // Reset form validation when language changes
-  useEffect(() => {
-    const handleLanguageChanged = () => {
-      if (currentLanguage !== i18next.language) {
-        setCurrentLanguage(i18next.language);
-        // Reset with current values to trigger revalidation with new language
-        reset({}, { keepValues: true });
-      }
-    };
-
-    i18next.on("languageChanged", handleLanguageChanged);
-
-    return () => {
-      i18next.off("languageChanged", handleLanguageChanged);
-    };
-  }, [reset, currentLanguage]);
 
   const onSubmit: SubmitHandler<NewsletterFormValues> = async (data) => {
     setStatus("loading");

@@ -3,7 +3,8 @@
 import Image, { StaticImageData } from "next/image";
 import { useTranslation } from "react-i18next";
 
-import { MultilingualText } from "@/data/heroSection";
+import { useLanguageChange } from "@/hooks/i18n";
+import { MultilingualText } from "@/types/common";
 
 type Section = {
   title: string | MultilingualText;
@@ -15,33 +16,26 @@ type Section = {
 };
 
 interface FeatureListProps {
-  heading: string | MultilingualText;
+  heading?: string | MultilingualText;
   headingTranslationKey?: string;
   sections: Section[];
   flags?: (string | StaticImageData)[];
 }
 
-const FeatureList: React.FC<FeatureListProps> = ({
+const CourseFeatureList: React.FC<FeatureListProps> = ({
   heading,
   headingTranslationKey,
   sections,
   flags
 }) => {
-  const { t, i18n } = useTranslation();
-  const currentLang = (i18n.language as "sr" | "en" | "de" | "fr") || "sr";
-
-  // Function to handle multilingual text
-  const getLocalizedText = (
-    text: string | MultilingualText,
-    fallback: string
-  ): string => {
-    if (typeof text === "string") return text;
-    return text[currentLang] || text.en || text.sr || fallback;
-  };
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
   const displayHeading = headingTranslationKey
     ? t(headingTranslationKey)
-    : getLocalizedText(heading, typeof heading === "string" ? heading : "");
+    : typeof heading === "string"
+    ? heading
+    : heading?.[currentLanguage];
 
   return (
     <div className="container mx-auto p-4 md:p-8 my-20">
@@ -53,11 +47,15 @@ const FeatureList: React.FC<FeatureListProps> = ({
           {sections.map((section, index) => {
             const sectionTitle = section.translationKey
               ? t(section.translationKey.title)
-              : getLocalizedText(section.title, "");
+              : typeof section.title === "string"
+              ? section.title
+              : section.title[currentLanguage];
 
             const sectionDescription = section.translationKey
               ? t(section.translationKey.description)
-              : getLocalizedText(section.description, "");
+              : typeof section.description === "string"
+              ? section.description
+              : section.description[currentLanguage];
 
             return (
               <li key={index} className="flex items-start">
@@ -90,4 +88,4 @@ const FeatureList: React.FC<FeatureListProps> = ({
   );
 };
 
-export default FeatureList;
+export default CourseFeatureList;

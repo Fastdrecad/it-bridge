@@ -3,7 +3,9 @@ import "./Button.css";
 
 type ButtonVariant = "primary" | "secondary" | "success" | "warning" | "danger";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    Pick<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   children: React.ReactNode;
   variant?: ButtonVariant;
   outline?: boolean;
@@ -12,6 +14,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
   loading?: boolean;
   onClick?: () => void;
+  href?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -23,6 +26,7 @@ const Button: React.FC<ButtonProps> = ({
   loading = false,
   className,
   onClick,
+  href,
   ...rest
 }) => {
   const colors = {
@@ -60,6 +64,23 @@ const Button: React.FC<ButtonProps> = ({
     className, // Custom classNames passed in via props
     { "opacity-50 cursor-not-allowed pointer-events-none": disabled || loading } // Apply disabled styles
   );
+
+  const content = loading ? (
+    <div className="flex items-center justify-center">
+      <div className="spinner-mini mr-2" />
+      {typeof children === "string" ? "Processing..." : children}
+    </div>
+  ) : (
+    children
+  );
+
+  if (href && !disabled) {
+    return (
+      <a href={href} className={classes} onClick={onClick}>
+        {content}
+      </a>
+    );
+  }
 
   return (
     <button

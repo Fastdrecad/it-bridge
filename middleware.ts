@@ -9,12 +9,12 @@ export function middleware(request: NextRequest) {
     "Content-Security-Policy",
     [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://connect.facebook.net https://maps.googleapis.com https://maps.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-      "img-src 'self' data: https: www.facebook.com res.cloudinary.com",
+      "img-src 'self' data: https: www.facebook.com res.cloudinary.com maps.gstatic.com maps.googleapis.com",
       "media-src 'self' https: res.cloudinary.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "connect-src 'self' https://www.facebook.com https://api.iconify.design https://res.cloudinary.com",
+      "connect-src 'self' https://www.facebook.com https://api.iconify.design https://res.cloudinary.com https://maps.googleapis.com",
       "frame-src 'self' https://www.facebook.com"
     ].join("; ")
   );

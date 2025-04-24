@@ -21,15 +21,15 @@ import HeroSection from "@/components/HeroSection";
 import FeatureList from "@/components/course/CourseFeatureList";
 import CourseGrid from "@/components/course/CourseGrid";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
-import LocalizedText from "@/components/LocalizedText";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
-
+import { useLanguageChange } from "@/hooks/i18n";
+import CourseFeatureList from "@/components/course/CourseFeatureList";
 export default function ExcelContent() {
-  const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
-  const content = heroSectionContent[5]; // Assuming Excel is the 4th hero section content
+  const content = heroSectionContent[5];
 
   const excelCategory = courseItems.find(
     (category) => category.categoryName === "excel"
@@ -43,7 +43,9 @@ export default function ExcelContent() {
     })) || [];
 
   // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const localizedSchedules =
+    courseSchedules[currentLanguage as keyof typeof courseSchedules] ||
+    courseSchedules.sr;
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Početna", item: "/" },
@@ -103,55 +105,23 @@ export default function ExcelContent() {
       />
       <HeroSection {...content} />
 
-      <FeatureList
-        heading={{
-          sr: "Zašto Excel kurs?",
-          en: "Why Excel Course?",
-          de: "Warum Excel-Kurs?",
-          fr: "Pourquoi le cours Excel?"
-        }}
+      <CourseFeatureList
+        headingTranslationKey="COURSES.COURSE_ITEMS.EXCEL.FEATURES.HEADING"
         sections={courseFeatures.excel.sections}
       />
 
-      <CourseGrid
-        courseName={{
-          sr: "Excel obuka",
-          en: "Excel Training",
-          de: "Excel-Schulung",
-          fr: "Formation Excel"
-        }}
-        content={courseContent.excel}
-        translationKey="COURSE_GRID.EXCEL"
-      />
+      <CourseGrid content={courseContent.excel} />
 
       {excelCategory && (
         <TrainingStructure
           items={excelIcons}
-          buttonLabel={{
-            sr: "Prijavi se za kurs",
-            en: "Register for the Course",
-            de: "Kurs anmelden",
-            fr: "S'inscrire au cours"
-          }}
-          title={{
-            sr: "Struktura obuke",
-            en: "Training Structure",
-            de: "Trainingsstruktur",
-            fr: "Structure de formation"
-          }}
+          buttonLabel={t("COURSES.EXCEL.SCHEDULE_BUTTON")}
         />
       )}
 
       <div className="container mx-auto p-8">
         <h1 className="text-2xl font-bold mb-8">
-          <LocalizedText
-            content={{
-              sr: "Detalji Excel kursa",
-              en: "Excel Course Details",
-              de: "Excel-Kursdetails",
-              fr: "Détails du cours Excel"
-            }}
-          />
+          {t("COURSES.COURSE_ITEMS.EXCEL.DETAILS")}
         </h1>
         <CourseScheduleTable schedules={localizedSchedules.excel} />
       </div>

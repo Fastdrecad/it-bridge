@@ -17,7 +17,7 @@ import {
 import { BsPencilSquare } from "react-icons/bs";
 import { useTranslation } from "react-i18next";
 import { IconType } from "react-icons";
-import { MultilingualText } from "@/data";
+import { MultilingualText } from "@/types/common";
 
 const iconMap: { [key: string]: IconType } = {
   FaBullseye,

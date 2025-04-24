@@ -19,17 +19,17 @@ import {
   createFAQSchema
 } from "@/lib/schemas";
 import HeroSection from "@/components/HeroSection";
-import FeatureList from "@/components/course/CourseFeatureList";
 import CourseGrid from "@/components/course/CourseGrid";
-import LocalizedText from "@/components/LocalizedText";
 import Button from "@/components/common/Button/Button";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
+import { useLanguageChange } from "@/hooks/i18n";
+import CourseFeatureList from "@/components/course/CourseFeatureList";
 
 export default function HrStarterContent() {
-  const { i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
   const content = heroSectionContent[0];
 
@@ -91,7 +91,9 @@ export default function HrStarterContent() {
   });
 
   // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const localizedSchedules =
+    courseSchedules[currentLanguage as keyof typeof courseSchedules] ||
+    courseSchedules.sr;
 
   return (
     <>
@@ -103,25 +105,14 @@ export default function HrStarterContent() {
         }}
       />
       <HeroSection {...content} />
-      <FeatureList
-        heading={{
-          sr: "Zašto kurs HR Starter?",
-          en: "Why HR Starter Course?",
-          de: "Warum der HR Starter Kurs?",
-          fr: "Pourquoi le cours HR Starter ?"
-        }}
+
+      <CourseFeatureList
+        headingTranslationKey="COURSES.COURSE_ITEMS.HR.FEATURES.HEADING"
         sections={courseFeatures.hrStarter.sections}
       />
-      <CourseGrid
-        courseName={{
-          sr: "Meke veštine",
-          en: "Soft Skills",
-          de: "Soft Skills",
-          fr: "Soft Skills"
-        }}
-        content={courseContent.hrStarter}
-        translationKey="COURSE_GRID.HR_STARTER"
-      />
+
+      <CourseGrid content={courseContent.hrStarter} />
+
       <div className="container overflow-hidden mx-auto p-8 my-12 flex items-center justify-center">
         <Link
           href="/assets/pdfs/hr-starter-program.pdf"
@@ -130,15 +121,7 @@ export default function HrStarterContent() {
         >
           <Button variant="success">
             <span className="flex items-center">
-              <LocalizedText
-                content={{
-                  sr: "Program obuke",
-                  en: "Training Program",
-                  de: "Trainingsprogramm",
-                  fr: "Programme de formation"
-                }}
-                translationKey="COURSES.HR_STARTER.PDF_BUTTON"
-              />
+              {t("COURSES.COURSE_ITEMS.HR_STARTER.BUTTON")}
               <BsFileEarmarkPdf className="text-xl ml-2" />
             </span>
           </Button>
@@ -148,32 +131,13 @@ export default function HrStarterContent() {
       {hrCategory && (
         <TrainingStructure
           items={hrCategory.icons}
-          buttonLabel={{
-            sr: "Prijavite se",
-            en: "Sign Up",
-            de: "Anmelden",
-            fr: "Inscrivez-vous"
-          }}
-          title={{
-            sr: "Struktura obuke",
-            en: "Training Structure",
-            de: "Trainingsstruktur",
-            fr: "Structure de formation"
-          }}
+          buttonLabel={t("COURSES.HR_STARTER.SCHEDULE_BUTTON")}
         />
       )}
 
       <div className="container mx-auto p-4 md:p-8">
         <h1 className="text-2xl font-bold mb-4 md:mb-8">
-          <LocalizedText
-            content={{
-              sr: "Detalji obuke HR Starter",
-              en: "HR Starter Training Details",
-              de: "HR Starter Trainingsdetails",
-              fr: "Détails de la formation HR Starter"
-            }}
-            translationKey="COURSES.HR_STARTER.SCHEDULE_TITLE"
-          />
+          {t("COURSES.COURSE_ITEMS.HR.DETAILS")}
         </h1>
         <CourseScheduleTable schedules={localizedSchedules.hr} />
       </div>

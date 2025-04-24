@@ -5,12 +5,12 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from "react";
 import { useFacebookPixel } from "@/hooks/useFacebookPixel";
 
-import powerBI from "@/public/assets/images/courses/power-bi.webp";
 import {
   courseContent,
   courseItems,
   courseSchedules,
-  courseFeatures
+  courseFeatures,
+  heroSectionContent
 } from "@/data";
 
 import {
@@ -25,14 +25,19 @@ import TrainingStructure from "@/components/course/CourseTrainingStructure";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
 import PowerBiCards from "@/components/PowerBiCards";
+import { useLanguageChange } from "@/hooks/i18n";
 
 export default function PowerBiContent() {
-  const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
+
   const { trackViewContent } = useFacebookPixel();
 
+  const content = heroSectionContent[4];
+
   // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const localizedSchedules =
+    courseSchedules[currentLanguage] || courseSchedules.sr;
 
   const powerBICategory = courseItems.find(
     (category) => category.categoryName === "powerBI"
@@ -90,14 +95,6 @@ export default function PowerBiContent() {
     }
   ]);
 
-  const heroProps = {
-    title: t("HERO_SECTION.POWER_BI.TITLE"),
-    subtitle: t("HERO_SECTION.POWER_BI.SUBTITLE"),
-    backgroundImage: powerBI,
-    buttonLabel: t("HERO_SECTION.POWER_BI.BUTTON"),
-    buttonLink: "/contact"
-  };
-
   return (
     <>
       <Script
@@ -107,7 +104,7 @@ export default function PowerBiContent() {
           __html: JSON.stringify([courseSchema, breadcrumbSchema, faqSchema])
         }}
       />
-      <HeroSection {...heroProps} />
+      <HeroSection {...content} />
 
       <PowerBiCards />
 
@@ -116,27 +113,19 @@ export default function PowerBiContent() {
         sections={courseFeatures.powerBi.sections}
       />
 
-      <CourseGrid
-        courseName={t("COURSES.POWER_BI.TITLE")}
-        content={courseContent.powerBi}
-        translationKey="COURSE_GRID.POWER_BI"
-      />
+      <CourseGrid content={courseContent.powerBi} />
 
       {powerBICategory && (
         <TrainingStructure
           items={powerBICategory.icons}
           buttonLabel={t("COURSES.POWER_BI.SCHEDULE_BUTTON")}
-          title={{
-            sr: "Struktura obuke",
-            en: "Training Structure",
-            de: "Trainingsstruktur",
-            fr: "Structure de formation"
-          }}
         />
       )}
 
       <div className="container mx-auto p-4 md:p-8">
-        <h1 className="text-2xl font-bold mb-8">Detalji obuke Power BI</h1>
+        <h1 className="text-2xl font-bold mb-8">
+          {t("COURSES.POWER_BI.SCHEDULE_TITLE")}
+        </h1>
         <CourseScheduleTable schedules={localizedSchedules.powerBI} />
       </div>
       <ContactUs />

@@ -1,9 +1,8 @@
 "use client";
 
 import Script from "next/script";
-import { useTranslation } from "react-i18next";
 import "@/hooks/i18n";
-
+import { useTranslation } from "react-i18next";
 import {
   courseContent,
   courseItems,
@@ -11,23 +10,22 @@ import {
   heroSectionContent,
   courseFeatures
 } from "@/data";
-
 import {
   createBreadcrumbSchema,
   createCourseSchema,
   createFAQSchema
 } from "@/lib/schemas";
 import HeroSection from "@/components/HeroSection";
-import FeatureList from "@/components/course/CourseFeatureList";
 import CourseGrid from "@/components/course/CourseGrid";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
-import LocalizedText from "@/components/LocalizedText";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
+import { useLanguageChange } from "@/hooks/i18n";
+import CourseFeatureList from "@/components/course/CourseFeatureList";
 
 export default function PcmContent() {
-  const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
   const content = heroSectionContent[2];
 
@@ -43,7 +41,9 @@ export default function PcmContent() {
     })) || [];
 
   // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const localizedSchedules =
+    courseSchedules[currentLanguage as keyof typeof courseSchedules] ||
+    courseSchedules.sr;
 
   const breadcrumbSchema = createBreadcrumbSchema([
     { name: "Početna", item: "/" },
@@ -103,55 +103,23 @@ export default function PcmContent() {
       />
       <HeroSection {...content} />
 
-      <FeatureList
-        heading={{
-          sr: "Zašto PCM?",
-          en: "Why PCM?",
-          de: "Warum PCM?",
-          fr: "Pourquoi PCM?"
-        }}
+      <CourseFeatureList
+        headingTranslationKey="COURSES.COURSE_ITEMS.PCM.FEATURES.HEADING"
         sections={courseFeatures.pcm.sections}
       />
 
-      <CourseGrid
-        courseName={{
-          sr: "PCM obuka",
-          en: "PCM Training",
-          de: "PCM-Schulung",
-          fr: "Formation PCM"
-        }}
-        content={courseContent.pcm}
-        translationKey="COURSE_GRID.PCM"
-      />
+      <CourseGrid content={courseContent.pcm} />
 
       {pcmCategory && (
         <TrainingStructure
           items={pcmIcons}
-          buttonLabel={{
-            sr: "Zakažite sastanak",
-            en: "Schedule a Meeting",
-            de: "Termin vereinbaren",
-            fr: "Planifier une réunion"
-          }}
-          title={{
-            sr: "Struktura obuke",
-            en: "Training Structure",
-            de: "Trainingsstruktur",
-            fr: "Structure de formation"
-          }}
+          buttonLabel={t("COURSES.PCM.SCHEDULE_BUTTON")}
         />
       )}
 
       <div className="container mx-auto p-8">
         <h1 className="text-2xl font-bold mb-8">
-          <LocalizedText
-            content={{
-              sr: "Detalji obuke PCM",
-              en: "PCM Training Details",
-              de: "PCM-Trainingsdetails",
-              fr: "Détails de la formation PCM"
-            }}
-          />
+          {t("COURSES.COURSE_ITEMS.PCM.DETAILS")}
         </h1>
         <CourseScheduleTable schedules={localizedSchedules.pcm} />
       </div>

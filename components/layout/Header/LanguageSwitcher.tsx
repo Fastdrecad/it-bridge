@@ -4,9 +4,10 @@ import { useTranslation } from "react-i18next";
 import { useState, useRef, useEffect } from "react";
 import { Icon } from "@iconify/react";
 import { useLanguageChange } from "@/hooks/i18n";
+import { SupportedLanguage } from "@/types/common";
 
 type LanguageOption = {
-  code: string;
+  code: SupportedLanguage;
   name: string;
   icon: string;
 };
@@ -39,7 +40,7 @@ const LanguageSwitcher: React.FC<{ className?: string }> = ({
 
   const toggleDropdown = () => setIsOpen(!isOpen);
 
-  const handleLanguageChange = (code: string) => {
+  const handleLanguageChange = (code: SupportedLanguage) => {
     changeLanguage(code);
     setIsOpen(false);
   };

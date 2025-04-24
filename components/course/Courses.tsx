@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { useInView } from "react-intersection-observer";
 import { useTranslation } from "react-i18next";
-import "@/hooks/i18n";
+import { useLanguageChange } from "@/hooks/i18n";
 
 import { courses } from "@/data/courses";
 import CourseCard from "@/components/course/CourseCard";
@@ -12,25 +12,14 @@ import Button from "@/components/common/Button/Button";
 
 export default function Courses() {
   const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
   const pathname = usePathname();
-  const isCoursesPage =
-    pathname === "/courses" ||
-    pathname === "/en/courses" ||
-    pathname === "/de/courses" ||
-    pathname === "/fr/courses";
+  const isCoursesPage = pathname === "/courses";
 
   const router = useRouter();
 
   const handleNavigate = () => {
-    if (pathname?.includes("/en")) {
-      router.push("/en/contact");
-    } else if (pathname?.includes("/de")) {
-      router.push("/de/contact");
-    } else if (pathname?.includes("/fr")) {
-      router.push("/fr/contact");
-    } else {
-      router.push("/contact");
-    }
+    router.push("/contact");
   };
 
   const [animateCards, setAnimateCards] = useState(false);
@@ -69,6 +58,7 @@ export default function Courses() {
               isCoursesPage={isCoursesPage}
               triggerAnimation={animateCards}
               animationProps={animationProps}
+              langPrefix={`/${currentLanguage}`}
             />
           </div>
         ))}

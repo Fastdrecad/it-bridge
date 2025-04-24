@@ -8,7 +8,7 @@ import { valuesCard, valuesContent } from "@/data/valuesContent";
 import ValueCard from "@/app/about/_components/ValueCard";
 
 export default function AboutUsContent() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   // Map the valuesContent with translations
   const translatedValuesContent = [
@@ -47,15 +47,6 @@ export default function AboutUsContent() {
     description: t(`ABOUT.VALUES.ITEMS.${valueNames[index]}.DESCRIPTION`),
     icon: value.icon
   }));
-
-  // Determine the correct contact page URL based on the language
-  const getContactUrl = () => {
-    const lang = i18n.language;
-    if (lang === "en") return "/en/contact";
-    if (lang === "de") return "/de/contact";
-    if (lang === "fr") return "/fr/contact";
-    return "/contact";
-  };
 
   return (
     <section className="text-left md:max-w-7xl w-full mx-auto px-4 my-10 md:my-20 overflow-x-hidden">
@@ -130,7 +121,9 @@ export default function AboutUsContent() {
         <p className="text-lg mb-6">
           {t("ABOUT.JOIN_US.CONTACT")}{" "}
           <Link
-            href={getContactUrl()}
+            href={`mailto:office@itbridge-services.com`}
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-warning-800 group relative py-1"
           >
             office@itbridge-services.com

@@ -3,12 +3,12 @@
 import Script from "next/script";
 import { useTranslation } from "react-i18next";
 import "@/hooks/i18n";
-import businessEnglish from "@/public/assets/images/courses/business-english.webp";
 import {
   courseContent,
   courseItems,
   courseSchedules,
-  courseFeatures
+  courseFeatures,
+  heroSectionContent
 } from "@/data";
 import {
   createBreadcrumbSchema,
@@ -16,18 +16,18 @@ import {
   createFAQSchema
 } from "@/lib/schemas";
 import HeroSection from "@/components/HeroSection";
-import FeatureList from "@/components/course/CourseFeatureList";
 import CourseGrid from "@/components/course/CourseGrid";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
+import { useLanguageChange } from "@/hooks/i18n";
+import CourseFeatureList from "@/components/course/CourseFeatureList";
 
 export default function BusinessEnglishContent() {
-  const { t, i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
-  // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const content = heroSectionContent[3];
 
   const businessEnglishCategory = courseItems.find(
     (category) => category.categoryName === "businessEnglish"
@@ -77,13 +77,9 @@ export default function BusinessEnglishContent() {
     }
   });
 
-  const heroProps = {
-    title: t("HERO_SECTION.BUSINESS_ENGLISH.TITLE"),
-    subtitle: t("HERO_SECTION.BUSINESS_ENGLISH.SUBTITLE"),
-    backgroundImage: businessEnglish,
-    buttonLabel: "",
-    buttonLink: ""
-  };
+  // Get language specific course schedules
+  const localizedSchedules =
+    courseSchedules[currentLanguage] || courseSchedules.sr;
 
   return (
     <>
@@ -94,19 +90,15 @@ export default function BusinessEnglishContent() {
           __html: JSON.stringify([courseSchema, breadcrumbSchema, faqSchema])
         }}
       />
-      <HeroSection {...heroProps} />
+      <HeroSection {...content} />
 
-      <FeatureList
+      <CourseFeatureList
         heading={t("COURSES.BUSINESS_ENGLISH.FEATURE_LIST.HEADING")}
         sections={courseFeatures.businessEnglish.sections}
         flags={courseFeatures.businessEnglish.flags}
       />
 
-      <CourseGrid
-        courseName={t("COURSES.BUSINESS_ENGLISH.TITLE")}
-        content={courseContent.businessEnglish}
-        translationKey="COURSE_GRID.BUSINESS_ENGLISH"
-      />
+      <CourseGrid content={courseContent.businessEnglish} />
 
       {businessEnglishCategory && (
         <TrainingStructure

@@ -17,15 +17,16 @@ import {
   createFAQSchema
 } from "@/lib/schemas";
 import HeroSection from "@/components/HeroSection";
-import FeatureList from "@/components/course/CourseFeatureList";
 import CourseGrid from "@/components/course/CourseGrid";
 import TrainingStructure from "@/components/course/CourseTrainingStructure";
 import CourseScheduleTable from "@/components/course/CourseScheduleTable";
 import ContactUs from "@/components/course/CourseContactUs";
+import CourseFeatureList from "@/components/course/CourseFeatureList";
+import { useLanguageChange } from "@/hooks/i18n";
 
 export default function SoftSkillsContent() {
-  const { i18n } = useTranslation();
-  const currentLang = i18n.language as "sr" | "en" | "de" | "fr";
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguageChange();
 
   const content = heroSectionContent[1];
 
@@ -79,7 +80,8 @@ export default function SoftSkillsContent() {
   });
 
   // Get language specific course schedules
-  const localizedSchedules = courseSchedules[currentLang] || courseSchedules.sr;
+  const localizedSchedules =
+    courseSchedules[currentLanguage] || courseSchedules.sr;
 
   return (
     <>
@@ -92,48 +94,23 @@ export default function SoftSkillsContent() {
       />
       <HeroSection {...content} />
 
-      <FeatureList
-        heading={{
-          sr: "Zašto Soft Skills?",
-          en: "Why Soft Skills?",
-          de: "Warum Soft Skills?",
-          fr: "Pourquoi les soft skills?"
-        }}
+      <CourseFeatureList
+        headingTranslationKey="COURSES.COURSE_ITEMS.SOFT_SKILLS.FEATURES.HEADING"
         sections={courseFeatures.softSkills.sections}
       />
 
-      <CourseGrid
-        courseName={{
-          sr: "Meke veštine",
-          en: "Soft Skills",
-          de: "Soft Skills",
-          fr: "Soft Skills"
-        }}
-        content={courseContent.softSkills}
-        translationKey="COURSE_GRID.SOFT_SKILLS"
-      />
+      <CourseGrid content={courseContent.softSkills} />
 
       {softSkillsCategory && (
         <TrainingStructure
           items={softSkillsCategory.icons}
-          buttonLabel={{
-            sr: "Zakažite sastanak",
-            en: "Schedule a Meeting",
-            de: "Termin vereinbaren",
-            fr: "Planifier une réunion"
-          }}
-          title={{
-            sr: "Struktura obuke",
-            en: "Training Structure",
-            de: "Trainingsstruktur",
-            fr: "Structure de formation"
-          }}
+          buttonLabel={t("COURSES.SOFT_SKILLS.SCHEDULE_BUTTON")}
         />
       )}
 
       <div className="container mx-auto p-4 md:p-8">
         <h1 className="text-2xl font-bold mb-4 md:mb-8">
-          Detalji obuke Meke veštine
+          {t("COURSES.COURSE_ITEMS.SOFT_SKILLS.DETAILS")}
         </h1>
         <CourseScheduleTable schedules={localizedSchedules.softSkills} />
       </div>

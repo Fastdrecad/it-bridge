@@ -101,32 +101,55 @@ export const sr = {
         TITLE: "HR",
         SUBTITLE:
           "Započnite karijeru u HR-u uz dvostruku stručnost i steknite veštine za uspešno upravljanje ljudskim resursima...",
-        DESCRIPTION: "Započnite svoju HR karijeru."
+        DESCRIPTION: "Započnite svoju HR karijeru.",
+        BUTTON: "Program Obuke",
+        DETAILS: "Detalji obuke HR Starter",
+        FEATURES: {
+          HEADING: "Zašto HR Starter Kurs?"
+        }
       },
       SOFT_SKILLS: {
         TITLE: "Soft Skills",
         SUBTITLE:
-          "Usavršite svoje meke veštine uz personalizovani set obuka za maksimalnu efikasnost..."
+          "Usavršite svoje meke veštine uz personalizovani set obuka za maksimalnu efikasnost...",
+        DETAILS: "Detalji obuke Soft Skills",
+        FEATURES: {
+          HEADING: "Zašto Soft Skills?"
+        }
       },
       PCM: {
         TITLE: "PCM",
         SUBTITLE:
-          "Usavršite komunikaciju, liderstvo i timski rad uz našu personalizovanu PCM obuku..."
+          "Usavršite komunikaciju, liderstvo i timski rad uz našu personalizovanu PCM obuku...",
+        DETAILS: "Detalji obuke PCM",
+        FEATURES: {
+          HEADING: "Zašto PCM?"
+        }
       },
       BUSINESS_ENGLISH: {
         TITLE: "Poslovni Engleski",
         SUBTITLE:
-          "Unapredite poslovnu komunikaciju u svojoj kompaniji uz naš prilagođeni kurs Poslovnog Engleskog | Nemačkog | Francuskog jezika..."
+          "Unapredite poslovnu komunikaciju u svojoj kompaniji uz naš prilagođeni kurs Poslovnog Engleskog | Nemačkog | Francuskog jezika...",
+        FEATURES: {
+          HEADING: "Zašto Poslovni Engleski | Nemački | Francuski?"
+        }
       },
       POWER_BI: {
         TITLE: "Power BI",
         SUBTITLE:
           "Otkrijte moć podataka, pretvorite ih u strateške uvide i iskoristite za bolje odluke i konkurentsku prednost.",
-        DESCRIPTION: "Unapredite svoje poslovanje uz Power BI"
+        DESCRIPTION: "Unapredite svoje poslovanje uz Power BI",
+        FEATURES: {
+          HEADING: "Zašto Power BI?"
+        }
       },
       EXCEL: {
         TITLE: "Excel",
-        SUBTITLE: "Ovladajte Excelom i napredujte u karijeri..."
+        SUBTITLE: "Ovladajte Excelom i napredujte u karijeri...",
+        DETAILS: "Detalji Excel kursa",
+        FEATURES: {
+          HEADING: "Zašto Excel?"
+        }
       }
     },
     FAQ: {

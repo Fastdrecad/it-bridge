@@ -1,4 +1,4 @@
-import { MultilingualText } from "./heroSection";
+import { MultilingualText } from "@/types/common";
 
 interface Section {
   title: string | MultilingualText;

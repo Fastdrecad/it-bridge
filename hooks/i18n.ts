@@ -9,6 +9,7 @@ import { sr } from "@/public/locales/sr/translations";
 import { en } from "@/public/locales/en/translations";
 import { de } from "@/public/locales/de/translations";
 import { fr } from "@/public/locales/fr/translations";
+import { SupportedLanguage } from "@/types/common";
 
 i18next
   .use(initReactI18next)
@@ -32,16 +33,18 @@ i18next
   });
 
 export const useLanguageChange = () => {
-  const [currentLanguage, setCurrentLanguage] = useState(i18next.language);
+  const [currentLanguage, setCurrentLanguage] = useState<SupportedLanguage>(
+    i18next.language as SupportedLanguage
+  );
 
-  const changeLanguage = (lng: string) => {
+  const changeLanguage = (lng: SupportedLanguage) => {
     i18next.changeLanguage(lng);
     setCurrentLanguage(lng);
   };
 
   useEffect(() => {
     const handleLanguageChanged = () => {
-      setCurrentLanguage(i18next.language);
+      setCurrentLanguage(i18next.language as SupportedLanguage);
     };
 
     i18next.on("languageChanged", handleLanguageChanged);
