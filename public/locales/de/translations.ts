@@ -98,8 +98,8 @@ export const de = {
       "Gemeinsam verwandeln wir Potenzial in konkrete Ergebnisse.",
     CONTACT_BUTTON: "KONTAKTIEREN SIE UNS",
     COURSE_ITEMS: {
-      HR: {
-        TITLE: "HR",
+      HR_STARTER: {
+        TITLE: "HR Starter",
         SUBTITLE:
           "Starten Sie Ihre Karriere im HR-Bereich mit doppelter Expertise und erwerben Sie Fähigkeiten für erfolgreiches Personalmanagement...",
         DESCRIPTION: "Starten Sie Ihre HR-Karriere.",
@@ -173,7 +173,7 @@ export const de = {
       FEATURE_LIST: {
         HEADING: "Warum Business English | German | French?"
       },
-      SCHEDULE_TITLE: "Details zum Business English Training",
+      SCHEDULE_TITLE: "Trainingsstruktur",
       SCHEDULE_BUTTON: "Termin vereinbaren",
       PREREQUISITES: {
         1: "Mindestens B1-Niveau in allgemeinem Englisch"
@@ -473,11 +473,11 @@ export const de = {
     },
     COMPANY: {
       TITLE: "UNSER UNTERNEHMEN",
-      FOUNDED: "Gegründet 2020 in Belgrad, Serbien",
+      FOUNDED: "Gegründet im Jahr 2023 als spezialisiertes Bildungszentrum",
       DESCRIPTION:
-        "IT Bridge begann als spezialisiertes Bildungszentrum mit Fokus auf hochwertige IT- und professionelle Schulungen. Beginnend mit einem kleinen Team engagierter Pädagogen, sind wir zu einem vertrauenswürdigen Partner für Unternehmen in Serbien und der Region gewachsen.",
+        "Wir konzentrieren uns darauf, personalisierte Schulungen anzubieten, die den realen Bedürfnissen des Marktes entsprechen. Unser Ansatz kombiniert praktische Branchenerfahrung mit pädagogischer Expertise, was es uns ermöglicht, Programme zu entwickeln, die Effizienz und Teamarbeit verbessern.",
       APPROACH:
-        "Unser einzigartiger Ansatz kombiniert praktische Branchenerfahrung mit pädagogischer Expertise, was es uns ermöglicht, Programme zu erstellen, die reale Geschäftsanforderungen erfüllen und sowohl Einzelpersonen als auch Organisationen dabei helfen, ihr volles Potenzial zu entfalten."
+        "Unsere Hauptzielgruppe besteht aus Teams in der Automobil- und IT-Industrie, mit besonderem Fokus auf die Bereiche Ingenieurwesen und Personalwesen."
     },
     JOIN_US: {
       TITLE:

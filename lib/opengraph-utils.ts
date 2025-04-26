@@ -2,9 +2,6 @@
  * Utility functions for OpenGraph image generation
  */
 
-import { NextFont } from "next/dist/compiled/@next/font";
-import { Inter } from "next/font/google";
-
 const BASE_URL = "https://itbridge-services.com";
 
 /**

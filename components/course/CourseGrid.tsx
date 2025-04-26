@@ -4,6 +4,10 @@ import { FC } from "react";
 import { StaticImageData } from "next/image";
 import { MultilingualText, SupportedLanguage } from "@/types/common";
 import { useLanguageChange } from "@/hooks/i18n";
+import Link from "next/link";
+import Button from "@/components/common/Button/Button";
+import { BsFileEarmarkPdf } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 type CourseSection = {
   title: string | MultilingualText;
@@ -14,9 +18,11 @@ type CourseSection = {
 
 interface CourseGridProps {
   content: CourseSection[];
+  course?: string;
 }
 
-const CourseGrid: React.FC<CourseGridProps> = ({ content = [] }) => {
+const CourseGrid: React.FC<CourseGridProps> = ({ content = [], course }) => {
+  const { t } = useTranslation();
   // Safely access the content array with null checks
   const logos =
     content && content.length > 1 && content[1]?.companyLogos
@@ -67,23 +73,26 @@ const CourseGrid: React.FC<CourseGridProps> = ({ content = [] }) => {
                 </div>
               )}
             </ul>
-            {/* {section.flags && (
-              <div className="absolute -bottom-5 right-5 flex space-x-2">
-                {section.flags.map((flag, idx) => (
-                  <Image
-                    key={idx}
-                    src={flag}
-                    width="80"
-                    height="80"
-                    className="object-cover"
-                    alt={`flag-${idx}`}
-                  />
-                ))}
-              </div>
-            )} */}
           </div>
         ))}
       </div>
+
+      {course === "hrStarter" && (
+        <div className="container overflow-hidden mx-auto p-8 my-12 flex items-center justify-center">
+          <Link
+            href="/assets/pdfs/hr-starter-program.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button variant="success">
+              <span className="flex items-center">
+                {t("COURSES.HR_STARTER.PDF_BUTTON")}
+                <BsFileEarmarkPdf className="text-xl ml-2" />
+              </span>
+            </Button>
+          </Link>
+        </div>
+      )}
     </section>
   );
 };

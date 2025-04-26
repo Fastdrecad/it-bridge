@@ -5,7 +5,7 @@ import Button from "@/components/common/Button/Button";
 import NotFoundIcon from "@/components/icons/NotFoundIcon";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import LanguageSwitcher from "@/components/layout/Header/LanguageSwitcher";
+import LanguageSwitcher from "@/components/layout/header/LanguageSwitcher";
 
 export default function NotFound() {
   // Setup i18n

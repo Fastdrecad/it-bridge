@@ -19,6 +19,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   const { t } = useTranslation();
   const [isImageLoaded, setIsImageLoaded] = useState(false);
 
+  const handleScroll = () => {
+    const element = document.getElementById(buttonLink || "");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="w-full min-h-screen mx-auto flex flex-col bg-white">
       <div className="absolute top-0 left-0 w-full min-h-screen">
@@ -33,7 +40,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
           priority
           placeholder="blur"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw"
-          onLoadingComplete={() => setIsImageLoaded(true)}
+          onLoad={() => setIsImageLoaded(true)}
         />
         <div
           className={`absolute inset-0 bg-black transition-opacity duration-500 ${
@@ -53,7 +60,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <p className="text-white text-md md:text-xl mb-10 text-center w-3/4">
           {t(`${translationKey}.SUBTITLE`)}
         </p>
-        {buttonLink && (
+        {!buttonLink?.startsWith("/") ? (
+          <Button variant="primary" rounded onClick={handleScroll}>
+            {t(`${translationKey}.BUTTON`)}
+          </Button>
+        ) : (
           <Button variant="primary" rounded href={buttonLink}>
             {t(`${translationKey}.BUTTON`)}
           </Button>

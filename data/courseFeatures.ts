@@ -63,6 +63,67 @@ export const courseFeatures: Record<string, PageFeature> = {
     ]
     // No flags for hrStarter
   },
+  softSkills: {
+    sections: [
+      {
+        title: {
+          sr: "Efikasna komunikacija",
+          en: "Effective Communication",
+          de: "Effektive Kommunikation",
+          fr: "Communication efficace"
+        },
+        description: {
+          sr: "Naš program omogućava vašem timu da komunicira jasnije, brže rešava probleme i preuzima inicijativu što direktno utiče na produktivnost i uspeh vaše kompanije.",
+          en: "Our program enables your team to communicate more efficiently, solve problems, and lead, which directly impacts the productivity and success of the organization.",
+          de: "Unser Programm ermöglicht es Ihrem Team, effizienter zu kommunizieren, Probleme zu lösen und zu führen, was sich direkt auf die Produktivität und den Erfolg der Organisation auswirkt.",
+          fr: "Notre programme permet à votre équipe de communiquer plus efficacement, de résoudre des problèmes et de diriger, ce qui impacte directement la productivité et le succès de l'organisation."
+        }
+      },
+      {
+        title: {
+          sr: "Transformativna moć",
+          en: "Transformative Power",
+          de: "Transformative Kraft",
+          fr: "Pouvoir transformateur"
+        },
+        description: {
+          sr: "Meke veštine menjaju timsku dinamiku, jačaju saradnju i doprinose dugoročnom rastu vaše kompanije.",
+          en: "We believe in the transformative power of soft skills and are committed to developing them in your employees so that your company can achieve long-term results.",
+          de: "Wir glauben an die transformative Kraft von Soft Skills und setzen uns dafür ein, sie bei Ihren Mitarbeitern zu entwickeln, damit Ihr Unternehmen langfristige Ergebnisse erzielen kann.",
+          fr: "Nous croyons au pouvoir transformateur des soft skills et nous nous engageons à les développer chez vos employés afin que votre entreprise puisse obtenir des résultats à long terme."
+        }
+      },
+      {
+        title: {
+          sr: "Strukturirani treninzi",
+          en: "Structured Training",
+          de: "Strukturierte Schulungen",
+          fr: "Formation structurée"
+        },
+        description: {
+          sr: "Fokus je na praktičnosti – veštine koje učimo odmah se prenose u radnu praksu vašeg tima.",
+          en: "The training consists of 4 modules, each combining theoretical lectures with interactive exercises, case studies, discussions, and feedback sessions. This approach allows participants to gain practical experience and apply learned skills in real situations.",
+          de: "Die Schulung besteht aus 4 Modulen, die jeweils theoretische Vorträge mit interaktiven Übungen, Fallstudien, Diskussionen und Feedback-Sitzungen kombinieren. Dieser Ansatz ermöglicht es den Teilnehmern, praktische Erfahrungen zu sammeln und erlernte Fähigkeiten in realen Situationen anzuwenden.",
+          fr: "La formation se compose de 4 modules, chacun combinant des conférences théoriques avec des exercices interactifs, des études de cas, des discussions et des sessions de feedback. Cette approche permet aux participants d'acquérir une expérience pratique et d'appliquer les compétences apprises dans des situations réelles."
+        }
+      },
+      {
+        title: {
+          sr: "Praktična primena",
+          en: "Practical Application",
+          de: "Praktische Anwendung",
+          fr: "Application pratique"
+        },
+        description: {
+          sr: "Sve što učesnici nauče ima jasnu svrhu – unapređenje rada, timske dinamike i konkretnih poslovnih rezultata.",
+          en: "Our courses are designed to provide concrete results and applicable skills that can directly improve your team's performance and contribute to the success of your organization.",
+          de: "Unsere Kurse sind darauf ausgelegt, konkrete Ergebnisse und anwendbare Fähigkeiten zu vermitteln, die die Leistung Ihres Teams direkt verbessern und zum Erfolg Ihrer Organisation beitragen können.",
+          fr: "Nos cours sont conçus pour fournir des résultats concrets et des compétences applicables qui peuvent directement améliorer les performances de votre équipe et contribuer au succès de votre organisation."
+        }
+      }
+    ]
+    // No flags for softSkills
+  },
   pcm: {
     sections: [
       {
@@ -263,67 +324,6 @@ export const courseFeatures: Record<string, PageFeature> = {
       }
     ]
     // No flags for powerBI
-  },
-  softSkills: {
-    sections: [
-      {
-        title: {
-          sr: "Efikasna komunikacija",
-          en: "Effective Communication",
-          de: "Effektive Kommunikation",
-          fr: "Communication efficace"
-        },
-        description: {
-          sr: "Naš program omogućava vašem timu da komunicira jasnije, brže rešava probleme i preuzima inicijativu što direktno utiče na produktivnost i uspeh vaše kompanije.",
-          en: "Our program enables your team to communicate more efficiently, solve problems, and lead, which directly impacts the productivity and success of the organization.",
-          de: "Unser Programm ermöglicht es Ihrem Team, effizienter zu kommunizieren, Probleme zu lösen und zu führen, was sich direkt auf die Produktivität und den Erfolg der Organisation auswirkt.",
-          fr: "Notre programme permet à votre équipe de communiquer plus efficacement, de résoudre des problèmes et de diriger, ce qui impacte directement la productivité et le succès de l'organisation."
-        }
-      },
-      {
-        title: {
-          sr: "Transformativna moć",
-          en: "Transformative Power",
-          de: "Transformative Kraft",
-          fr: "Pouvoir transformateur"
-        },
-        description: {
-          sr: "Meke veštine menjaju timsku dinamiku, jačaju saradnju i doprinose dugoročnom rastu vaše kompanije.",
-          en: "We believe in the transformative power of soft skills and are committed to developing them in your employees so that your company can achieve long-term results.",
-          de: "Wir glauben an die transformative Kraft von Soft Skills und setzen uns dafür ein, sie bei Ihren Mitarbeitern zu entwickeln, damit Ihr Unternehmen langfristige Ergebnisse erzielen kann.",
-          fr: "Nous croyons au pouvoir transformateur des soft skills et nous nous engageons à les développer chez vos employés afin que votre entreprise puisse obtenir des résultats à long terme."
-        }
-      },
-      {
-        title: {
-          sr: "Strukturirani treninzi",
-          en: "Structured Training",
-          de: "Strukturierte Schulungen",
-          fr: "Formation structurée"
-        },
-        description: {
-          sr: "Fokus je na praktičnosti – veštine koje učimo odmah se prenose u radnu praksu vašeg tima.",
-          en: "The training consists of 4 modules, each combining theoretical lectures with interactive exercises, case studies, discussions, and feedback sessions. This approach allows participants to gain practical experience and apply learned skills in real situations.",
-          de: "Die Schulung besteht aus 4 Modulen, die jeweils theoretische Vorträge mit interaktiven Übungen, Fallstudien, Diskussionen und Feedback-Sitzungen kombinieren. Dieser Ansatz ermöglicht es den Teilnehmern, praktische Erfahrungen zu sammeln und erlernte Fähigkeiten in realen Situationen anzuwenden.",
-          fr: "La formation se compose de 4 modules, chacun combinant des conférences théoriques avec des exercices interactifs, des études de cas, des discussions et des sessions de feedback. Cette approche permet aux participants d'acquérir une expérience pratique et d'appliquer les compétences apprises dans des situations réelles."
-        }
-      },
-      {
-        title: {
-          sr: "Praktična primena",
-          en: "Practical Application",
-          de: "Praktische Anwendung",
-          fr: "Application pratique"
-        },
-        description: {
-          sr: "Sve što učesnici nauče ima jasnu svrhu – unapređenje rada, timske dinamike i konkretnih poslovnih rezultata.",
-          en: "Our courses are designed to provide concrete results and applicable skills that can directly improve your team's performance and contribute to the success of your organization.",
-          de: "Unsere Kurse sind darauf ausgelegt, konkrete Ergebnisse und anwendbare Fähigkeiten zu vermitteln, die die Leistung Ihres Teams direkt verbessern und zum Erfolg Ihrer Organisation beitragen können.",
-          fr: "Nos cours sont conçus pour fournir des résultats concrets et des compétences applicables qui peuvent directement améliorer les performances de votre équipe et contribuer au succès de votre organisation."
-        }
-      }
-    ]
-    // No flags for softSkills
   },
   excel: {
     sections: [

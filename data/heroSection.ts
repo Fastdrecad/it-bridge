@@ -1,55 +1,59 @@
 import { StaticImageData } from "next/image";
-
-// Main images
-import hrImage from "@/public/assets/images/courses/hr.webp";
-import softSkillsImage from "@/public/assets/images/courses/soft-skills.webp";
-import pcmImage from "@/public/assets/images/courses/pcm.webp";
-import businessEnglishImage from "@/public/assets/images/courses/business-english.webp";
-import powerBiImage from "@/public/assets/images/courses/power-bi.webp";
-import excelImage from "@/public/assets/images/courses/excel.webp";
-import heroImage from "@/public/assets/images/courses/hr.webp";
+import {
+  hrStarterImg,
+  softSkillsImg,
+  pcmImg,
+  businessEnglishImg,
+  powerBiImg,
+  excelImg,
+  heroImg
+} from "@/utils";
 
 export interface HeroSectionContent {
-  backgroundImage: StaticImageData;
-  buttonLink: string;
-  translationKey?: string;
+  [key: string]: {
+    backgroundImage: StaticImageData;
+    buttonLink: string;
+    translationKey?: string;
+  };
 }
 
-export const heroSectionContent: HeroSectionContent[] = [
-  {
-    backgroundImage: hrImage,
+export const heroSectionContent: HeroSectionContent = {
+  hrStarter: {
+    backgroundImage: hrStarterImg,
     buttonLink: "/contact",
     translationKey: "HERO_SECTION.HR_STARTER"
   },
-  {
-    backgroundImage: softSkillsImage,
-    buttonLink: "#soft-skills",
+  softSkills: {
+    backgroundImage: softSkillsImg,
+    buttonLink: "softSkills",
     translationKey: "HERO_SECTION.SOFT_SKILLS"
   },
-  {
-    backgroundImage: pcmImage,
-    buttonLink: "#pcm",
-    translationKey: "HERO_SECTION.PCM"
-  },
-  {
-    backgroundImage: businessEnglishImage,
-    buttonLink: "#business-english",
+  businessEnglish: {
+    backgroundImage: businessEnglishImg,
+    buttonLink: "businessEnglish",
     translationKey: "HERO_SECTION.BUSINESS_ENGLISH"
   },
-  {
-    backgroundImage: powerBiImage,
+  pcm: {
+    backgroundImage: pcmImg,
+    buttonLink: "pcm",
+    translationKey: "HERO_SECTION.PCM"
+  },
+  powerBi: {
+    backgroundImage: powerBiImg,
     buttonLink: "/contact",
     translationKey: "HERO_SECTION.POWER_BI"
   },
-  {
-    backgroundImage: excelImage,
-    buttonLink: "#excel",
+  excel: {
+    backgroundImage: excelImg,
+    buttonLink: "excel",
     translationKey: "HERO_SECTION.EXCEL"
   }
-];
+};
 
 export const homeHeroSection: HeroSectionContent = {
-  backgroundImage: heroImage,
-  buttonLink: "#courses",
-  translationKey: "HERO_SECTION.HOME"
+  home: {
+    backgroundImage: heroImg,
+    buttonLink: "courses",
+    translationKey: "HERO_SECTION.HOME"
+  }
 };

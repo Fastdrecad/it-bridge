@@ -96,8 +96,8 @@ export const en = {
     PAGE_DESCRIPTION: "Together we turn potential into concrete results.",
     CONTACT_BUTTON: "CONTACT US",
     COURSE_ITEMS: {
-      HR: {
-        TITLE: "HR",
+      HR_STARTER: {
+        TITLE: "HR Starter",
         SUBTITLE:
           "Start your career in HR with dual expertise and gain skills for successful human resource management...",
         DESCRIPTION: "Start your HR career.",
@@ -171,7 +171,7 @@ export const en = {
       FEATURE_LIST: {
         HEADING: "Why Business English | German | French?"
       },
-      SCHEDULE_TITLE: "Business English Training Details",
+      SCHEDULE_TITLE: "Training Structure",
       SCHEDULE_BUTTON: "Schedule a Meeting",
       PREREQUISITES: {
         1: "Minimum B1 level of general English"
@@ -469,11 +469,11 @@ export const en = {
     },
     COMPANY: {
       TITLE: "OUR COMPANY",
-      FOUNDED: "Founded in 2020 in Belgrade, Serbia",
+      FOUNDED: "Founded in 2023 as a specialized educational center",
       DESCRIPTION:
-        "IT Bridge began as a specialized educational center focused on delivering high-quality IT and professional training. Starting with a small team of dedicated educators, we've grown to become a trusted partner for companies across Serbia and the region.",
+        "We focus on providing personalized training that meets the real needs of the market. Our approach combines practical industry experience with educational expertise, enabling us to develop programs that improve efficiency and teamwork.",
       APPROACH:
-        "Our unique approach combines practical industry experience with educational expertise, allowing us to create programs that address real business needs and help both individuals and organizations reach their full potential."
+        "Our primary target group consists of teams in the automotive and IT industries, with a special emphasis on engineering and HR sectors."
     },
     JOIN_US: {
       TITLE: "Want to become part of our team? Is education your passion?",

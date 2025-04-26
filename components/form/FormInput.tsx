@@ -35,7 +35,7 @@ const FormInput = <T extends FormValues>(props: FormInputProps<T>) => {
   } focus:outline-none focus:ring-primary-500 focus:border-primary-500`;
 
   return (
-    <div className="relative flex flex-col w-full mb-8 h-full">
+    <div className="relative flex flex-col w-full mb-11 h-full">
       {type === "textarea" ? (
         <textarea
           className={`${inputClassName} leading-6 h-full`}
@@ -54,7 +54,7 @@ const FormInput = <T extends FormValues>(props: FormInputProps<T>) => {
         />
       )}
       {error && (
-        <span className="absolute bottom-0 -mb-5 text-xs mt-1 h-5 block text-red-500 rounded py-1">
+        <span className="absolute bottom-0 -mb-5 text-sm mt-1 h-5 block text-red-500 rounded py-1">
           {error.message}
         </span>
       )}

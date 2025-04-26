@@ -1,9 +1,9 @@
-import About from "@/app/home/_components/AboutSection";
+import About from "@/app/_components/AboutSection";
 import Courses from "@/components/course/Courses";
-import Newsletter from "@/app/home/_components/NewsletterSection";
-import Partner from "@/app/home/_components/PartnerSection";
-import Testimonials from "@/app/home/_components/TestimonialsSection";
-import Video from "@/app/home/_components/VideoSection";
+import Newsletter from "@/app/_components/NewsletterSection";
+import Partner from "@/app/_components/PartnerSection";
+import Testimonials from "@/app/_components/TestimonialsSection";
+import Video from "@/app/_components/VideoSection";
 import { i18nConfig } from "@/lib/i18n-config";
 import { homeMetadataTranslations } from "@/lib/metadata";
 import { getMetadataByLocale } from "@/lib/metadata";

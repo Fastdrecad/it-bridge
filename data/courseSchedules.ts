@@ -15,7 +15,7 @@ export interface LocalizedCourseSchedules {
 
 // Serbian (original) course schedules
 const srCourseSchedules: Record<string, CourseSchedule[]> = {
-  hr: [
+  hrStarter: [
     {
       participants: "Do 10",
       location: "Online",
@@ -60,7 +60,7 @@ const srCourseSchedules: Record<string, CourseSchedule[]> = {
       duration: "32 časa / 8 nedelja"
     }
   ],
-  powerBI: [
+  powerBi: [
     {
       participants: "5-10",
       location: "Online",
@@ -81,7 +81,7 @@ const srCourseSchedules: Record<string, CourseSchedule[]> = {
 
 // English course schedules
 const enCourseSchedules: Record<string, CourseSchedule[]> = {
-  hr: [
+  hrStarter: [
     {
       participants: "Up to 10",
       location: "Online",
@@ -126,7 +126,7 @@ const enCourseSchedules: Record<string, CourseSchedule[]> = {
       duration: "32 hours / 8 weeks"
     }
   ],
-  powerBI: [
+  powerBi: [
     {
       participants: "5-10",
       location: "Online",
@@ -147,7 +147,7 @@ const enCourseSchedules: Record<string, CourseSchedule[]> = {
 
 // German course schedules
 const deCourseSchedules: Record<string, CourseSchedule[]> = {
-  hr: [
+  hrStarter: [
     {
       participants: "Bis zu 10",
       location: "Online",
@@ -192,7 +192,7 @@ const deCourseSchedules: Record<string, CourseSchedule[]> = {
       duration: "32 Stunden / 8 Wochen"
     }
   ],
-  powerBI: [
+  powerBi: [
     {
       participants: "5-10",
       location: "Online",
@@ -213,7 +213,7 @@ const deCourseSchedules: Record<string, CourseSchedule[]> = {
 
 // French course schedules
 const frCourseSchedules: Record<string, CourseSchedule[]> = {
-  hr: [
+  hrStarter: [
     {
       participants: "Jusqu'à 10",
       location: "En ligne",
@@ -258,7 +258,7 @@ const frCourseSchedules: Record<string, CourseSchedule[]> = {
       duration: "32 heures / 8 semaines"
     }
   ],
-  powerBI: [
+  powerBi: [
     {
       participants: "5-10",
       location: "En ligne",

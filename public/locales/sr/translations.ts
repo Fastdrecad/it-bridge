@@ -97,8 +97,8 @@ export const sr = {
     PAGE_DESCRIPTION: "Zajedno pretvaramo potencijal u konkretne rezultate.",
     CONTACT_BUTTON: "KONTAKTIRAJTE NAS",
     COURSE_ITEMS: {
-      HR: {
-        TITLE: "HR",
+      HR_STARTER: {
+        TITLE: "HR Starter",
         SUBTITLE:
           "Započnite karijeru u HR-u uz dvostruku stručnost i steknite veštine za uspešno upravljanje ljudskim resursima...",
         DESCRIPTION: "Započnite svoju HR karijeru.",
@@ -127,7 +127,7 @@ export const sr = {
         }
       },
       BUSINESS_ENGLISH: {
-        TITLE: "Poslovni Engleski",
+        TITLE: "Business English",
         SUBTITLE:
           "Unapredite poslovnu komunikaciju u svojoj kompaniji uz naš prilagođeni kurs Poslovnog Engleskog | Nemačkog | Francuskog jezika...",
         FEATURES: {
@@ -172,7 +172,7 @@ export const sr = {
       FEATURE_LIST: {
         HEADING: "Zašto Poslovni Engleski | Nemački | Francuski?"
       },
-      SCHEDULE_TITLE: "Detalji Treninga iz Poslovnog Engleskog",
+      SCHEDULE_TITLE: "Struktura obuke",
       SCHEDULE_BUTTON: "Zakaži Sastanak",
       PREREQUISITES: {
         1: "Minimalni nivo opšteg engleskog jezika B1"
@@ -492,6 +492,7 @@ export const sr = {
     LINK: "Kontaktirajte nas",
     DESCRIPTION: "za dodatne informacije."
   },
+
   HERO_SECTION: {
     HOME: {
       TITLE: "IT Bridge - Vaš put do uspeha",
@@ -675,12 +676,14 @@ export const sr = {
       }
     }
   },
+
   POWER_BI: {
     TITLE: "Power BI Dashboard",
     DESCRIPTION:
       "Kreirajte interaktivne, podatkovne kontrolne table sa Power BI.",
     BUTTON: "Analizirajte podatke"
   },
+
   EXCEL: {
     TITLE: "Excel Majstorstvo",
     DESCRIPTION: "Savladajte napredne Excel funkcije i analizu podataka.",
@@ -792,9 +795,11 @@ export const sr = {
       }
     }
   },
+
   POWER_BI_CARDS: {
     TITLE: "Ključne prednosti PBI-ja"
   },
+
   NOT_FOUND: {
     TITLE: "Ups! Stranica nije pronađena",
     SUBTITLE: "Izgleda da ne možemo da pronađemo stranicu koju tražite",

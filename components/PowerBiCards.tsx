@@ -24,7 +24,7 @@ export default function PowerBiCards() {
   };
 
   return (
-    <section className="px-6 py-12 max-w-6xl mx-auto my-10 md:mt-44">
+    <section className="container px-6 py-12 mx-auto my-10">
       {/* Gradient Title */}
       <div className="mb-8">
         <h2 className="inline-block bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white text-2xl font-bold px-6 py-3 rounded-r-full">
@@ -54,13 +54,13 @@ export default function PowerBiCards() {
                 {getLocalizedText(item.description)}
               </p>
             </div>
-            <div className="md:w-1/2 md:mt-0 ">
+            <div className="md:w-1/2 md:mt-0 w-full">
               <div className="aspect-video">
                 <Image
                   src={item.img}
                   alt={`Power BI ${getLocalizedText(item.titleHeading)}`}
-                  width={300}
-                  height={300}
+                  placeholder="blur"
+                  quality={100}
                   className="object-cover w-full h-full"
                   loading="lazy"
                 />

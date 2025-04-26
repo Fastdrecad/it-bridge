@@ -1,10 +1,10 @@
 import {
-  englishImg,
+  businessEnglishImg,
   excelImg,
-  hrImg,
-  pbiImg,
+  hrStarterImg,
   pcmImg,
-  skillsImg
+  powerBiImg,
+  softSkillsImg
 } from "@/utils";
 import { StaticImageData } from "next/image";
 
@@ -20,11 +20,11 @@ export interface Course {
 export const courses: Course[] = [
   {
     id: 1,
-    title: "HR",
+    title: "HR Starter",
     subtitle:
       "Započnite karijeru u HR-u uz dvostruku ekspertizu i steknite veštine za uspešno upravljanje ljudskim resursima…",
     description: "Pokrenite karijeru u HR-u.",
-    image: hrImg,
+    image: hrStarterImg,
     url: "/courses/hr-starter"
   },
   {
@@ -33,7 +33,7 @@ export const courses: Course[] = [
     subtitle:
       "Usavršite meke veštine uz naš personalizovani set obuka za maksimalnu efikasnost…",
     description: "",
-    image: skillsImg,
+    image: softSkillsImg,
     url: "/courses/soft-skills"
   },
   {
@@ -51,7 +51,7 @@ export const courses: Course[] = [
     subtitle:
       "Poboljšajte poslovnu komunikaciju u vašoj kompaniji uz naš tailor-made kurs Business English | German | French…",
     description: "",
-    image: englishImg,
+    image: businessEnglishImg,
     url: "/courses/business-english"
   },
   {
@@ -60,7 +60,7 @@ export const courses: Course[] = [
     subtitle:
       "Otkrijte moć podataka, pretvorite ih u strateške uvide i iskoristite za bolje odluke i konkurentsku prednost.",
     description: "Unapredite poslovanje uz Power BI",
-    image: pbiImg,
+    image: powerBiImg,
     url: "/courses/power-bi"
   },
 

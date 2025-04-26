@@ -98,7 +98,7 @@ export const fr = {
       "Ensemble, nous transformons le potentiel en résultats concrets.",
     CONTACT_BUTTON: "CONTACTEZ-NOUS",
     COURSE_ITEMS: {
-      HR: {
+      HR_STARTER: {
         TITLE: "RH",
         SUBTITLE:
           "Commencez votre carrière dans les RH avec une double expertise et acquérez des compétences pour une gestion réussie des ressources humaines...",
@@ -173,7 +173,7 @@ export const fr = {
       FEATURE_LIST: {
         HEADING: "Pourquoi l'Anglais | Allemand | Français des Affaires ?"
       },
-      SCHEDULE_TITLE: "Détails de la formation en Anglais des Affaires",
+      SCHEDULE_TITLE: "Structure de la formation",
       SCHEDULE_BUTTON: "Prendre rendez-vous",
       PREREQUISITES: {
         1: "Niveau minimum B1 en anglais général"
@@ -473,11 +473,11 @@ export const fr = {
     },
     COMPANY: {
       TITLE: "NOTRE ENTREPRISE",
-      FOUNDED: "Fondée en 2020 à Belgrade, Serbie",
+      FOUNDED: "Fondée en 2023 en tant que centre éducatif spécialisé",
       DESCRIPTION:
-        "IT Bridge a débuté comme un centre éducatif spécialisé axé sur la fourniture de formations informatiques et professionnelles de haute qualité. Commençant avec une petite équipe d'éducateurs dévoués, nous sommes devenus un partenaire de confiance pour les entreprises à travers la Serbie et la région.",
+        "Nous nous concentrons sur la fourniture de formations personnalisées répondant aux besoins réels du marché. Notre approche combine l'expérience pratique de l'industrie et l'expertise éducative, ce qui nous permet de développer des programmes qui améliorent l'efficacité et la collaboration en équipe.",
       APPROACH:
-        "Notre approche unique combine expérience pratique de l'industrie et expertise éducative, nous permettant de créer des programmes qui répondent aux besoins réels des entreprises et aident les individus comme les organisations à atteindre leur plein potentiel."
+        "Notre groupe cible principal est constitué des équipes des industries automobile et informatique, avec une attention particulière portée sur les secteurs de l'ingénierie et des RH."
     },
     JOIN_US: {
       TITLE:

@@ -1,5 +1,6 @@
 import { StaticImageData } from "next/image";
 import { FC } from "react";
+import { MultilingualText } from "@/types/common";
 
 import {
   AccentureIcon,
@@ -14,7 +15,6 @@ import {
 import de from "@/public/assets/images/flags/de.jpg";
 import fr from "@/public/assets/images/flags/fr.jpg";
 import gb from "@/public/assets/images/flags/gb.jpg";
-import { MultilingualText } from "@/types/common";
 
 interface CourseItem {
   title: string | MultilingualText;
@@ -29,6 +29,27 @@ interface CourseCategory {
 }
 
 export const courseContent: CourseCategory = {
+  hrStarter: [
+    {
+      title: "Šta ćete naučiti?",
+      items: [
+        "Na kursu HR Starter steći ćete sveobuhvatno znanje o osnovama ljudskih resursa, uključujući analizu i sistematizaciju radnih pozicija.",
+        "Naučiće kako da efikasno koriste digitalne alate za sourcing i privlačenje kandidata, kao i kako da vodite strukturalne intervjue i selekciju.",
+        "Polaznici će savladati strategije za izgradnju employer brendinga, onboarding procesa, i angažovanja zaposlenih, kao i offboarding postupke.",
+        "Kroz praktične vežbe, bićete spremni da se brzo prilagodite i uspešno funkcionišete u dinamičnom HR "
+      ],
+      button: "primary"
+    },
+    {
+      title: "Zašto baš mi?",
+      items: [
+        "Naš kurs HR Starter pruža jedinstvenu kombinaciju teorijskog znanja i praktičnih veština koje su ključne za uspešan početak u oblasti ljudskih resursa. ",
+        "Naši mentori su iskusni HR stručnjaci koji su posvećeni pružanju podrške i usmeravanju svakog polaznika.",
+        "Kroz intenzivnu interakciju i realne primere iz poslovnog okruženja, omogućavamo vam da se brzo prilagodite i postanete konkurentni na tržištu rada.",
+        "Naši polaznici su ostvarili konkretne rezultate i započeli karijeru u ljudskim resursima, što potvrđuje kvalitet našeg programa."
+      ]
+    }
+  ],
   softSkills: [
     {
       title: {
@@ -120,90 +141,6 @@ export const courseContent: CourseCategory = {
       ]
     }
   ],
-  powerBi: [
-    {
-      title: "Šta ćete naučiti?",
-      items: [
-        "Naš program je dizajniran da osposobi polaznike za samostalno korišćenje Power BI-a, optimizaciju poslovnih procesa i donošenje informisanih odluka zasnovanih na podacima."
-      ]
-    },
-    {
-      title: "Zašto baš mi?",
-      items: [
-        "Naši predavači su Power BI developeri sa bogatim iskustvom u industriji.",
-        "Oni donose praktična znanja i primere iz stvarnih projekata, omogućavajući vam ne samo da savladate osnove, već i da koristite Power BI za unapređenje poslovnih procesa i donošenje informisanih odluka."
-      ]
-    }
-  ],
-
-  hrStarter: [
-    {
-      title: "Šta ćete naučiti?",
-      items: [
-        "Na kursu HR Starter steći ćete sveobuhvatno znanje o osnovama ljudskih resursa, uključujući analizu i sistematizaciju radnih pozicija.",
-        "Naučiće kako da efikasno koriste digitalne alate za sourcing i privlačenje kandidata, kao i kako da vodite strukturalne intervjue i selekciju.",
-        "Polaznici će savladati strategije za izgradnju employer brendinga, onboarding procesa, i angažovanja zaposlenih, kao i offboarding postupke.",
-        "Kroz praktične vežbe, bićete spremni da se brzo prilagodite i uspešno funkcionišete u dinamičnom HR "
-      ],
-      button: "primary"
-    },
-    {
-      title: "Zašto baš mi?",
-      items: [
-        "Naš kurs HR Starter pruža jedinstvenu kombinaciju teorijskog znanja i praktičnih veština koje su ključne za uspešan početak u oblasti ljudskih resursa. ",
-        "Naši mentori su iskusni HR stručnjaci koji su posvećeni pružanju podrške i usmeravanju svakog polaznika.",
-        "Kroz intenzivnu interakciju i realne primere iz poslovnog okruženja, omogućavamo vam da se brzo prilagodite i postanete konkurentni na tržištu rada.",
-        "Naši polaznici su ostvarili konkretne rezultate i započeli karijeru u ljudskim resursima, što potvrđuje kvalitet našeg programa."
-      ]
-    }
-  ],
-  qa: [
-    {
-      title: "Šta ćete naučiti?",
-      items: [
-        "Osnove Excel-a: Upoznavanje sa interfejsom, osnovnim funkcijama i radom sa podacima.",
-        "Napredne funkcije i analiza podataka: Kako koristiti funkcije kao što su VLOOKUP, SUMIF, COUNTIF, i druge.",
-        "Rad sa Pivot tabelama: Kreiranje i uređivanje Pivot tabela za analizu i izveštavanje.",
-        "Praktične vežbe: Kroz mnoge zadatke I vežbe, polaznici će primeniti naučeno na realnim poslovnim scenarijima.",
-        "Finalni test: Test u trajanju od 1h, koji omogućava polaznicima da primene naučene tehnike u stvarnim poslovnim situacijama."
-      ]
-    },
-    {
-      title: "Zašto baš mi?",
-      items: [
-        "Personalizovan pristup: Korišćenje vaših I naših podataka prilagođeno vašim potrebama.",
-        "Veća motivacija i brža primena u svakodnevnom radu: Učenje odmah korisno i primenjivo.",
-        "Iskusni mentori: Praktično znanje i stručnost u industriji, sa iskustvom u IT sektoru."
-      ]
-    }
-  ],
-  pcm: [
-    {
-      title: "Šta PCM trening nudi?",
-      items: [
-        "PCM pomaže članovima tima da bolje razumeju sebe i druge što poboljšava međusobnu komunikaciju i smanjuje nesporazume.",
-        "Kroz identifikaciju i razumevanje različitih stilova komunikacije, obuka omogućava efikasnije rešavanje konflikata i jačanje timske kohezije.",
-        "Razumevanje motivacionih faktora pojedinaca pomaže u kreiranju radnog okruženja koje podstiče visok nivo angažovanja i produktivnosti.",
-        "Obuka uključuje interaktivne vežbe i realne scenarije, omogućavajući polaznicima da odmah primene stečeno znanje u svakodnevnim situacijama."
-      ]
-    },
-    {
-      title: "Zašto naša PCM obuka?",
-      items: [
-        "Naša obuka PCM pruža praktične veštine i tehnike koje će vašem timu pomoći da postigne bolje rezultate, stvori pozitivno radno okruženje i unapredi poslovne procese.",
-        "Korisnici PCM (Process Communication Model) širom sveta:"
-      ],
-      companyLogos: [
-        IbmIcon,
-        CocaColaIcon,
-        SonyIcon,
-        MicrosoftIcon,
-        GeneralElectricIcon,
-        SchneiderElectricIcon,
-        AccentureIcon
-      ]
-    }
-  ],
   businessEnglish: [
     {
       title: {
@@ -281,6 +218,71 @@ export const courseContent: CourseCategory = {
       ]
     }
   ],
+
+  qa: [
+    {
+      title: "Šta ćete naučiti?",
+      items: [
+        "Osnove Excel-a: Upoznavanje sa interfejsom, osnovnim funkcijama i radom sa podacima.",
+        "Napredne funkcije i analiza podataka: Kako koristiti funkcije kao što su VLOOKUP, SUMIF, COUNTIF, i druge.",
+        "Rad sa Pivot tabelama: Kreiranje i uređivanje Pivot tabela za analizu i izveštavanje.",
+        "Praktične vežbe: Kroz mnoge zadatke I vežbe, polaznici će primeniti naučeno na realnim poslovnim scenarijima.",
+        "Finalni test: Test u trajanju od 1h, koji omogućava polaznicima da primene naučene tehnike u stvarnim poslovnim situacijama."
+      ]
+    },
+    {
+      title: "Zašto baš mi?",
+      items: [
+        "Personalizovan pristup: Korišćenje vaših I naših podataka prilagođeno vašim potrebama.",
+        "Veća motivacija i brža primena u svakodnevnom radu: Učenje odmah korisno i primenjivo.",
+        "Iskusni mentori: Praktično znanje i stručnost u industriji, sa iskustvom u IT sektoru."
+      ]
+    }
+  ],
+  pcm: [
+    {
+      title: "Šta PCM trening nudi?",
+      items: [
+        "PCM pomaže članovima tima da bolje razumeju sebe i druge što poboljšava međusobnu komunikaciju i smanjuje nesporazume.",
+        "Kroz identifikaciju i razumevanje različitih stilova komunikacije, obuka omogućava efikasnije rešavanje konflikata i jačanje timske kohezije.",
+        "Razumevanje motivacionih faktora pojedinaca pomaže u kreiranju radnog okruženja koje podstiče visok nivo angažovanja i produktivnosti.",
+        "Obuka uključuje interaktivne vežbe i realne scenarije, omogućavajući polaznicima da odmah primene stečeno znanje u svakodnevnim situacijama."
+      ]
+    },
+    {
+      title: "Zašto naša PCM obuka?",
+      items: [
+        "Naša obuka PCM pruža praktične veštine i tehnike koje će vašem timu pomoći da postigne bolje rezultate, stvori pozitivno radno okruženje i unapredi poslovne procese.",
+        "Korisnici PCM (Process Communication Model) širom sveta:"
+      ],
+      companyLogos: [
+        IbmIcon,
+        CocaColaIcon,
+        SonyIcon,
+        MicrosoftIcon,
+        GeneralElectricIcon,
+        SchneiderElectricIcon,
+        AccentureIcon
+      ]
+    }
+  ],
+
+  powerBi: [
+    {
+      title: "Šta ćete naučiti?",
+      items: [
+        "Naš program je dizajniran da osposobi polaznike za samostalno korišćenje Power BI-a, optimizaciju poslovnih procesa i donošenje informisanih odluka zasnovanih na podacima."
+      ]
+    },
+    {
+      title: "Zašto baš mi?",
+      items: [
+        "Naši predavači su Power BI developeri sa bogatim iskustvom u industriji.",
+        "Oni donose praktična znanja i primere iz stvarnih projekata, omogućavajući vam ne samo da savladate osnove, već i da koristite Power BI za unapređenje poslovnih procesa i donošenje informisanih odluka."
+      ]
+    }
+  ],
+
   excel: [
     {
       title: {

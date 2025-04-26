@@ -1,5 +1,3 @@
-import Footer from "@/components/layout/Footer";
-import Header from "@/components/layout/Header/Header";
 import ClientProviders from "@/contexts/ClientProviders";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { organizationSchema } from "@/lib/schemas";
@@ -9,8 +7,10 @@ import type { Metadata, Viewport } from "next";
 import { Montserrat } from "next/font/google";
 import Script from "next/script";
 import Link from "next/link";
+import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/Footer";
 
-const montserrat = Montserrat({ subsets: ["latin"], display: "swap" });
+const montserrat = Montserrat({ subsets: ["latin"], display: "block" });
 
 export const viewport: Viewport = {
   width: "device-width",

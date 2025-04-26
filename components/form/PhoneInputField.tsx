@@ -352,7 +352,7 @@ const PhoneInputField: React.FC<PhoneInputFieldProps> = ({
         <span
           id={`${name}-error`}
           role="alert"
-          className="absolute bottom-0 -mb-5 text-xs mt-1 h-5 block text-red-500 rounded py-1 font-medium"
+          className="absolute bottom-0 -mb-5 text-sm mt-1 h-5 block text-red-500 rounded py-1 font-medium"
           aria-live="assertive"
         >
           <Icon icon="mdi:alert-circle-outline" className="inline-block mr-1" />

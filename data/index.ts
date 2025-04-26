@@ -1,6 +1,6 @@
 export * from "./calendarCourses";
 export * from "./courseContent";
-export * from "./courseItems";
+export * from "./courseCategories";
 export * from "./courses";
 export * from "./courseSchedules";
 export * from "./formData";

@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-export function useHeaderScroll({ downThreshold = 50, upThreshold = 20 } = {}) {
+export function useHeaderScroll({
+  downThreshold = 150,
+  upThreshold = 20
+} = {}) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
 

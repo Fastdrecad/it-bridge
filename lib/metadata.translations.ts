@@ -307,14 +307,14 @@ export const businessEnglishMetadataTranslations: LocalizedMetadata = {
 /**
  * Soft Skills (Meke Vestine) page metadata translations
  */
-export const mekeVestineMetadataTranslations: LocalizedMetadata = {
+export const softSkillsMetadataTranslations: LocalizedMetadata = {
   sr: {
-    title: "Meke Veštine | Soft Skills Treninzi | IT Bridge",
+    title: "Soft Skills | Soft Skills Treninzi | IT Bridge",
     description:
       "Razvijte ključne meke veštine kroz naše treninge. Unapredite komunikaciju, liderstvo, timski rad i emocionalnu inteligenciju.",
     keywords: [
-      "meke veštine",
-      "soft skills",
+      "Soft Skills",
+      "Meke Veštine",
       "komunikacijske veštine",
       "liderstvo",
       "timski rad"
@@ -573,4 +573,16 @@ export const kontaktMetadataTranslations: LocalizedMetadata = {
       "formation IT"
     ]
   }
+};
+
+export const courseMetadataBySlug: Record<string, LocalizedMetadata> = {
+  "excel": excelMetadataTranslations,
+  "pcm": pcmMetadataTranslations,
+  "hr-starter": hrStarterMetadataTranslations,
+  "business-english": businessEnglishMetadataTranslations,
+  "soft-skills": softSkillsMetadataTranslations,
+  "power-bi": powerBiMetadataTranslations,
+  "o-nama": oNamaMetadataTranslations,
+  "kalendar": kalendarMetadataTranslations,
+  "kontakt": kontaktMetadataTranslations
 };
