@@ -11,7 +11,9 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
   const [scope, animate] = useAnimate();
 
-  const nbOfColumns = 4;
+  // if mobile use 2 columns
+  const isMobile = window.innerWidth < 768;
+  const nbOfColumns = isMobile ? 2 : 4;
 
   // // Handle entrance animation for the logo (immediate 300ms reveal)
   useEffect(() => {
@@ -28,7 +30,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
           opacity: [0, 1], // Fade in from 0 to 1
         },
         {
-          duration: 0.5, // 1000ms fast reveal
+          duration: 0.5,
           times: [0, 1],
           ease: [0.68, -0.55, 0.27, 1.55],
         }
@@ -89,7 +91,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
       await Promise.all([...loadInStrapPromises, ...transitionStrapPromises]);
 
       // Signal completion
-      console.log('Calling finishLoading');
       finishLoading();
 
       // Reset body overflow when the animation completes

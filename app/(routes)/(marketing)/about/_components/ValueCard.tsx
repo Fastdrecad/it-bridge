@@ -20,7 +20,7 @@ export default function ValueCard({
     <motion.div
       initial={{ x: isEven ? -100 : 100, opacity: 0 }}
       whileInView={{ x: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.8 }}
+      viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className='flex flex-col md:flex-row items-center gap-5 md:gap-10 md:p-6 text-start mb-10 md:mb-0 mt-10 md:mt-0'
     >

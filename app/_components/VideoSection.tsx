@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import { useSplash } from '@/contexts/SplashContext';
 
 export default function Video() {
   const { t } = useTranslation();
@@ -11,6 +12,7 @@ export default function Video() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const videoUrl = '/assets/videos/it-bridge-loop.mp4';
   const placeholderImage = '/assets/images/placeholders/placeholder-video.jpg';
+  const { splashDone } = useSplash();
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -103,7 +105,12 @@ export default function Video() {
                 }}
                 initial='hidden'
                 animate='visible'
-                transition={{ duration: 0.4, delay: 1.5 + index * 0.085 }}
+                transition={{
+                  duration: 0.4,
+                  delay: splashDone
+                    ? 0.125 + index * 0.085
+                    : 1.5 + index * 0.085,
+                }}
               >
                 {word}
               </motion.span>
