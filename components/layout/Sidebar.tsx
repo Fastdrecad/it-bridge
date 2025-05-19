@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Icon } from "@iconify/react/dist/iconify.js";
+// Sidebar.tsx
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Icon } from '@iconify/react/dist/iconify.js';
 
 interface LinkItem {
   href: string;
@@ -25,22 +26,22 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
 
   const links: LinkItem[] = useMemo(
     () => [
-      { href: "/", labelKey: "HEADER.HOME" },
+      { href: '/', labelKey: 'HEADER.HOME' },
       {
-        href: "/courses",
-        labelKey: "HEADER.COURSES",
+        href: '/courses',
+        labelKey: 'HEADER.COURSES',
         subLinks: [
-          { href: "/courses/hr-starter", labelKey: "HR" },
-          { href: "/courses/soft-skills", labelKey: "Soft Skills" },
-          { href: "/courses/business-english", labelKey: "Business English" },
-          { href: "/courses/pcm", labelKey: "PCM" },
-          { href: "/courses/power-bi", labelKey: "Power BI" },
-          { href: "/courses/excel", labelKey: "Excel" }
-        ]
+          { href: '/courses/hr-starter', labelKey: 'HR' },
+          { href: '/courses/soft-skills', labelKey: 'Soft Skills' },
+          { href: '/courses/business-english', labelKey: 'Business English' },
+          { href: '/courses/pcm', labelKey: 'PCM' },
+          { href: '/courses/power-bi', labelKey: 'Power BI' },
+          { href: '/courses/excel', labelKey: 'Excel' },
+        ],
       },
-      { href: "/about", labelKey: "HEADER.ABOUT" },
+      { href: '/about', labelKey: 'HEADER.ABOUT' },
       // { href: "/calendar", labelKey: "HEADER.CALENDAR" },
-      { href: "/contact", labelKey: "HEADER.CONTACT" }
+      { href: '/contact', labelKey: 'HEADER.CONTACT' },
     ],
     []
   );
@@ -61,74 +62,74 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
 
   useEffect(() => {
     if (isDropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
     } else {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [isDropdownOpen]);
 
-  // Check if the pathname matches the main "Kursevi" link or any of its sublinks
-  const isKurseviActive =
+  // Check if the pathname matches the main "Courses" link or any of its sublinks
+  const isCoursesActive =
     links[1].subLinks?.some((subLink) => pathname === subLink.href) ||
-    pathname === "";
+    pathname === '';
 
   return (
-    <div className="md:hidden md:h-screen md:w-full">
+    <div className='md:hidden md:h-screen md:w-full'>
       <aside
         className={`fixed right-0 w-full bg-white text-black z-20 transform h-full text-xl ${
-          isOpen ? "translate-x-0" : "translate-x-full"
+          isOpen ? 'translate-x-0' : 'translate-x-full'
         } transition-transform duration-300 ease-in-out`}
       >
-        <div className="flex h-screen mt-20">
+        <div className='flex h-screen mt-10'>
           {/* Fixed Top Section */}
-          <ul className="inline-block mx-20 w-full">
-            <li className="my-2">
+          <ul className='inline-block mx-8 w-full text-4xl'>
+            <li className='my-10'>
               <Link
-                href="/"
+                href='/'
                 className={`text-nowrap uppercase ${
-                  pathname === "/" ? "font-bold" : "font-medium"
+                  pathname === '/' ? 'font-bold' : 'font-medium'
                 }`}
                 onClick={onToggle}
               >
-                {t("HEADER.HOME")}
+                {t('HEADER.HOME')}
               </Link>
             </li>
-            <li className="relative z-50 my-2" ref={dropdownRef}>
-              <div className="flex items-center gap-1">
+            <li className='relative z-50 my-10' ref={dropdownRef}>
+              <div className='flex items-center gap-1'>
                 <Link
-                  href="/courses"
+                  href='/courses'
                   className={`text-nowrap uppercase ${
-                    isKurseviActive ? "font-bold" : "font-medium"
+                    isCoursesActive ? 'font-bold' : 'font-medium'
                   }`}
                   onClick={onToggle}
                 >
-                  {t("HEADER.COURSES")}
+                  {t('HEADER.COURSES')}
                 </Link>
                 <div
-                  className="cursor-pointer ml-2"
+                  className='cursor-pointer ml-2'
                   onClick={handleDropdownToggle}
                 >
                   {isDropdownOpen ? (
-                    <Icon icon="mdi:chevron-up" className="text-2xl" />
+                    <Icon icon='mdi:chevron-up' className='text-2xl' />
                   ) : (
-                    <Icon icon="mdi:chevron-down" className="text-2xl" />
+                    <Icon icon='mdi:chevron-down' className='text-2xl' />
                   )}
                 </div>
               </div>
               {isDropdownOpen && (
-                <ul className="mt-2 ms-2 space-y-2 bg-slate-100 py-3">
+                <ul className='mt-6 ms-2 space-y-2 bg-warning-600 py-3 rounded-2xl'>
                   {links[1].subLinks?.map((subLink) => (
                     <li key={subLink.href}>
                       <Link
                         href={subLink.href}
-                        className={`block px-4 text-base leading-6 ${
+                        className={`block px-5 py-1 text-base leading-6 ${
                           pathname === subLink.href
-                            ? "bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm"
-                            : "hover:bg-gray-100 text-gray-700"
+                            ? 'bg-gradient-to-r from-[#15103E] to-[#A0C943] text-white font-bold rounded-sm'
+                            : 'hover:bg-gray-100'
                         }`}
                         onClick={onToggle}
                       >
@@ -140,15 +141,15 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
               )}
             </li>
 
-            <li className="my-2">
+            <li className='my-10'>
               <Link
-                href="/about"
+                href='/about'
                 className={`text-nowrap uppercase ${
-                  pathname === "/about" ? "font-bold" : "font-medium"
+                  pathname === '/about' ? 'font-bold' : 'font-medium'
                 }`}
                 onClick={onToggle}
               >
-                {t("HEADER.ABOUT")}
+                {t('HEADER.ABOUT')}
               </Link>
             </li>
             {/* <li className="my-2">
@@ -162,15 +163,15 @@ const Sidebar = ({ isOpen, onToggle }: SidebarProps) => {
                 {t("HEADER.CALENDAR")}
               </Link>
             </li> */}
-            <li className="my-2">
+            <li className='my-10'>
               <Link
-                href="/contact"
+                href='/contact'
                 className={`text-nowrap uppercase ${
-                  pathname === "/contact" ? "font-bold" : "font-medium"
+                  pathname === '/contact' ? 'font-bold' : 'font-medium'
                 }`}
                 onClick={onToggle}
               >
-                {t("HEADER.CONTACT")}
+                {t('HEADER.CONTACT')}
               </Link>
             </li>
           </ul>

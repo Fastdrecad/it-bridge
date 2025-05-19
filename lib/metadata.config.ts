@@ -1,67 +1,67 @@
-import { Metadata } from "next";
+import { Metadata } from 'next';
 
 // Base URL configuration - update if needed
-const BASE_URL = "https://itbridge-services.com";
+const BASE_URL = 'https://itbridge-services.com';
 
 // Default metadata object for the entire site
 export const defaultMetadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "IT Bridge EDU Center | Personalizovane obuke i kursevi",
-    template: "%s | IT Bridge EDU Center"
+    default: 'IT Bridge EDU Center | Personalizovane obuke i kursevi',
+    template: '%s | IT Bridge EDU Center',
   },
   description:
-    "Obuke i kursevi po meri Vaše kompanije. Povećajte produktivnost vaših timova uz praktične personalizovane kurseve.",
-  applicationName: "IT Bridge EDU Center",
-  authors: [{ name: "IT Bridge Team", url: BASE_URL }],
+    'Obuke i kursevi po meri Vaše kompanije. Povećajte produktivnost vaših timova uz praktične personalizovane kurseve.',
+  applicationName: 'IT Bridge EDU Center',
+  authors: [{ name: 'IT Bridge Team', url: BASE_URL }],
   keywords: [
-    "IT obuke",
-    "IT treninzi",
-    "edukacija",
-    "IT Bridge",
-    "profesionalni razvoj",
-    "IT edukacija",
-    "korporativni treninzi"
+    'IT obuke',
+    'IT treninzi',
+    'edukacija',
+    'IT Bridge',
+    'profesionalni razvoj',
+    'IT edukacija',
+    'korporativni treninzi',
   ],
-  creator: "IT Bridge EDU Center",
-  publisher: "IT Bridge EDU Center",
+  creator: 'IT Bridge EDU Center',
+  publisher: 'IT Bridge EDU Center',
   formatDetection: {
     email: true,
     address: true,
-    telephone: true
+    telephone: true,
   },
   openGraph: {
-    type: "website",
-    locale: "sr_RS",
-    alternateLocale: ["en_US", "de_DE", "fr_FR"],
+    type: 'website',
+    locale: 'sr_RS',
+    alternateLocale: ['en_US', 'de_DE', 'fr_FR'],
     url: BASE_URL,
-    siteName: "IT Bridge EDU Center",
-    title: "IT Bridge EDU Center | Personalizovane obuke i treninzi",
+    siteName: 'IT Bridge EDU Center',
+    title: 'IT Bridge EDU Center | Personalizovane obuke i treninzi',
     description:
-      "Unapredite produktivnost vaših timova kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-ja i mekih veština.",
+      'Unapredite produktivnost vaših timova kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-ja i mekih veština.',
     images: [
       {
         url: `${BASE_URL}/og/opengraph-image.png`,
         width: 1200,
         height: 630,
-        alt: "IT Bridge EDU Center",
-        type: "image/png"
-      }
-    ]
+        alt: 'IT Bridge EDU Center',
+        type: 'image/png',
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
-    site: "@itbridge",
-    creator: "@itbridge",
-    title: "IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi",
+    card: 'summary_large_image',
+    site: '@itbridge',
+    creator: '@itbridge',
+    title: 'IT Bridge EDU Center | Profesionalne IT Obuke i Treninzi',
     description:
-      "Profesionalni centar za IT obuke i treninge. Unapredite svoje znanje kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-a i mekih veština.",
+      'Profesionalni centar za IT obuke i treninge. Unapredite svoje znanje kroz praktične kurseve iz oblasti HR-a, Excel-a, Power BI-a i mekih veština.',
     images: {
       url: `${BASE_URL}/og/opengraph-image.png`,
-      alt: "IT Bridge EDU Center",
+      alt: 'IT Bridge EDU Center',
       width: 1200,
-      height: 630
-    }
+      height: 630,
+    },
   },
   robots: {
     index: true,
@@ -69,39 +69,42 @@ export const defaultMetadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   icons: {
-    icon: [{ url: "/favicon.ico" }, { url: "/icon.png", type: "image/png" }],
-    apple: [{ url: "/apple-icon.png" }],
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/images/icon.png', type: 'image/png' },
+    ],
+    apple: [{ url: '/images/apple-icon.png' }],
     other: [
       {
-        rel: "mask-icon",
-        url: "/safari-pinned-tab.svg"
-      }
-    ]
+        rel: 'mask-icon',
+        url: '/safari-pinned-tab.svg',
+      },
+    ],
   },
   verification: {
-    google: "xMJ8Ik4XxqWgg9HH0lD166DCi-JZSgTnybwHR_nbiRA", // Replace with your actual verification code
-    yandex: "", // Add if needed
-    yahoo: "", // Add if needed
+    google: 'xMJ8Ik4XxqWgg9HH0lD166DCi-JZSgTnybwHR_nbiRA', // Replace with your actual verification code
+    yandex: '', // Add if needed
+    yahoo: '', // Add if needed
     other: {
-      me: ["mailto:office@itbridge-services.com"],
-      "msvalidate.01": "" // Microsoft/Bing verification (add your code if needed)
-    }
+      me: ['mailto:office@itbridge-services.com'],
+      'msvalidate.01': '', // Microsoft/Bing verification (add your code if needed)
+    },
   },
   alternates: {
     canonical: BASE_URL,
     languages: {
-      "sr-RS": BASE_URL,
-      "en-US": `${BASE_URL}/en`,
-      "de-DE": `${BASE_URL}/de`,
-      "fr-FR": `${BASE_URL}/fr`
-    }
-  }
+      'sr-RS': BASE_URL,
+      'en-US': `${BASE_URL}/en`,
+      'de-DE': `${BASE_URL}/de`,
+      'fr-FR': `${BASE_URL}/fr`,
+    },
+  },
 };
 
 // Helper function to create metadata for a specific page
@@ -109,18 +112,18 @@ export function createPageMetadata({
   title,
   description,
   keywords = [],
-  path = "",
+  path = '',
   openGraph = {},
   twitter = {},
-  alternates = {}
+  alternates = {},
 }: {
   title: string;
   description: string;
   keywords?: string[];
   path?: string;
-  openGraph?: Partial<NonNullable<Metadata["openGraph"]>>;
-  twitter?: Partial<NonNullable<Metadata["twitter"]>>;
-  alternates?: Partial<NonNullable<Metadata["alternates"]>>;
+  openGraph?: Partial<NonNullable<Metadata['openGraph']>>;
+  twitter?: Partial<NonNullable<Metadata['twitter']>>;
+  alternates?: Partial<NonNullable<Metadata['alternates']>>;
 }): Metadata {
   const url = path ? `${BASE_URL}/${path}` : BASE_URL;
 
@@ -135,17 +138,17 @@ export function createPageMetadata({
       title,
       description,
       url,
-      ...openGraph
+      ...openGraph,
     },
     twitter: {
       title,
       description,
-      ...twitter
+      ...twitter,
     },
     alternates: {
       canonical: url,
-      ...alternates
-    }
+      ...alternates,
+    },
   };
 }
 
@@ -153,8 +156,8 @@ export function createPageMetadata({
 export function createCourseMetadata({
   slug,
   translations,
-  imageSlug = "",
-  locale = "sr"
+  imageSlug = '',
+  locale = 'sr',
 }: {
   slug: string;
   translations: Record<
@@ -173,15 +176,15 @@ export function createCourseMetadata({
       // Map language codes to expected format (e.g., sr -> sr-RS)
       const formattedLangCode =
         {
-          sr: "sr-RS",
-          en: "en-US",
-          de: "de-DE",
-          fr: "fr-FR"
+          sr: 'sr-RS',
+          en: 'en-US',
+          de: 'de-DE',
+          fr: 'fr-FR',
         }[langCode] || langCode;
 
       return [
         formattedLangCode,
-        `${BASE_URL}/${langCode === "sr" ? "" : langCode + "/"}${slug}`
+        `${BASE_URL}/${langCode === 'sr' ? '' : langCode + '/'}${slug}`,
       ];
     })
   );
@@ -192,19 +195,19 @@ export function createCourseMetadata({
     keywords: lang.keywords,
     path: slug,
     openGraph: {
-      type: "article",
+      type: 'article',
       images: [
         {
           // Use absolute URL for OpenGraph images
           url: `${BASE_URL}/og/${imagePath}.jpg`,
           width: 1200,
           height: 630,
-          alt: lang.title
-        }
-      ]
+          alt: lang.title,
+        },
+      ],
     },
     alternates: {
-      languages: languageAlternates
-    }
+      languages: languageAlternates,
+    },
   });
 }
