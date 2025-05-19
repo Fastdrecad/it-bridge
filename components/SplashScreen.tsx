@@ -36,7 +36,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
           opacity: [0, 1], // Fade in from 0 to 1
         },
         {
-          duration: 0.5,
+          duration: 0.85,
           times: [0, 1],
           ease: [0.68, -0.55, 0.27, 1.55],
         }
@@ -64,7 +64,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
             },
             {
               duration: 0.375,
-              delay: i * 0.04,
+              delay: i * 0.025,
               ease: [0.87, 0, 0.13, 1],
               times: [0, 1], // Keyframes timing
               backgroundColor: { duration: 0 }, // Instant color change
@@ -85,7 +85,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
               backgroundColor: ['#7C9A3F'],
             },
             {
-              duration: 0.4,
+              duration: 0.38,
               delay: i * 0.04 + 0.125,
               ease: [0.87, 0, 0.13, 1],
               times: [0, 1], // Keyframes timing
@@ -128,14 +128,13 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ finishLoading }) => {
           <div className='absolute inset-0 flex justify-center items-center z-[2501]'>
             <div className='logo-container relative  overflow-hidden'>
               <motion.div
-                className=''
                 initial='visible'
                 animate='hidden'
                 variants={{
                   visible: { y: 0 },
                   hidden: { y: '-100%' },
                 }}
-                transition={{ duration: 0.2, delay: 0.65 }}
+                transition={{ duration: 0.15, delay: 0.85 }}
               >
                 {/* Gray logo only visible initially */}
                 <div className='it-logo-start'>

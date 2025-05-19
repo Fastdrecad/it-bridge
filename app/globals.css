@@ -53,3 +53,13 @@ button > svg {
     }
   }
 }
+
+:root {
+  --header-height: 80px; /* Adjust to your header height */
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px; /* Smaller on mobile */
+  }
+}
