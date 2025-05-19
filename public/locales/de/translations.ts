@@ -411,6 +411,7 @@ export const de = {
     VALIDATION: {
       FIRST_NAME_MIN: 'Der Vorname muss mindestens 2 Zeichen haben',
       LAST_NAME_MIN: 'Der Nachname muss mindestens 2 Zeichen haben',
+      EMAIL_REQUIRED: 'E-Mail ist erforderlich',
       EMAIL_INVALID: 'Bitte geben Sie eine gültige E-Mail-Adresse ein',
     },
   },

@@ -412,6 +412,7 @@ export const fr = {
     VALIDATION: {
       FIRST_NAME_MIN: 'Le prénom doit avoir au moins 2 caractères',
       LAST_NAME_MIN: 'Le nom doit avoir au moins 2 caractères',
+      EMAIL_REQUIRED: "L'adresse email est requise",
       EMAIL_INVALID: 'Veuillez entrer une adresse email valide',
     },
   },

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useInView } from 'react-intersection-observer';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 import { useLanguageChange } from '@/hooks/i18n';
 
 import { courses } from '@/data/courses';
@@ -56,18 +57,22 @@ export default function Courses() {
               item={course}
               idx={idx}
               isCoursesPage={isCoursesPage}
-              triggerAnimation={animateCards}
               animationProps={animationProps}
               langPrefix={`/${currentLanguage}`}
             />
           </div>
         ))}
       </ul>
-      <div className='flex flex-col gap-48 justify-center items-center my-24'>
+      <motion.div
+        className='flex flex-col gap-48 justify-center items-center my-24'
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.5, ease: 'easeInOut' }}
+      >
         <Button variant='success' onClick={handleNavigate}>
           {t('HOME.COURSES.CONTACT_BUTTON')}
         </Button>
-      </div>
+      </motion.div>
     </section>
   );
 }

@@ -22,7 +22,6 @@ interface CardProps {
   item: Item;
   idx: number;
   isCoursesPage?: boolean;
-  triggerAnimation: boolean;
   animationProps: {
     duration: number;
     delay: number;
@@ -30,14 +29,7 @@ interface CardProps {
   langPrefix: string;
 }
 
-const CourseCard: React.FC<CardProps> = ({
-  item,
-  idx,
-  isCoursesPage,
-  triggerAnimation,
-  animationProps,
-  langPrefix,
-}) => {
+const CourseCard: React.FC<CardProps> = ({ item, idx, isCoursesPage }) => {
   const { t } = useTranslation();
 
   const { image, url } = item;
@@ -62,6 +54,7 @@ const CourseCard: React.FC<CardProps> = ({
       transition: {
         duration: animationDuration,
         delay: idx * delayPerCard,
+        ease: 'easeInOut',
       },
     },
   };
@@ -70,7 +63,9 @@ const CourseCard: React.FC<CardProps> = ({
     <motion.li
       className='group relative'
       initial='hidden'
-      animate={triggerAnimation ? 'visible' : 'hidden'}
+      whileInView='visible'
+      // animate={triggerAnimation ? 'visible' : 'hidden'}
+      viewport={{ once: true, amount: 0.3 }}
       variants={variants}
     >
       <article className='overflow-hidden shadow-custom transition-shadow duration-300 hover:shadow-custom rounded-3xl'>
