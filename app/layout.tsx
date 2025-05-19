@@ -78,7 +78,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${montserrat.className} bg-primary-900`}
+        className={`${montserrat.className} bg-primary-900 position-relative`}
         suppressHydrationWarning={true}
       >
         <SplashScreenWrapper>

@@ -44,11 +44,13 @@ export default function HomeTestimonials() {
           className='object-cover object-center'
           loading='lazy'
           quality={60}
+          placeholder='blur'
+          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 100vw'
         />
       </div>
       {/* Hero Wrapper */}
       <div className='absolute inset-0 w-full h-full left-1/2 transform -translate-x-1/2'>
-        <div className='flex items-center justify-center gap-32 w-full h-full bg-slate-950/55 py-16'>
+        <div className='flex items-center justify-center gap-32 w-full h-full bg-slate-950/55 pt-16'>
           <TestimonialItems title={title}>
             {useTranslated
               ? (

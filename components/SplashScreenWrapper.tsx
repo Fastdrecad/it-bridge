@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import SplashScreen from './SplashScreen';
 import { AnimatePresence } from 'framer-motion';
+import { SplashContext } from '@/contexts/SplashContext';
 
 interface SplashScreenWrapperProps {
   children: React.ReactNode;
@@ -85,7 +86,7 @@ export default function SplashScreenWrapper({
   };
 
   return (
-    <>
+    <SplashContext.Provider value={{ splashDone: !showSplashScreen }}>
       <AnimatePresence mode='wait'>
         {showSplashScreen && isHome && (
           <SplashScreen
@@ -95,6 +96,6 @@ export default function SplashScreenWrapper({
         )}
       </AnimatePresence>
       {children}
-    </>
+    </SplashContext.Provider>
   );
 }
