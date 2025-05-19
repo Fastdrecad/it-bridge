@@ -113,7 +113,7 @@ export default function AboutUsContent() {
         ))}
       </div>
 
-      <div className='max-w-5xl mx-auto text-center bg-gray-50 rounded-lg p-8 md:p-12 mt-10 text-secondary-500'>
+      <div className='max-w-5xl mx-auto text-center bg-gray-50 rounded-lg p-8 md:p-12 my-48 text-secondary-500'>
         <h2 className='text-2xl md:text-3xl font-bold mb-6'>
           {t('ABOUT.JOIN_US.TITLE')}
         </h2>
